@@ -1,0 +1,10 @@
+
+/output
+/pages/tmp0000.html
+/qa
+/temp
+/template
+.DS_Store
+.idea/
+input-cache/*
+!/input-cache/txcache
