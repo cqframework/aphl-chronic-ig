@@ -35,6 +35,15 @@
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
     "valueParameterDefinition": {
+      "name": "SDE Postal Code of Residence",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
       "name": "Numerator",
       "use": "out",
       "min": 0,
@@ -62,6 +71,24 @@
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
     "valueParameterDefinition": {
+      "name": "SDE State of Residence",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Food Insecurity Risk Status",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "CodeableConcept"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
       "name": "Initial Population",
       "use": "out",
       "min": 0,
@@ -76,6 +103,15 @@
       "min": 0,
       "max": "*",
       "type": "Coding"
+    }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
+    "valueParameterDefinition": {
+      "name": "SDE Age",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "integer"
     }
   }, {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-parameter",
@@ -170,6 +206,13 @@
       "code": "confirmed",
       "display": "confirmed"
     }
+  }, {
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+    "valueCoding": {
+      "system": "http://loinc.org",
+      "code": "88124-3",
+      "display": "Food insecurity risk [HVS]"
+    }
   } ],
   "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/ControllingBloodPressureFHIR",
   "version": "9.0.000",
@@ -177,7 +220,7 @@
   "title": "Controlling Blood Pressure",
   "status": "draft",
   "experimental": true,
-  "date": "2021-06-14T18:05:05-06:00",
+  "date": "2021-06-16T16:37:47-06:00",
   "publisher": "National Committee for Quality Assurance (NCQA)",
   "contact": [ {
     "telecom": [ {
@@ -225,6 +268,14 @@
     "resource": "Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
+    "display": "Library SurveillanceDataElements",
+    "resource": "Library/SurveillanceDataElementsFHIR4|1.0.000"
+  }, {
+    "type": "depends-on",
+    "display": "Library FHIRHelpers",
+    "resource": "Library/FHIRHelpers|4.0.001"
+  }, {
+    "type": "depends-on",
     "display": "Library FHIRHelpers",
     "resource": "Library/FHIRHelpers|4.0.001"
   }, {
@@ -245,12 +296,20 @@
     "resource": "Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
+    "display": "Library Common",
+    "resource": "Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+  }, {
+    "type": "depends-on",
     "display": "Code system LOINC",
     "resource": "http://loinc.org"
   }, {
     "type": "depends-on",
     "display": "Code system ConditionVerificationStatusCodes",
     "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+  }, {
+    "type": "depends-on",
+    "display": "Code system LOINC",
+    "resource": "http://loinc.org"
   }, {
     "type": "depends-on",
     "display": "Value set Essential Hypertension",
@@ -410,6 +469,62 @@
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Sex"
+    }
+  }, {
+    "code": {
+      "text": "sde-age"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql",
+      "expression": "SDE Age"
+    }
+  }, {
+    "code": {
+      "text": "sde-state-of-residence"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql",
+      "expression": "SDE State of Residence"
+    }
+  }, {
+    "code": {
+      "text": "sde-postal-code-of-residence"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql",
+      "expression": "SDE Postal Code of Residence"
+    }
+  }, {
+    "code": {
+      "text": "sde-food-insecurity-risk-status"
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://hl7.org/fhir/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "criteria": {
+      "language": "text/cql",
+      "expression": "SDE Food Insecurity Risk Status"
     }
   } ]
 }

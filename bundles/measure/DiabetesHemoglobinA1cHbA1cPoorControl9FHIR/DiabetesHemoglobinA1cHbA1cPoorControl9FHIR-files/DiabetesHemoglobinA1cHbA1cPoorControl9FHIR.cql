@@ -11,6 +11,7 @@ include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include HospiceFHIR4 version '2.0.000' called Hospice
 include AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000' called Frailty
+include SurveillanceDataElementsFHIR4 version '1.0.000' called SurveillanceDataElements
 
 codesystem "LOINC": 'http://loinc.org'
 
@@ -44,6 +45,18 @@ define "SDE Race":
 
 define "SDE Sex":
   SDE."SDE Sex"
+
+define "SDE Age":
+  SurveillanceDataElements."Age"
+
+define "SDE State of Residence":
+  SurveillanceDataElements."State of Residence"
+
+define "SDE Postal Code of Residence":
+  SurveillanceDataElements."Postal Code of Residence"
+
+define "SDE Food Insecurity Risk Status":
+  SurveillanceDataElements."Food Insecurity Risk Status"
 
 define "Initial Population":
   AgeInYearsAt(start of "Measurement Period") in Interval[18, 75)

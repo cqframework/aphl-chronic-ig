@@ -11,6 +11,7 @@ include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientE
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
 include AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000' called FrailtyLTI
 include HospiceFHIR4 version '2.0.000' called Hospice
+include SurveillanceDataElementsFHIR4 version '1.0.000' called SurveillanceDataElements
 
 codesystem "LOINC": 'http://loinc.org'
 
@@ -51,11 +52,23 @@ define "SDE Race":
 define "SDE Sex":
   SDE."SDE Sex"
 
+define "SDE Age":
+  SurveillanceDataElements."Age"
+
+define "SDE State of Residence":
+  SurveillanceDataElements."State of Residence"
+
+define "SDE Postal Code of Residence":
+  SurveillanceDataElements."Postal Code of Residence"
+
+define "SDE Food Insecurity Risk Status":
+  SurveillanceDataElements."Food Insecurity Risk Status"
+
 define "Has Diastolic Blood Pressure Less Than 90":
-	"Lowest Diastolic Reading on Most Recent Blood Pressure Day".value < 90
+	"Lowest Diastolic Reading on Most Recent Blood Pressure Day" < 90 'mm[Hg]'
 
 define "Has Systolic Blood Pressure Less Than 140":
-	"Lowest Systolic Reading on Most Recent Blood Pressure Day".value < 140
+	"Lowest Systolic Reading on Most Recent Blood Pressure Day" < 140 'mm[Hg]'
 
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 	First(
@@ -64,7 +77,7 @@ define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
       return singleton from (
         DBPReading.component C
           where C.code ~ "Diastolic blood pressure"
-          return C.value as Quantity
+          return C.value as FHIR.Quantity
       )
 			sort ascending
 	)
@@ -76,7 +89,7 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
       return singleton from (
         SBPReading.component C
           where C.code ~ "Systolic blood pressure"
-          return C.value as Quantity
+          return C.value as FHIR.Quantity
       )
       sort ascending
 	)
@@ -92,9 +105,6 @@ define "Blood Pressure Days":
 
 define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
-
-define "Observations": [Observation]
-define "Blood Pressure Observations": [Observation: "Blood pressure"]
 
 define "Qualifying Diastolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure

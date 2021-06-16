@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PlanDefinition
+    xmlns="http://hl7.org/fhir">
+    <id value="ChronicDSControllingBloodPressure"/>
+    <url value="http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSControllingBloodPressure"/>
+    <name value="ChronicDSControllingBloodPressure"/>
+    <title value="Chronic Disease Surveillance Reporting Specification for Controlling Blood Pressure"/>
+    <type>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/plan-definition-type"/>
+            <code value="workflow-definition"/>
+            <display value="Workflow Definition"/>
+        </coding>
+    </type>
+    <status value="active"/>
+    <experimental value="true"/>
+    <date value="2020-07-31T12:32:29.858-05:00"/>
+    <publisher value="HL7 Public Health Work Group"/>
+    <description value="Reporting specification for Chronic Disease Surveillance for Controlling Blood Pressure"/>
+    <jurisdiction>
+        <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="US"/>
+            <display value="United States of America"/>
+        </coding>
+        <text value="United States of America"/>
+    </jurisdiction>
+    <effectivePeriod>
+        <start value="2021-06-01"/>
+    </effectivePeriod>
+    <!-- TODO: Update this to the value sets required by the measures used
+    <relatedArtifact>
+        <type value="depends-on"/>
+        <label value="RCTC Value Set Library of Trigger Codes"/>
+        <resource value="http://hl7.org/fhir/us/ecr/Library/library-rctc"/>
+    </relatedArtifact>
+    -->
+    <library value="http://ecqi.healthit.gov/ecqms/Library/ControllingBloodPressureFHIR"/>
+    <action id="start">
+        <description value="This action represents the start of the reporting workflow in response to the encounter-end event"/>
+        <textEquivalent value="Start the reporting workflow in response to an encounter-end event"/>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type"/>
+                <code value="start"/>
+            </coding>
+        </code>
+        <trigger id="encounter">
+            <type value="named-event"/>
+            <name value="encounter-end"/>
+        </trigger>
+        <relatedAction>
+            <actionId value="check-reportable"/>
+            <relationship value="before-start"/>
+            <offsetDuration>
+                <value value="24"/>
+                <system value="http://unitsofmeasure.org"/>
+                <code value="h"/>
+            </offsetDuration>
+        </relatedAction>
+    </action>
+    <action id="check-reportable">
+        <description value="This action represents the check for reportability of the surveillance event."/>
+        <textEquivalent value="Check Reportable"/>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type"/>
+                <code value="check-reportable"/>
+            </coding>
+        </code>
+        <action id="ckr-is-encounter-reportable">
+            <condition>
+                <kind value="applicability"/>
+                <expression>
+                    <language value="text/fhirpath"/>
+                    <expression value="%conditions.exists()"/>
+                </expression>
+            </condition>
+            <input id="conditions">
+                <type value="Condition"/>
+                <codeFilter>
+                    <path value="code"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011"/>
+                </codeFilter>
+            </input>
+            <relatedAction>
+                <actionId value="report-ds"/>
+                <relationship value="before-start"/>
+            </relatedAction>
+        </action>
+    </action>
+    <action id="report-ds">
+        <description value="This action represents the reporting of the Chronic Disease Surveillance event."/>
+        <textEquivalent value="Report Chronic Disease Surveillance"/>
+        <code>
+          <coding>
+            <system value="http://hl7.org/fhir/us/chronicds/CodeSystem/executabletask-type"/>
+            <code value="report-chronic-disease-surveillance"/>
+          </coding>
+        </code>
+        <definitionCanonical value="http://hl7.org/fhir/us/cqfmeasures/Measure/ControllingBloodPressureFHIR"/>
+    </action>
+</PlanDefinition>
