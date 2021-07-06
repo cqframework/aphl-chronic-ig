@@ -372,6 +372,7 @@
           "display": "Initial Population"
         } ]
       },
+      "description": "Seen patients between 18 and 85 years of age with a diagnosis of essential hypertension",
       "criteria": {
         "language": "text/cql",
         "expression": "Initial Population"
@@ -384,6 +385,7 @@
           "display": "Numerator"
         } ]
       },
+      "description": "Patients whose most recent blood pressure measurement < 140 (systolic) / 90 (diastolic)",
       "criteria": {
         "language": "text/cql",
         "expression": "Numerator"
@@ -396,6 +398,7 @@
           "display": "Denominator"
         } ]
       },
+      "description": "Seen patients between 18 and 85 years of age with a diagnosis of essential hypertension",
       "criteria": {
         "language": "text/cql",
         "expression": "Denominator"
@@ -408,6 +411,7 @@
           "display": "Denominator Exclusion"
         } ]
       },
+      "description": "Patients in hospice or long term care, or with advanced illness or frailty, pregnancy, or end-stage renal disease (ERSD)",
       "criteria": {
         "language": "text/cql",
         "expression": "Denominator Exclusion"
@@ -416,112 +420,176 @@
   } ],
   "supplementalData": [ {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "54133-4",
+          "display": "Ethnicity"
+        }
+      ],
       "text": "sde-ethnicity"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "Ethnicity (CDC Value Set)",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Ethnicity"
     }
   }, {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "48768-6",
+          "display": "Race"
+        }
+      ],
       "text": "sde-payer"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "Payer",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Payer"
     }
   }, {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "32624-9",
+          "display": "Race"
+        }
+      ],
       "text": "sde-race"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "Race (CDC Value Set)",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Race"
     }
   }, {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "72143-1",
+          "display": "Sex [HL7.v3]"
+        }
+      ],
       "text": "sde-sex"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "Administrative sex",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Sex"
     }
   }, {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "30525-0",
+          "display": "Age"
+        }
+      ],
       "text": "sde-age"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "Age",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Age"
     }
   }, {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "52830-7",
+          "display": "State, district or territory federal abbreviation"
+        }
+      ],
       "text": "sde-state-of-residence"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "State of residence",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE State of Residence"
     }
   }, {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "45401-7",
+          "display": "Postal code"
+        }
+      ],
       "text": "sde-postal-code-of-residence"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "Postal code of residence",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Postal Code of Residence"
     }
   }, {
     "code": {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "88124-3",
+          "display": "Food insecurity risk [HVS]"
+        }
+      ],
       "text": "sde-food-insecurity-risk-status"
     },
     "usage": [ {
       "coding": [ {
-        "system": "http://hl7.org/fhir/measure-data-usage",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
         "code": "supplemental-data"
       } ]
     } ],
+    "description": "Food insecurity risk status",
     "criteria": {
       "language": "text/cql",
       "expression": "SDE Food Insecurity Risk Status"

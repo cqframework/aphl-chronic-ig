@@ -73,7 +73,7 @@ define "Has Systolic Blood Pressure Less Than 140":
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 	First(
     "Qualifying Diastolic Blood Pressure Reading" DBPReading
-		  where DBPReading.effective same day as "Most Recent Blood Pressure Day"
+		  where Common.Earliest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
       return singleton from (
         DBPReading.component C
           where C.code ~ "Diastolic blood pressure"
@@ -85,7 +85,7 @@ define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	First(
     "Qualifying Systolic Blood Pressure Reading" SBPReading
-		  where SBPReading.effective same day as "Most Recent Blood Pressure Day"
+		  where Common.Earliest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
       return singleton from (
         SBPReading.component C
           where C.code ~ "Systolic blood pressure"
@@ -96,10 +96,10 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 
 define "Blood Pressure Days":
 	( ( "Qualifying Diastolic Blood Pressure Reading" DBPExam
-				return date from DBPExam.effective
+				return date from Common.Earliest(DBPExam.effective)
 		)
 			intersect ( "Qualifying Systolic Blood Pressure Reading" SBPExam
-					return date from SBPExam.effective
+					return date from Common.Earliest(SBPExam.effective)
 			)
 	)
 
