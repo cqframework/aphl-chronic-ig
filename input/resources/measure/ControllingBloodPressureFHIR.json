@@ -127,6 +127,7 @@
     "valueDataRequirement": {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "effective", "component", "code", "status" ],
       "codeFilter": [ {
         "path": "code",
         "code": [ {
@@ -143,6 +144,7 @@
     "valueDataRequirement": {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "effective", "component", "code", "status" ],
       "codeFilter": [ {
         "path": "code",
         "code": [ {
@@ -159,6 +161,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -171,6 +174,7 @@
     "valueDataRequirement": {
       "type": "Patient",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "extension", "value", "url" ],
       "codeFilter": [ {
         "path": "url",
         "code": [ {
@@ -220,7 +224,7 @@
   "title": "Controlling Blood Pressure",
   "status": "draft",
   "experimental": true,
-  "date": "2021-06-16T16:37:47-06:00",
+  "date": "2021-07-31T13:06:32-06:00",
   "publisher": "National Committee for Quality Assurance (NCQA)",
   "contact": [ {
     "telecom": [ {
@@ -272,32 +276,12 @@
     "resource": "Library/SurveillanceDataElementsFHIR4|1.0.000"
   }, {
     "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
     "display": "Library Common",
     "resource": "Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Library AdultOutpatientEncounters",
     "resource": "Library/AdultOutpatientEncountersFHIR4|2.0.000"
-  }, {
-    "type": "depends-on",
-    "display": "Library FHIRHelpers",
-    "resource": "Library/FHIRHelpers|4.0.001"
-  }, {
-    "type": "depends-on",
-    "display": "Library Common",
-    "resource": "Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system LOINC",
@@ -306,10 +290,6 @@
     "type": "depends-on",
     "display": "Code system ConditionVerificationStatusCodes",
     "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
-  }, {
-    "type": "depends-on",
-    "display": "Code system LOINC",
-    "resource": "http://loinc.org"
   }, {
     "type": "depends-on",
     "display": "Value set Essential Hypertension",
@@ -420,13 +400,11 @@
   } ],
   "supplementalData": [ {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "54133-4",
-          "display": "Ethnicity"
-        }
-      ],
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "54133-4",
+        "display": "Ethnicity"
+      } ],
       "text": "sde-ethnicity"
     },
     "usage": [ {
@@ -442,13 +420,11 @@
     }
   }, {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "48768-6",
-          "display": "Race"
-        }
-      ],
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+        "code": "plan",
+        "display": "Plan"
+      } ],
       "text": "sde-payer"
     },
     "usage": [ {
@@ -464,13 +440,11 @@
     }
   }, {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "32624-9",
-          "display": "Race"
-        }
-      ],
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "32624-9",
+        "display": "Race"
+      } ],
       "text": "sde-race"
     },
     "usage": [ {
@@ -486,13 +460,11 @@
     }
   }, {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "72143-1",
-          "display": "Sex [HL7.v3]"
-        }
-      ],
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "72143-1",
+        "display": "Sex [HL7.v3]"
+      } ],
       "text": "sde-sex"
     },
     "usage": [ {
@@ -508,13 +480,11 @@
     }
   }, {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "30525-0",
-          "display": "Age"
-        }
-      ],
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "30525-0",
+        "display": "Age"
+      } ],
       "text": "sde-age"
     },
     "usage": [ {
@@ -530,13 +500,11 @@
     }
   }, {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "52830-7",
-          "display": "State, district or territory federal abbreviation"
-        }
-      ],
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "52830-7",
+        "display": "State, district or territory federal abbreviation"
+      } ],
       "text": "sde-state-of-residence"
     },
     "usage": [ {
@@ -552,13 +520,11 @@
     }
   }, {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "45401-7",
-          "display": "Postal code"
-        }
-      ],
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "45401-7",
+        "display": "Postal code"
+      } ],
       "text": "sde-postal-code-of-residence"
     },
     "usage": [ {
@@ -574,13 +540,11 @@
     }
   }, {
     "code": {
-      "coding": [
-        {
-          "system": "http://loinc.org",
-          "code": "88124-3",
-          "display": "Food insecurity risk [HVS]"
-        }
-      ],
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "88124-3",
+        "display": "Food insecurity risk [HVS]"
+      } ],
       "text": "sde-food-insecurity-risk-status"
     },
     "usage": [ {
