@@ -98,8 +98,22 @@
   } ],
   "dataRequirement": [ {
     "type": "Patient",
+    "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ]
+  }, {
+    "type": "Patient",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
-    "mustSupport": [ "use", "type" ]
+    "mustSupport": [ "use", "type" ],
+    "codeFilter": [ {
+      "path": "use",
+      "code": [ {
+        "code": "home"
+      } ]
+    }, {
+      "path": "type",
+      "code": [ {
+        "code": "physical"
+      } ]
+    } ]
   }, {
     "type": "Observation",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
