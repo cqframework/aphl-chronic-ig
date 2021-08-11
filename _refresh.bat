@@ -2,7 +2,7 @@
 SET tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
 SET input_cache_path=%~dp0input-cache
 SET resources_path=%~dp0/input/resources
-SET ig_ini_path=%~dp0/ig.ini
+SET ig_ini_path=%~dp0ig.ini
 
 ECHO Checking internet connection...
 PING tx.fhir.org -n 1 -w 1000 | FINDSTR TTL && GOTO isonline
@@ -11,8 +11,8 @@ SET fsoption=
 GOTO igpublish
 
 :isonline
-ECHO We're online, setting publish to the Connectathon sandbox FHIR server
-SET fsoption=-fs http://cqm-sandbox.alphora.com/cqf-ruler-r4/fhir/
+ECHO We're online, setting publish to local sandbox FHIR server
+SET fsoption=
 
 :igpublish
 
