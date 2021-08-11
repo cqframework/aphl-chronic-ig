@@ -216,7 +216,7 @@
   "title": "Seen Patients",
   "status": "draft",
   "experimental": true,
-  "date": "2021-08-11T13:45:30-06:00",
+  "date": "2021-08-11T17:08:49-06:00",
   "description": "Seen patients during the measurement period",
   "purpose": "The Seen Patients cohort measure is defined to provide a baseline for chronic disease surveillance. For each individual in the cohort, supplemental data is collected aligning with the supplemental data defined for other chronic disease surveillance measure usages, allowing for analytics across and between specific measures.",
   "topic": [ {
