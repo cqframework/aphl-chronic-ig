@@ -2,9 +2,6 @@
   "resourceType": "Library",
   "id": "FHIRHelpers",
   "meta": {
-    "versionId": "2",
-    "lastUpdated": "2021-01-28T16:14:23.000-07:00",
-    "source": "#PpDYvPj7eECy0LB5",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
   },
   "language": "en",
@@ -14,7 +11,7 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://ecqi.healthit.gov/ecqms/Library/FHIRHelpers",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers",
   "version": "4.0.001",
   "name": "FHIRHelpers",
   "status": "active",

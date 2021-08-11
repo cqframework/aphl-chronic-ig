@@ -2,8 +2,6 @@
   "resourceType": "Measure",
   "id": "ControllingBloodPressureFHIR",
   "meta": {
-    "versionId": "1",
-    "lastUpdated": "2019-08-17T06:51:31.231-06:00",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
   "extension": [ {
@@ -336,13 +334,13 @@
       "display": "Food insecurity risk [HVS]"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/cqfmeasures/Measure/ControllingBloodPressureFHIR",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingBloodPressureFHIR",
   "version": "9.0.000",
   "name": "ControllingBloodPressureFHIR",
   "title": "Controlling Blood Pressure",
   "status": "draft",
   "experimental": true,
-  "date": "2021-08-11T12:52:30-06:00",
+  "date": "2021-08-11T13:45:30-06:00",
   "publisher": "National Committee for Quality Assurance (NCQA)",
   "contact": [ {
     "telecom": [ {
@@ -383,23 +381,23 @@
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "Library SurveillanceDataElements",
-    "resource": "Library/SurveillanceDataElementsFHIR4|1.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "Library/FHIRHelpers|4.0.001"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Library SDE",
-    "resource": "Library/SupplementalDataElementsFHIR4|2.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
   }, {
     "type": "depends-on",
     "display": "Library Common",
-    "resource": "Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library AdultOutpatientEncounters",
-    "resource": "Library/AdultOutpatientEncountersFHIR4|2.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system LOINC",
@@ -441,7 +439,7 @@
     "display": "Value set Payer",
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
   } ],
-  "library": [ "http://ecqi.healthit.gov/ecqms/Library/ControllingBloodPressureFHIR" ],
+  "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {

@@ -2,9 +2,6 @@
   "resourceType": "Library",
   "id": "DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
   "meta": {
-    "versionId": "1",
-    "lastUpdated": "2021-04-23T09:57:06.000-06:00",
-    "source": "#edzHYKU4t3FSPZzJ",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
   },
   "language": "en",
@@ -14,7 +11,7 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://ecqi.healthit.gov/ecqms/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
   "version": "0.0.001",
   "name": "DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
   "status": "active",

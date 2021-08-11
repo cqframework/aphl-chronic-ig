@@ -2,9 +2,6 @@
   "resourceType": "Measure",
   "id": "DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
   "meta": {
-    "versionId": "1",
-    "lastUpdated": "2021-04-23T09:57:06.000-06:00",
-    "source": "#mk5iUOM7SeqrJ5jA",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
   },
   "language": "en",
@@ -466,7 +463,7 @@
       "display": "Discharge to healthcare facility for hospice care (procedure)"
     }
   } ],
-  "url": "http://ecqi.healthit.gov/ecqms/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
   "identifier": [ {
     "use": "official",
     "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid",
@@ -481,7 +478,7 @@
   "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2021-08-11T12:52:30-06:00",
+  "date": "2021-08-11T13:45:30-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -499,31 +496,31 @@
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "Library SurveillanceDataElements",
-    "resource": "Library/SurveillanceDataElementsFHIR4|1.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "Library/FHIRHelpers|4.0.001"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Library SDE",
-    "resource": "Library/SupplementalDataElementsFHIR4|2.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library AdultOutpatientEncounters",
-    "resource": "Library/AdultOutpatientEncountersFHIR4|2.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
   }, {
     "type": "depends-on",
     "display": "Library Hospice",
-    "resource": "Library/HospiceFHIR4|2.0.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
   }, {
     "type": "depends-on",
     "display": "Library Frailty",
-    "resource": "Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
+    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
   }, {
     "type": "depends-on",
     "display": "Code system ConditionClinicalStatusCodes",
@@ -633,7 +630,7 @@
     "display": "Value set Nursing Facility Visit",
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
   } ],
-  "library": [ "http://ecqi.healthit.gov/ecqms/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
+  "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {

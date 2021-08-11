@@ -2,9 +2,6 @@
   "resourceType": "Library",
   "id": "MATGlobalCommonFunctionsFHIR4",
   "meta": {
-    "versionId": "2",
-    "lastUpdated": "2021-01-28T16:14:33.000-07:00",
-    "source": "#4y2QaB4SZKig3j3B",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
   },
   "language": "en",
@@ -14,7 +11,7 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://ecqi.healthit.gov/ecqms/Library/MATGlobalCommonFunctionsFHIR4",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
   "version": "6.0.000",
   "name": "MATGlobalCommonFunctionsFHIR4",
   "status": "active",

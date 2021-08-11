@@ -2,9 +2,6 @@
   "resourceType": "Library",
   "id": "SupplementalDataElementsFHIR4",
   "meta": {
-    "versionId": "2",
-    "lastUpdated": "2021-01-28T16:14:25.000-07:00",
-    "source": "#UhjjoJ6F6I9IyV6V",
     "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-library-cqfm" ]
   },
   "language": "en",
@@ -14,7 +11,7 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://ecqi.healthit.gov/ecqms/Library/SupplementalDataElementsFHIR4",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4",
   "version": "2.0.000",
   "name": "SupplementalDataElementsFHIR4",
   "status": "active",

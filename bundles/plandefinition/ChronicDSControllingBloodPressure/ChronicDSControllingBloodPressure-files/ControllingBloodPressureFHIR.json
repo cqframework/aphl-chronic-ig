@@ -7,7 +7,7 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://ecqi.healthit.gov/ecqms/Library/ControllingBloodPressureFHIR",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR",
   "version": "9.0.000",
   "name": "ControllingBloodPressureFHIR",
   "status": "active",
