@@ -1,6 +1,6 @@
 {
   "resourceType": "Encounter",
-  "id": "ip-SeenPatients",
+  "id": "encounter-ip-SeenPatients",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"

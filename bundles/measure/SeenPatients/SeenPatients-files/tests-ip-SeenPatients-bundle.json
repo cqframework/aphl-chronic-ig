@@ -5,7 +5,7 @@
   "entry": [ {
     "resource": {
       "resourceType": "Encounter",
-      "id": "ip-SeenPatients",
+      "id": "encounter-ip-SeenPatients",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
       },
@@ -32,7 +32,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Encounter/ip-SeenPatients"
+      "url": "Encounter/encounter-ip-SeenPatients"
     }
   }, {
     "resource": {
@@ -85,7 +85,7 @@
   }, {
     "resource": {
       "resourceType": "Patient",
-      "id": "ip-SeenPatients",
+      "id": "patient-ip-SeenPatients",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
       },
@@ -131,7 +131,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Patient/ip-SeenPatients"
+      "url": "Patient/patient-ip-SeenPatients"
     }
   } ]
 }

@@ -55,6 +55,9 @@ define "SDE Sex":
 define "SDE Age":
   SurveillanceDataElements."Age"
 
+define "SDE Age Group":
+  SurveillanceDataElements."Age Group"
+
 define "SDE State of Residence":
   SurveillanceDataElements."State of Residence"
 
