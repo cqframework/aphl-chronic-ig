@@ -18,44 +18,37 @@
   "publisher": "NLM",
   "compose": {
     "include": [ {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
+      "system": "http://terminology.hl7.org/CodeSystem/icd9cm",
       "concept": [ {
-        "code": "161665007",
-        "display": "History of renal transplant (situation)"
+        "code": "V42.0",
+        "display": "Kidney replaced by transplant"
       } ]
     }, {
       "system": "http://hl7.org/fhir/sid/icd-10-cm",
-      "version": "2020",
       "concept": [ {
         "code": "Z94.0",
         "display": "Kidney transplant status"
       } ]
     }, {
-      "system": "http://terminology.hl7.org/CodeSystem/icd9cm",
-      "version": "2013",
+      "system": "http://snomed.info/sct",
       "concept": [ {
-        "code": "V42.0",
-        "display": "Kidney replaced by transplant"
+        "code": "161665007",
+        "display": "History of renal transplant (situation)"
       } ]
     } ]
   },
   "expansion": {
-    "identifier": "20200507",
-    "timestamp": "2021-01-14T20:59:47-07:00",
+    "timestamp": "2021-08-11T18:13:40-06:00",
     "contains": [ {
-      "system": "http://hl7.org/fhir/sid/icd-10-cm",
-      "version": "2020",
-      "code": "Z94.0",
-      "display": "Kidney transplant status"
-    }, {
       "system": "http://terminology.hl7.org/CodeSystem/icd9cm",
-      "version": "2013",
       "code": "V42.0",
       "display": "Kidney replaced by transplant"
     }, {
+      "system": "http://hl7.org/fhir/sid/icd-10-cm",
+      "code": "Z94.0",
+      "display": "Kidney transplant status"
+    }, {
       "system": "http://snomed.info/sct",
-      "version": "2019-09",
       "code": "161665007",
       "display": "History of renal transplant (situation)"
     } ]

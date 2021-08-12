@@ -18,32 +18,27 @@
   "publisher": "NLM",
   "compose": {
     "include": [ {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "concept": [ {
-        "code": "433146000",
-        "display": "Chronic kidney disease stage 5 (disorder)"
-      } ]
-    }, {
       "system": "http://hl7.org/fhir/sid/icd-10-cm",
-      "version": "2020",
       "concept": [ {
         "code": "N18.5",
         "display": "Chronic kidney disease, stage 5"
       } ]
+    }, {
+      "system": "http://snomed.info/sct",
+      "concept": [ {
+        "code": "433146000",
+        "display": "Chronic kidney disease stage 5 (disorder)"
+      } ]
     } ]
   },
   "expansion": {
-    "identifier": "20200507",
-    "timestamp": "2021-01-14T20:59:47-07:00",
+    "timestamp": "2021-08-11T18:13:40-06:00",
     "contains": [ {
       "system": "http://hl7.org/fhir/sid/icd-10-cm",
-      "version": "2020",
       "code": "N18.5",
       "display": "Chronic kidney disease, stage 5"
     }, {
       "system": "http://snomed.info/sct",
-      "version": "2019-09",
       "code": "433146000",
       "display": "Chronic kidney disease stage 5 (disorder)"
     } ]

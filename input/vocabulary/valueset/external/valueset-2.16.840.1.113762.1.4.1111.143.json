@@ -19,67 +19,16 @@
   "compose": {
     "include": [ {
       "system": "http://snomed.info/sct",
-      "version": "2019-09",
       "concept": [ {
-        "code": "448951000124107",
-        "display": "Admission to observation unit (procedure)"
-      }, {
-        "code": "448951000124107",
-        "display": "Admission to observation unit (procedure)"
-      }, {
-        "code": "448951000124107",
-        "display": "Admission to observation unit (procedure)"
-      }, {
-        "code": "448951000124107",
-        "display": "Admission to observation unit (procedure)"
-      }, {
-        "code": "448951000124107",
-        "display": "Admission to observation unit (procedure)"
-      }, {
-        "code": "448951000124107",
-        "display": "Admission to observation unit (procedure)"
-      }, {
         "code": "448951000124107",
         "display": "Admission to observation unit (procedure)"
       } ]
     } ]
   },
   "expansion": {
-    "identifier": "20200507",
-    "timestamp": "2021-01-14T20:59:45-07:00",
+    "timestamp": "2021-08-11T18:13:40-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "448951000124107",
-      "display": "Admission to observation unit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "448951000124107",
-      "display": "Admission to observation unit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "448951000124107",
-      "display": "Admission to observation unit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "448951000124107",
-      "display": "Admission to observation unit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "448951000124107",
-      "display": "Admission to observation unit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "448951000124107",
-      "display": "Admission to observation unit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
       "code": "448951000124107",
       "display": "Admission to observation unit (procedure)"
     } ]

@@ -19,75 +19,16 @@
   "compose": {
     "include": [ {
       "system": "http://snomed.info/sct",
-      "version": "2019-09",
       "concept": [ {
-        "code": "4525004",
-        "display": "Emergency department patient visit (procedure)"
-      }, {
-        "code": "4525004",
-        "display": "Emergency department patient visit (procedure)"
-      }, {
-        "code": "4525004",
-        "display": "Emergency department patient visit (procedure)"
-      }, {
-        "code": "4525004",
-        "display": "Emergency department patient visit (procedure)"
-      }, {
-        "code": "4525004",
-        "display": "Emergency department patient visit (procedure)"
-      }, {
-        "code": "4525004",
-        "display": "Emergency department patient visit (procedure)"
-      }, {
-        "code": "4525004",
-        "display": "Emergency department patient visit (procedure)"
-      }, {
         "code": "4525004",
         "display": "Emergency department patient visit (procedure)"
       } ]
     } ]
   },
   "expansion": {
-    "identifier": "20200507",
-    "timestamp": "2021-01-14T20:59:45-07:00",
+    "timestamp": "2021-08-11T18:13:40-06:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "4525004",
-      "display": "Emergency department patient visit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "4525004",
-      "display": "Emergency department patient visit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "4525004",
-      "display": "Emergency department patient visit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "4525004",
-      "display": "Emergency department patient visit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "4525004",
-      "display": "Emergency department patient visit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "4525004",
-      "display": "Emergency department patient visit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
-      "code": "4525004",
-      "display": "Emergency department patient visit (procedure)"
-    }, {
-      "system": "http://snomed.info/sct",
-      "version": "2019-09",
       "code": "4525004",
       "display": "Emergency department patient visit (procedure)"
     } ]
