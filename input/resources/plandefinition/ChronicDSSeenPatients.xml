@@ -2,7 +2,7 @@
 <PlanDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ChronicDSSeenPatients"/>
-    <url value="http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSDiabetesPoorControl"/>
+    <url value="http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSSeenPatients"/>
     <name value="ChronicDSSeenPatients"/>
     <title value="Chronic Disease Surveillance Reporting Specification for Seen Patients Cohort"/>
     <type>
@@ -41,16 +41,16 @@
         <textEquivalent value="Start the reporting workflow in response to an encounter-end event"/>
         <code>
             <coding>
-                <system value="http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type"/>
-                <code value="start"/>
+                <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+                <code value="initiate-reporting-workflow"/>
             </coding>
         </code>
-        <trigger id="encounter">
+        <trigger id="encounter-end">
             <type value="named-event"/>
             <name value="encounter-end"/>
         </trigger>
         <relatedAction>
-            <actionId value="report-ds"/>
+            <actionId value="check-reportable"/>
             <relationship value="before-start"/>
             <offsetDuration>
                 <value value="24"/>
@@ -59,15 +59,173 @@
             </offsetDuration>
         </relatedAction>
     </action>
+    <action id="check-reportable">
+        <description value="This action represents the check for reportability of the surveillance event."/>
+        <textEquivalent value="Check Reportable"/>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+                <code value="execute-reporting-workflow"/>
+            </coding>
+        </code>
+        <action id="ckr-is-encounter-reportable">
+            <description value="This action represents the check for reportability to create the patients eICR."/>
+            <textEquivalent value="Check Trigger Codes based on RCTC Value sets."/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+                    <code value="check-trigger-codes"/>
+                </coding>
+            </code>
+            <condition>
+                <kind value="applicability"/>
+                <expression>
+                    <language value="text/fhirpath"/>
+                    <expression value="%conditions.exists()"/>
+                </expression>
+            </condition>
+            <input id="conditions">
+                <type value="Condition"/>
+                <codeFilter>
+                    <path value="code"/>
+                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"/>
+                </codeFilter>
+            </input>
+            <relatedAction>
+                <actionId value="evaluate-measure"/>
+                <relationship value="before-start"/>
+            </relatedAction>
+        </action>
+    </action>
+    <action id="evaluate-measure">
+        <description value="This action represents the evaluation of the measure."/>
+        <textEquivalent value="Evaluate measure"/>
+        <code>
+            <coding>
+                <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+                <code value="evaluate-measure"/>
+            </coding>
+        </code>
+        <input id="patient">
+            <type value="Patient"/>
+            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+        </input>
+        <input id="conditions">
+            <type value="Condition"/>
+            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+        </input>
+        <input id="encounter">
+            <type value="Encounter"/>
+            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"/>
+        </input>
+        <input id="mr">
+            <type value="MedicationRequest"/>
+            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"/>
+        </input>
+        <input id="obs">
+            <type value="Observation"/>
+            <profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+        </input>
+        <input id="measurereport">
+            <type value="MeasureReport"/>
+            <profile value="http://hl7.org/fhir/MeasureReport"/>
+        </input>
+        <relatedAction>
+            <actionId value="report-ds"/>
+            <relationship value="before-start"/>
+        </relatedAction>
+        <definitionCanonical value = "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"/>>
+    </action>
     <action id="report-ds">
         <description value="This action represents the reporting of the Chronic Disease Surveillance event."/>
         <textEquivalent value="Report Chronic Disease Surveillance"/>
         <code>
           <coding>
-            <system value="http://hl7.org/fhir/us/chronicds/CodeSystem/executabletask-type"/>
-            <code value="report-chronic-disease-surveillance"/>
+            <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+            <code value="execute-reporting-workflow"/>
           </coding>
         </code>
-        <definitionCanonical value="http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"/>
+        <action id="create-eicr">
+            <description value="This action invokes the creation of the eICR report."/>
+            <textEquivalent value="Create eICR"/>
+            <code>
+              <coding>
+                <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+                <code value="create-report"/>
+              </coding>
+            </code>
+            <input id="patient">
+                <type value="Patient"/>
+                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
+            </input>
+            <input id="conditions">
+                <type value="Condition"/>
+                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
+            </input>
+            <input id="encounter">
+                <type value="Encounter"/>
+                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"/>
+            </input>
+            <input id="mr">
+                <type value="MedicationRequest"/>
+                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"/>
+            </input>
+            <input id="obs">
+                <type value="Observation"/>
+                <profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
+            </input>
+            <input id="measurereport">
+                <type value="MeasureReport"/>
+                <profile value="http://hl7.org/fhir/MeasureReport"/>
+            </input>
+            <output id ="eicr-report">
+                <type value="Bundle"/>
+                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle"/>
+            </output>
+            <relatedAction>
+                <actionId value="validate-eicr"/>
+                <relationship value="before-start"/>
+            </relatedAction>
+        </action>
+        <action id="validate-eicr">
+            <description value="This action represents the validation of the eICR."/>
+            <textEquivalent value="Validate eICR"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+                    <code value="validate-report"/>
+                </coding>
+            </code>
+            <input id="eicr-report">
+                <type value="Bundle"/>
+                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"/>
+            </input>
+            <output id="validated-eicr-report">
+                <type value="Bundle"/>
+                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"/>
+            </output>
+            <relatedAction>
+                <actionId value="submit-eicr"/>
+                <relationship value="before-start"/>
+            </relatedAction>
+        </action>
+        <action id="submit-eicr">
+            <description value="This action represents the validation of the eICR."/>
+            <textEquivalent value="Submit eICR"/>
+            <code>
+                <coding>
+                    <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
+                    <code value="submit-report"/>
+                </coding>
+            </code>
+            <input id="validated-eicr-report">
+                <type value="Bundle"/>
+                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"/>
+            </input>
+            <output id="eicr-report-submitted">
+                <type value="Bundle"/>
+                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"/>
+            </output>
+        </action>
     </action>
 </PlanDefinition>
