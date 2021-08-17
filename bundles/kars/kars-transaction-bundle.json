@@ -4663,12 +4663,12 @@
         "textEquivalent": "Start the reporting workflow in response to an encounter-end event",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type",
-            "code": "start"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "initiate-reporting-workflow"
           } ]
         } ],
         "trigger": [ {
-          "id": "encounter",
+          "id": "encounter-end",
           "type": "named-event",
           "name": "encounter-end"
         } ],
@@ -4687,12 +4687,20 @@
         "textEquivalent": "Check Reportable",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type",
-            "code": "check-reportable"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "execute-reporting-workflow"
           } ]
         } ],
         "action": [ {
           "id": "ckr-is-encounter-reportable",
+          "description": "This action represents the check for reportability to create the patients eICR.",
+          "textEquivalent": "Check Trigger Codes based on RCTC Value sets.",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "check-trigger-codes"
+            } ]
+          } ],
           "condition": [ {
             "kind": "applicability",
             "expression": {
@@ -4705,25 +4713,157 @@
             "type": "Condition",
             "codeFilter": [ {
               "path": "code",
-              "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011"
+              "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
             } ]
           } ],
           "relatedAction": [ {
-            "actionId": "report-ds",
+            "actionId": "evaluate-measure",
             "relationship": "before-start"
           } ]
         } ]
+      }, {
+        "id": "evaluate-measure",
+        "description": "This action represents the evaluation of the measure.",
+        "textEquivalent": "Evaluate measure",
+        "code": [ {
+          "coding": [ {
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "evaluate-measure"
+          } ]
+        } ],
+        "input": [ {
+          "id": "patient",
+          "type": "Patient",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+        }, {
+          "id": "conditions",
+          "type": "Condition",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+        }, {
+          "id": "encounter",
+          "type": "Encounter",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+        }, {
+          "id": "mr",
+          "type": "MedicationRequest",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest" ]
+        }, {
+          "id": "obs",
+          "type": "Observation",
+          "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns" ]
+        }, {
+          "id": "measurereport",
+          "type": "MeasureReport",
+          "profile": [ "http://hl7.org/fhir/MeasureReport" ]
+        }, {
+          "id": "procedures",
+          "type": "Procedure",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure" ]
+        } ],
+        "relatedAction": [ {
+          "actionId": "report-ds",
+          "relationship": "before-start"
+        } ],
+        "definitionCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/ControllingBloodPressureFHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
         "textEquivalent": "Report Chronic Disease Surveillance",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/chronicds/CodeSystem/executabletask-type",
-            "code": "report-chronic-disease-surveillance"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "execute-reporting-workflow"
           } ]
         } ],
-        "definitionCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/ControllingBloodPressureFHIR"
+        "action": [ {
+          "id": "create-eicr",
+          "description": "This action invokes the creation of the eICR report.",
+          "textEquivalent": "Create eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "create-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "patient",
+            "type": "Patient",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+          }, {
+            "id": "conditions",
+            "type": "Condition",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+          }, {
+            "id": "encounter",
+            "type": "Encounter",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+          }, {
+            "id": "mr",
+            "type": "MedicationRequest",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest" ]
+          }, {
+            "id": "obs",
+            "type": "Observation",
+            "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns" ]
+          }, {
+            "id": "measurereport",
+            "type": "MeasureReport",
+            "profile": [ "http://hl7.org/fhir/MeasureReport" ]
+          } ],
+          "output": [ {
+            "id": "eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" ]
+          } ],
+          "relatedAction": [ {
+            "actionId": "validate-eicr",
+            "relationship": "before-start"
+          } ]
+        }, {
+          "id": "validate-eicr",
+          "description": "This action represents the validation of the eICR.",
+          "textEquivalent": "Validate eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "validate-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "output": [ {
+            "id": "validated-eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "relatedAction": [ {
+            "actionId": "submit-eicr",
+            "relationship": "before-start"
+          } ]
+        }, {
+          "id": "submit-eicr",
+          "description": "This action represents the validation of the eICR.",
+          "textEquivalent": "Submit eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "submit-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "validated-eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "output": [ {
+            "id": "eicr-report-submitted",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ]
+        } ]
       } ]
     },
     "request": {
@@ -4735,7 +4875,7 @@
       "resourceType": "PlanDefinition",
       "id": "ChronicDSDiabetesPoorControl",
       "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSDiabetesPoorControl",
-      "name": "ChronicDSControllingBloodPressure",
+      "name": "ChronicDSDiabetesPoorControl",
       "title": "Chronic Disease Surveillance Reporting Specification for Diabetes Hemoglobin A1c Poor Control",
       "type": {
         "coding": [ {
@@ -4770,12 +4910,12 @@
         "textEquivalent": "Start the reporting workflow in response to an encounter-end event",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type",
-            "code": "start"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "initiate-reporting-workflow"
           } ]
         } ],
         "trigger": [ {
-          "id": "encounter",
+          "id": "encounter-end",
           "type": "named-event",
           "name": "encounter-end"
         } ],
@@ -4794,12 +4934,20 @@
         "textEquivalent": "Check Reportable",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type",
-            "code": "check-reportable"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "execute-reporting-workflow"
           } ]
         } ],
         "action": [ {
           "id": "ckr-is-encounter-reportable",
+          "description": "This action represents the check for reportability to create the patients eICR.",
+          "textEquivalent": "Check Trigger Codes based on RCTC Value sets.",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "check-trigger-codes"
+            } ]
+          } ],
           "condition": [ {
             "kind": "applicability",
             "expression": {
@@ -4816,21 +4964,149 @@
             } ]
           } ],
           "relatedAction": [ {
-            "actionId": "report-ds",
+            "actionId": "evaluate-measure",
             "relationship": "before-start"
           } ]
         } ]
+      }, {
+        "id": "evaluate-measure",
+        "description": "This action represents the evaluation of the measure.",
+        "textEquivalent": "Evaluate measure",
+        "code": [ {
+          "coding": [ {
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "evaluate-measure"
+          } ]
+        } ],
+        "input": [ {
+          "id": "patient",
+          "type": "Patient",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+        }, {
+          "id": "conditions",
+          "type": "Condition",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+        }, {
+          "id": "encounter",
+          "type": "Encounter",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+        }, {
+          "id": "mr",
+          "type": "MedicationRequest",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest" ]
+        }, {
+          "id": "obs",
+          "type": "Observation",
+          "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns" ]
+        }, {
+          "id": "measurereport",
+          "type": "MeasureReport",
+          "profile": [ "http://hl7.org/fhir/MeasureReport" ]
+        } ],
+        "relatedAction": [ {
+          "actionId": "report-ds",
+          "relationship": "before-start"
+        } ],
+        "definitionCanonical": "http://ecqi.healthit.gov/ecqms/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
         "textEquivalent": "Report Chronic Disease Surveillance",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/chronicds/CodeSystem/executabletask-type",
-            "code": "report-chronic-disease-surveillance"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "execute-reporting-workflow"
           } ]
         } ],
-        "definitionCanonical": "http://ecqi.healthit.gov/ecqms/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
+        "action": [ {
+          "id": "create-eicr",
+          "description": "This action invokes the creation of the eICR report.",
+          "textEquivalent": "Create eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "create-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "patient",
+            "type": "Patient",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+          }, {
+            "id": "conditions",
+            "type": "Condition",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition" ]
+          }, {
+            "id": "encounter",
+            "type": "Encounter",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+          }, {
+            "id": "mr",
+            "type": "MedicationRequest",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest" ]
+          }, {
+            "id": "obs",
+            "type": "Observation",
+            "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns" ]
+          }, {
+            "id": "measurereport",
+            "type": "MeasureReport",
+            "profile": [ "http://hl7.org/fhir/MeasureReport" ]
+          } ],
+          "output": [ {
+            "id": "eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" ]
+          } ],
+          "relatedAction": [ {
+            "actionId": "validate-eicr",
+            "relationship": "before-start"
+          } ]
+        }, {
+          "id": "validate-eicr",
+          "description": "This action represents the validation of the eICR.",
+          "textEquivalent": "Validate eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "validate-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "output": [ {
+            "id": "validated-eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "relatedAction": [ {
+            "actionId": "submit-eicr",
+            "relationship": "before-start"
+          } ]
+        }, {
+          "id": "submit-eicr",
+          "description": "This action represents the validation of the eICR.",
+          "textEquivalent": "Submit eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "submit-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "validated-eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "output": [ {
+            "id": "eicr-report-submitted",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ]
+        } ]
       } ]
     },
     "request": {
@@ -4841,7 +5117,7 @@
     "resource": {
       "resourceType": "PlanDefinition",
       "id": "ChronicDSSeenPatients",
-      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSDiabetesPoorControl",
+      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSSeenPatients",
       "name": "ChronicDSSeenPatients",
       "title": "Chronic Disease Surveillance Reporting Specification for Seen Patients Cohort",
       "type": {
@@ -4877,17 +5153,17 @@
         "textEquivalent": "Start the reporting workflow in response to an encounter-end event",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/ecr/CodeSystem/executabletask-type",
-            "code": "start"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "initiate-reporting-workflow"
           } ]
         } ],
         "trigger": [ {
-          "id": "encounter",
+          "id": "encounter-end",
           "type": "named-event",
           "name": "encounter-end"
         } ],
         "relatedAction": [ {
-          "actionId": "report-ds",
+          "actionId": "check-reportable",
           "relationship": "before-start",
           "offsetDuration": {
             "value": 24,
@@ -4896,16 +5172,160 @@
           }
         } ]
       }, {
+        "id": "check-reportable",
+        "description": "This action represents the check for reportability of the surveillance event.",
+        "textEquivalent": "Check Reportable",
+        "code": [ {
+          "coding": [ {
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "execute-reporting-workflow"
+          } ]
+        } ],
+        "action": [ {
+          "id": "ckr-is-encounter-reportable",
+          "description": "This action represents the check for reportability to create the patients eICR.",
+          "textEquivalent": "Check Trigger Codes based on RCTC Value sets.",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "check-trigger-codes"
+            } ]
+          } ],
+          "condition": [ {
+            "kind": "applicability",
+            "expression": {
+              "language": "text/fhirpath",
+              "expression": "%conditions.exists()"
+            }
+          } ],
+          "input": [ {
+            "id": "conditions",
+            "type": "Condition",
+            "codeFilter": [ {
+              "path": "code",
+              "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
+            } ]
+          } ],
+          "relatedAction": [ {
+            "actionId": "evaluate-measure",
+            "relationship": "before-start"
+          } ]
+        } ]
+      }, {
+        "id": "evaluate-measure",
+        "description": "This action represents the evaluation of the measure.",
+        "textEquivalent": "Evaluate measure",
+        "code": [ {
+          "coding": [ {
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "evaluate-measure"
+          } ]
+        } ],
+        "input": [ {
+          "id": "patient",
+          "type": "Patient",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+        }, {
+          "id": "encounter",
+          "type": "Encounter",
+          "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+        },{
+          "id": "measurereport",
+          "type": "MeasureReport",
+          "profile": [ "http://hl7.org/fhir/MeasureReport" ]
+        } ],
+        "relatedAction": [ {
+          "actionId": "report-ds",
+          "relationship": "before-start"
+        } ],
+        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+      }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
         "textEquivalent": "Report Chronic Disease Surveillance",
         "code": [ {
           "coding": [ {
-            "system": "http://hl7.org/fhir/us/chronicds/CodeSystem/executabletask-type",
-            "code": "report-chronic-disease-surveillance"
+            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+            "code": "execute-reporting-workflow"
           } ]
         } ],
-        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+        "action": [ {
+          "id": "create-eicr",
+          "description": "This action invokes the creation of the eICR report.",
+          "textEquivalent": "Create eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "create-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "patient",
+            "type": "Patient",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient" ]
+          }, {
+            "id": "encounter",
+            "type": "Encounter",
+            "profile": [ "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter" ]
+          },{
+            "id": "measurereport",
+            "type": "MeasureReport",
+            "profile": [ "http://hl7.org/fhir/MeasureReport" ]
+          } ],
+          "output": [ {
+            "id": "eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" ]
+          } ],
+          "relatedAction": [ {
+            "actionId": "validate-eicr",
+            "relationship": "before-start"
+          } ]
+        }, {
+          "id": "validate-eicr",
+          "description": "This action represents the validation of the eICR.",
+          "textEquivalent": "Validate eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "validate-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "output": [ {
+            "id": "validated-eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "relatedAction": [ {
+            "actionId": "submit-eicr",
+            "relationship": "before-start"
+          } ]
+        }, {
+          "id": "submit-eicr",
+          "description": "This action represents the validation of the eICR.",
+          "textEquivalent": "Submit eICR",
+          "code": [ {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
+              "code": "submit-report"
+            } ]
+          } ],
+          "input": [ {
+            "id": "validated-eicr-report",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ],
+          "output": [ {
+            "id": "eicr-report-submitted",
+            "type": "Bundle",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+          } ]
+        } ]
       } ]
     },
     "request": {
