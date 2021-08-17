@@ -1,14 +1,15 @@
 @ECHO OFF
 
 DEL /F /Q bundlegen/kars-transaction-bundle.json
+DEL /F /Q bundlegen/kars-collection-bundle.json
 DEL /F /Q bundlegen\sourcefiles\*
 
 if not exist bundlegen\sourcefiles mkdir bundlegen\sourcefiles
 
 echo refreshing kars bundle...
-# 1) Run _refresh
-# 2) Copy the libraries from `input/resources/libraries` to `bundles\kars\kars-files`
-# 3) Prefix library file names with `library-`
+rem  1) Run _refresh
+rem  2) Copy the libraries from `input/resources/libraries` to `bundles\kars\kars-files`
+rem  3) Prefix library file names with `library-`
 COPY input/resources/library/AdultOutpatientEncountersFHIR4.json bundlegen/sourcefiles/library-AdultOutpatientEncountersFHIR4.json
 COPY input/resources/library/AdvancedIllnessandFrailtyExclusionECQMFHIR4.json bundlegen/sourcefiles/library-AdvancedIllnessandFrailtyExclusionECQMFHIR4.json
 COPY input/resources/library/ControllingBloodPressureFHIR.json bundlegen/sourcefiles/library-ControllingBloodPressureFHIR.json
@@ -21,19 +22,19 @@ COPY input/resources/library/SeenPatients.json bundlegen/sourcefiles/library-See
 COPY input/resources/library/SupplementalDataElementsFHIR4.json bundlegen/sourcefiles/library-SupplementalDataElementsFHIR4.json
 COPY input/resources/library/SurveillanceDataElementsFHIR4.json bundlegen/sourcefiles/library-SurveillanceDataElementsFHIR4.json
 
-# 4) Copy the measures from `input/resources/measures` to `bundles\kars\kars-files`
-# 5) Prefix the measure file names with `measure-`
+rem  4) Copy the measures from `input/resources/measures` to `bundles\kars\kars-files`
+rem  5) Prefix the measure file names with `measure-`
 COPY input/resources/measure/ControllingBloodPressureFHIR.json bundlegen/sourcefiles/measure-ControllingBloodPressureFHIR.json
 COPY input/resources/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json bundlegen/sourcefiles/measure-DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json
 COPY input/resources/measure/SeenPatients.json bundlegen/sourcefiles/measure-SeenPatients.json
 
-# 6) Copy the plandefinitions from `input/resources/plandefinitions` to `bundles\kars\kars-files`
-# 7) Prefix the plandefinition file names with `plandefinition-`
+rem  6) Copy the plandefinitions from `input/resources/plandefinitions` to `bundles\kars\kars-files`
+rem  7) Prefix the plandefinition file names with `plandefinition-`
 COPY input/resources/plandefinition/ChronicDSControllingBloodPressure.xml bundlegen/sourcefiles/plandefinition-ChronicDSControllingBloodPressure.xml
 COPY input/resources/plandefinition/ChronicDSDiabetesPoorControl.xml bundlegen/sourcefiles/plandefinition-ChronicDSDiabetesPoorControl.xml
 COPY input/resources/plandefinition/ChronicDSSeenPatients.xml bundlegen/sourcefiles/plandefinition-ChronicDSSeenPatients.xml
 
-#8) Copy the valuesets from `input/vocabulary/valuesets/external` to `bundles\kars\kars-files`
+rem 8) Copy the valuesets from `input/vocabulary/valuesets/external` to `bundles\kars\kars-files`
 COPY input/vocabulary/valueSet/external/valueset-2.16.840.1.113762.1.4.1.json bundlegen/sourcefiles/valueset-2.16.840.1.113762.1.4.1.json
 COPY input/vocabulary/valueSet/external/valueset-2.16.840.1.113762.1.4.1108.15.json bundlegen/sourcefiles/valueset-2.16.840.1.113762.1.4.1108.15.json
 COPY input/vocabulary/valueSet/external/valueset-2.16.840.1.113762.1.4.1111.143.json bundlegen/sourcefiles/valueset-2.16.840.1.113762.1.4.1111.143.json
@@ -76,20 +77,26 @@ COPY input/vocabulary/valueSet/external/valueset-2.16.840.1.114222.4.11.836.json
 COPY input/vocabulary/valueSet/external/valueset-2.16.840.1.114222.4.11.837.json bundlegen/sourcefiles/valueset-2.16.840.1.114222.4.11.837.json
 COPY input/vocabulary/valueSet/external/valueset-2.16.840.1.114222.4.11.3591.json bundlegen/sourcefiles/valueset-2.16.840.1.114222.4.11.3591.json
 
-#9) Run BundleResources: -BundleResources -ptd="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars\kars-files" -op="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars" -v=r4 -e=json
-# Bundle all resources from bundlegen/sourcefiles
+rem 9) Run BundleResources: -BundleResources -ptd="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars\kars-files" -op="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars" -v=r4 -e=json
+rem  Bundle all resources from bundlegen/sourcefiles
 cmd /c bundlegen/_bundle.sh "kars-transaction"
+cmd /c bundlegen/_bundle.sh "kars-collection"
 
-#10) Copy the resulting output file and rename it `kars-transaction-bundle`
+rem 10) Copy the resulting output file and rename it `kars-transaction-bundle`, `kars-collection-bundle`
 DEL /F /Q bundles/kars-transaction-bundle.json
 COPY bundlegen/kars-transaction-bundle.json bundles/kars/kars-transaction-bundle.json
 echo 'Copied generated bundle to bundles/kars-transaction-bundle.json'
 
-#11) Update the bundle type to transaction in `kars-transaction-bundle`
-#!!!Must be done manually!!!
+DEL /F /Q bundles/kars-collection-bundle.json
+COPY bundlegen/kars-collection-bundle.json bundles/kars/kars-collection-bundle.json
+echo 'Copied generated bundle to bundles/kars-collection-bundle.json'
+
+rem 11) Update the bundle type to collection in `kars-collection-bundle`
+rem !!!Must be done manually!!!
 
 echo 'Cleaning up bundlegen/sourcefiles...'
 DEL /F /Q  bundlegen/kars-transaction-bundle.json
+DEL /F /Q  bundlegen/kars-collection-bundle.json
 DEL /F /Q  bundlegen/sourcefiles/*
 
 echo 'kars bundle refresh complete.'

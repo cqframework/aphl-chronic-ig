@@ -1,5 +1,6 @@
 #!/bin/bash
 rm bundlegen/kars-transaction-bundle.json
+rm bundlegen/kars-collection-bundle.json
 rm bundlegen/sourcefiles/*
 
 mkdir -p bundlegen/sourcefiles
@@ -77,17 +78,22 @@ cp input/vocabulary/valueSet/external/valueset-2.16.840.1.114222.4.11.3591.json 
 #9) Run BundleResources: -BundleResources -ptd="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars\kars-files" -op="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars" -v=r4 -e=json
 # Bundle all resources from bundlegen/sourcefiles
 sh bundlegen/_bundle.sh "kars-transaction"
+sh bundlegen/_bundle.sh "kars-collection"
 
 #10) Copy the resulting output file and rename it `kars-transaction-bundle`
 rm bundles/kars-transaction-bundle.json
 cp bundlegen/kars-transaction-bundle.json bundles/kars/kars-transaction-bundle.json
 echo 'Copied generated bundle to bundles/kars-transaction-bundle.json'
+rm bundles/kars-collection-bundle.json
+cp bundlegen/kars-collection-bundle.json bundles/kars/kars-collection-bundle.json
+echo 'Copied generated bundle to bundles/kars-collection-bundle.json'
 
-#11) Update the bundle type to transaction in `kars-transaction-bundle`
+#11) Update the bundle type to collection in `kars-collection-bundle`
 #!!!Must be done manually!!!
 
 echo 'Cleaning up bundlegen/sourcefiles...'
 rm bundlegen/kars-transaction-bundle.json
+rm bundlegen/kars-collection-bundle.json
 rm bundlegen/sourcefiles/*
 
 echo 'kars bundle refresh complete.'
