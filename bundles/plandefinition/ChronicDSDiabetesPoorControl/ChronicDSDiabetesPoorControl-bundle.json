@@ -17430,7 +17430,7 @@
           "actionId": "report-ds",
           "relationship": "before-start"
         } ],
-        "definitionCanonical": "http://ecqi.healthit.gov/ecqms/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
+        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
