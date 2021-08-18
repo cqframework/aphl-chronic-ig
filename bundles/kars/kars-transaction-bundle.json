@@ -32,25 +32,32 @@
       "description": "AdultOutpatientEncountersFHIR4",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Value set Annual Wellness Visit"
+        "display": "Value set Annual Wellness Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
       }, {
         "type": "depends-on",
-        "display": "Value set Home Healthcare Services"
+        "display": "Value set Home Healthcare Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
       }, {
         "type": "depends-on",
-        "display": "Value set Office Visit"
+        "display": "Value set Office Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -79,35 +86,40 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
         } ]
       } ],
       "content": [ {
@@ -155,55 +167,72 @@
       "description": "Frailty Exclusion",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library Global"
+        "display": "Library Global",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Value set Acute Inpatient"
+        "display": "Value set Acute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083"
       }, {
         "type": "depends-on",
-        "display": "Value set Advanced Illness"
+        "display": "Value set Advanced Illness",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1082"
       }, {
         "type": "depends-on",
-        "display": "Value set Care Services in Long-Term Residential Facility"
+        "display": "Value set Care Services in Long-Term Residential Facility",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
       }, {
         "type": "depends-on",
-        "display": "Value set Dementia Medications"
+        "display": "Value set Dementia Medications",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
       }, {
         "type": "depends-on",
-        "display": "Value set ED"
+        "display": "Value set ED",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Device"
+        "display": "Value set Frailty Device",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Diagnosis"
+        "display": "Value set Frailty Diagnosis",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Encounter"
+        "display": "Value set Frailty Encounter",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Symptom"
+        "display": "Value set Frailty Symptom",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
       }, {
         "type": "depends-on",
-        "display": "Value set Nonacute Inpatient"
+        "display": "Value set Nonacute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
       }, {
         "type": "depends-on",
-        "display": "Value set Nursing Facility Visit"
+        "display": "Value set Nursing Facility Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
       }, {
         "type": "depends-on",
-        "display": "Value set Observation"
+        "display": "Value set Observation",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
       }, {
         "type": "depends-on",
-        "display": "Value set Outpatient"
+        "display": "Value set Outpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -274,91 +303,104 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceRequest" ],
         "mustSupport": [ "code", "authoredOn" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code", "id" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1082"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "diagnosis", "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
         } ]
       }, {
         "type": "MedicationDispense",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationDispense" ],
         "mustSupport": [ "whenHandedOver", "medication" ],
         "codeFilter": [ {
-          "path": "medication"
+          "path": "medication",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
         } ]
       } ],
       "content": [ {
@@ -399,139 +441,184 @@
       },
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library Common"
+        "display": "Library Common",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library AdultOutpatientEncounters"
+        "display": "Library AdultOutpatientEncounters",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library SDE"
+        "display": "Library SDE",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library FrailtyLTI"
+        "display": "Library FrailtyLTI",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
       }, {
         "type": "depends-on",
-        "display": "Library Hospice"
+        "display": "Library Hospice",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library SurveillanceDataElements"
+        "display": "Library SurveillanceDataElements",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods"
+        "display": "Code system ISO-8601-Derived Periods",
+        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
-        "display": "Code system ConditionVerificationStatusCodes"
+        "display": "Code system ConditionVerificationStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
       }, {
         "type": "depends-on",
-        "display": "Code system SNOMEDCT:2017-09"
+        "display": "Code system SNOMEDCT:2017-09",
+        "resource": "http://snomed.info/sct|http://snomed.info/sct/version/201709"
       }, {
         "type": "depends-on",
-        "display": "Value set Chronic Kidney Disease, Stage 5"
+        "display": "Value set Chronic Kidney Disease, Stage 5",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002"
       }, {
         "type": "depends-on",
-        "display": "Value set Dialysis Services"
+        "display": "Value set Dialysis Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1013"
       }, {
         "type": "depends-on",
-        "display": "Value set ED"
+        "display": "Value set ED",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
       }, {
         "type": "depends-on",
-        "display": "Value set Encounter Inpatient"
+        "display": "Value set Encounter Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
       }, {
         "type": "depends-on",
-        "display": "Value set End Stage Renal Disease"
+        "display": "Value set End Stage Renal Disease",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.353"
       }, {
         "type": "depends-on",
-        "display": "Value set ESRD Monthly Outpatient Services"
+        "display": "Value set ESRD Monthly Outpatient Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1014"
       }, {
         "type": "depends-on",
-        "display": "Value set Essential Hypertension"
+        "display": "Value set Essential Hypertension",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011"
       }, {
         "type": "depends-on",
-        "display": "Value set Ethnicity"
+        "display": "Value set Ethnicity",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837"
       }, {
         "type": "depends-on",
-        "display": "Value set Kidney Transplant"
+        "display": "Value set Kidney Transplant",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1012"
       }, {
         "type": "depends-on",
-        "display": "Value set Kidney Transplant Recipient"
+        "display": "Value set Kidney Transplant Recipient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1029"
       }, {
         "type": "depends-on",
-        "display": "Value set ONC Administrative Sex"
+        "display": "Value set ONC Administrative Sex",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"
       }, {
         "type": "depends-on",
-        "display": "Value set Payer"
+        "display": "Value set Payer",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       }, {
         "type": "depends-on",
-        "display": "Value set Pregnancy"
+        "display": "Value set Pregnancy",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378"
       }, {
         "type": "depends-on",
-        "display": "Value set Race"
+        "display": "Value set Race",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836"
       }, {
         "type": "depends-on",
-        "display": "Value set Vascular Access for Dialysis"
+        "display": "Value set Vascular Access for Dialysis",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1011"
       }, {
         "type": "depends-on",
-        "display": "Value set Office Visit"
+        "display": "Value set Office Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
       }, {
         "type": "depends-on",
-        "display": "Value set Annual Wellness Visit"
+        "display": "Value set Annual Wellness Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
       }, {
         "type": "depends-on",
-        "display": "Value set Home Healthcare Services"
+        "display": "Value set Home Healthcare Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
       }, {
         "type": "depends-on",
-        "display": "Value set Hospice care ambulatory"
+        "display": "Value set Hospice care ambulatory",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
       }, {
         "type": "depends-on",
-        "display": "Value set Care Services in Long-Term Residential Facility"
+        "display": "Value set Care Services in Long-Term Residential Facility",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
       }, {
         "type": "depends-on",
-        "display": "Value set Nursing Facility Visit"
+        "display": "Value set Nursing Facility Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Device"
+        "display": "Value set Frailty Device",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Diagnosis"
+        "display": "Value set Frailty Diagnosis",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Encounter"
+        "display": "Value set Frailty Encounter",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Symptom"
+        "display": "Value set Frailty Symptom",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
       }, {
         "type": "depends-on",
-        "display": "Value set Outpatient"
+        "display": "Value set Outpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
       }, {
         "type": "depends-on",
-        "display": "Value set Observation"
+        "display": "Value set Observation",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
       }, {
         "type": "depends-on",
-        "display": "Value set Nonacute Inpatient"
+        "display": "Value set Nonacute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
       }, {
         "type": "depends-on",
-        "display": "Value set Advanced Illness"
+        "display": "Value set Advanced Illness",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1082"
       }, {
         "type": "depends-on",
-        "display": "Value set Acute Inpatient"
+        "display": "Value set Acute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083"
       }, {
         "type": "depends-on",
-        "display": "Value set Dementia Medications"
+        "display": "Value set Dementia Medications",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -705,231 +792,288 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "component", "code", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "code": [ {
+            "system": "http://loinc.org",
+            "code": "85354-9",
+            "display": "blood pressure"
+          } ]
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "component", "code", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "code": [ {
+            "system": "http://loinc.org",
+            "code": "85354-9",
+            "display": "blood pressure"
+          } ]
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "component", "code", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "code": [ {
+            "system": "http://loinc.org",
+            "code": "85354-9",
+            "display": "blood pressure"
+          } ]
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "component", "code", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "code": [ {
+            "system": "http://loinc.org",
+            "code": "85354-9",
+            "display": "blood pressure"
+          } ]
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "component", "code", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "code": [ {
+            "system": "http://loinc.org",
+            "code": "85354-9",
+            "display": "blood pressure"
+          } ]
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "component", "code", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "code": [ {
+            "system": "http://loinc.org",
+            "code": "85354-9",
+            "display": "blood pressure"
+          } ]
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code", "verificationStatus" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.353"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1029"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1002"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "type", "status" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1014"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "hospitalization", "hospitalization.dischargeDisposition", "type", "status" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
         } ]
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1011"
         } ]
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1012"
         } ]
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1013"
         } ]
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
         "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
         } ]
       }, {
         "type": "ServiceRequest",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
         "mustSupport": [ "code", "authoredOn", "intent" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
         } ]
       }, {
         "type": "DeviceRequest",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceRequest" ],
         "mustSupport": [ "code", "authoredOn" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
         } ]
       } ],
       "content": [ {
@@ -977,115 +1121,152 @@
       "description": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library SDE"
+        "display": "Library SDE",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Global"
+        "display": "Library Global",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library AdultOutpatientEncounters"
+        "display": "Library AdultOutpatientEncounters",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Hospice"
+        "display": "Library Hospice",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Frailty"
+        "display": "Library Frailty",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
       }, {
         "type": "depends-on",
-        "display": "Library SurveillanceDataElements"
+        "display": "Library SurveillanceDataElements",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods"
+        "display": "Code system ISO-8601-Derived Periods",
+        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
-        "display": "Code system ConditionClinicalStatusCodes"
+        "display": "Code system ConditionClinicalStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
       }, {
         "type": "depends-on",
-        "display": "Code system SNOMEDCT:2017-09"
+        "display": "Code system SNOMEDCT:2017-09",
+        "resource": "http://snomed.info/sct|http://snomed.info/sct/version/201709"
       }, {
         "type": "depends-on",
-        "display": "Value set Annual Wellness Visit"
+        "display": "Value set Annual Wellness Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
       }, {
         "type": "depends-on",
-        "display": "Value set Diabetes"
+        "display": "Value set Diabetes",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
       }, {
         "type": "depends-on",
-        "display": "Value set Discharged to Health Care Facility for Hospice Care"
+        "display": "Value set Discharged to Health Care Facility for Hospice Care",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.207"
       }, {
         "type": "depends-on",
-        "display": "Value set Discharged to Home for Hospice Care"
+        "display": "Value set Discharged to Home for Hospice Care",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.209"
       }, {
         "type": "depends-on",
-        "display": "Value set Encounter Inpatient"
+        "display": "Value set Encounter Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
       }, {
         "type": "depends-on",
-        "display": "Value set HbA1c Laboratory Test"
+        "display": "Value set HbA1c Laboratory Test",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013"
       }, {
         "type": "depends-on",
-        "display": "Value set Home Healthcare Services"
+        "display": "Value set Home Healthcare Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
       }, {
         "type": "depends-on",
-        "display": "Value set Hospice care ambulatory"
+        "display": "Value set Hospice care ambulatory",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
       }, {
         "type": "depends-on",
-        "display": "Value set Office Visit"
+        "display": "Value set Office Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
       }, {
         "type": "depends-on",
-        "display": "Value set Payer"
+        "display": "Value set Payer",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Device"
+        "display": "Value set Frailty Device",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Diagnosis"
+        "display": "Value set Frailty Diagnosis",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Encounter"
+        "display": "Value set Frailty Encounter",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Symptom"
+        "display": "Value set Frailty Symptom",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
       }, {
         "type": "depends-on",
-        "display": "Value set Outpatient"
+        "display": "Value set Outpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
       }, {
         "type": "depends-on",
-        "display": "Value set Observation"
+        "display": "Value set Observation",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
       }, {
         "type": "depends-on",
-        "display": "Value set ED"
+        "display": "Value set ED",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
       }, {
         "type": "depends-on",
-        "display": "Value set Nonacute Inpatient"
+        "display": "Value set Nonacute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
       }, {
         "type": "depends-on",
-        "display": "Value set Advanced Illness"
+        "display": "Value set Advanced Illness",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1082"
       }, {
         "type": "depends-on",
-        "display": "Value set Acute Inpatient"
+        "display": "Value set Acute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083"
       }, {
         "type": "depends-on",
-        "display": "Value set Dementia Medications"
+        "display": "Value set Dementia Medications",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
       }, {
         "type": "depends-on",
-        "display": "Value set Care Services in Long-Term Residential Facility"
+        "display": "Value set Care Services in Long-Term Residential Facility",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
       }, {
         "type": "depends-on",
-        "display": "Value set Nursing Facility Visit"
+        "display": "Value set Nursing Facility Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -1211,140 +1392,160 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "hospitalization", "hospitalization.dischargeDisposition", "type", "status" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code", "clinicalStatus" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
         } ]
       }, {
         "type": "Condition",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "code", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013"
         } ]
       }, {
         "type": "Observation",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "effective", "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
         } ]
       }, {
         "type": "ServiceRequest",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
         "mustSupport": [ "code", "authoredOn", "intent" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
         } ]
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
         "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
         } ]
       }, {
         "type": "DeviceRequest",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceRequest" ],
         "mustSupport": [ "code", "authoredOn" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
         } ]
       } ],
       "content": [ {
@@ -1390,23 +1591,23 @@
       },
       "date": "2019-08-08",
       "publisher": "Health Level 7 International - Clinical Quality Information Work Group",
+      "contact": [ {
+        "telecom": [ {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
+        } ]
+      } ],
       "description": "Model definition for the FHIR R4 (v4.0.1) Model",
-      "approvalDate": "2019-08-08",
-      "lastReviewDate": "2020-06-19",
       "jurisdiction": [ {
         "coding": [ {
           "system": "http://unstats.un.org/unsd/methods/m49/m49.htm",
           "code": "001"
         } ]
       } ],
+      "approvalDate": "2019-08-08",
+      "lastReviewDate": "2020-06-19",
       "topic": [ {
         "text": "FHIR"
-      } ],
-      "contact": [ {
-        "telecom": [ {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/cqi/index.cfm"
-        } ]
       } ],
       "content": [ {
         "contentType": "application/xml",
@@ -1447,7 +1648,8 @@
       "description": "FHIRHelpers",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       } ],
       "content": [ {
         "contentType": "text/cql",
@@ -1494,22 +1696,28 @@
       "description": "HospiceFHIR4",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library Global"
+        "display": "Library Global",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Code system SNOMEDCT:2017-09"
+        "display": "Code system SNOMEDCT:2017-09",
+        "resource": "http://snomed.info/sct|http://snomed.info/sct/version/201709"
       }, {
         "type": "depends-on",
-        "display": "Value set Encounter Inpatient"
+        "display": "Value set Encounter Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
       }, {
         "type": "depends-on",
-        "display": "Value set Hospice care ambulatory"
+        "display": "Value set Hospice care ambulatory",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -1538,21 +1746,24 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "hospitalization", "hospitalization.dischargeDisposition", "type", "status" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
         } ]
       }, {
         "type": "ServiceRequest",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
         "mustSupport": [ "code", "authoredOn", "intent" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
         } ]
       }, {
         "type": "Procedure",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
         "mustSupport": [ "code", "performed", "status" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
         } ]
       } ],
       "content": [ {
@@ -1600,46 +1811,60 @@
       "description": "MATGlobalCommonFunctionsFHIR4",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Code system ConditionClinicalStatusCodes"
+        "display": "Code system ConditionClinicalStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
       }, {
         "type": "depends-on",
-        "display": "Code system AllergyIntoleranceClinicalStatusCodes"
+        "display": "Code system AllergyIntoleranceClinicalStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"
       }, {
         "type": "depends-on",
-        "display": "Code system AllergyIntoleranceVerificationStatusCodes"
+        "display": "Code system AllergyIntoleranceVerificationStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"
       }, {
         "type": "depends-on",
-        "display": "Code system Diagnosis Role"
+        "display": "Code system Diagnosis Role",
+        "resource": "http://terminology.hl7.org/CodeSystem/diagnosis-role"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Code system MedicationRequestCategory"
+        "display": "Code system MedicationRequestCategory",
+        "resource": "http://terminology.hl7.org/CodeSystem/medicationrequest-category"
       }, {
         "type": "depends-on",
-        "display": "Code system ConditionVerificationStatusCodes"
+        "display": "Code system ConditionVerificationStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
       }, {
         "type": "depends-on",
-        "display": "Code system SNOMEDCT"
+        "display": "Code system SNOMEDCT",
+        "resource": "http://snomed.info/sct"
       }, {
         "type": "depends-on",
-        "display": "Code system RoleCode"
+        "display": "Code system RoleCode",
+        "resource": "http://terminology.hl7.org/CodeSystem/v3-RoleCode"
       }, {
         "type": "depends-on",
-        "display": "Value set Emergency Department Visit"
+        "display": "Value set Emergency Department Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
       }, {
         "type": "depends-on",
-        "display": "Value set Encounter Inpatient"
+        "display": "Value set Encounter Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
       }, {
         "type": "depends-on",
-        "display": "Value set Observation Services"
+        "display": "Value set Observation Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -1668,21 +1893,24 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "type", "status" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1111.143"
         } ]
       }, {
         "type": "Encounter",
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
         "mustSupport": [ "period", "type", "status" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.292"
         } ]
       }, {
         "type": "Condition",
@@ -1739,28 +1967,36 @@
       },
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library SDE"
+        "display": "Library SDE",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library SurveillanceDataElements"
+        "display": "Library SurveillanceDataElements",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Common"
+        "display": "Library Common",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods"
+        "display": "Code system ISO-8601-Derived Periods",
+        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Value set Payer"
+        "display": "Value set Payer",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -1889,22 +2125,28 @@
       "description": "SupplementalDataElementsFHIR4",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Value set Ethnicity"
+        "display": "Value set Ethnicity",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.837"
       }, {
         "type": "depends-on",
-        "display": "Value set ONC Administrative Sex"
+        "display": "Value set ONC Administrative Sex",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1"
       }, {
         "type": "depends-on",
-        "display": "Value set Payer"
+        "display": "Value set Payer",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       }, {
         "type": "depends-on",
-        "display": "Value set Race"
+        "display": "Value set Race",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836"
       } ],
       "parameter": [ {
         "name": "Patient",
@@ -1946,7 +2188,8 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Coverage" ],
         "mustSupport": [ "period", "type" ],
         "codeFilter": [ {
-          "path": "type"
+          "path": "type",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
         } ]
       } ],
       "content": [ {
@@ -1994,25 +2237,32 @@
       "description": "Example Surveillance Data Elements for Chronic disease surveillance using quality measure and public health reporting standards",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "FHIR model information"
+        "display": "FHIR model information",
+        "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library Common"
+        "display": "Library Common",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library AdultOutpatientEncounters"
+        "display": "Library AdultOutpatientEncounters",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Code system Jurisdictions"
+        "display": "Code system Jurisdictions",
+        "resource": "http://hl7.org/fhir/us/ecr/CodeSystem/ersd-jurisdictions-example"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods"
+        "display": "Code system ISO-8601-Derived Periods",
+        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       } ],
       "parameter": [ {
         "name": "Measurement Period",
@@ -2072,7 +2322,12 @@
         "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
         "mustSupport": [ "code" ],
         "codeFilter": [ {
-          "path": "code"
+          "path": "code",
+          "code": [ {
+            "system": "http://loinc.org",
+            "code": "88124-3",
+            "display": "Food insecurity risk [HVS]"
+          } ]
         } ]
       } ],
       "content": [ {
@@ -2236,7 +2491,12 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
           "mustSupport": [ "effective", "component", "code", "status" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "code": [ {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "blood pressure"
+            } ]
           } ]
         }
       }, {
@@ -2246,7 +2506,12 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
           "mustSupport": [ "effective", "component", "code", "status" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "code": [ {
+              "system": "http://loinc.org",
+              "code": "85354-9",
+              "display": "blood pressure"
+            } ]
           } ]
         }
       }, {
@@ -2256,7 +2521,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
           } ]
         }
       }, {
@@ -2266,7 +2532,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
           } ]
         }
       }, {
@@ -2276,7 +2543,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
           } ]
         }
       }, {
@@ -2286,7 +2554,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
           } ]
         }
       }, {
@@ -2296,7 +2565,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
           } ]
         }
       }, {
@@ -2418,16 +2688,15 @@
       "title": "Controlling Blood Pressure",
       "status": "draft",
       "experimental": true,
-      "date": "2021-08-18T10:01:02-06:00",
+      "date": "2021-08-18T11:02:46-06:00",
       "publisher": "National Committee for Quality Assurance (NCQA)",
+      "contact": [ {
+        "telecom": [ {
+          "system": "url",
+          "value": "http://www.ncqa.org/"
+        } ]
+      } ],
       "description": "Percentage of patients 18-85 years of age who had a diagnosis of hypertension overlapping the measurement period and whose most recent blood pressure was adequately controlled (<140/90mmHg) during the measurement period",
-      "purpose": "Patients 18-85 years of age who had a visit and diagnosis of essential hypertension overlapping the measurement period",
-      "approvalDate": "2016-01-01",
-      "lastReviewDate": "2016-09-01",
-      "effectivePeriod": {
-        "start": "2019-01-01",
-        "end": "2019-12-31"
-      },
       "useContext": [ {
         "code": {
           "code": "program"
@@ -2442,6 +2711,14 @@
           "code": "US"
         } ]
       } ],
+      "purpose": "Patients 18-85 years of age who had a visit and diagnosis of essential hypertension overlapping the measurement period",
+      "copyright": "This Physician Performance Measure (Measure) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2017 National Committee for Quality Assurance. All Rights Reserved. <br> Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. <br> CPT(R) contained in the Measure specifications is copyright 2004-2017 American Medical Association. LOINC(R) copyright 2004-2017 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R] ) copyright 2004-2017 International Health Terminology Standards Development Organisation. ICD-10 copyright 2017 World Health Organization. All Rights Reserved.",
+      "approvalDate": "2016-01-01",
+      "lastReviewDate": "2016-09-01",
+      "effectivePeriod": {
+        "start": "2019-01-01",
+        "end": "2019-12-31"
+      },
       "topic": [ {
         "coding": [ {
           "system": "http://loinc.org",
@@ -2449,59 +2726,68 @@
           "display": "Health Quality Measure Document"
         } ]
       } ],
-      "contact": [ {
-        "telecom": [ {
-          "system": "url",
-          "value": "http://www.ncqa.org/"
-        } ]
-      } ],
-      "copyright": "This Physician Performance Measure (Measure) and related data specifications were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (eg, use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2017 National Committee for Quality Assurance. All Rights Reserved. <br> Limited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications. <br> CPT(R) contained in the Measure specifications is copyright 2004-2017 American Medical Association. LOINC(R) copyright 2004-2017 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R] ) copyright 2004-2017 International Health Terminology Standards Development Organisation. ICD-10 copyright 2017 World Health Organization. All Rights Reserved.",
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "Library SurveillanceDataElements"
+        "display": "Library SurveillanceDataElements",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library SDE"
+        "display": "Library SDE",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Common"
+        "display": "Library Common",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library AdultOutpatientEncounters"
+        "display": "Library AdultOutpatientEncounters",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Code system ConditionVerificationStatusCodes"
+        "display": "Code system ConditionVerificationStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods"
+        "display": "Code system ISO-8601-Derived Periods",
+        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
-        "display": "Value set Essential Hypertension"
+        "display": "Value set Essential Hypertension",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.104.12.1011"
       }, {
         "type": "depends-on",
-        "display": "Value set Office Visit"
+        "display": "Value set Office Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
       }, {
         "type": "depends-on",
-        "display": "Value set Annual Wellness Visit"
+        "display": "Value set Annual Wellness Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
       }, {
         "type": "depends-on",
-        "display": "Value set Home Healthcare Services"
+        "display": "Value set Home Healthcare Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
       }, {
         "type": "depends-on",
-        "display": "Value set Payer"
+        "display": "Value set Payer",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       } ],
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
       "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
       "scoring": {
         "coding": [ {
@@ -2515,8 +2801,14 @@
           "code": "process"
         } ]
       } ],
-      "rationale": "High blood pressure (HBP), also known as hypertension, is when the pressure in blood vessels is higher than normal (Centers for Disease Control and Prevention [CDC], 2016). The causes of hypertension are multiple and multifaceted and can be based on genetic predisposition, environmental risk factors, being overweight and obese, sodium intake, potassium intake, physical activity, and alcohol use. High Blood Pressure is common, according to the National Health and Nutrition Examination Survey (NHANES), approximately 85.7 million adults >= 20 years of age had HBP (140/90 mm Hg) between 2011 to 2014 (Crim, 2012. Between 2011-2014 the prevalence of hypertension (>=140/90 mm Hg) among US adults 60 and older was approximately 67.2 percent (Benjamin et al., 2017). \n\nHBP, known as the “silent killer,�? increases risks of heart disease and stroke which are two of the leading causes of death in the U.S. (Yoon, Fryar, & Carroll, 2015). A person who has HBP is four times more likely to die from a stroke and three times more likely to die from heart disease (CDC, 2012) The National Vital Statistics Systems Center for Disease Control and Prevention reported that in 2014 there were approximately 73,300 deaths directly due to HBP and 410,624 deaths with any mention of HBP (CDC, 20145).Between 2004 and 2014 the number of deaths due to HBP rose by 34.1 percent (Benjamin et al., 2017). Managing and treating HBP would reduce cardiovascular disease mortality for males and females by 30.4 percent and 38.0 percent, respectively (Patel et al., 2015).\n\nThe estimated annual average direct and indirect cost of HBP from 2012 to 2013 was $51.2 billion (Benjamin et al., 2017). Total direct costs of HBP is projected to increase to $200 billion by 2030 (Benjamin et al., 2017). A study on cost-effectiveness on treating hypertension found that controlling HBP in patients with cardiovascular disease and systolic blood pressures of >=160 mm Hg could be effective and cost-saving (Moran et al., 2015). \n\nMany studies have shown that controlling high blood pressure reduces cardiovascular events and mortality. The Systolic Blood Pressure Intervention Trial (SPRINT) investigated the impact of obtaining a SBP goal of <120 mm Hg compared to a SBP goal of <140 mm Hg among patients 50 and older with established cardiovascular disease and found that the patients with the former goal had reduced cardiovascular events and mortality (SPRINT Research Group et al., 2015). \n\nControlling HBP will significantly reduce the risks of cardiovascular disease mortality and lead to better health outcomes like reduction of heart attacks, stroke, and kidney disease (James et al., 2014). Thus, the relationship between the measure (control of hypertension) and the long-term clinical outcomes listed is well established.",
+      "rationale": "High blood pressure (HBP), also known as hypertension, is when the pressure in blood vessels is higher than normal (Centers for Disease Control and Prevention [CDC], 2016). The causes of hypertension are multiple and multifaceted and can be based on genetic predisposition, environmental risk factors, being overweight and obese, sodium intake, potassium intake, physical activity, and alcohol use. High Blood Pressure is common, according to the National Health and Nutrition Examination Survey (NHANES), approximately 85.7 million adults >= 20 years of age had HBP (140/90 mm Hg) between 2011 to 2014 (Crim, 2012. Between 2011-2014 the prevalence of hypertension (>=140/90 mm Hg) among US adults 60 and older was approximately 67.2 percent (Benjamin et al., 2017). \n\nHBP, known as the “silent killer,” increases risks of heart disease and stroke which are two of the leading causes of death in the U.S. (Yoon, Fryar, & Carroll, 2015). A person who has HBP is four times more likely to die from a stroke and three times more likely to die from heart disease (CDC, 2012) The National Vital Statistics Systems Center for Disease Control and Prevention reported that in 2014 there were approximately 73,300 deaths directly due to HBP and 410,624 deaths with any mention of HBP (CDC, 20145).Between 2004 and 2014 the number of deaths due to HBP rose by 34.1 percent (Benjamin et al., 2017). Managing and treating HBP would reduce cardiovascular disease mortality for males and females by 30.4 percent and 38.0 percent, respectively (Patel et al., 2015).\n\nThe estimated annual average direct and indirect cost of HBP from 2012 to 2013 was $51.2 billion (Benjamin et al., 2017). Total direct costs of HBP is projected to increase to $200 billion by 2030 (Benjamin et al., 2017). A study on cost-effectiveness on treating hypertension found that controlling HBP in patients with cardiovascular disease and systolic blood pressures of >=160 mm Hg could be effective and cost-saving (Moran et al., 2015). \n\nMany studies have shown that controlling high blood pressure reduces cardiovascular events and mortality. The Systolic Blood Pressure Intervention Trial (SPRINT) investigated the impact of obtaining a SBP goal of <120 mm Hg compared to a SBP goal of <140 mm Hg among patients 50 and older with established cardiovascular disease and found that the patients with the former goal had reduced cardiovascular events and mortality (SPRINT Research Group et al., 2015). \n\nControlling HBP will significantly reduce the risks of cardiovascular disease mortality and lead to better health outcomes like reduction of heart attacks, stroke, and kidney disease (James et al., 2014). Thus, the relationship between the measure (control of hypertension) and the long-term clinical outcomes listed is well established.",
       "clinicalRecommendationStatement": "The U.S. Preventive Services Task Force (2015) recommends  screening for high blood pressure in adults age 18 years and older. This is a grade A recommendation. \n\nAmerican College of Cardiology/American Heart Association (2017)\n-For adults with confirmed hypertension and known CVD or 10-year ASCVD event risk of 10% or higher, a blood pressure target of less than 130/80 mmHg is recommended\n-For adults with confirmed hypertension, without additional markers of increased CVD risk, a blood pressure target of less than 130/80 mmHg may be reasonable (Note: clinical trial evidence is strongest for a target blood pressure of 140/90 mmHg in this population. However observational studies suggest that these individuals often have a high lifetime risk and would benefit from blood pressure control earlier in life)\n\nAmerican College of Physicians and the American Academy of Family Physicians (2017):  \n-Initiate intensifying pharmacologic treatment in adults aged 60 and older at high cardiovascular risk, based on individualized assessment, to achieve a target systolic blood pressure of less than 140 mmHg (Grade: weak recommendation, quality of evidence: low)\n-Initiate intensifying pharmacologic treatment in adults aged 60 and older with a history of stroke or transient ischemic attack to achieve a target systolic blood pressure of less than 140 mmHg to reduce the risk of recurrent stroke (Grade: weak recommendation, quality of evidence: moderate)\n\nAmerican Diabetes Association (2018):\nMost patients with diabetes and hypertension should be treated to a systolic blood pressure goal of <140 mmHg and a diastolic blood pressure goal of <90 mmHg (Level of evidence: A)\n\nReport from the Eighth Joint National Committee (2014)\n-In the general population younger than 60 years, initiate pharmacologic treatment to lower blood pressure at diastolic blood pressure (DBP) of 90 mmHg or higher and treat to a goal of DBP of lower than 90 mmHg (Grade: A (for ages 30-59), Grade: E (for ages 18-29))\n-In the general population younger than 60 years, initiate pharmacologic treatment to lower blood pressure at systolic blood pressure (SBP) to 140 mmHg or higher and treat to a goal of SBP of lower than 140 mmHg (Grade: E)\n-In the general population aged 60 years and older, initiate pharmacologic treatment to lower blood pressure at SBP of 150 mmHg or higher or a DBP of 90 mmHg or higher and treat to a goal of SBP lower than 150 mmHg and goal of DBP lower than 90 mmHg",
+      "improvementNotation": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+          "code": "increase"
+        } ]
+      },
       "guidance": "In reference to the numerator element, only blood pressure readings performed by a clinician or a remote monitoring device are acceptable  for numerator compliance with this measure. \n\nDo not include BP readings:\n-Taken during an acute inpatient stay or an ED visit\n-Taken on the same day as a diagnostic test or diagnostic or therapeutic procedure that requires a change in diet or change in medication on or one day before the day of the test or procedure, with the exception of fasting blood tests.\n-Reported by or taken by the member\n\n\nIf no blood pressure is recorded during the measurement period, the patient's blood pressure is assumed \"not controlled.\"\n\nIf there are multiple blood pressure readings on the same day, use the lowest systolic and the lowest diastolic reading as the most recent blood pressure reading.",
       "group": [ {
         "id": "group-1",
@@ -2528,7 +2820,11 @@
               "display": "Initial Population"
             } ]
           },
-          "description": "Seen patients between 18 and 85 years of age with a diagnosis of essential hypertension"
+          "description": "Seen patients between 18 and 85 years of age with a diagnosis of essential hypertension",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
         }, {
           "code": {
             "coding": [ {
@@ -2537,7 +2833,11 @@
               "display": "Numerator"
             } ]
           },
-          "description": "Patients whose most recent blood pressure measurement < 140 (systolic) / 90 (diastolic)"
+          "description": "Patients whose most recent blood pressure measurement < 140 (systolic) / 90 (diastolic)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Numerator"
+          }
         }, {
           "code": {
             "coding": [ {
@@ -2546,7 +2846,11 @@
               "display": "Denominator"
             } ]
           },
-          "description": "Seen patients between 18 and 85 years of age with a diagnosis of essential hypertension"
+          "description": "Seen patients between 18 and 85 years of age with a diagnosis of essential hypertension",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator"
+          }
         }, {
           "code": {
             "coding": [ {
@@ -2555,65 +2859,258 @@
               "display": "Denominator Exclusion"
             } ]
           },
-          "description": "Patients in hospice or long term care, or with advanced illness or frailty, pregnancy, or end-stage renal disease (ERSD)"
+          "description": "Patients in hospice or long term care, or with advanced illness or frailty, pregnancy, or end-stage renal disease (ERSD)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Denominator Exclusion"
+          }
+        } ],
+        "stratifier": [ {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "54133-4",
+              "display": "Ethnicity"
+            } ],
+            "text": "stratifier-ethnicity"
+          },
+          "description": "Ethnicity (CDC Value Set)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Ethnicity"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+              "code": "plan",
+              "display": "Plan"
+            } ],
+            "text": "stratifier-payer"
+          },
+          "description": "Payer",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Payer"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "32624-9",
+              "display": "Race"
+            } ],
+            "text": "stratifier-race"
+          },
+          "description": "Race (CDC Value Set)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Race"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "72143-1",
+              "display": "Sex [HL7.v3]"
+            } ],
+            "text": "stratifier-sex"
+          },
+          "description": "Administrative sex",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Sex"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "30525-0",
+              "display": "Age"
+            } ],
+            "text": "stratifier-age-group"
+          },
+          "description": "Age Group",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Age Group"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "88124-3",
+              "display": "Food insecurity risk [HVS]"
+            } ],
+            "text": "stratifier-food-insecurity-risk-status"
+          },
+          "description": "Food insecurity risk status",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Food Insecurity Risk Status"
+          }
         } ]
       } ],
       "supplementalData": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "54133-4",
+            "display": "Ethnicity"
+          } ],
+          "text": "sde-ethnicity"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Ethnicity (CDC Value Set)",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Ethnicity"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan",
+            "display": "Plan"
+          } ],
+          "text": "sde-payer"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Payer",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Payer"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "32624-9",
+            "display": "Race"
+          } ],
+          "text": "sde-race"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Race (CDC Value Set)",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Race"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "72143-1",
+            "display": "Sex [HL7.v3]"
+          } ],
+          "text": "sde-sex"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Administrative sex",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Sex"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "30525-0",
+            "display": "Age"
+          } ],
+          "text": "sde-age"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Age",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Age"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "52830-7",
+            "display": "State, district or territory federal abbreviation"
+          } ],
+          "text": "sde-state-of-residence"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "State of residence",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE State of Residence"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "45401-7",
+            "display": "Postal code"
+          } ],
+          "text": "sde-postal-code-of-residence"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Postal code of residence",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Postal Code of Residence"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "88124-3",
+            "display": "Food insecurity risk [HVS]"
+          } ],
+          "text": "sde-food-insecurity-risk-status"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Food insecurity risk status",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Food Insecurity Risk Status"
+        }
       } ]
     },
     "request": {
@@ -2776,7 +3273,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
           } ]
         }
       }, {
@@ -2786,7 +3284,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
           } ]
         }
       }, {
@@ -2796,7 +3295,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
           } ]
         }
       }, {
@@ -2806,7 +3306,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
           } ]
         }
       }, {
@@ -2816,7 +3317,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
           } ]
         }
       }, {
@@ -2826,7 +3328,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "period", "hospitalization", "hospitalization.dischargeDisposition", "type", "status" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
           } ]
         }
       }, {
@@ -2836,7 +3339,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "period", "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
           } ]
         }
       }, {
@@ -2846,7 +3350,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
           } ]
         }
       }, {
@@ -2856,7 +3361,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
           } ]
         }
       }, {
@@ -2866,7 +3372,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
           } ]
         }
       }, {
@@ -2876,7 +3383,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
           } ]
         }
       }, {
@@ -2886,7 +3394,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
           } ]
         }
       }, {
@@ -2896,7 +3405,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
           "mustSupport": [ "type" ],
           "codeFilter": [ {
-            "path": "type"
+            "path": "type",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
           } ]
         }
       }, {
@@ -2906,7 +3416,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
           "mustSupport": [ "code", "clinicalStatus" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
           } ]
         }
       }, {
@@ -2916,7 +3427,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
           "mustSupport": [ "code" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
           } ]
         }
       }, {
@@ -2926,7 +3438,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
           "mustSupport": [ "code", "authoredOn", "intent" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
           } ]
         }
       }, {
@@ -2936,7 +3449,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
           "mustSupport": [ "code", "performed", "status" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
           } ]
         }
       }, {
@@ -2946,7 +3460,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/DeviceRequest" ],
           "mustSupport": [ "code", "authoredOn" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
           } ]
         }
       }, {
@@ -2956,7 +3471,8 @@
           "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
           "mustSupport": [ "effective", "code" ],
           "codeFilter": [ {
-            "path": "code"
+            "path": "code",
+            "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
           } ]
         }
       }, {
@@ -3082,124 +3598,159 @@
       "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
       "status": "draft",
       "experimental": false,
-      "date": "2021-08-18T10:01:03-06:00",
+      "date": "2021-08-18T11:02:46-06:00",
       "publisher": "National Committee for Quality Assurance",
-      "description": "Percentage of patients 18-75 years of age with diabetes who had hemoglobin A1c > 9.0% during the measurement period",
-      "purpose": "Unknown",
-      "effectivePeriod": {
-        "start": "2022-01-01",
-        "end": "2022-12-31"
-      },
       "contact": [ {
         "telecom": [ {
           "system": "url",
           "value": "https://cms.gov"
         } ]
       } ],
+      "description": "Percentage of patients 18-75 years of age with diabetes who had hemoglobin A1c > 9.0% during the measurement period",
+      "purpose": "Unknown",
       "copyright": "This Physician Performance Measure (Measure) and related data specifications are owned and were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (e.g., use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2020 National Committee for Quality Assurance. All Rights Reserved. \n\nLimited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third party codes contained in the specifications.\n\nCPT(R) contained in the Measure specifications is copyright 2004-2020 American Medical Association. LOINC(R) copyright 2004-2020 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2020 International Health Terminology Standards Development Organisation. ICD-10 copyright 2020 World Health Organization. All Rights Reserved.",
+      "effectivePeriod": {
+        "start": "2022-01-01",
+        "end": "2022-12-31"
+      },
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "Library SurveillanceDataElements"
+        "display": "Library SurveillanceDataElements",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library SDE"
+        "display": "Library SDE",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Global"
+        "display": "Library Global",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library AdultOutpatientEncounters"
+        "display": "Library AdultOutpatientEncounters",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Hospice"
+        "display": "Library Hospice",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Frailty"
+        "display": "Library Frailty",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
       }, {
         "type": "depends-on",
-        "display": "Code system ConditionClinicalStatusCodes"
+        "display": "Code system ConditionClinicalStatusCodes",
+        "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods"
+        "display": "Code system ISO-8601-Derived Periods",
+        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Code system SNOMEDCT:2017-09"
+        "display": "Code system SNOMEDCT:2017-09",
+        "resource": "http://snomed.info/sct|http://snomed.info/sct/version/201709"
       }, {
         "type": "depends-on",
-        "display": "Value set HbA1c Laboratory Test"
+        "display": "Value set HbA1c Laboratory Test",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013"
       }, {
         "type": "depends-on",
-        "display": "Value set Office Visit"
+        "display": "Value set Office Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1001"
       }, {
         "type": "depends-on",
-        "display": "Value set Annual Wellness Visit"
+        "display": "Value set Annual Wellness Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1240"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services - Established Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1025"
       }, {
         "type": "depends-on",
-        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up"
+        "display": "Value set Preventive Care Services-Initial Office Visit, 18 and Up",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1023"
       }, {
         "type": "depends-on",
-        "display": "Value set Home Healthcare Services"
+        "display": "Value set Home Healthcare Services",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1016"
       }, {
         "type": "depends-on",
-        "display": "Value set Diabetes"
+        "display": "Value set Diabetes",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
       }, {
         "type": "depends-on",
-        "display": "Value set Payer"
+        "display": "Value set Payer",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       }, {
         "type": "depends-on",
-        "display": "Value set Encounter Inpatient"
+        "display": "Value set Encounter Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.666.5.307"
       }, {
         "type": "depends-on",
-        "display": "Value set Hospice care ambulatory"
+        "display": "Value set Hospice care ambulatory",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1108.15"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Device"
+        "display": "Value set Frailty Device",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Diagnosis"
+        "display": "Value set Frailty Diagnosis",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Encounter"
+        "display": "Value set Frailty Encounter",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088"
       }, {
         "type": "depends-on",
-        "display": "Value set Frailty Symptom"
+        "display": "Value set Frailty Symptom",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1075"
       }, {
         "type": "depends-on",
-        "display": "Value set Outpatient"
+        "display": "Value set Outpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1087"
       }, {
         "type": "depends-on",
-        "display": "Value set Observation"
+        "display": "Value set Observation",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
       }, {
         "type": "depends-on",
-        "display": "Value set ED"
+        "display": "Value set ED",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1085"
       }, {
         "type": "depends-on",
-        "display": "Value set Nonacute Inpatient"
+        "display": "Value set Nonacute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1084"
       }, {
         "type": "depends-on",
-        "display": "Value set Advanced Illness"
+        "display": "Value set Advanced Illness",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.110.12.1082"
       }, {
         "type": "depends-on",
-        "display": "Value set Acute Inpatient"
+        "display": "Value set Acute Inpatient",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083"
       }, {
         "type": "depends-on",
-        "display": "Value set Dementia Medications"
+        "display": "Value set Dementia Medications",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
       }, {
         "type": "depends-on",
-        "display": "Value set Care Services in Long-Term Residential Facility"
+        "display": "Value set Care Services in Long-Term Residential Facility",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014"
       }, {
         "type": "depends-on",
-        "display": "Value set Nursing Facility Visit"
+        "display": "Value set Nursing Facility Visit",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
       } ],
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
       "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
       "scoring": {
         "coding": [ {
@@ -3216,6 +3767,12 @@
       } ],
       "rationale": "Diabetes is the seventh leading cause of death in the United States. In 2017, diabetes affected approximately 34 million Americans (10.5 percent of the U.S. population) and killed approximately 84,000 people (Centers for Disease Control and Prevention [CDC], 2020a). Diabetes is a long-lasting disease marked by high blood glucose levels, resulting from the body's inability to produce or use insulin properly (CDC, 2020a). People with diabetes are at increased risk of serious health complications including vision loss, heart disease, stroke, kidney damage, and amputation of feet or legs (CDC, 2018). \n\nIn 2017, diabetes cost the U.S. an estimated $327 billion: $237 billion in direct medical costs and $90 billion in reduced productivity. This is a 34 percent increase from the estimated $245 billion spent on diabetes in 2012 (American Diabetes Association [ADA], 2018).  \n\nControlling A1c blood levels helps reduce the risk of microvascular complications (eye, kidney and nerve diseases) (ADA, 2020).",
       "clinicalRecommendationStatement": "American Diabetes Association (2020):\n\n- An A1C goal for many nonpregnant adults of <7% (53 mmol/mol) is appropriate. (Level of evidence: A)\n\n- On the basis of provider judgement and patient preference, achievement of lower A1C goals (such as <6.5%) may be acceptable if this can be achieved safely without significant hypoglycemia or other adverse effects of treatment. (Level of evidence: C)\n\n- Less stringent A1C goals (such as <8% [64 mmol/mol]) may be appropriate for patients with a history of severe hypoglycemia, limited life expectancy, advanced microvascular or macrovascular complications, extensive comorbid conditions, or long-standing diabetes in whom the goal is difficult to achieve despite diabetes self-management education, appropriate glucose monitoring, and effective doses of multiple glucose-lowering agents including insulin. (Level of evidence: B)",
+      "improvementNotation": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+          "code": "increase"
+        } ]
+      },
       "guidance": "If the HbA1c test result is in the medical record, the test can be used to determine numerator compliance.\n\nOnly patients with a diagnosis of Type 1 or Type 2 diabetes should be included in the denominator of this measure; patients with a diagnosis of secondary diabetes due to another condition should not be included.\n\nThis eCQM is a patient-based measure.\n\nThis version of the eCQM uses QDM version 5.5. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.",
       "group": [ {
         "population": [ {
@@ -3227,7 +3784,11 @@
               "display": "Initial Population"
             } ]
           },
-          "description": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+          "description": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis",
+          "criteria": {
+            "language": "text/cql.identifier",
+            "expression": "Initial Population"
+          }
         }, {
           "id": "7A50CF87-8EC5-4337-953F-F3B29B71BDED",
           "code": {
@@ -3237,7 +3798,11 @@
               "display": "Denominator"
             } ]
           },
-          "description": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+          "description": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis",
+          "criteria": {
+            "language": "text/cql.identifier",
+            "expression": "Denominator"
+          }
         }, {
           "id": "7B66AF76-EF68-464C-A348-15D05F41AB63",
           "code": {
@@ -3247,7 +3812,11 @@
               "display": "Denominator Exclusion"
             } ]
           },
-          "description": "Patients in hospice or long term care, or with advanced illness or frailty"
+          "description": "Patients in hospice or long term care, or with advanced illness or frailty",
+          "criteria": {
+            "language": "text/cql.identifier",
+            "expression": "Denominator Exclusions"
+          }
         }, {
           "id": "C9719BEF-E3B2-454B-9D09-8CC677DDD912",
           "code": {
@@ -3257,65 +3826,258 @@
               "display": "Numerator"
             } ]
           },
-          "description": "Patients whose most recent HbA1c > 9%"
+          "description": "Patients whose most recent HbA1c > 9%",
+          "criteria": {
+            "language": "text/cql.identifier",
+            "expression": "Numerator"
+          }
+        } ],
+        "stratifier": [ {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "54133-4",
+              "display": "Ethnicity"
+            } ],
+            "text": "stratifier-ethnicity"
+          },
+          "description": "Ethnicity (CDC Value Set)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Ethnicity"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+              "code": "plan",
+              "display": "Plan"
+            } ],
+            "text": "stratifier-payer"
+          },
+          "description": "Payer",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Payer"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "32624-9",
+              "display": "Race"
+            } ],
+            "text": "stratifier-race"
+          },
+          "description": "Race (CDC Value Set)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Race"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "72143-1",
+              "display": "Sex [HL7.v3]"
+            } ],
+            "text": "stratifier-sex"
+          },
+          "description": "Administrative sex",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Sex"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "30525-0",
+              "display": "Age"
+            } ],
+            "text": "stratifier-age-group"
+          },
+          "description": "Age Group",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Age Group"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "88124-3",
+              "display": "Food insecurity risk [HVS]"
+            } ],
+            "text": "stratifier-food-insecurity-risk-status"
+          },
+          "description": "Food insecurity risk status",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Food Insecurity Risk Status"
+          }
         } ]
       } ],
       "supplementalData": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "54133-4",
+            "display": "Ethnicity"
+          } ],
+          "text": "sde-ethnicity"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Ethnicity (CDC Value Set)",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Ethnicity"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan",
+            "display": "Plan"
+          } ],
+          "text": "sde-payer"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Payer",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Payer"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "32624-9",
+            "display": "Race"
+          } ],
+          "text": "sde-race"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Race (CDC Value Set)",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Race"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "72143-1",
+            "display": "Sex [HL7.v3]"
+          } ],
+          "text": "sde-sex"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Administrative sex",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Sex"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "30525-0",
+            "display": "Age"
+          } ],
+          "text": "sde-age"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Age",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Age"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "52830-7",
+            "display": "State, district or territory federal abbreviation"
+          } ],
+          "text": "sde-state-of-residence"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "State of residence",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE State of Residence"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "45401-7",
+            "display": "Postal code"
+          } ],
+          "text": "sde-postal-code-of-residence"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Postal code of residence",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Postal Code of Residence"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "88124-3",
+            "display": "Food insecurity risk [HVS]"
+          } ],
+          "text": "sde-food-insecurity-risk-status"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Food insecurity risk status",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Food Insecurity Risk Status"
+        }
       } ]
     },
     "request": {
@@ -3541,7 +4303,7 @@
       "title": "Seen Patients",
       "status": "draft",
       "experimental": true,
-      "date": "2021-08-18T10:01:03-06:00",
+      "date": "2021-08-18T11:02:46-06:00",
       "description": "Seen patients during the measurement period",
       "purpose": "The Seen Patients cohort measure is defined to provide a baseline for chronic disease surveillance. For each individual in the cohort, supplemental data is collected aligning with the supplemental data defined for other chronic disease surveillance measure usages, allowing for analytics across and between specific measures.",
       "topic": [ {
@@ -3553,26 +4315,34 @@
       } ],
       "relatedArtifact": [ {
         "type": "depends-on",
-        "display": "Library SDE"
+        "display": "Library SDE",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library FHIRHelpers"
+        "display": "Library FHIRHelpers",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
-        "display": "Library SurveillanceDataElements"
+        "display": "Library SurveillanceDataElements",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
-        "display": "Library Common"
+        "display": "Library Common",
+        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
-        "display": "Code system ISO-8601-Derived Periods"
+        "display": "Code system ISO-8601-Derived Periods",
+        "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
       }, {
         "type": "depends-on",
-        "display": "Code system LOINC"
+        "display": "Code system LOINC",
+        "resource": "http://loinc.org"
       }, {
         "type": "depends-on",
-        "display": "Value set Payer"
+        "display": "Value set Payer",
+        "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       } ],
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients" ],
       "scoring": {
         "coding": [ {
           "system": "http://hl7.org/fhir/measure-scoring",
@@ -3596,65 +4366,258 @@
               "display": "Initial Population"
             } ]
           },
-          "description": "Seen patients"
+          "description": "Seen patients",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "Initial Population"
+          }
+        } ],
+        "stratifier": [ {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "54133-4",
+              "display": "Ethnicity"
+            } ],
+            "text": "stratifier-ethnicity"
+          },
+          "description": "Ethnicity (CDC Value Set)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Ethnicity"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+              "code": "plan",
+              "display": "Plan"
+            } ],
+            "text": "stratifier-payer"
+          },
+          "description": "Payer",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Payer"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "32624-9",
+              "display": "Race"
+            } ],
+            "text": "stratifier-race"
+          },
+          "description": "Race (CDC Value Set)",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Race"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "72143-1",
+              "display": "Sex [HL7.v3]"
+            } ],
+            "text": "stratifier-sex"
+          },
+          "description": "Administrative sex",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Sex"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "30525-0",
+              "display": "Age"
+            } ],
+            "text": "stratifier-age-group"
+          },
+          "description": "Age Group",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Age Group"
+          }
+        }, {
+          "code": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "88124-3",
+              "display": "Food insecurity risk [HVS]"
+            } ],
+            "text": "stratifier-food-insecurity-risk-status"
+          },
+          "description": "Food insecurity risk status",
+          "criteria": {
+            "language": "text/cql",
+            "expression": "SDE Food Insecurity Risk Status"
+          }
         } ]
       } ],
       "supplementalData": [ {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "54133-4",
+            "display": "Ethnicity"
+          } ],
+          "text": "sde-ethnicity"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Ethnicity (CDC Value Set)",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Ethnicity"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan",
+            "display": "Plan"
+          } ],
+          "text": "sde-payer"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Payer",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Payer"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "32624-9",
+            "display": "Race"
+          } ],
+          "text": "sde-race"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Race (CDC Value Set)",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Race"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "72143-1",
+            "display": "Sex [HL7.v3]"
+          } ],
+          "text": "sde-sex"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Administrative sex",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Sex"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "30525-0",
+            "display": "Age"
+          } ],
+          "text": "sde-age"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Age",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Age"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "52830-7",
+            "display": "State, district or territory federal abbreviation"
+          } ],
+          "text": "sde-state-of-residence"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "State of residence",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE State of Residence"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "45401-7",
+            "display": "Postal code"
+          } ],
+          "text": "sde-postal-code-of-residence"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Postal code of residence",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Postal Code of Residence"
+        }
       }, {
+        "code": {
+          "coding": [ {
+            "system": "http://loinc.org",
+            "code": "88124-3",
+            "display": "Food insecurity risk [HVS]"
+          } ],
+          "text": "sde-food-insecurity-risk-status"
+        },
         "usage": [ {
           "coding": [ {
             "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
             "code": "supplemental-data"
           } ]
-        } ]
+        } ],
+        "description": "Food insecurity risk status",
+        "criteria": {
+          "language": "text/cql",
+          "expression": "SDE Food Insecurity Risk Status"
+        }
       } ]
     },
     "request": {
@@ -3680,9 +4643,6 @@
       "date": "2020-07-31T12:32:29.858-05:00",
       "publisher": "HL7 Public Health Work Group",
       "description": "Reporting specification for Chronic Disease Surveillance for Controlling Blood Pressure",
-      "effectivePeriod": {
-        "start": "2021-06-01"
-      },
       "jurisdiction": [ {
         "coding": [ {
           "system": "urn:iso:std:iso:3166",
@@ -3690,6 +4650,13 @@
           "display": "United States of America"
         } ],
         "text": "United States of America"
+      } ],
+      "effectivePeriod": {
+        "start": "2021-06-01"
+      },
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
+      "_library": [ {
+        "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
       "action": [ {
         "id": "start",
@@ -3700,6 +4667,11 @@
             "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
             "code": "initiate-reporting-workflow"
           } ]
+        } ],
+        "trigger": [ {
+          "id": "encounter-end",
+          "type": "named-event",
+          "name": "encounter-end"
         } ],
         "relatedAction": [ {
           "actionId": "check-reportable",
@@ -3731,13 +4703,18 @@
             } ]
           } ],
           "condition": [ {
-            "kind": "applicability"
+            "kind": "applicability",
+            "expression": {
+              "language": "text/fhirpath",
+              "expression": "%conditions.exists()"
+            }
           } ],
           "input": [ {
             "id": "conditions",
             "type": "Condition",
             "codeFilter": [ {
-              "path": "code"
+              "path": "code",
+              "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
             } ]
           } ],
           "relatedAction": [ {
@@ -3784,7 +4761,8 @@
         "relatedAction": [ {
           "actionId": "report-ds",
           "relationship": "before-start"
-        } ]
+        } ],
+        "definitionCanonical": "http://hl7.org/fhir/us/cqfmeasures/Measure/ControllingBloodPressureFHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
@@ -3909,9 +4887,6 @@
       "date": "2020-07-31T12:32:29.858-05:00",
       "publisher": "HL7 Public Health Work Group",
       "description": "Reporting specification for Chronic Disease Surveillance for Diabetes Hemoglobin A1c Poor Control",
-      "effectivePeriod": {
-        "start": "2021-06-01"
-      },
       "jurisdiction": [ {
         "coding": [ {
           "system": "urn:iso:std:iso:3166",
@@ -3919,6 +4894,13 @@
           "display": "United States of America"
         } ],
         "text": "United States of America"
+      } ],
+      "effectivePeriod": {
+        "start": "2021-06-01"
+      },
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
+      "_library": [ {
+        "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
       "action": [ {
         "id": "start",
@@ -3929,6 +4911,11 @@
             "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
             "code": "initiate-reporting-workflow"
           } ]
+        } ],
+        "trigger": [ {
+          "id": "encounter-end",
+          "type": "named-event",
+          "name": "encounter-end"
         } ],
         "relatedAction": [ {
           "actionId": "check-reportable",
@@ -3960,13 +4947,18 @@
             } ]
           } ],
           "condition": [ {
-            "kind": "applicability"
+            "kind": "applicability",
+            "expression": {
+              "language": "text/fhirpath",
+              "expression": "%conditions.exists()"
+            }
           } ],
           "input": [ {
             "id": "conditions",
             "type": "Condition",
             "codeFilter": [ {
-              "path": "code"
+              "path": "code",
+              "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
             } ]
           } ],
           "relatedAction": [ {
@@ -4013,7 +5005,8 @@
         "relatedAction": [ {
           "actionId": "report-ds",
           "relationship": "before-start"
-        } ]
+        } ],
+        "definitionCanonical": "http://ecqi.healthit.gov/ecqms/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
@@ -4138,9 +5131,6 @@
       "date": "2020-07-31T12:32:29.858-05:00",
       "publisher": "HL7 Public Health Work Group",
       "description": "Reporting specification for Chronic Disease Surveillance for Seen Patients Cohort",
-      "effectivePeriod": {
-        "start": "2021-06-01"
-      },
       "jurisdiction": [ {
         "coding": [ {
           "system": "urn:iso:std:iso:3166",
@@ -4148,6 +5138,13 @@
           "display": "United States of America"
         } ],
         "text": "United States of America"
+      } ],
+      "effectivePeriod": {
+        "start": "2021-06-01"
+      },
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients" ],
+      "_library": [ {
+        "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
       "action": [ {
         "id": "start",
@@ -4158,6 +5155,11 @@
             "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
             "code": "initiate-reporting-workflow"
           } ]
+        } ],
+        "trigger": [ {
+          "id": "encounter-end",
+          "type": "named-event",
+          "name": "encounter-end"
         } ],
         "relatedAction": [ {
           "actionId": "check-reportable",
@@ -4189,13 +5191,18 @@
             } ]
           } ],
           "condition": [ {
-            "kind": "applicability"
+            "kind": "applicability",
+            "expression": {
+              "language": "text/fhirpath",
+              "expression": "%conditions.exists()"
+            }
           } ],
           "input": [ {
             "id": "conditions",
             "type": "Condition",
             "codeFilter": [ {
-              "path": "code"
+              "path": "code",
+              "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
             } ]
           } ],
           "relatedAction": [ {
@@ -4242,7 +5249,8 @@
         "relatedAction": [ {
           "actionId": "report-ds",
           "relationship": "before-start"
-        } ]
+        } ],
+        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",

@@ -89,9 +89,9 @@ DEL /F /Q bundles\kars-collection-bundle.json
 COPY bundlegen\kars-collection-bundle.json bundles\kars\kars-collection-bundle.json
 echo 'Copied generated bundle to bundles\kars-collection-bundle.json'
 
+PAUSE
 rem 11) Update the bundle type to collection in `kars-collection-bundle`
 rem !!!Must be done manually!!!
-
 echo 'Cleaning up bundlegen\sourcefiles...'
 DEL /F /Q  bundlegen\kars-transaction-bundle.json
 DEL /F /Q  bundlegen\kars-collection-bundle.json
