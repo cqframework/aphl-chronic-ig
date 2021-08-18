@@ -33,4 +33,4 @@ else
 	fi
 fi
 
-sh _refreshTerminologyBundle.sh
+sh _refreshKarsBundles.sh

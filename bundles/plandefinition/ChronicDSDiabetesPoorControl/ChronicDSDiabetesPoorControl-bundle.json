@@ -17420,7 +17420,8 @@
           "id": "obs",
           "type": "Observation",
           "profile": [ "http://hl7.org/fhir/StructureDefinition/vitalsigns" ]
-        }, {
+        } ],
+        "output": [ {
           "id": "measurereport",
           "type": "MeasureReport",
           "profile": [ "http://hl7.org/fhir/MeasureReport" ]
@@ -17476,7 +17477,7 @@
             "profile": [ "http://hl7.org/fhir/MeasureReport" ]
           } ],
           "output": [ {
-            "id": "eicr-report",
+            "id": "eicr-report-ChronicDSDiabetesPoorControl",
             "type": "Bundle",
             "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" ]
           } ],
@@ -17495,7 +17496,7 @@
             } ]
           } ],
           "input": [ {
-            "id": "eicr-report",
+            "id": "eicr-report-ChronicDSDiabetesPoorControl",
             "type": "Bundle",
             "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
           } ],
