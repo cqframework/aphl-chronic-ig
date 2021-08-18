@@ -1,6 +1,11 @@
 {
   "resourceType": "Observation",
   "id": "seen-patients-sde-in-obs",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/sdoh-clinicalcare/StructureDefinition/SDOHCC-ObservationScreeningResponse"
+    ]
+  },
   "status": "final",
   "category": [
     {

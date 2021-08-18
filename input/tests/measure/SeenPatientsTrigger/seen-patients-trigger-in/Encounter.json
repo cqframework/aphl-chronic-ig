@@ -9,18 +9,18 @@
   "status": "finished",
   "class": {
     "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-    "code": "AMB",
-    "display": "ambulatory"
+    "code": "IMP",
+    "display": "inpatient encounter"
   },
   "type": [
     {
       "coding": [
         {
-          "system": "http://snomed.info/sct",
-          "code": "444971000124105",
-          "display": "Annual wellness visit (procedure)"
+          "system": "http://www.ama-assn.org/go/cpt",
+          "code": "99234"
         }
-      ]
+      ],
+      "text": "Under Observation or Inpatient Care Services (Including Admission and Discharge Services)"
     }
   ],
   "subject": {
