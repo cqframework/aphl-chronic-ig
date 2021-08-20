@@ -38,9 +38,8 @@
   "code": {
     "coding": [
       {
-        "system": "http://snomed.info/sct",
-        "code": "78975002",
-        "display": "Malignant essential hypertension (disorder)"
+        "code": "313435000",
+        "display": "Type I diabetes mellitus without complication (disorder)"
       }
     ]
   },
