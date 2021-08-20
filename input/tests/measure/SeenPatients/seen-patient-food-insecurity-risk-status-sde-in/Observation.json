@@ -1,0 +1,32 @@
+{
+  "resourceType": "Observation",
+  "id": "seen-patient-food-insecurity-risk-status-sde-in",
+  "status": "final",
+  "category": [
+  {
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "88124-3",
+        "display": "Food insecurity risk [HVS]"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/ip-seen-patient-food-insecurity-risk-status-sde-in"
+  },
+  "effectiveDateTime": "2019-09-10T21:56:54.671Z",
+  "issued": "2019-09-10T21:56:54.671Z",
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "LA19952-3",
+        "display": "At risk"
+      }
+    ]
+   }
+  }
+ ]
+}
