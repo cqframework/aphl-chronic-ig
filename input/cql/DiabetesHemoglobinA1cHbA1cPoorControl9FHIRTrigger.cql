@@ -4,9 +4,14 @@ using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.001'
 
+valueset "Diabetes": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001'
+
 parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0-06:00, @2019-12-31T23:59:59.999-06:00]
 
 context Patient
 
-define Trigger:
+define "encounter-end":
   exists([Encounter])
+
+define "ckr-is-encounter-reportable":
+  exists([Condition: "Diabetes"])
