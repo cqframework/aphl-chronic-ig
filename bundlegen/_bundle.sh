@@ -20,12 +20,12 @@ wget -q --spider tx.fhir.org
 
 tooling=$input_cache_path/$tooling_jar
 if test -f "$tooling"; then
-	JAVA -jar $tooling -BundleResources -ptd=$sourcefiles_path -op=$bundlegen_path -v=stu3 -e=json $bundleid
+	JAVA -jar $tooling -BundleResources -ptd=$sourcefiles_path -op=$bundlegen_path -v=r4 -e=json $bundleid
 else
 	tooling=../$tooling_jar
 	echo $tooling
 	if test -f "$tooling"; then
-		JAVA -jar $tooling -BundleResources -ptd=$sourcefiles_path -op=$bundlegen_path -v=stu3 -e=json $bundleid
+		JAVA -jar $tooling -BundleResources -ptd=$sourcefiles_path -op=$bundlegen_path -v=r4 -e=json $bundleid
 	else
 		echo CQF Tooling NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...
 	fi

@@ -66,7 +66,7 @@ define "Initial Population":
     and exists AdultOutpatientEncounters."Qualifying Encounters"
     and exists (["Condition": "Diabetes"] Diabetes
       where Diabetes.clinicalStatus ~ Global."active"
-        and Global."Prevalence Period"(Diabetes) overlaps "Measurement Period"
+        // and Global."Prevalence Period"(Diabetes) overlaps "Measurement Period"
     )
 
 define "Denominator":
