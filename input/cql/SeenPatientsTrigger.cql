@@ -8,5 +8,5 @@ parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T0
 
 context Patient
 
-define Trigger:
+define "encounter-end":
   exists([Encounter])
