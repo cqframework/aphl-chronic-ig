@@ -1,6 +1,6 @@
 {
   "resourceType": "Patient",
-  "id": "bp-report-ip-out",
+  "id": "bp-trigger-condition-missing",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient"
@@ -38,7 +38,7 @@
     }
   ],
   "gender": "female",
-  "birthDate": "2005-12-31",
+  "birthDate": "2000-12-31",
   "address": [
     {
       "use": "home",

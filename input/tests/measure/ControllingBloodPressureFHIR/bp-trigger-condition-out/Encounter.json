@@ -1,6 +1,6 @@
 {
   "resourceType": "Encounter",
-  "id": "bp-report-ip-out",
+  "id": "bp-trigger-condition-out",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-encounter"
@@ -24,7 +24,7 @@
     }
   ],
   "subject": {
-    "reference": "Patient/bp-report-ip-out"
+    "reference": "Patient/bp-trigger-condition-out"
   },
   "period": {
     "start": "2018-12-31T22:00:00.0-06:00",

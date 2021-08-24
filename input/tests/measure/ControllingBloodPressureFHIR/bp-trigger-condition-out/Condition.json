@@ -1,6 +1,6 @@
 {
   "resourceType": "Condition",
-  "id": "bp-report-ip-out",
+  "id": "bp-trigger-condition-out",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -39,13 +39,13 @@
     "coding": [
       {
         "system": "http://snomed.info/sct",
-        "code": "78975002",
-        "display": "Malignant essential hypertension (disorder)"
+            "code": "6736007",
+            "display": "Moderate"
       }
     ]
   },
   "subject": {
-    "reference": "Patient/bp-report-ip-out"
+    "reference": "Patient/bp-trigger-condition-in"
   },
   "onsetDateTime": "2019-03-23T11:01:33-06:00",
   "recordedDate": "2019-03-23T11:01:33-06:00"
