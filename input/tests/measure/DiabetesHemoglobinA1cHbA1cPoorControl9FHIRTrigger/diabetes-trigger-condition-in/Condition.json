@@ -44,7 +44,7 @@
     ]
   },
   "subject": {
-    "reference": "Patient/denom-EXM165"
+    "reference": "Patient/diabetes-trigger-condition-in"
   },
   "onsetDateTime": "2019-03-23T11:01:33-06:00",
   "recordedDate": "2019-03-23T11:01:33-06:00"
