@@ -24,7 +24,7 @@
     }
   ],
   "subject": {
-    "reference": "Patient/bp-trigger-condition-in"
+    "reference": "Patient/bp-trigger-condition-missing"
   },
   "period": {
     "start": "2018-12-31T22:00:00.0-06:00",
