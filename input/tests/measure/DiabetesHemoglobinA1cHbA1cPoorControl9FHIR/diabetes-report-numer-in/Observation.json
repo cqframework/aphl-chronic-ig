@@ -1,6 +1,6 @@
 {
   "resourceType" : "Observation",
-  "id" : "numer-CMS122-Observation2",
+  "id" : "diabetes-report-numer-in",
   "status" : "final",
   "category" : [
     {
@@ -22,14 +22,9 @@
     ]
   },
   "subject" : {
-    "reference" : "Patient/numer-CMS122-Patient"
+    "reference" : "Patient/diabetes-report-numer-in"
   },
-  "effectiveDateTime" : "2019-10-17T12:30:00",
+  "effectiveDateTime" : "2019-01-17T12:30:00"
 
-  "valueQuantity" : {
-    "value" : 9.1,
-    "unit" : "%",
-    "system" : "http://unitsofmeasure.org",
-    "code" : "%"
-  }
+
 }
