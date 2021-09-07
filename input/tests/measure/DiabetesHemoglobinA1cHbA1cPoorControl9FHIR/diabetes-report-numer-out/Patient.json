@@ -1,6 +1,6 @@
 {
   "resourceType": "Patient",
-  "id": "diabetes-diabetes-report-numer-out",
+  "id": "diabetes-report-numer-out",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-patient"
