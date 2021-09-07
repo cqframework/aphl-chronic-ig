@@ -1,25 +1,24 @@
 {
   "resourceType": "Procedure",
   "id": "diabetes-report-denom-exc-in",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-procedure"
+    ]
+  },
   "status": "completed",
   "code": {
-      "coding": [
-          {
-              "system": "http://snomed.info/sct",
-              "code": "112943005",
-              "display": "Epidural injection of anesthetic substance, diagnostic, caudal, continuous (procedure)"
-          }
-      ],
-      "text": "General or Neuraxial Anesthesia"
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "385763009",
+      "display": "Hospice care (regime/therapy)"
+    } ]
   },
   "subject": {
-      "reference": "Patient/diabetes-report-denom-exc-in"
-  },
-  "encounter": {
-      "reference": "Encounter/diabetes-report-denom-exc-in"
+    "reference": "Patient/diabetes-report-denom-exc-in"
   },
   "performedPeriod": {
-    "start": "2019-01-17T08:30:00",
-    "end": "2019-01-17T10:30:00"
+    "start": "2018-03-27T10:00:00",
+    "end": "2019-06-18T23:59:00"
   }
 }

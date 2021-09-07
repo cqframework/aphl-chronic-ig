@@ -1,6 +1,6 @@
 {
   "resourceType" : "Observation",
-  "id" : "diabetes-report-numer-in",
+  "id" : "diabetes-report-ip-out",
   "status" : "final",
   "category" : [
     {
@@ -22,11 +22,12 @@
     ]
   },
   "subject" : {
-    "reference" : "Patient/diabetes-report-numer-in"
+    "reference" : "Patient/diabetes-report-ip-out"
   },
   "effectiveDateTime" : "2019-01-17T12:30:00",
+
   "valueQuantity" : {
-    "value" : 9.1,
+    "value" : 8.0,
     "unit" : "%",
     "system" : "http://unitsofmeasure.org",
     "code" : "%"

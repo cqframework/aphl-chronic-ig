@@ -1,6 +1,6 @@
 {
   "resourceType": "Condition",
-  "id": "diabetes-report-numer-in",
+  "id": "diabetes-report-denom-exc-in",
   "clinicalStatus": {
       "coding": [
       {
@@ -32,10 +32,10 @@
       "text": "Type 1 diabetes"
   },
   "subject": {
-      "reference": "Patient/diabetes-report-numer-in"
+      "reference": "Patient/diabetes-report-denom-exc-in"
   },
   "encounter": {
-      "reference": "Encounter/diabetes-report-numer-in"
+      "reference": "Encounter/diabetes-report-denom-exc-in"
   },
   "onsetPeriod": {
       "start": "2009-01-16T08:30:00"

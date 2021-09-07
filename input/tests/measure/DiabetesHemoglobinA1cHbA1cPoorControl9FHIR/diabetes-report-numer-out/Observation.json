@@ -25,9 +25,8 @@
     "reference" : "Patient/diabetes-report-numer-out"
   },
   "effectiveDateTime" : "2019-01-17T12:30:00",
-
   "valueQuantity" : {
-    "value" : 9.1,
+    "value" : 8.0,
     "unit" : "%",
     "system" : "http://unitsofmeasure.org",
     "code" : "%"
