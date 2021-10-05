@@ -166,7 +166,7 @@ define "Essential Hypertension Diagnosis":
     where Hypertension.verificationStatus ~ Common."confirmed"
       and Common."Prevalence Period"(Hypertension) overlaps Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"]
 
-define "Denominator Exclusions":
+define "Denominator Exclusion":
   Hospice."Has Hospice"
     or exists "Pregnancy Or Renal Diagnosis Exclusions"
     or exists "End Stage Renal Disease Procedures"
