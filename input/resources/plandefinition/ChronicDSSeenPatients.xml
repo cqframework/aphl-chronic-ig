@@ -107,6 +107,13 @@
             <code value="execute-reporting-workflow"/>
           </coding>
         </code>
+        <condition>
+            <kind value="applicability"/>
+            <expression>
+                <language value="text/fhirpath"/>
+                <expression value="%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'initial-population' and count > 0).exists()"/>
+            </expression>
+        </condition>
         <action id="create-eicr">
             <description value="This action invokes the creation of the eICR report."/>
             <textEquivalent value="Create eICR"/>
