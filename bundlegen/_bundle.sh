@@ -5,8 +5,7 @@ input_cache_path=./input-cache
 bundlegen_path=$PWD/bundlegen
 sourcefiles_path=$bundlegen_path/sourcefiles
 
-if [ -z "$1" ]
-  then
+if [ -z "$1" ]; then
     echo "No bundleId argument supplied"
 		bundleid=""
 	else
