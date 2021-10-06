@@ -1,6 +1,6 @@
 @ECHO OFF
 SET tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
-SET input_cache_path=../input-cache
+SET input_cache_path=input-cache
 
 rem D:\Projects\opioid-cds\bundlegen\sourcefiles
 SET bundlegen_path=%~dp0
