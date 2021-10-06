@@ -1229,7 +1229,7 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
-          "reference": "cqf-tooling"
+          "reference": "Device/cqf-tooling"
         }
       } ],
       "url": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4",
@@ -1405,7 +1405,7 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
-          "reference": "cqf-tooling"
+          "reference": "Device/cqf-tooling"
         }
       } ],
       "url": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
@@ -1684,7 +1684,7 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
-          "reference": "cqf-tooling"
+          "reference": "Device/cqf-tooling"
         }
       } ],
       "url": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4",
@@ -1851,7 +1851,7 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
-          "reference": "cqf-tooling"
+          "reference": "Device/cqf-tooling"
         }
       } ],
       "url": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers",
@@ -2168,7 +2168,7 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
-          "reference": "cqf-tooling"
+          "reference": "Device/cqf-tooling"
         }
       } ],
       "url": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4",
@@ -2345,53 +2345,13 @@
           "name": "encounter-end"
         } ],
         "relatedAction": [ {
-          "actionId": "check-reportable",
+          "actionId": "evaluate-measure",
           "relationship": "before-start",
           "offsetDuration": {
             "value": 24,
             "system": "http://unitsofmeasure.org",
             "code": "h"
           }
-        } ]
-      }, {
-        "id": "check-reportable",
-        "description": "This action represents the check for reportability of the surveillance event.",
-        "textEquivalent": "Check Reportable",
-        "code": [ {
-          "coding": [ {
-            "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
-            "code": "execute-reporting-workflow"
-          } ]
-        } ],
-        "action": [ {
-          "id": "ckr-is-encounter-reportable",
-          "description": "This action represents the check for reportability to create the patients eICR.",
-          "textEquivalent": "Check Trigger Codes based on RCTC Value sets.",
-          "code": [ {
-            "coding": [ {
-              "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
-              "code": "check-trigger-codes"
-            } ]
-          } ],
-          "condition": [ {
-            "kind": "applicability",
-            "expression": {
-              "language": "text/fhirpath",
-              "expression": "%conditions.exists()"
-            }
-          } ],
-          "input": [ {
-            "id": "conditions",
-            "type": "Condition",
-            "codeFilter": [ {
-              "path": "code",
-              "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"
-            } ]
-          } ],
-          "relatedAction": [ {
-            "actionId": "evaluate-measure",
-            "relationship": "before-start"
-          } ]
         } ]
       }, {
         "id": "evaluate-measure",
@@ -2443,6 +2403,13 @@
             "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions",
             "code": "execute-reporting-workflow"
           } ]
+        } ],
+        "condition": [ {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/fhirpath",
+            "expression": "%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'initial-population' and count > 0).exists()"
+          }
         } ],
         "action": [ {
           "id": "create-eicr",
@@ -2826,7 +2793,7 @@
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
-          "reference": "cqf-tooling"
+          "reference": "Device/cqf-tooling"
         }
       } ],
       "url": "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients",

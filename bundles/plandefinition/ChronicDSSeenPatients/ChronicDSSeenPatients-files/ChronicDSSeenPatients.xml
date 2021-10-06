@@ -50,7 +50,7 @@
             <name value="encounter-end"/>
         </trigger>
         <relatedAction>
-            <actionId value="check-reportable"/>
+            <actionId value="evaluate-measure"/>
             <relationship value="before-start"/>
             <offsetDuration>
                 <value value="24"/>
@@ -58,44 +58,6 @@
                 <code value="h"/>
             </offsetDuration>
         </relatedAction>
-    </action>
-    <action id="check-reportable">
-        <description value="This action represents the check for reportability of the surveillance event."/>
-        <textEquivalent value="Check Reportable"/>
-        <code>
-            <coding>
-                <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
-                <code value="execute-reporting-workflow"/>
-            </coding>
-        </code>
-        <action id="ckr-is-encounter-reportable">
-            <description value="This action represents the check for reportability to create the patients eICR."/>
-            <textEquivalent value="Check Trigger Codes based on RCTC Value sets."/>
-            <code>
-                <coding>
-                    <system value="http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"/>
-                    <code value="check-trigger-codes"/>
-                </coding>
-            </code>
-            <condition>
-                <kind value="applicability"/>
-                <expression>
-                    <language value="text/fhirpath"/>
-                    <expression value="%conditions.exists()"/>
-                </expression>
-            </condition>
-            <input id="conditions">
-                <type value="Condition"/>
-                <codeFilter>
-                    <path value="code"/>
-                    <valueSet value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001"/>
-                </codeFilter>
-            </input>
-            <relatedAction>
-                <actionId value="evaluate-measure"/>
-                <relationship value="before-start"/>
-            </relatedAction>
-        </action>
     </action>
     <action id="evaluate-measure">
         <description value="This action represents the evaluation of the measure."/>
@@ -145,6 +107,13 @@
             <code value="execute-reporting-workflow"/>
           </coding>
         </code>
+        <condition>
+            <kind value="applicability"/>
+            <expression>
+                <language value="text/fhirpath"/>
+                <expression value="%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'initial-population' and count > 0).exists()"/>
+            </expression>
+        </condition>
         <action id="create-eicr">
             <description value="This action invokes the creation of the eICR report."/>
             <textEquivalent value="Create eICR"/>
