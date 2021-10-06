@@ -98,13 +98,8 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	)
 
 define "Blood Pressure Days":
-	( ( "Qualifying Diastolic Blood Pressure Reading" DBPExam
-				return date from Common.Earliest(DBPExam.effective)
-		)
-			intersect ( "Qualifying Systolic Blood Pressure Reading" SBPExam
-					return date from Common.Earliest(SBPExam.effective)
-			)
-	)
+	("Qualifying Diastolic Blood Pressure Reading" DBPExam return Common.Earliest(DBPExam.effective))
+     intersect "Qualifying Systolic Blood Pressure Reading" SBPExam return Common.Earliest(SBPExam.effective)
 
 define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
@@ -116,17 +111,17 @@ define "Qualifying Diastolic Blood Pressure Reading":
       and exists (
         BloodPressure.component DiastolicBP
           where FHIRHelpers.ToConcept(DiastolicBP.code) ~ "Diastolic blood pressure"
-            and DiastolicBP.value.code = 'mm[Hg]'
+            and (DiastolicBP.value as Quantity).code.value = 'mm[Hg]'
       )
 
 define "Qualifying Systolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
-	  where BloodPressure.status in {'final', 'amended'}
+    where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
       and exists (
         BloodPressure.component SystolicBP
           where FHIRHelpers.ToConcept(SystolicBP.code) ~ "Systolic blood pressure"
-            and SystolicBP.value.code = 'mm[Hg]'
+            and (SystolicBP.value as Quantity).code.value = 'mm[Hg]'
       )
 
 define "Numerator":
