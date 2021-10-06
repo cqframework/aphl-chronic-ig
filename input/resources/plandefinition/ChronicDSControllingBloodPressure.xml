@@ -149,7 +149,7 @@
             <kind value="applicability"/>
             <expression>
                 <language value="text/fhirpath"/>
-                <expression value="%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'initial-population' and count > 0).exists()"/>
+                <expression value="%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'denominator' and count > 0).exists()"/>
             </expression>
         </condition>
         <action id="create-eicr">
