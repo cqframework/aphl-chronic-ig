@@ -12,8 +12,6 @@ rem  2) Copy the libraries from `input\resources\libraries` to `bundles\kars\kar
 rem  3) Prefix library file names with `library-`
 COPY input\resources\library\AdultOutpatientEncountersFHIR4.json bundlegen\sourcefiles\library-AdultOutpatientEncountersFHIR4.json
 COPY input\resources\library\AdvancedIllnessandFrailtyExclusionECQMFHIR4.json bundlegen\sourcefiles\library-AdvancedIllnessandFrailtyExclusionECQMFHIR4.json
-COPY input\resources\library\ControllingBloodPressureFHIR.json bundlegen\sourcefiles\library-ControllingBloodPressureFHIR.json
-COPY input\resources\library\DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json bundlegen\sourcefiles\library-DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json
 COPY input\resources\library\FHIR-ModelInfo.json bundlegen\sourcefiles\library-FHIR-ModelInfo.json
 COPY input\resources\library\FHIRHelpers.json bundlegen\sourcefiles\library-FHIRHelpers.json
 COPY input\resources\library\HospiceFHIR4.json bundlegen\sourcefiles\library-HospiceFHIR4.json
@@ -23,14 +21,10 @@ COPY input\resources\library\SupplementalDataElementsFHIR4.json bundlegen\source
 COPY input\resources\library\SurveillanceDataElementsFHIR4.json bundlegen\sourcefiles\library-SurveillanceDataElementsFHIR4.json
 rem  4) Copy the measures from `input\resources\measures` to `bundles\kars\kars-files`
 rem  5) Prefix the measure file names with `measure-`
-COPY input\resources\measure\ControllingBloodPressureFHIR.json bundlegen\sourcefiles\measure-ControllingBloodPressureFHIR.json
-COPY input\resources\measure\DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json bundlegen\sourcefiles\measure-DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json
 COPY input\resources\measure\SeenPatients.json bundlegen\sourcefiles\measure-SeenPatients.json
 
 rem  6) Copy the plandefinitions from `input\resources\plandefinitions` to `bundles\kars\kars-files`
 rem  7) Prefix the plandefinition file names with `plandefinition-`
-COPY input\resources\plandefinition\ChronicDSControllingBloodPressure.xml bundlegen\sourcefiles\plandefinition-ChronicDSControllingBloodPressure.xml
-COPY input\resources\plandefinition\ChronicDSDiabetesPoorControl.xml bundlegen\sourcefiles\plandefinition-ChronicDSDiabetesPoorControl.xml
 COPY input\resources\plandefinition\ChronicDSSeenPatients.xml bundlegen\sourcefiles\plandefinition-ChronicDSSeenPatients.xml
 
 rem 8) Copy the valuesets from `input\vocabulary\valuesets\external` to `bundles\kars\kars-files`
