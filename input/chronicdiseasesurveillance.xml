@@ -88,6 +88,11 @@
         <nameUrl value="spec.html"/>
         <title value="Detailed Specification"/>
         <generation value="markdown"/>
+          <page>
+          <nameUrl value="line-list.html" />
+          <title value="Line List Data" />
+          <generation value="markdown" />
+        </page>
       </page>
       <page>
         <nameUrl value="downloads.html"/>
