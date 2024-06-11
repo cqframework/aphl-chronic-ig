@@ -2,7 +2,7 @@ library DiabetesHemoglobinA1cHbA1cPoorControl9FHIRTrigger version '0.1.0'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.001'
+include FHIRHelpers version '4.1.000'
 
 valueset "Diabetes": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.103.12.1001'
 

@@ -5,7 +5,7 @@ library ControllingBloodPressureFHIR version '9.0.000'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.001'
+include FHIRHelpers version '4.1.000'
 include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Common
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
