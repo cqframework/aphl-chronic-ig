@@ -5,6 +5,15 @@ using FHIR version '4.0.1'
 include FHIRHelpers version '4.1.000' called FHIRHelpers
 include FHIRCommon called FC
 
+codesystem "ObservationCategoryCodes": 'http://terminology.hl7.org/CodeSystem/observation-category'
+codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+
+code "laboratory": 'laboratory' from "ObservationCategoryCodes" display 'laboratory'
+code "exam": 'exam' from "ObservationCategoryCodes" display 'exam'
+code "survey": 'survey' from "ObservationCategoryCodes" display 'survey'
+code "vital-signs": 'vital-signs' from "ObservationCategoryCodes" display 'vital-signs'
+code "active": 'active' from "ConditionClinicalStatusCodes"
+
 context Patient
 
 define function Official(identifiers List<Identifier>):
@@ -344,6 +353,8 @@ define function QualifiedEncounters(value List<FHIR.Encounter>):
       Encounter.status ~ 'arrived'
       or Encounter.status ~ 'in-progress'
       or Encounter.status ~ 'finished'
+      or Encounter.status ~ 'onleave'
+      or Encounter.status ~ 'triaged'
     )
 
 define function QualifiedConditions(value List<FHIR.Condition>):
@@ -368,17 +379,40 @@ define function QualifiedDeviceRequests(value List<FHIR.DeviceRequest>):
       //draft | active | on-hold | revoked | completed | entered-in-error | unknown
       DeviceRequest.status ~ 'completed'
       or DeviceRequest.status ~ 'active'
+      and DeviceRequest.intent ~ 'order'
     )
 
 define function QualifiedObservations(value List<FHIR.Observation>):
   value Observation
 		where (
       //registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
-      Observation.status ~ 'preliminary'
-      or Observation.status ~ 'final'
+      Observation.status ~ 'final'
 			or Observation.status ~ 'amended'
 			or Observation.status ~ 'corrected'
 		)
+
+define function FinalSurveyObservations(value List<FHIR.Observation>):
+  value Observation
+  		where (
+      //registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+      Observation.status ~ 'final'
+			or Observation.status ~ 'amended'
+			or Observation.status ~ 'corrected'
+      and exists(Observation.category ObservationCategory
+        where ( ObservationCategory ) ~ "survey")
+		)
+
+define function LaboratoryObservation(value List<FHIR.Observation>):
+  value Observation
+  		where (
+      //registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown
+      Observation.status ~ 'final'
+			or Observation.status ~ 'amended'
+			or Observation.status ~ 'corrected'
+      and exists(Observation.category ObservationCategory
+        where ( ObservationCategory ) ~ "laboratory")
+		)
+    
 
 define function QualifiedMedicationRequests(value List<FHIR.MedicationRequest>):
   value MedicationRequest
@@ -391,6 +425,7 @@ define function QualifiedMedicationRequests(value List<FHIR.MedicationRequest>):
           MedicationRequest.doNotPerform is null
           or MedicationRequest.doNotPerform = false
         )
+        and MedicationRequest.intent ~ 'order'
     )
 
 define function QualifiedMedicationStatements(value List<FHIR.MedicationStatement>):
@@ -405,7 +440,7 @@ define function QualifiedMedicationDispenses(value List<FHIR.MedicationDispense>
   value MedicationDispense
     // preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown
     where (
-      MedicationDispense.status ~ 'preparation'
+      MedicationDispense.status ~ 'on-hold'
       or MedicationDispense.status ~ 'in-progress'
       or MedicationDispense.status ~ 'completed'
     )
@@ -416,6 +451,7 @@ define function QualifiedServiceRequests(value List<FHIR.ServiceRequest>):
       //draft | active | on-hold | revoked | completed | entered-in-error | unknown
       ServiceRequest.status ~ 'active'
       or ServiceRequest.status ~ 'completed'
+      and ServiceRequest.intent ~ 'order'
     )
     and (
       ServiceRequest.doNotPerform is null
