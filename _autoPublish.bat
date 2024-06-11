@@ -1,8 +1,8 @@
 @ECHO off
-SET tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
+SET tooling_jar=tooling-cli-2.4.0.jar
 SET input_cache_path=%~dp0input-cache
 SET resources_path=%~dp0input/resources
-SET ig_resource_path=input/anc-cds.xml
+SET ig_resource_path=input/chronicdiseasesurveillance.xml
 SET fsoption=http://localhost:8080/cqf-ruler-r4/fhir/
 SET publisher_jar=publisher.jar
 SET test_path=%~dp0input/tests
