@@ -43,9 +43,6 @@
     "subject": {
         "reference": "Patient/Patient-denomexcl-frail1-CMS122"
     },
-    "encounter": {
-        "reference": "Encounter/Encounter-denomexcl-frail1-CMS122"
-    },
     "onsetPeriod": {
         "start": "2009-01-16T08:30:00-07:00"
   

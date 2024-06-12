@@ -20,7 +20,7 @@
   }
   ],
   "subject" : {
-  "reference" : "Patient/Patient-denomexcl-hospice-cms122"
+  "reference" : "Patient/Patient-denomexcl-hospice-CMS122"
   },
   "period" : {
   "start" : "2024-02-16T09:00:00-07:00",

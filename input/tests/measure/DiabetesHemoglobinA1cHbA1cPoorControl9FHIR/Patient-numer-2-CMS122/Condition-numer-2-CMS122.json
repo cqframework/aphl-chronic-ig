@@ -32,10 +32,10 @@
       "text": "Type 1 diabetes"
   },
   "subject": {
-      "reference": "Patient/Patient-numer-1-CMS122"
+      "reference": "Patient/Patient-numer-2-CMS122"
   },
   "encounter": {
-      "reference": "Encounter/Encounter-numer-1-CMS122"
+      "reference": "Encounter/Encounter-numer-2-CMS122"
   },
   "onsetPeriod": {
       "start": "2009-01-16T13:00:00-07:00"

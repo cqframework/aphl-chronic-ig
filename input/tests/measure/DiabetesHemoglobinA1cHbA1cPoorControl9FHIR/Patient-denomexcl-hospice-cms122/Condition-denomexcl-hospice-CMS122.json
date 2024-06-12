@@ -43,7 +43,7 @@
       "text": "Retinal edema due to type 1 diabetes mellitus (disorder)"
   },
   "subject": {
-      "reference": "Patient/Patient-denomexcl-hospice-cms122"
+      "reference": "Patient/Patient-denomexcl-hospice-CMS122"
   },
   "onsetPeriod": {
       "start": "2009-01-16T11:00:00-07:00"
