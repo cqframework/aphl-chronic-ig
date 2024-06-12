@@ -1,13 +1,10 @@
 {
   "resourceType": "Patient",
-  "id": "diabetes-report-ip-out",
+  "id": "Patient-numer-2-CMS122",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
     ]
-  },
-  "text": {
-      "status": "extensions"
   },
   "extension": [
     {
@@ -41,13 +38,13 @@
   "name": [
   {
       "use": "official",
-      "text": "BECK,TOM",
-      "family": "BECK",
+      "text": "Montana,Hannah",
+      "family": "Montana",
       "given": [
-      "TOM"
+      "Hannah"
       ]
   }
   ],
-  "gender": "male",
-  "birthDate": "1930-06-30"
+  "gender": "female",
+  "birthDate": "2000-11-30"
 }

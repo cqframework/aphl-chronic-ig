@@ -1,6 +1,6 @@
 {
   "resourceType": "Condition",
-  "id": "diabetes-report-ip-in",
+  "id": "Condition-numer-2-CMS122",
   "clinicalStatus": {
       "coding": [
       {
@@ -32,12 +32,12 @@
       "text": "Type 1 diabetes"
   },
   "subject": {
-      "reference": "Patient/diabetes-report-ip-in"
+      "reference": "Patient/Patient-numer-1-CMS122"
   },
   "encounter": {
-      "reference": "Encounter/diabetes-report-ip-in"
+      "reference": "Encounter/Encounter-numer-1-CMS122"
   },
   "onsetPeriod": {
-      "start": "2009-01-16T08:30:00"
+      "start": "2009-01-16T13:00:00-07:00"
   }
 }

@@ -1,8 +1,10 @@
 {
   "resourceType": "Patient",
-  "id": "diabetes-report-denom-exc-in",
-  "text": {
-      "status": "extensions"
+  "id": "Patient-numer-1-CMS122",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+    ]
   },
   "extension": [
     {
@@ -36,13 +38,13 @@
   "name": [
   {
       "use": "official",
-      "text": "BECK,TOM",
-      "family": "BECK",
+      "text": "Doe,Daphne",
+      "family": "Doe",
       "given": [
-      "TOM"
+      "Daphne"
       ]
   }
   ],
-  "gender": "male",
-  "birthDate": "1965-06-30"
+  "gender": "female",
+  "birthDate": "1956-11-30"
 }
