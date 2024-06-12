@@ -3,7 +3,7 @@ library AlphoraCommon
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.1.000' called FHIRHelpers
-include FHIRCommon called FC
+include FHIRCommon version '1.1.000' called FC 
 
 codesystem "ObservationCategoryCodes": 'http://terminology.hl7.org/CodeSystem/observation-category'
 codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'

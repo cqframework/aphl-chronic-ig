@@ -5,8 +5,7 @@ using FHIR version '4.0.1'
 include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
 include FHIRHelpers version '4.1.000' called FHIRHelpers
 include AlphoraCommon called AC
-
-include FHIRCommon called FC
+include FHIRCommon version '1.1.000' called FC 
 
 codesystem "LOINC": 'http://loinc.org'
 
