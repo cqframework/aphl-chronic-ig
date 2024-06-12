@@ -30,7 +30,7 @@ code "P40Y--P49Y": 'P40Y--P49Y' from "ISO-8601-Derived Periods" display '40-49 y
 code "P50Y--P9999Y": 'P50Y--P9999Y' from "ISO-8601-Derived Periods" display '50+ years'
 
 parameter "Measurement Period" Interval<DateTime>
-  default Interval[@2019-01-01T00:00:00.0-06:00, @2020-01-01T00:00:00.0-06:00)
+  default Interval[@2024-01-01T00:00:00.000, @2025-01-01T00:00:00.000)
 
 context Patient
 

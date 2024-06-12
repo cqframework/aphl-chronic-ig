@@ -40,8 +40,7 @@ code "Medical nutrition therapy; reassessment and subsequent intervention(s) fol
 code "laboratory": 'laboratory' from "ObservationCategoryCodes" display 'laboratory'
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 
-parameter "Measurement Period" Interval<DateTime>
-  default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
+parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 
 context Patient
 
@@ -114,8 +113,11 @@ define "Has HbA1c Lab Test":
   (AC.LaboratoryObservation([Observation: "HbA1c Laboratory Test"])) HbA1cTest
     where FC.ToInterval(HbA1cTest.effective) during "Measurement Period"
 
+define "MP":
+  "Measurement Period"
+
 define "Most Recent HbA1c Lab Test":
-  AC.MostRecent("Has HbA1c Lab Test") // need help making this an FC.ToInterval 
+  AC.MostRecent("Has HbA1c Lab Test")  
 
 define "Has Most Recent Elevated HbA1c":
   "Most Recent HbA1c Lab Test".value >= 9 '%'
