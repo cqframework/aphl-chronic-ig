@@ -64,6 +64,13 @@
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
       "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "88124-3",
+        "display": "Food insecurity risk [HVS]"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "428361000124107",
         "display": "Discharge to home for hospice care (procedure)"
@@ -135,20 +142,20 @@
       "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.1.000"
     }, {
       "type": "depends-on",
-      "display": "Library AC",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AlphoraCommon"
+      "display": "Library SurveillanceDataElements",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
     }, {
       "type": "depends-on",
-      "display": "Library Global",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+      "display": "Library AC",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AlphoraCommon"
     }, {
       "type": "depends-on",
       "display": "Library FC",
       "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRCommon|1.1.000"
     }, {
       "type": "depends-on",
-      "display": "Library SurveillanceDataElements",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+      "display": "Library Common",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
     }, {
       "type": "depends-on",
       "display": "Library Hospice",
@@ -183,12 +190,12 @@
       "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
     }, {
       "type": "depends-on",
-      "display": "Code system SNOMEDCT",
-      "resource": "http://snomed.info/sct"
-    }, {
-      "type": "depends-on",
       "display": "Code system LOINC",
       "resource": "http://loinc.org"
+    }, {
+      "type": "depends-on",
+      "display": "Code system SNOMEDCT",
+      "resource": "http://snomed.info/sct"
     }, {
       "type": "depends-on",
       "display": "Value set HbA1c Laboratory Test",
@@ -315,6 +322,12 @@
       "max": "1",
       "type": "Coding"
     }, {
+      "name": "SDE Postal Code of Residence",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
       "name": "Numerator",
       "use": "out",
       "min": 0,
@@ -338,6 +351,12 @@
       "min": 0,
       "max": "1",
       "type": "string"
+    }, {
+      "name": "SDE Food Insecurity Risk Status",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "CodeableConcept"
     }, {
       "name": "Initial Population",
       "use": "out",
@@ -436,6 +455,18 @@
       "codeFilter": [ {
         "path": "code",
         "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1013"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "88124-3",
+          "display": "Food insecurity risk [HVS]"
+        } ]
       } ]
     }, {
       "type": "Encounter",
@@ -747,7 +778,7 @@
   "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2024-06-12T09:27:44-06:00",
+  "date": "2024-06-12T10:10:20-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

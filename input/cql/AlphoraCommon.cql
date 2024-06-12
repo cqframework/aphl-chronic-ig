@@ -34,13 +34,13 @@ define function Earliest(observations List<Observation>):
 define function Latest(observations List<Observation>):
   Last(
     observations O
-      sort by issued
+      sort by effective
   )
 
 define function MostRecent(observations List<Observation>):
   Last(
     observations O
-      sort by issued
+      sort by start of FC.ToInterval(effective)
   )
 
 define function MostRecent(encounters List<Encounter>):
@@ -410,7 +410,7 @@ define function LaboratoryObservation(value List<FHIR.Observation>):
 			or Observation.status ~ 'amended'
 			or Observation.status ~ 'corrected'
       and exists(Observation.category ObservationCategory
-        where ( ObservationCategory ) ~ "laboratory")
+        where ( ObservationCategory ) ~ "laboratory" or (ObservationCategory) is null)
 		)
     
 

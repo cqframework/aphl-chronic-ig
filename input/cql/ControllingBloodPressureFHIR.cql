@@ -167,6 +167,6 @@ define "Denominator Exclusion":
     or exists "End Stage Renal Disease Procedures"
     or exists "End Stage Renal Disease Encounter"
     or (AgeInYearsAt(start of "Measurement Period") >= 65
-      and FrailtyLTI."Long Term Care Periods Longer Than 90 Consecutive Days"
+      // and FrailtyLTI."Long Term Care Periods Longer Than 90 Consecutive Days"
     )
-    or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
+    // or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"

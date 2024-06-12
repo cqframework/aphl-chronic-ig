@@ -41,7 +41,7 @@ code "laboratory": 'laboratory' from "ObservationCategoryCodes" display 'laborat
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 
 parameter "Measurement Period" Interval<DateTime>
-  default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
+  default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 
 context Patient
 
@@ -76,7 +76,7 @@ define "Initial Population":
   AgeInYearsAt(end of "Measurement Period") in Interval[18, 75]
     and exists("Qualifying Encounters")
     and exists( (AC.QualifiedConditions([Condition: "Diabetes"])) Diabetes
-      where Global."Prevalence Period"(Diabetes) overlaps "Measurement Period" )
+      where FC.ToPrevalenceInterval(Diabetes) overlaps "Measurement Period" )
 
 define "Qualifying Encounters":
   (
@@ -112,7 +112,7 @@ define "Numerator":
 
 define "Has HbA1c Lab Test":
   (AC.LaboratoryObservation([Observation: "HbA1c Laboratory Test"])) HbA1cTest
-    where Global."Normalize Interval"(HbA1cTest.effective) during "Measurement Period"
+    where FC.ToInterval(HbA1cTest.effective) during "Measurement Period"
 
 define "Most Recent HbA1c Lab Test":
   AC.MostRecent("Has HbA1c Lab Test") // need help making this an FC.ToInterval 
