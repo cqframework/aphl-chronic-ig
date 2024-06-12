@@ -28,7 +28,7 @@ code "Housing Status": '71802-3' from "LOINC" display 'Housing status'
 code "Lives In A Nursing Home (finding)": '160734000' from "SNOMEDCT" display 'Lives in a nursing home (finding)'
 code "Medical Equipment Used": '98181-1' from "LOINC" display 'Medical equipment used'
 
-parameter "Measurement Period" Interval<DateTime>
+parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 
 context Patient
 
@@ -67,7 +67,7 @@ define "Has Criteria Indicating Frailty":
   exists(
     (AC.QualifiedDeviceRequests([DeviceRequest: "Frailty Device"])) FrailtyDeviceOrder
       where FrailtyDeviceOrder.authoredOn during day of "Measurement Period"
-    )
+    ) 
     or exists(
         (AC.QualifiedObservations([Observation: "Medical Equipment Used"])) EquipmentUsed
           where EquipmentUsed.value in "Frailty Device"
@@ -91,6 +91,12 @@ define "Has Inpatient Encounter With Advanced Illness":
     with (AC.QualifiedConditions([Condition: "Advanced Illness"])) AdvanIll
       such that FC.ToPrevalenceInterval(AdvanIll) overlaps InpatientEnc.period
         and FC.ToInterval(InpatientEnc.period) overlaps "Up To One Year Prior Including Measurement Period"
+
+define "huh":
+  [Encounter: "Acute Inpatient"]
+  
+define "huh 2":
+  [Condition: "Advanced Illness"]
 
 define "Outpatient Encounters With Advanced Illness":
   ((AC.QualifiedEncounters([Encounter: "Outpatient"]))

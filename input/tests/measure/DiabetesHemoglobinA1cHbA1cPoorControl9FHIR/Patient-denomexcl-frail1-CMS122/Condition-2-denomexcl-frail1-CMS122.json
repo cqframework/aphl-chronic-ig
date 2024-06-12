@@ -1,0 +1,49 @@
+{
+    "resourceType": "Condition",
+    "id": "Condition-2-denomexcl-frail1-CMS122",
+    "clinicalStatus": {
+      "coding": [
+      {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+          "code": "active",
+          "display": "Active"
+      }
+      ],
+      "text": "Active"
+  },
+  "verificationStatus": {
+      "coding": [
+      {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+          "code": "confirmed",
+          "display": "confirmed"
+      }
+      ],
+      "text": "confirmed"
+  },
+  "severity": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "6736007",
+          "display": "Moderate"
+        }
+      ],
+      "text": "Moderate"
+   },
+    "code": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2021-03",
+          "code": "426012001",
+          "display": "Right heart failure due to pulmonary hypertension (disorder)"
+        }
+      ]
+    },
+    "subject": {
+      "reference": "Patient/Patient-denomexcl-frail1-CMS122"
+    },
+    "onsetDateTime": "2023-03-02T16:00:00-07:00"
+  }
+  

@@ -1,0 +1,27 @@
+{
+    "resourceType": "Observation",
+    "id": "Observation-1-denomexcl-pall-CMS122",
+    "code": {
+        "coding": [
+          {
+            "code": "71007-9",
+            "system": "http://loinc.org",
+            "display": "Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)"
+          }
+        ]
+      },
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "160734000",
+            "system": "http://snomed.info/sct",
+            "display": "Lives in a nursing home (finding)"
+          }
+        ]
+      },
+    "effectiveDateTime": "2024-02-11T12:00:00-07:00",
+    "status": "final",
+    "subject": {
+      "reference": "Patient/Patient-denomexcl-pall-CMS122"
+    }
+  }

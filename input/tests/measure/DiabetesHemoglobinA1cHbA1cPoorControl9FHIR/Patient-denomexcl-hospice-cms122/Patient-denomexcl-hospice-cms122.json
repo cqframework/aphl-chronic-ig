@@ -1,9 +1,6 @@
 {
   "resourceType": "Patient",
-  "id": "denomexcl-CMS122-Patient",
-  "text": {
-      "status": "extensions"
-  },
+  "id": "Patient-denomexcl-hospice-cms122",
   "extension": [
     {
       "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
@@ -36,13 +33,13 @@
   "name": [
   {
       "use": "official",
-      "text": "BECK,TOM",
-      "family": "BECK",
+      "text": "Simpson,Marge",
+      "family": "Simpson",
       "given": [
-      "TOM"
+      "Marge"
       ]
   }
   ],
-  "gender": "male",
+  "gender": "female",
   "birthDate": "1965-06-30"
 }
