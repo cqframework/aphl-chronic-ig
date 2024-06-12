@@ -106,7 +106,7 @@
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.1.000"
     }, {
       "type": "depends-on",
       "display": "Library SurveillanceDataElements",
@@ -246,7 +246,7 @@
   "title": "Seen Patients",
   "status": "draft",
   "experimental": true,
-  "date": "2024-06-11T11:42:39-06:00",
+  "date": "2024-06-12T09:27:44-06:00",
   "description": "Seen patients during the measurement period",
   "purpose": "The Seen Patients cohort measure is defined to provide a baseline for chronic disease surveillance. For each individual in the cohort, supplemental data is collected aligning with the supplemental data defined for other chronic disease surveillance measure usages, allowing for analytics across and between specific measures.",
   "topic": [ {
