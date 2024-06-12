@@ -1,6 +1,6 @@
 {
   "resourceType" : "Observation",
-  "id" : "denom-CMS122-Observation2",
+  "id" : "Observation2-denom-1-CMS122",
   "status" : "final",
   "category" : [
     {
@@ -22,9 +22,9 @@
     ]
   },
   "subject" : {
-    "reference" : "Patient/denom-CMS122-Patient"
+    "reference" : "Patient/Patient-denom-1-CMS122"
   },
-  "effectiveDateTime" : "2019-10-17T12:30:00",
+  "effectiveDateTime" : "2019-10-17T11:30:00-07:00",
 
   "valueQuantity" : {
     "value" : 7.1,

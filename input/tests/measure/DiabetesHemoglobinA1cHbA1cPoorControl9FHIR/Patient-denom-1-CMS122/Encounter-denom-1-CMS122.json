@@ -1,10 +1,12 @@
 {
   "resourceType" : "Encounter",
-  "id": "denom-3-CMS122-Encounter",
-  "text" : {
-  "status" : "generated"
-  },
+  "id": "Encounter-denom-1-CMS122",
   "status" : "finished",
+  "class": {
+    "code": "HH",
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "Home Health"
+  },
   "type" : [
   {
       "coding" : [
@@ -18,10 +20,10 @@
   }
   ],
   "subject" : {
-  "reference" : "Patient/denom-3-CMS122-Patient"
+  "reference" : "Patient/Patient-denom-1-CMS122"
   },
   "period" : {
-  "start" : "2019-01-16T08:30:00",
-  "end" : "2019-01-20T08:30:00"
+  "start" : "2024-01-16T11:00:00-07:00",
+  "end" : "2024-01-20T13:10:00-07:00"
   }
 }

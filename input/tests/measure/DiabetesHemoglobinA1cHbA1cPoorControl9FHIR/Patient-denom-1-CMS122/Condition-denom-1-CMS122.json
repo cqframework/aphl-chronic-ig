@@ -1,6 +1,6 @@
 {
   "resourceType": "Condition",
-  "id": "denom-3-CMS122-Condition",
+  "id": "Condition-denom-1-CMS122",
   "clinicalStatus": {
       "coding": [
       {
@@ -14,7 +14,7 @@
   "verificationStatus": {
       "coding": [
       {
-          "system": "http://terminology.hl7.org/CodeSystem/condition-verification",
+          "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
           "code": "confirmed",
           "display": "confirmed"
       }
@@ -42,13 +42,13 @@
       "text": "Type 1 diabetes"
   },
   "subject": {
-      "reference": "Patient/denom-3-CMS122-Patient"
+      "reference": "Patient/Patient-denom-1-CMS122"
   },
   "encounter": {
-      "reference": "Encounter/denom-3-CMS122-Encounter"
+      "reference": "Encounter/Encounter-denom-1-CMS122"
   },
   "onsetPeriod": {
-      "start": "2009-01-16T08:30:00"
+      "start": "2009-01-16T08:30:00-07:00"
 
   }
 }
