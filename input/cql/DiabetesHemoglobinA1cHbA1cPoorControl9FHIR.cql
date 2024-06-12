@@ -110,14 +110,11 @@ define "Numerator":
     or "Has No Record Of HbA1c"
 
 define "Has HbA1c Lab Test":
-  (AC.LaboratoryObservation([Observation: "HbA1c Laboratory Test"])) HbA1cTest
-    where FC.ToInterval(HbA1cTest.effective) during "Measurement Period"
-
-define "MP":
-  "Measurement Period"
+  (AC.LaboratoryObservation([Observation: "HbA1c Laboratory Test"]))
 
 define "Most Recent HbA1c Lab Test":
-  AC.MostRecent("Has HbA1c Lab Test")  
+  AC.MostRecent("Has HbA1c Lab Test" HbA1cTest
+    where FC.ToInterval(HbA1cTest.effective) during "Measurement Period")
 
 define "Has Most Recent Elevated HbA1c":
   "Most Recent HbA1c Lab Test".value >= 9 '%'
