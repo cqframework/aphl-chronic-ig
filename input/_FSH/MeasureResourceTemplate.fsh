@@ -15,6 +15,7 @@ Alias: $caregap-data = http://content.alphora.com/fhir/dqm/CodeSystem/caregap-da
 Alias: $stratifier-type = http://hl7.org/fhir/measure-stratifier-example
 Alias: $cms-id = http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/cms
 Alias: $measure-guid = http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid
+Alias: $coverage-class = http://terminology.hl7.org/CodeSystem/coverage-class
  
 RuleSet: MeasureExtensions(id, url, reference)
 * extension[+]
@@ -31,22 +32,20 @@ RuleSet: MeasureCommonURLs(measureID)
 * url = "http://hl7.org/fhir/us/chronic-ds/Measure/{measureID}"
 * library = "http://hl7.org/fhir/us/chronic-ds/Library/{measureID}"
 
-RuleSet: MeasureIdentifier(use, code, value)
+RuleSet: MeasureIdentifier(use, system, value)
 * identifier[+]
   * use = {use}
+  * system = {system}
   * value = {value}
 
 RuleSet: MeasureIdentifierCMSDisplay(value)
 * insert MeasureIdentifier(#usual, $identifier-type#short-name "Short Name", {value})
 
-RuleSet: MeasureIdentifierCMSID(value)
+RuleSet: MeasureIdentifierID(value)
 * insert MeasureIdentifier(#official, $identifier-type#publisher "Publisher", {value})
 
 RuleSet: MeasureIdentifierGUID(value)
 * insert MeasureIdentifier(#official, $measure-guid, {value})
-
-RuleSet: MeasureIdentifierID(value)
-* insert MeasureIdentifier(#official, $cms-id, {value})
 
 RuleSet: MeasureUseContext(code, version, text)
 * useContext[+]
@@ -54,27 +53,27 @@ RuleSet: MeasureUseContext(code, version, text)
   * code.version = {version}
   * valueCodeableConcept.text = {text}
  
-RuleSet: MeasureCoding(code, system, display, version)
+RuleSet: MeasureCoding(code, system, display)
 * coding[+]
   * code = {code}
   * system = {system}
   * display = {display}
-  * version = {version}
+//   * version = {version}
 
 RuleSet: MeasureCommonCodings
-* jurisdiction
-  * insert MeasureCoding(#US, "urn:iso:std:iso:3166", "United States of America", "4.0.1")
+// * jurisdiction
+//   * insert MeasureCoding(#US, "urn:iso:std:iso:3166", "United States of America", "4.0.1")
 * scoring[+]
-  * insert MeasureCoding(#proportion, $measure-scoring, "Proportion", "4.0.1")
+  * insert MeasureCoding(#proportion, $measure-scoring, "Proportion")
 * type[+]
-  * insert MeasureCoding(#outcome, $measure-type, "Outcome", "3.0.0")
+  * insert MeasureCoding(#outcome, $measure-type, "intermediateOutcome")
 * improvementNotation[+]
-  * insert MeasureCoding(#decrease, $measure-improvement-notation, "Lower score indicates better quality", "0.1.0")
+  * insert MeasureCoding(#decrease, $measure-improvement-notation, "Lower score indicates better quality")
 
 RuleSet: MeasureEffectivePeriod(year)
 * effectivePeriod[+]
-  * start = {year}-01-01T00:00:00-07:00
-  * end = {year}-12-31T23:59:59-07:00
+  * start = {year}-01-01
+  * end = {year}-12-31
 
 RuleSet: MeasureTopic(code, display)
 * topic[+]
@@ -86,25 +85,30 @@ RuleSet: MeasureTopic(code, display)
 RuleSet: MeasureCommonTopic
 * insert MeasureTopic(#57024-2, "Health Quality Measure Document")
   
-RuleSet: MeasureSDE(id, code, expression)
+RuleSet: MeasureSDE(id, code, description, expression)
 * supplementalData[+]
   * id = {id}
   * code = {code}
   * usage = $measure-data-usage#supplemental-data
-  * description = {expression}
+  * description = {description}
   * criteria[+].language = #text/cql-identifier
   * criteria[=].expression = {expression}
 
 RuleSet: MeasureSDEStandard
-* insert MeasureSDE("sde-ethnicity", $measure-supplemental-data#ethnicity "SDE Ethnicity", "SDE Ethnicity")  
-* insert MeasureSDE("sde-payer", $measure-supplemental-data#payer "SDE Payer", "SDE Payer")
-* insert MeasureSDE("sde-race", $measure-supplemental-data#race "SDE Race", "SDE Race")
-* insert MeasureSDE("sde-sex", $measure-supplemental-data#gender "SDE Sex", "SDE Sex")
+* insert MeasureSDE("sde-ethnicity", $loinc#54133-4 "Ethnicity", "Ethnicity (CDC Value Set\)", "SDE Ethnicity")  
+* insert MeasureSDE("sde-payer", $coverage-class#plan "SDE Payer", "Payer", "SDE Payer")
+* insert MeasureSDE("sde-race", $loinc#32624-9 "SDE Race", "Race (CDC Value Set\)", "SDE Race")
+* insert MeasureSDE("sde-sex", $loinc#72143-1 "Sex [HL7.v3]", "Administrative sex", "SDE Sex")
+* insert MeasureSDE("sde-age", $loinc#30525-0 "Age", "Age", "SDE Age")
+* insert MeasureSDE("sde-state-of-residence", $loinc#52830-7 "State\, district or territory federal abbreviation", "State of residence", "SDE State of Residence")
+* insert MeasureSDE("sde-postal-code-of-residence", $loinc#45401-7 "Postal code", "Postal code of residence", "SDE Postal Code of Residence")
+* insert MeasureSDE("sde-food-insecurity-risk-status", $loinc#88124-3 "Food insecurity risk [HVS]", "Food insecurity risk status", "SDE Food Insecurity Risk Status")
 
 RuleSet: MeasureCareGap(id, code, expression)
 * supplementalData[+]
   * id = {id}
   * code = {code}
+  * code[=].coding[=].text = {id}
   * usage = $caregap-data#date-of-non-compliance
   * description = {expression}
   * criteria[+].language = #text/cql-identifier
@@ -114,8 +118,8 @@ RuleSet: MeasureNonCompliance
 * insert MeasureCareGap("date-of-non-compliance", $caregap-data#date-of-non-compliance "SDE Date of Non-Compliance", "SDE Date of Non-Compliance")
 
 RuleSet: MeasureDetails(version, dateTime)
-* status = #active
-* experimental = true
+* status = #draft
+* experimental = false
 * version = {version}
 * date = {dateTime}
 * publisher = "National Committee for Quality Assurance"
@@ -137,67 +141,21 @@ RuleSet: MeasureGroupStrataPopulation(eMeasureUUID, description, code, expressio
 //eMeasureUUID's can be found here: https://github.com/CMSgov/qpp-measures-data/blob/develop/measures/2023/measures-data.json
 
 // Not Needed for every measure 
-RuleSet: MeasureStratifierAge(text, expression)
+RuleSet: MeasureStratifier(id, code, description, expression)
 * group[=]
   * stratifier[+]
-    * id = {expression}
-    * code = $stratifier-type#age {text}
+    * id = {id}
+    * description = {description}
+    * code = {code}
     * criteria.language = #text/cql-identifier
     * criteria.expression = {expression}
 
-/*
-Instance: Measure-Name
-InstanceOf: Measure
-Usage: #example
-* insert MeasureCommonExtensions
-* language = "en"
-
-* insert MeasureIdentifierCMSDisplay(value)
-* insert MeasureIdentifierCMSID(value)
-* insert MeasureIdentifierGUID(value)
-* insert MeasureIdentifierID(value)
-
-* insert MeasureCommonURLs(measureID)
-
-* name = "name"
-* title = "title"
-* insert MeasureDetails(version, date)
-
-* disclaimer = "disclaimer"
-* description = "description" 
-* copyright = "copyright"
-* guidance = "guidance"
-
-* insert MeasureUseContext(code, version, text)
-
-* purpose = "purpose"
-
-* insert MeasureEffectivePeriod(year)
-
-* insert MeasureCommonTopic
-
-* insert MeasureCommonCodings
-
-* rationale = "rationale"
-
-* clinicalRecommendationStatement = "clinical reccomendation statement"
-
-//FOR SINGLE RATE MEASURE
-* group[+]
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-
-//FOR MULTI RATE MEASURE
-* insert MeasureGroupStrataId(id)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-
-* insert MeasureGroupStrataId(id)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-* insert MeasureGroupStrataPopulation(eMeasureUUID, code, expression)
-
-* insert MeasureSDEStandard 
-*/
+RuleSet: MeasureCommonStratifiers
+* insert MeasureStratifier("stratifier-ethnicity", $loinc#54133-4 "Ethnicity", "Ethnicity (CDC Value Set\)", "SDE Ethnicity")  
+* insert MeasureStratifier("stratifier-payer", $coverage-class#plan "SDE Payer", "Payer", "SDE Payer")
+* insert MeasureStratifier("stratifier-race", $loinc#32624-9 "SDE Race", "Race (CDC Value Set\)", "SDE Race")
+* insert MeasureStratifier("stratifier-sex", $loinc#72143-1 "Sex [HL7.v3]", "Administrative sex", "SDE Sex")
+* insert MeasureStratifier("stratifier-age", $loinc#30525-0 "Age", "Age", "SDE Age")
+* insert MeasureStratifier("stratifier-state-of-residence", $loinc#52830-7 "State\, district or territory federal abbreviation", "State of residence", "SDE State of Residence")
+* insert MeasureStratifier("stratifier-postal-code-of-residence", $loinc#45401-7 "Postal code", "Postal code of residence", "SDE Postal Code of Residence")
+* insert MeasureStratifier("stratifier-food-insecurity-risk-status", $loinc#88124-3 "Food insecurity risk [HVS]", "Food insecurity risk status", "SDE Food Insecurity Risk Status")

@@ -1,4 +1,3 @@
-
 Instance: DiabetesHemoglobinA1cHbA1cPoorControl9FHIR
 InstanceOf: Measure
 Usage: #example
@@ -36,5 +35,6 @@ Usage: #example
 * insert MeasureGroupStrataPopulation("66505C6C-AAB0-4232-B0CA-15FB438090F4", "Seen patients between 18 and 75 years of age with an active diabetes diagnosis", denominator, "Denominator")
 * insert MeasureGroupStrataPopulation("95BCB9D4-86A8-43C1-BE29-7440A2ECE294", "Patients whose most recent HbA1c > 9%", numerator, "Numerator")
 * insert MeasureGroupStrataPopulation("6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F", "Patients in hospice or long term care\, or with advanced illness or frailty", denominator-exclusion, "Denominator Exclusions")
+* insert MeasureCommonStratifiers
 
 * insert MeasureSDEStandard 
