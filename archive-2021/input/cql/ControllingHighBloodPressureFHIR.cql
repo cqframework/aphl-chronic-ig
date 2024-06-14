@@ -136,7 +136,7 @@ define "Numerator":
 		and "Has Systolic Blood Pressure Less Than 140"
 
 define "Initial Population":
-  AgeInYearsAt(end of "Measurement Period") between 18 and 85
+  AgeInYearsAt(date from end of "Measurement Period") in Interval[18, 85]
 		and exists "Essential Hypertension Diagnosis"
 		and exists AdultOutpatientEncounters."Qualifying Encounters"
 
