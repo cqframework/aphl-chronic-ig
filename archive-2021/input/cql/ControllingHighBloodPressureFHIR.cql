@@ -30,6 +30,7 @@ valueset "Payer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3
 valueset "Pregnancy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378'
 valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
 valueset "Vascular Access for Dialysis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1011'
+valueset "Emergency Department Evaluation and Management Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1010'
 
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 code "Blood pressure": '85354-9' from "LOINC" display 'blood pressure'
@@ -106,6 +107,9 @@ define "Most Recent Blood Pressure Day":
 
 define "Qualifying Diastolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
+    without (["Encounter": "Encounter Inpatient"]
+      union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
+      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
 	  where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
       and exists (
@@ -116,6 +120,9 @@ define "Qualifying Diastolic Blood Pressure Reading":
 
 define "Qualifying Systolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
+    without (["Encounter": "Encounter Inpatient"]
+      union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
+      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
     where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
       and exists (
