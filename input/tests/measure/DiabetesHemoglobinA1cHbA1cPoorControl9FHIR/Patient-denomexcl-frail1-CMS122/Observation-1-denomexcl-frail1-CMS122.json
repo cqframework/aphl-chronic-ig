@@ -1,0 +1,19 @@
+{
+  "resourceType": "Observation",
+  "id": "Observation-1-denomexcl-frail1-CMS122",
+  "code": {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2021-09",
+          "code": "102492002",
+          "display": "Failure to maintain weight (finding)"
+        }
+      ]
+    },
+  "effectiveDateTime": "2024-03-11T11:00:00-07:00",
+  "status": "final",
+  "subject": {
+    "reference": "Patient/Patient-denomexcl-frail1-CMS122"
+  }
+}
