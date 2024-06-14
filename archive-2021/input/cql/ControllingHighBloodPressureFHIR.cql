@@ -166,7 +166,7 @@ define "End Stage Renal Disease Procedures":
 define "Essential Hypertension Diagnosis":
 	["Condition": "Essential Hypertension"] Hypertension
     where Hypertension.verificationStatus ~ Common."confirmed"
-      and Common."Prevalence Period"(Hypertension) overlaps Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"]
+      and Common."Prevalence Period"(Hypertension) overlaps Interval[start of "Measurement Period", start of "Measurement Period" + 6 months]
 
 define "Denominator Exclusion":
   Hospice."Has Hospice"
