@@ -30,13 +30,14 @@ valueset "Payer": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3
 valueset "Pregnancy": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.378'
 valueset "Race": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.836'
 valueset "Vascular Access for Dialysis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.109.12.1011'
+valueset "Emergency Department Evaluation and Management Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1010'
 
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 code "Blood pressure": '85354-9' from "LOINC" display 'blood pressure'
 code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
-parameter "Measurement Period" Interval<DateTime> default Interval[@2024-01-01T00:00:00.0-06:00, @2024-12-31T23:59:59.999-06:00]
+parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0-06:00, @2019-12-31T23:59:59.999-06:00]
 
 context Patient
 
@@ -76,7 +77,7 @@ define "Has Systolic Blood Pressure Less Than 140":
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 	First(
     "Qualifying Diastolic Blood Pressure Reading" DBPReading
-		  where Common.Earliest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
+		  where Common.Latest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
       return singleton from (
         DBPReading.component C
           where C.code ~ "Diastolic blood pressure"
@@ -88,7 +89,7 @@ define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	First(
     "Qualifying Systolic Blood Pressure Reading" SBPReading
-		  where Common.Earliest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
+		  where Common.Latest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
       return singleton from (
         SBPReading.component C
           where C.code ~ "Systolic blood pressure"
@@ -98,14 +99,17 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	)
 
 define "Blood Pressure Days":
-	("Qualifying Diastolic Blood Pressure Reading" DBPExam return Common.Earliest(DBPExam.effective))
-     intersect "Qualifying Systolic Blood Pressure Reading" SBPExam return Common.Earliest(SBPExam.effective)
+	("Qualifying Diastolic Blood Pressure Reading" DBPExam return Common.Latest(DBPExam.effective))
+     intersect "Qualifying Systolic Blood Pressure Reading" SBPExam return Common.Latest(SBPExam.effective)
 
 define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
 
 define "Qualifying Diastolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
+    without (["Encounter": "Encounter Inpatient"]
+      union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
+      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
 	  where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
       and exists (
@@ -116,6 +120,9 @@ define "Qualifying Diastolic Blood Pressure Reading":
 
 define "Qualifying Systolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
+    without (["Encounter": "Encounter Inpatient"]
+      union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
+      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
     where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
       and exists (
@@ -129,7 +136,7 @@ define "Numerator":
 		and "Has Systolic Blood Pressure Less Than 140"
 
 define "Initial Population":
-  AgeInYearsAt(end of "Measurement Period") between 18 and 85
+  AgeInYearsAt(date from end of "Measurement Period") in Interval[18, 85]
 		and exists "Essential Hypertension Diagnosis"
 		and exists AdultOutpatientEncounters."Qualifying Encounters"
 
@@ -159,7 +166,7 @@ define "End Stage Renal Disease Procedures":
 define "Essential Hypertension Diagnosis":
 	["Condition": "Essential Hypertension"] Hypertension
     where Hypertension.verificationStatus ~ Common."confirmed"
-      and Common."Prevalence Period"(Hypertension) overlaps Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"]
+      and Common."Prevalence Period"(Hypertension) overlaps Interval[start of "Measurement Period", start of "Measurement Period" + 6 months]
 
 define "Denominator Exclusion":
   Hospice."Has Hospice"
