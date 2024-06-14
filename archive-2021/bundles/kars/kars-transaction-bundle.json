@@ -421,16 +421,16 @@
   }, {
     "resource": {
       "resourceType": "Library",
-      "id": "ControllingBloodPressureFHIR",
+      "id": "ControllingHighBloodPressureFHIR",
       "extension": [ {
         "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
         "valueReference": {
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR",
+      "url": "http://hl7.org/fhir/us/chronic-ds/Library/ControllingHighBloodPressureFHIR",
       "version": "9.0.000",
-      "name": "ControllingBloodPressureFHIR",
+      "name": "ControllingHighBloodPressureFHIR",
       "status": "active",
       "experimental": true,
       "type": {
@@ -1089,7 +1089,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Library/ControllingBloodPressureFHIR"
+      "url": "Library/ControllingHighBloodPressureFHIR"
     }
   }, {
     "resource": {
@@ -2348,7 +2348,7 @@
   }, {
     "resource": {
       "resourceType": "Measure",
-      "id": "ControllingBloodPressureFHIR",
+      "id": "ControllingHighBloodPressureFHIR",
       "meta": {
         "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/proportion-measure-cqfm", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
       },
@@ -2927,9 +2927,9 @@
           "display": "Discharge to healthcare facility for hospice care (procedure)"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingBloodPressureFHIR",
+      "url": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingHighBloodPressureFHIR",
       "version": "9.0.000",
-      "name": "ControllingBloodPressureFHIR",
+      "name": "ControllingHighBloodPressureFHIR",
       "title": "Controlling Blood Pressure",
       "status": "draft",
       "experimental": true,
@@ -3136,7 +3136,7 @@
         "display": "Value set Dementia Medications",
         "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
       } ],
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingHighBloodPressureFHIR" ],
       "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
       "scoring": {
         "coding": [ {
@@ -3464,7 +3464,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "Measure/ControllingBloodPressureFHIR"
+      "url": "Measure/ControllingHighBloodPressureFHIR"
     }
   }, {
     "resource": {
@@ -4976,9 +4976,9 @@
   }, {
     "resource": {
       "resourceType": "PlanDefinition",
-      "id": "ChronicDSControllingBloodPressure",
-      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSControllingBloodPressure",
-      "name": "ChronicDSControllingBloodPressure",
+      "id": "ChronicDSControllingHighBloodPressure",
+      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSControllingHighBloodPressure",
+      "name": "ChronicDSControllingHighBloodPressure",
       "title": "Chronic Disease Surveillance Reporting Specification for Controlling Blood Pressure",
       "type": {
         "coding": [ {
@@ -5003,7 +5003,7 @@
       "effectivePeriod": {
         "start": "2021-06-01"
       },
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
+      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingHighBloodPressureFHIR" ],
       "_library": [ {
         "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
@@ -5111,7 +5111,7 @@
           "actionId": "report-ds",
           "relationship": "before-start"
         } ],
-        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingBloodPressureFHIR"
+        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingHighBloodPressureFHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
@@ -5165,7 +5165,7 @@
             "profile": [ "http://hl7.org/fhir/MeasureReport" ]
           } ],
           "output": [ {
-            "id": "eicr-report-ChronicDSControllingBloodPressure",
+            "id": "eicr-report-ChronicDSControllingHighBloodPressure",
             "type": "Bundle",
             "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" ]
           } ],
@@ -5184,7 +5184,7 @@
             } ]
           } ],
           "input": [ {
-            "id": "eicr-report-ChronicDSControllingBloodPressure",
+            "id": "eicr-report-ChronicDSControllingHighBloodPressure",
             "type": "Bundle",
             "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
           } ],
@@ -5222,7 +5222,7 @@
     },
     "request": {
       "method": "PUT",
-      "url": "PlanDefinition/ChronicDSControllingBloodPressure"
+      "url": "PlanDefinition/ChronicDSControllingHighBloodPressure"
     }
   }, {
     "resource": {
