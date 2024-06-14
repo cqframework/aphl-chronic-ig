@@ -37,7 +37,7 @@ code "Blood pressure": '85354-9' from "LOINC" display 'blood pressure'
 code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
-parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0-06:00, @2019-12-31T23:59:59.999-06:00]
+parameter "Measurement Period" Interval<DateTime> default Interval[@2024-01-01T00:00:00.0-06:00, @2024-12-31T23:59:59.999-06:00]
 
 context Patient
 
@@ -106,9 +106,9 @@ define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
 
 define "Qualifying Diastolic Blood Pressure Reading":
-	["Observation": "Blood pressure"] BloodPressure
-    without (["Encounter": "Encounter Inpatient"]
-      union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
+	[Observation: "Blood pressure"] BloodPressure
+    without ([Encounter: "Encounter Inpatient"]
+      union [Encounter: "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
       such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
 	  where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
@@ -119,9 +119,9 @@ define "Qualifying Diastolic Blood Pressure Reading":
       )
 
 define "Qualifying Systolic Blood Pressure Reading":
-	["Observation": "Blood pressure"] BloodPressure
-    without (["Encounter": "Encounter Inpatient"]
-      union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
+	[Observation: "Blood pressure"] BloodPressure
+    without ([Encounter: "Encounter Inpatient"]
+      union [Encounter: "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
       such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
     where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
@@ -141,10 +141,10 @@ define "Initial Population":
 		and exists AdultOutpatientEncounters."Qualifying Encounters"
 
 define "Pregnancy Or Renal Diagnosis Exclusions":
-	( ["Condition": "Pregnancy"]
-		union ["Condition": "End Stage Renal Disease"]
-		union ["Condition": "Kidney Transplant Recipient"]
-		union ["Condition": "Chronic Kidney Disease, Stage 5"] ) PregnancyESRDDiagnosis
+	( [Condition: "Pregnancy"]
+		union [Condition: "End Stage Renal Disease"]
+		union [Condition: "Kidney Transplant Recipient"]
+		union [Condition: "Chronic Kidney Disease, Stage 5"] ) PregnancyESRDDiagnosis
       where PregnancyESRDDiagnosis.verificationStatus ~ Common."confirmed"
         and PregnancyESRDDiagnosis.recordedDate before end of "Measurement Period"
 
@@ -152,19 +152,19 @@ define "Denominator":
 	"Initial Population"
 
 define "End Stage Renal Disease Encounter":
-	["Encounter": "ESRD Monthly Outpatient Services"] ESRDEncounter
+	[Encounter: "ESRD Monthly Outpatient Services"] ESRDEncounter
 		where ESRDEncounter.status in { 'arrived', 'triaged', 'in-progress', 'onleave', 'finished' }
 		  and ESRDEncounter.period starts before end of "Measurement Period"
 
 define "End Stage Renal Disease Procedures":
-	( ["Procedure": "Vascular Access for Dialysis"]
-		union ["Procedure": "Kidney Transplant"]
-		union ["Procedure": "Dialysis Services"] ) ESRDProcedure
+	( [Procedure: "Vascular Access for Dialysis"]
+		union [Procedure: "Kidney Transplant"]
+		union [Procedure: "Dialysis Services"] ) ESRDProcedure
 		where ESRDProcedure.status = 'completed'
       and Common."Normalize Interval"(ESRDProcedure.performed) starts before end of "Measurement Period"
 
 define "Essential Hypertension Diagnosis":
-	["Condition": "Essential Hypertension"] Hypertension
+	[Condition: "Essential Hypertension"] Hypertension
     where Hypertension.verificationStatus ~ Common."confirmed"
       and Common."Prevalence Period"(Hypertension) overlaps Interval[start of "Measurement Period", start of "Measurement Period" + 6 months]
 
