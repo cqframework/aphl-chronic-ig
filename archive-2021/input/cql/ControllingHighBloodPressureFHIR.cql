@@ -99,8 +99,8 @@ define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	)
 
 define "Blood Pressure Days":
-	("Qualifying Diastolic Blood Pressure Reading" DBPExam return Common.Earliest(DBPExam.effective))
-     intersect "Qualifying Systolic Blood Pressure Reading" SBPExam return Common.Earliest(SBPExam.effective)
+	("Qualifying Diastolic Blood Pressure Reading" DBPExam return Common.Latest(DBPExam.effective))
+     intersect "Qualifying Systolic Blood Pressure Reading" SBPExam return Common.Latest(SBPExam.effective)
 
 define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
