@@ -42,5 +42,5 @@ define "Qualifying Encounters":
       union [Encounter: "Online Assessments"]
       union [Encounter: "Telephone Visits"]
   ) ValidEncounters
-    where FC.ToInterval(ValidEncounters.period) during "Measurement Period"
+    where FC.ToInterval(ValidEncounters.actualPeriod) during "Measurement Period"
 	  and ValidEncounters.status ~ 'finished' or ValidEncounters.status ~ 'in-progress'

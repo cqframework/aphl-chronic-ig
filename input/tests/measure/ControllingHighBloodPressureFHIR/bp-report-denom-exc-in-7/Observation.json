@@ -1,0 +1,27 @@
+{
+  "resourceType": "Observation",
+  "id": "bp-report-denom-exc-in-7-observation",
+  "code": {
+    "coding": [
+      {
+        "code": "71802-3",
+        "system": "http://loinc.org",
+        "display": "Housing status"
+      }
+    ]
+  },
+  "effectiveDateTime": "2023-03-02T10:00:00-07:00",
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "code": "160734000",
+        "system": "http://snomed.info/sct",
+        "display": "Lives in a nursing home"
+      }
+    ]
+  },
+  "status": "final",
+  "subject": {
+    "reference": "Patient/bp-report-denom-exc-in-7"
+  }
+}

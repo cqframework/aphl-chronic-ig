@@ -1,0 +1,22 @@
+{
+    "resourceType": "Observation",
+    "id": "bp-report-denom-exc-in-6-observation",
+    "code": {
+      "coding": [
+        {
+            "system": "http://snomed.info/sct",
+            "version": "2021-09",
+            "code": "225612007",
+            "display": "Wheelchair bound (finding)"
+        }
+      ]
+    },
+    "effectiveDateTime": "2023-02-15T11:00:00-07:00",
+    "encounter": {
+      "reference": "Encounter/bp-report-denom-exc-in-6-encounter"
+    },
+    "status": "final",
+    "subject": {
+      "reference": "Patient/bp-report-denom-exc-in-6"
+    }
+  }

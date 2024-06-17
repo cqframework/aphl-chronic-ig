@@ -15,10 +15,10 @@
     } ]
   },
   "subject": {
-    "reference": "Patient/bp-report-denom-exc-in"
+    "reference": "Patient/bp-report-denom-exc-in-1"
   },
   "performedPeriod": {
-    "start": "2018-03-27T10:00:00",
-    "end": "2019-06-18T23:59:00"
+    "start": "2024-03-27T10:00:00",
+    "end": "2024-06-18T23:59:00"
   }
 }
