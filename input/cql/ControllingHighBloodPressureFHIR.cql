@@ -12,6 +12,7 @@ include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
 include AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000' called FrailtyLTI
 include HospiceFHIR4 version '2.0.000' called Hospice
 include SurveillanceDataElementsFHIR4 version '1.0.000' called SurveillanceDataElements
+include PalliativeCareFHIR called PalliativeCare
 
 codesystem "LOINC": 'http://loinc.org'
 
@@ -69,38 +70,41 @@ define "SDE Food Insecurity Risk Status":
   SurveillanceDataElements."Food Insecurity Risk Status"
 
 define "Has Diastolic Blood Pressure Less Than 90":
-	"Lowest Diastolic Reading on Most Recent Blood Pressure Day" < 90 'mm[Hg]'
+	"Lowest Diastolic Reading on Most Recent Blood Pressure Day" < 90 
+    and "Lowest Diastolic Reading on Most Recent Blood Pressure Day" is not null
 
 define "Has Systolic Blood Pressure Less Than 140":
-	"Lowest Systolic Reading on Most Recent Blood Pressure Day" < 140 'mm[Hg]'
+	"Lowest Systolic Reading on Most Recent Blood Pressure Day".value < 140
+    and "Lowest Systolic Reading on Most Recent Blood Pressure Day" is not null
 
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 	First(
-    "Qualifying Diastolic Blood Pressure Reading" DBPReading
-		  where Common.Latest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
-      return singleton from (
-        DBPReading.component C
-          where C.code ~ "Diastolic blood pressure"
-          return C.value as FHIR.Quantity
-      )
-			sort ascending
+    Sort(
+      "Qualifying Diastolic Blood Pressure Reading" DBPReading
+		    where Common.Latest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
+          and DBPReading.component.code ~ "Diastolic blood pressure"
+        return (DBPReading.component.value as FHIR.Quantity).value,
+			asc
+    )
 	)
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	First(
-    "Qualifying Systolic Blood Pressure Reading" SBPReading
-		  where Common.Latest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
-      return singleton from (
-        SBPReading.component C
-          where C.code ~ "Systolic blood pressure"
-          return C.value as FHIR.Quantity
-      )
-      sort ascending
+    Sort(
+      "Qualifying Systolic Blood Pressure Reading" SBPReading
+		    where Common.Latest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
+          and SBPReading.component.code ~ "Systolic blood pressure"
+        return (SBPReading.component.value as FHIR.Quantity).value,
+			asc
+    )
 	)
 
 define "Blood Pressure Days":
-	("Qualifying Diastolic Blood Pressure Reading" DBPExam return Common.Latest(DBPExam.effective))
-     intersect "Qualifying Systolic Blood Pressure Reading" SBPExam return Common.Latest(SBPExam.effective)
+	("Qualifying Diastolic Blood Pressure Reading" DBPExam 
+    return Common.Latest(DBPExam.effective)
+  ) intersect ("Qualifying Systolic Blood Pressure Reading" SBPExam 
+    return Common.Latest(SBPExam.effective)
+  )
 
 define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
@@ -109,26 +113,26 @@ define "Qualifying Diastolic Blood Pressure Reading":
 	[Observation: "Blood pressure"] BloodPressure
     without ([Encounter: "Encounter Inpatient"]
       union [Encounter: "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
-      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
-	  where BloodPressure.status in {'final', 'amended'}
-      and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
+      such that Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
+    where BloodPressure.status in {'final', 'amended'}
+      and Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during "Measurement Period"
       and exists (
         BloodPressure.component DiastolicBP
-          where FHIRHelpers.ToConcept(DiastolicBP.code) ~ "Diastolic blood pressure"
-            and (DiastolicBP.value as Quantity).code.value = 'mm[Hg]'
+          where DiastolicBP.code ~ "Diastolic blood pressure"
+            and (DiastolicBP.value as Quantity).unit = 'mm[Hg]'
       )
 
 define "Qualifying Systolic Blood Pressure Reading":
 	[Observation: "Blood pressure"] BloodPressure
     without ([Encounter: "Encounter Inpatient"]
       union [Encounter: "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
-      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
+      such that Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
     where BloodPressure.status in {'final', 'amended'}
-      and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
+      and Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during "Measurement Period"
       and exists (
         BloodPressure.component SystolicBP
-          where FHIRHelpers.ToConcept(SystolicBP.code) ~ "Systolic blood pressure"
-            and (SystolicBP.value as Quantity).code.value = 'mm[Hg]'
+          where SystolicBP.code ~ "Systolic blood pressure"
+            and (SystolicBP.value as Quantity).unit = 'mm[Hg]'
       )
 
 define "Numerator":
@@ -140,28 +144,27 @@ define "Initial Population":
 		and exists "Essential Hypertension Diagnosis"
 		and exists AdultOutpatientEncounters."Qualifying Encounters"
 
-define "Pregnancy Or Renal Diagnosis Exclusions":
+define "Pregnancy Or Renal Diagnosis":
 	( [Condition: "Pregnancy"]
 		union [Condition: "End Stage Renal Disease"]
 		union [Condition: "Kidney Transplant Recipient"]
 		union [Condition: "Chronic Kidney Disease, Stage 5"] ) PregnancyESRDDiagnosis
       where PregnancyESRDDiagnosis.verificationStatus ~ Common."confirmed"
-        and PregnancyESRDDiagnosis.recordedDate before end of "Measurement Period"
+        and PregnancyESRDDiagnosis.recordedDate overlaps "Measurement Period"
 
 define "Denominator":
 	"Initial Population"
 
 define "End Stage Renal Disease Encounter":
 	[Encounter: "ESRD Monthly Outpatient Services"] ESRDEncounter
-		where ESRDEncounter.status in { 'arrived', 'triaged', 'in-progress', 'onleave', 'finished' }
-		  and ESRDEncounter.period starts before end of "Measurement Period"
+		where ESRDEncounter.status in { 'arrived', 'triaged', 'in-progress', 'onleave', 'completed' }
+		  and ESRDEncounter.actualPeriod starts on or before end of "Measurement Period"
 
 define "End Stage Renal Disease Procedures":
-	( [Procedure: "Vascular Access for Dialysis"]
-		union [Procedure: "Kidney Transplant"]
-		union [Procedure: "Dialysis Services"] ) ESRDProcedure
-		where ESRDProcedure.status = 'completed'
-      and Common."Normalize Interval"(ESRDProcedure.performed) starts before end of "Measurement Period"
+	([Procedure: "Kidney Transplant"]
+		union [Procedure: "Dialysis Services"]) ESRDProcedure
+		  where ESRDProcedure.status = 'completed'
+        and end of Common."Normalize Interval"(ESRDProcedure.occurrencePeriod) on or before end of "Measurement Period"
 
 define "Essential Hypertension Diagnosis":
 	[Condition: "Essential Hypertension"] Hypertension
@@ -170,10 +173,9 @@ define "Essential Hypertension Diagnosis":
 
 define "Denominator Exclusion":
   Hospice."Has Hospice"
-    or exists "Pregnancy Or Renal Diagnosis Exclusions"
+    or exists "Pregnancy Or Renal Diagnosis"
     or exists "End Stage Renal Disease Procedures"
     or exists "End Stage Renal Disease Encounter"
-    or (AgeInYearsAt(start of "Measurement Period") >= 65
-      and FrailtyLTI."Long Term Care Periods Longer Than 90 Consecutive Days"
-    )
-    or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
+    or FrailtyLTI."Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty"
+    or FrailtyLTI."Is Age 66 or Older Living Long Term in a Nursing Home"
+    or PalliativeCare."Palliative Care in the Measurement Period"

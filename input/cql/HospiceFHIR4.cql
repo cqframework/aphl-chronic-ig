@@ -33,12 +33,12 @@ context Patient
 define "Has Hospice":
   exists(
     (AC.QualifiedEncounters([Encounter: "Encounter Inpatient"])) HospiceInp
-      where (HospiceInp.hospitalization.dischargeDisposition ~ "Discharge to home for hospice care (procedure)"
-        or HospiceInp.hospitalization.dischargeDisposition ~ "Discharge to healthcare facility for hospice care (procedure)")
-      and FC.ToInterval(HospiceInp.period) ends during "Measurement Period"
+      where (HospiceInp.admission.dischargeDisposition ~ "Discharge to home for hospice care (procedure)"
+        or HospiceInp.admission.dischargeDisposition ~ "Discharge to healthcare facility for hospice care (procedure)")
+      and FC.ToInterval(HospiceInp.actualPeriod) ends during "Measurement Period"
   ) or exists(
     (AC.QualifiedEncounters([Encounter: "Hospice Encounter"])) HospiceEnc
-      where FC.ToInterval(HospiceEnc.period) overlaps "Measurement Period"
+      where FC.ToInterval(HospiceEnc.actualPeriod) overlaps "Measurement Period"
   ) or exists(
     (AC.QualifiedObservations([Observation: "Hospice care [Minimum Data Set]"])) HospiceObs
       where HospiceObs.value ~ ToConcept("Yes (qualifier value)")
@@ -48,7 +48,7 @@ define "Has Hospice":
       where FC.ToInterval(HospiceSR.authoredOn) during "Measurement Period"
   ) or exists(
     (AC.QualifiedProcedures([Procedure: "Hospice Care Ambulatory"])) HospiceProc
-      where FC.ToInterval(HospiceProc.performed) overlaps "Measurement Period"
+      where FC.ToInterval(HospiceProc.occurrencePeriod) overlaps "Measurement Period"
   ) or exists(
     (AC.QualifiedConditions([Condition: "Hospice Diagnosis"])) HospiceCareDiagnosis
       where FC.ToPrevalenceInterval(HospiceCareDiagnosis) overlaps "Measurement Period"
