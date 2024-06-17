@@ -1,6 +1,6 @@
 {
   "resourceType": "Encounter",
-  "id": "numer-EXM165",
+  "id": "numer-EXM165-encounter",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"

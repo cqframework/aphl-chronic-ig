@@ -1,6 +1,6 @@
 {
   "resourceType": "Observation",
-  "id": "bp-report-numer-in",
+  "id": "bp-report-numer-in-diastolic",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/StructureDefinition/vitalsigns"
