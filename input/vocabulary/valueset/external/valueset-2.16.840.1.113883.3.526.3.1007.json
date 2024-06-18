@@ -1,0 +1,116 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.526.3.1007",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-shareablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+  },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "shareable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "narrative"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "publishable"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion",
+    "valueString": "No exclusions."
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+    "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+  } ],
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007",
+  "version": "20170504",
+  "title": "Medical Reason",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Mathematica",
+  "description": "This value set may use a model element related to Negation Rationale.",
+  "purpose": "Includes concepts that describe a medical reason for not receiving a therapy or service.",
+  "expansion": {
+    "timestamp": "2024-06-14T15:39:10-04:00",
+    "contains": [ {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "183932001",
+      "display": "Procedure contraindicated (situation)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "183964008",
+      "display": "Treatment not indicated (situation)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "183966005",
+      "display": "Drug treatment not indicated (situation)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "266721009",
+      "display": "Absent response to treatment (situation)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "269191009",
+      "display": "Late effect of medical and surgical care complication (disorder)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "31438003",
+      "display": "Drug resistance (disorder)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "35688006",
+      "display": "Complication of medical care (disorder)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "407563006",
+      "display": "Treatment not tolerated (situation)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "410534003",
+      "display": "Not indicated (qualifier value)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "410536001",
+      "display": "Contraindicated (qualifier value)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "416098002",
+      "display": "Allergy to drug (finding)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "428119001",
+      "display": "Procedure not indicated (situation)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "59037007",
+      "display": "Intolerance to drug (finding)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "62014003",
+      "display": "Adverse reaction caused by drug (disorder)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "79899007",
+      "display": "Drug interaction (finding)"
+    } ]
+  }
+}

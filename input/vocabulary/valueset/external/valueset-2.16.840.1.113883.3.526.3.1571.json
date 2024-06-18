@@ -1,0 +1,131 @@
+{
+  "resourceType": "ValueSet",
+  "id": "2.16.840.1.113883.3.526.3.1571",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-shareablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-publishablevalueset", "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-executablevalueset" ]
+  },
+  "extension": [ {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "shareable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "narrative"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "publishable"
+  }, {
+    "url": "http://fhir.org/guides/cdc/opioid-cds/StructureDefinition/cdc-valueset-inclusion",
+    "valueString": "No exclusions."
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeCapability",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-knowledgeRepresentationLevel",
+    "valueCode": "executable"
+  }, {
+    "url": "http://hl7.org/fhir/uv/cpg/StructureDefinition/cpg-usageWarning",
+    "valueString": "This value set contains a point-in-time expansion enumerating the codes that meet the value set intent. As new versions of the code systems used by the value set are released, the contents of this expansion will need to be updated to incorporate newly defined codes that meet the value set intent. Before, and periodically during production use, the value set expansion contents SHOULD be updated. The value set expansion specifies the timestamp when the expansion was produced, SHOULD contain the parameters used for the expansion, and SHALL contain the codes that are obtained by evaluating the value set definition. If this is ONLY an executable value set, a distributable definition of the value set must be obtained to compute the updated expansion."
+  } ],
+  "url": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1571",
+  "version": "20200307",
+  "title": "Referral for Adult Depression",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Mathematica",
+  "description": "This value set may use a model element related to Intervention.",
+  "purpose": "Includes concepts that represent referrals for depression management in the adult population.",
+  "expansion": {
+    "timestamp": "2024-06-14T15:39:10-04:00",
+    "contains": [ {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "1186918003",
+      "display": "Referral to intellectual disability psychiatrist (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "1186920000",
+      "display": "Referral to intellectual disability psychiatry service (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "183524004",
+      "display": "Referral to psychiatry service (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "183528001",
+      "display": "Referral to psychiatrist for the elderly mentally ill (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "183583007",
+      "display": "Refer to mental health worker (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "183866009",
+      "display": "Referral to emergency clinic (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "306136006",
+      "display": "Referral to liaison psychiatry service (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "306138007",
+      "display": "Referral to psychogeriatric service (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "306204008",
+      "display": "Referral to psychogeriatric day hospital (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "306226009",
+      "display": "Referral to mental health counseling service (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "306227000",
+      "display": "Referral for mental health counseling (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "306252003",
+      "display": "Referral to mental health counselor (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "308459004",
+      "display": "Referral to psychologist (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "308477009",
+      "display": "Referral to psychiatrist (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "390866009",
+      "display": "Referral to mental health team (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "703978000",
+      "display": "Referral to primary care service (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "710914003",
+      "display": "Referral to family therapy (procedure)"
+    }, {
+      "system": "http://snomed.info/sct",
+      "version": "2022-09",
+      "code": "711281004",
+      "display": "Referral to support group (procedure)"
+    } ]
+  }
+}
