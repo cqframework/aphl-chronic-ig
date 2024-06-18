@@ -1,0 +1,51 @@
+{
+  "resourceType": "Patient",
+  "id": "Patient-denom-2-CMS2",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2106-3",
+            "display": "White"
+          }
+        }
+      ]
+    },
+    {
+      "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+      "extension": [
+        {
+          "url": "ombCategory",
+          "valueCoding": {
+            "system": "urn:oid:2.16.840.1.113883.6.238",
+            "code": "2186-5",
+            "display": "Not Hispanic or Latino"
+          }
+        }
+      ]
+    }
+  ],
+  "active": true,
+  "name": [
+  {
+      "use": "official",
+      "text": "BECK,JANET",
+      "family": "BECK",
+      "given": [
+      "JANET"
+      ]
+  }
+  ],
+  "gender": "female",
+  "birthDate": "1998-10-26",
+  "deceasedBoolean": false
+}
