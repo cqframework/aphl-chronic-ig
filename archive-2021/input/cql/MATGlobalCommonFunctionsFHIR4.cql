@@ -347,14 +347,14 @@ define function "HasEnd"(period Interval<DateTime> ):
   )
 
 /*Given an interval, return the ending point if the interval has an ending boundary specified, otherwise, return the starting point*/
-define function "Latest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
+define function "Latest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range, Interval<DateTime>):
   ("Normalize Interval"(choice)) period
     return
       if ( HasEnd(period)) then end of period
       else start of period
 
 /*Given an interval, return the starting point if the interval has a starting boundary specified, otherwise, return the ending point*/
-define function "Earliest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
+define function "Earliest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>, Interval<DateTime>):
   ("Normalize Interval"(choice)) period
     return
       if (HasStart(period)) then start of period

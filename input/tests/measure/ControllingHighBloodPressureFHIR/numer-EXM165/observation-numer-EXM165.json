@@ -31,9 +31,9 @@
     "reference": "Patient/numer-EXM165"
   },
   "encounter": {
-    "reference": "Encounter/numer-EXM165"
+    "reference": "Encounter/numer-EXM165-encounter"
   },
-  "effectiveDateTime": "2019-10-04T11:01:33-06:00",
+  "effectiveDateTime": "2024-10-04T11:01:33-06:00",
   "component": [
     {
       "code": {

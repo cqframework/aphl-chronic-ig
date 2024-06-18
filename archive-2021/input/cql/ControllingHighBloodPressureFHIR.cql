@@ -109,7 +109,7 @@ define "Qualifying Diastolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
     without (["Encounter": "Encounter Inpatient"]
       union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
-      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
+      such that Common.Latest(BloodPressure.effective)) during day of DisqualifyingEncounter.period
 	  where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
       and exists (
@@ -122,7 +122,7 @@ define "Qualifying Systolic Blood Pressure Reading":
 	["Observation": "Blood pressure"] BloodPressure
     without (["Encounter": "Encounter Inpatient"]
       union ["Encounter": "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
-      such that Common."Latest"(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
+      such that Common.Latest(BloodPressure.effective) during day of DisqualifyingEncounter.period
     where BloodPressure.status in {'final', 'amended'}
       and Common."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
       and exists (

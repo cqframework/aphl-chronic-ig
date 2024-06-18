@@ -32,7 +32,7 @@
   },
   "effectiveDateTime": "2019-01-17T12:30:00",
   "encounter": {
-    "reference": "Encounter/bp-report-numer-out"
+    "reference": "Encounter/bp-report-numer-out-encounter"
   },
   "interpretation": [
     {

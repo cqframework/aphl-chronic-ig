@@ -6,7 +6,7 @@
       "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-procedure"
     ]
   },
-  "status": "completed",
+  "status": "finished",
   "code": {
     "coding": [ {
       "system": "http://snomed.info/sct",
