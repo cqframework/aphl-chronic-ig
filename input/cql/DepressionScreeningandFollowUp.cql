@@ -83,10 +83,10 @@ define "Initial Population":
 define "Denominator":
   "Initial Population"
 
-define "Denominator Exclusion":
+define "Denominator Exclusions":
   exists("History of Bipolar Diagnosis Before Qualifying Encounter")
 
-define "Denominator Exception":
+define "Denominator Exceptions":
   (exists("Medical or Patient Reason for Not Screening Adolescent for Depression")
     and not exists("Has Adolescent Depression Screening"))
   or (exists("Medical or Patient Reason for Not Screening Adult for Depression")

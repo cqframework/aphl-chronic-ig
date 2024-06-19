@@ -275,7 +275,7 @@ define function ResourceNotDoneReason(choice Choice<FHIR.Communication, FHIR.Imm
   end
 
 define function ResourceDoNotPerformReason(doNotPerformReason DomainResource):
-  QICoreExtension(doNotPerformReason, 'qicore-doNotPerformReason') //How to make this not QI-core
+  QICoreExtension(doNotPerformReason, 'qicore-doNotPerformReason') 
 
 define function ResourceNotDoneRecorded(recorded DomainResource):
   QICoreExtension(recorded, 'qicore-recorded')

@@ -33,7 +33,7 @@
   ],
   "effectiveDateTime": "2024-04-10T16:00:00-07:00",
   "encounter": {
-    "reference": "Encounter/denomexception-1-CMS2"
+    "reference": "Encounter/Encounter-denomexception-1-CMS2"
   },
   "status": "final",
   "subject": {
