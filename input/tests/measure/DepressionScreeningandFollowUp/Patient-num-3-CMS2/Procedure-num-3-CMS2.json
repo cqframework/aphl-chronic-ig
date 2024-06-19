@@ -1,0 +1,22 @@
+{
+  "resourceType": "Procedure",
+  "id": "Procedure-num-3-CMS2",
+  "encounter": {
+    "reference": "Encounter/Encounter-num-3-CMS2"
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "version": "2021-09",
+        "code": "18512000",
+        "display": "Individual psychotherapy (regime/therapy)"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/Patient-num-3-CMS2"
+  },
+  "performedDateTime": "2024-05-09T15:45:00-07:00"
+}

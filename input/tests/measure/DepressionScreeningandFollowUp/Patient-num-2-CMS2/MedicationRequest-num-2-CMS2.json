@@ -1,0 +1,44 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "MedicationRequest-num-2-CMS2",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
+    ]
+  },
+  "status": "active",
+  "intent": "order",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "version": "2022-01",
+        "code": "1000054",
+        "display": "doxepin hydrochloride 10 MG/ML Oral Solution"
+      }
+    ]
+  },
+  "dosageInstruction": [
+    {
+      "timing": {
+        "repeat": {
+          "boundsPeriod": {
+            "start": "2024-03-16T11:00:00-07:00",
+            "end": "2024-03-16T11:00:00-07:00"
+          }
+        }
+      }
+    }
+  ],
+  "subject": {
+    "reference": "Patient/Patient-num-2-CMS2"
+  },
+  "doNotPerform": false,
+  "encounter": {
+    "reference": "Encounter/Encounter-num-2-CMS2"
+  },
+  "authoredOn": "2024-03-16T11:00:00-07:00",
+  "requester": {
+    "reference": "Patient/Patient-num-2-CMS2"
+  }
+}

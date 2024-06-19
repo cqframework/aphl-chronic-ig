@@ -175,8 +175,8 @@ define "Most Recent Adolescent Screening Negative":
     where AdolescentScreening.value ~ ToConcept("Depression Screening Negative")) is not null
 
 define "Most Recent Adolescent Positive Depression Screening":
-  ("Most Recent Adolescent Depression Screening" RecentScreening
-    where RecentScreening.value as CodeableConcept ~ "Depression Screening Positive") 
+  "Most Recent Adolescent Depression Screening" RecentScreening
+    where RecentScreening.value ~ ToConcept("Depression Screening Positive")
 
 define "Follow Up Interventions For Positive Adolescent Depression Screening":
   (AC.QualifiedMedicationRequests([MedicationRequest: "Adolescent Depression Medications"])
@@ -203,8 +203,8 @@ define "Most Recent Adult Screening Negative":
     where AdultScreening.value ~ ToConcept("Depression Screening Negative")) is not null
 
 define "Most Recent Adult Positive Depression Screening":
-  ("Most Recent Adult Depression Screening" RecentScreening
-    where RecentScreening.value as CodeableConcept ~ "Depression Screening Positive") 
+  "Most Recent Adult Depression Screening" RecentScreening
+    where RecentScreening.value ~ ToConcept("Depression Screening Positive")
 
 define "Follow Up Interventions For Positive Adult Depression Screening":
   ((AC.QualifiedMedicationRequests([MedicationRequest: "Adult Depression Medications"])
