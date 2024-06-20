@@ -17,6 +17,7 @@ include FHIRCommon version '1.1.000' called FC
 
 codesystem "LOINC": 'http://loinc.org'
 codesystem "SNOMEDCT": 'http://snomed.info/sct' 
+codesystem "DataAbsentReason": 'http://terminology.hl7.org/CodeSystem/data-absent-reason'
 
 valueset "Encounter to Screen for Depression": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1916'
 valueset "Physical Therapy Evaluation": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1022'
@@ -39,6 +40,8 @@ code "Adolescent Depression Screening Assessment": '73831-0' from "LOINC" displa
 code "Adult Depression Screening Assessment": '73832-8' from "LOINC" display 'Adult Depression Screening Assessment'
 code "Depression Screening Negative": '428171000124102' from "SNOMEDCT" display 'Depression Screening Negative (finding)'
 code "Depression Screening Positive": '428181000124104' from "SNOMEDCT" display 'Depression Screening Positive (finding)'
+code "not-performed": 'not-performed' from "DataAbsentReason"
+
 
 parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.000, @2025-01-01T00:00:00.000)
 
@@ -129,12 +132,7 @@ define "History of Bipolar Diagnosis Before Qualifying Encounter":
 
 //Denominator Exception
 define "Medical or Patient Reason for Not Screening Adolescent for Depression":
-  (AC.NotDoneObservations([Observation: "Adolescent Depression Screening Assessment"])) NoReason
-    with "Qualifying Encounters During Measurement Period" QualifyingEnc
-      such that Coalesce(end of FC.ToInterval(NoReason.effective), end of FC.ToInterval(NoReason.issued)) same day as end of QualifyingEnc.period
-    where AC.ResourceNotDoneReason(NoReason).value as CodeableConcept in "Medical Reason"
-      or AC.ResourceNotDoneReason(NoReason).value as CodeableConcept ~ "Depression Screening Declined"
-
+  AC.AbsentData([Observation: "Adolescent Depression Screening Assessment"], "Qualifying Encounters During Measurement Period", "Depression Screening Declined", "Medical Reason")
 
 define "Has Adolescent Depression Screening":
   ((AC.QualifiedObservations([Observation: "Adolescent Depression Screening Assessment"])) AdolescentScreening
@@ -143,11 +141,7 @@ define "Has Adolescent Depression Screening":
 
 
 define "Medical or Patient Reason for Not Screening Adult for Depression":
-  (AC.NotDoneObservations([Observation: "Adult Depression Screening Assessment"])) NoReason
-    with "Qualifying Encounters During Measurement Period" QualifyingEnc
-      such that Coalesce(end of FC.ToInterval(NoReason.effective), end of FC.ToInterval(NoReason.issued)) same day as end of QualifyingEnc.period
-    where AC.ResourceNotDoneReason(NoReason).value as CodeableConcept in "Medical Reason"
-      or AC.ResourceNotDoneReason(NoReason).value as CodeableConcept ~ "Depression Screening Declined"
+  AC.AbsentData([Observation: "Adult Depression Screening Assessment"], "Qualifying Encounters During Measurement Period", "Depression Screening Declined", "Medical Reason")
 
 define "Has Adult Depression Screening":
   ((AC.QualifiedObservations([Observation: "Adult Depression Screening Assessment"])) AdolescentScreening
@@ -221,4 +215,3 @@ define "Most Recent Adult Depression Screening Positive and Follow Up Provided":
   with "Follow Up Interventions For Positive Adult Depression Screening" FollowUpInterventions
     such that "Screening Day" 14 days or less before start of Coalesce(FC.ToInterval(FollowUpInterventions.authoredOn), FC.ToInterval(FollowUpInterventions.performed))
   ) is not null 
-

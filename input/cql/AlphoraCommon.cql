@@ -345,6 +345,21 @@ define function NotDoneValueSet(choice Choice<FHIR.Communication, FHIR.DeviceReq
   end
 
 
+define function AbsentData(observation List<FHIR.Observation>, enc List<FHIR.Encounter>, code1 System.Code, valueset1 System.ValueSet)
+returns List<FHIR.Observation>:
+  (QualifiedObservations(observation)) Obs
+    with enc QualifyingEnc
+      such that Coalesce(end of FC.ToInterval(Obs.effective), end of FC.ToInterval(Obs.issued)) same day as end of QualifyingEnc.period
+    where exists(
+        Obs.component c where(
+            c.code as CodeableConcept ~ code1
+            or c.code as CodeableConcept in valueset1
+        ))
+      and not exists(Obs.component c where(c.value is not null))
+      or (ResourceNotDone(Obs).value as FHIR.boolean = true
+        and (ResourceNotDoneReason(Obs).value as CodeableConcept ~ code1
+        or ResourceNotDoneReason(Obs).value as CodeableConcept in valueset1))
+
 /* Common Resource Qualifications and Negations */
 define function QualifiedEncounters(value List<FHIR.Encounter>):
   value Encounter

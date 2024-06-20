@@ -274,7 +274,7 @@
     }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "issued" ],
+      "mustSupport": [ "code" ],
       "codeFilter": [ {
         "path": "code",
         "code": [ {
@@ -286,7 +286,7 @@
     }, {
       "type": "Observation",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
-      "mustSupport": [ "code", "effective", "issued" ],
+      "mustSupport": [ "code" ],
       "codeFilter": [ {
         "path": "code",
         "code": [ {
@@ -405,7 +405,7 @@
   "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
   "status": "draft",
   "experimental": false,
-  "date": "2024-06-19T11:43:33-06:00",
+  "date": "2024-06-20T11:36:45-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
