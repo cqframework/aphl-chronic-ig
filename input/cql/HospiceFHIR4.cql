@@ -53,17 +53,3 @@ define "Has Hospice":
     (AC.QualifiedConditions([Condition: "Hospice Diagnosis"])) HospiceCareDiagnosis
       where FC.ToPrevalenceInterval(HospiceCareDiagnosis) overlaps "Measurement Period"
   )
-
-/*
-
-  or exists ( ["Intervention, Order": "Hospice Care Ambulatory"] HospiceOrder
-      where HospiceOrder.authorDatetime during day of "Measurement Period"
-  )
-  or exists ( ["Intervention, Performed": "Hospice Care Ambulatory"] HospicePerformed
-      where Global."NormalizeInterval" ( HospicePerformed.relevantDatetime, HospicePerformed.relevantPeriod ) overlaps day of "Measurement Period"
-  )
-or exists ( ["Diagnosis": "Hospice Diagnosis"] HospiceCareDiagnosis
-      where HospiceCareDiagnosis.prevalencePeriod overlaps day of "Measurement Period"
-  )
-
-*/

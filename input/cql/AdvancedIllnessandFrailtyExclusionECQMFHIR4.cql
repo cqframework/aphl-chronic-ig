@@ -92,12 +92,6 @@ define "Has Inpatient Encounter With Advanced Illness":
       such that FC.ToPrevalenceInterval(AdvanIll) overlaps InpatientEnc.period
         and FC.ToInterval(InpatientEnc.period) overlaps "Up To One Year Prior Including Measurement Period"
 
-define "huh":
-  [Encounter: "Acute Inpatient"]
-  
-define "huh 2":
-  [Condition: "Advanced Illness"]
-
 define "Outpatient Encounters With Advanced Illness":
   ((AC.QualifiedEncounters([Encounter: "Outpatient"]))
     union (AC.QualifiedEncounters([Encounter: "Observation"]))
