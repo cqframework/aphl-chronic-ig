@@ -531,7 +531,7 @@
     }, {
       "path": "status",
       "code": [ {
-        "code": "finished"
+        "code": "completed"
       } ]
     } ]
   }, {

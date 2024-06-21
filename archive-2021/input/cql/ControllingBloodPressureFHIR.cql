@@ -153,7 +153,7 @@ define "End Stage Renal Disease Procedures":
 	( ["Procedure": "Vascular Access for Dialysis"]
 		union ["Procedure": "Kidney Transplant"]
 		union ["Procedure": "Dialysis Services"] ) ESRDProcedure
-		where ESRDProcedure.status = 'finished'
+		where ESRDProcedure.status = 'completed'
       and Common."Normalize Interval"(ESRDProcedure.performed) starts before end of "Measurement Period"
 
 define "Essential Hypertension Diagnosis":

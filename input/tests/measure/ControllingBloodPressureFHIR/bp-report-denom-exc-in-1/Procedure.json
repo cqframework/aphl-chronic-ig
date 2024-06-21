@@ -1,6 +1,6 @@
 {
   "resourceType": "Procedure",
-  "id": "bp-report-denom-exc-in-1-procedure",
+  "id": "bp-report-denom-exc-in-procedure",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-procedure"

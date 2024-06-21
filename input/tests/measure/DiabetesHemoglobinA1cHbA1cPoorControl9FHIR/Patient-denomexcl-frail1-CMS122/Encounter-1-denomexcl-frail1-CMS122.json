@@ -1,7 +1,7 @@
 {
     "resourceType": "Encounter",
     "id": "Encounter-1-denomexcl-frail1-CMS122",
-    "status": "finished",
+    "status": "completed",
     "class": {
       "code": "IMP",
       "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",

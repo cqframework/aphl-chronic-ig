@@ -51,7 +51,7 @@
       "text": {
         "status": "generated"
       },
-      "status": "finished",
+      "status": "completed",
       "type": [ {
         "coding": [ {
           "system": "http://www.ama-assn.org/go/cpt",
