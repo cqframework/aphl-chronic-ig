@@ -114,7 +114,7 @@ define "Has Two Outpatient Encounters With Advanced Illness on Different Dates o
   from
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter1,
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter2
-  where OutpatientEncounter2.period ends 1 day or more after day of end of OutpatientEncounter1.actualPeriod
+  where OutpatientEncounter2.period ends 1 day or more after day of end of OutpatientEncounter1.period
   return OutpatientEncounter1    
 
 define "Has Dementia Medications In Year Before or During Measurement Period":

@@ -778,11 +778,7 @@
   "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
   "status": "draft",
   "experimental": false,
-<<<<<<< HEAD
   "date": "2024-06-18T14:47:36-06:00",
-=======
-  "date": "2024-06-13T13:51:30-06:00",
->>>>>>> parent of 2dbebf6 (fix: Address various bugs)
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
