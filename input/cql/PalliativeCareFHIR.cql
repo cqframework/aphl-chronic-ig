@@ -28,9 +28,9 @@ define "Palliative Care in the Measurement Period":
       where FC.ToPrevalenceInterval(PalliativeDiagnosis) overlaps "Measurement Period"
   ) or exists(
     (AC.QualifiedEncounters([Encounter: "Palliative Care Encounter"])) PalliativeEncounter
-      where FC.ToInterval(PalliativeEncounter.actualPeriod) overlaps "Measurement Period"
+      where FC.ToInterval(PalliativeEncounter.period) overlaps "Measurement Period"
   ) or exists(
     (AC.QualifiedProcedures([Procedure: "Palliative Care Intervention"])) PalliativeProcedure
-      where FC.ToInterval(PalliativeProcedure.occurrenceDateTime) overlaps "Measurement Period"
+      where FC.ToInterval(PalliativeProcedure.performed) overlaps "Measurement Period"
   )
 

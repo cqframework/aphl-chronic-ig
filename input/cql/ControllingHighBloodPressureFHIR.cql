@@ -5,7 +5,8 @@ library ControllingHighBloodPressureFHIR version '9.0.000'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.001'
+include FHIRHelpers version '4.1.000' called FHIRHelpers
+include FHIRCommon called FC
 include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Common
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
@@ -79,25 +80,19 @@ define "Has Systolic Blood Pressure Less Than 140":
 
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 	First(
-    Sort(
       "Qualifying Diastolic Blood Pressure Reading" DBPReading
 		    where Common.Latest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
-          and DBPReading.component.code ~ "Diastolic blood pressure"
-        return (DBPReading.component.value as FHIR.Quantity).value,
-			asc
-    )
-	)
+          and DBPReading.code ~ "Diastolic blood pressure"
+      sort by (value as FHIR.Quantity).value asc
+	).value 
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	First(
-    Sort(
       "Qualifying Systolic Blood Pressure Reading" SBPReading
 		    where Common.Latest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
-          and SBPReading.component.code ~ "Systolic blood pressure"
-        return (SBPReading.component.value as FHIR.Quantity).value,
-			asc
-    )
-	)
+          and SBPReading.code ~ "Systolic blood pressure"
+      sort by (value as FHIR.Quantity).value asc
+	).value 
 
 define "Blood Pressure Days":
 	("Qualifying Diastolic Blood Pressure Reading" DBPExam 
@@ -113,9 +108,9 @@ define "Qualifying Diastolic Blood Pressure Reading":
 	[Observation: "Blood pressure"] BloodPressure
     without ([Encounter: "Encounter Inpatient"]
       union [Encounter: "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
-      such that Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
+      such that Common.Latest(BloodPressure.effective) during day of DisqualifyingEncounter.period
     where BloodPressure.status in {'final', 'amended'}
-      and Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during "Measurement Period"
+      and Common.Latest(BloodPressure.effective) during "Measurement Period"
       and exists (
         BloodPressure.component DiastolicBP
           where DiastolicBP.code ~ "Diastolic blood pressure"
@@ -126,9 +121,9 @@ define "Qualifying Systolic Blood Pressure Reading":
 	[Observation: "Blood pressure"] BloodPressure
     without ([Encounter: "Encounter Inpatient"]
       union [Encounter: "Emergency Department Evaluation and Management Visit"]) DisqualifyingEncounter
-      such that Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during day of DisqualifyingEncounter.actualPeriod
+      such that Common.Latest(BloodPressure.effective) during day of DisqualifyingEncounter.period
     where BloodPressure.status in {'final', 'amended'}
-      and Common.Latest(Common."Normalize Interval"(BloodPressure.effective)) during "Measurement Period"
+      and Common.Latest(BloodPressure.effective) during "Measurement Period"
       and exists (
         BloodPressure.component SystolicBP
           where SystolicBP.code ~ "Systolic blood pressure"
@@ -150,7 +145,7 @@ define "Pregnancy Or Renal Diagnosis":
 		union [Condition: "Kidney Transplant Recipient"]
 		union [Condition: "Chronic Kidney Disease, Stage 5"] ) PregnancyESRDDiagnosis
       where PregnancyESRDDiagnosis.verificationStatus ~ Common."confirmed"
-        and PregnancyESRDDiagnosis.recordedDate overlaps "Measurement Period"
+        and PregnancyESRDDiagnosis.recordedDate during "Measurement Period"
 
 define "Denominator":
 	"Initial Population"
@@ -158,13 +153,13 @@ define "Denominator":
 define "End Stage Renal Disease Encounter":
 	[Encounter: "ESRD Monthly Outpatient Services"] ESRDEncounter
 		where ESRDEncounter.status in { 'arrived', 'triaged', 'in-progress', 'onleave', 'completed' }
-		  and ESRDEncounter.actualPeriod starts on or before end of "Measurement Period"
+		  and ESRDEncounter.period starts on or before end of "Measurement Period"
 
 define "End Stage Renal Disease Procedures":
 	([Procedure: "Kidney Transplant"]
 		union [Procedure: "Dialysis Services"]) ESRDProcedure
 		  where ESRDProcedure.status = 'completed'
-        and end of Common."Normalize Interval"(ESRDProcedure.occurrencePeriod) on or before end of "Measurement Period"
+        and end of Common."Normalize Interval"(ESRDProcedure.performed) on or before end of "Measurement Period"
 
 define "Essential Hypertension Diagnosis":
 	[Condition: "Essential Hypertension"] Hypertension
