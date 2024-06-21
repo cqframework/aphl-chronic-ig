@@ -1,15 +1,15 @@
 {
   "resourceType": "Library",
-  "id": "ControllingBloodPressureFHIR",
+  "id": "ControllingHighBloodPressureFHIR",
   "extension": [ {
     "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
     "valueReference": {
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR",
+  "url": "http://hl7.org/fhir/us/chronic-ds/Library/ControllingHighBloodPressureFHIR",
   "version": "9.0.000",
-  "name": "ControllingBloodPressureFHIR",
+  "name": "ControllingHighBloodPressureFHIR",
   "status": "active",
   "experimental": true,
   "type": {

@@ -622,11 +622,7 @@
   "title": "Controlling Blood Pressure",
   "status": "draft",
   "experimental": true,
-<<<<<<< HEAD:input/resources/measure/ControllingBloodPressureFHIR.json
   "date": "2024-06-18T14:47:36-06:00",
-=======
-  "date": "2024-06-13T13:51:30-06:00",
->>>>>>> parent of 2dbebf6 (fix: Address various bugs):input/resources/measure/ControllingHighBloodPressureFHIR.json
   "publisher": "National Committee for Quality Assurance (NCQA)",
   "contact": [ {
     "telecom": [ {
@@ -664,9 +660,6 @@
       "display": "Health Quality Measure Document"
     } ]
   } ],
-<<<<<<< HEAD:input/resources/measure/ControllingBloodPressureFHIR.json
-<<<<<<< HEAD:input/resources/measure/ControllingHighBloodPressureFHIR.json
-=======
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "Library SurveillanceDataElements",
@@ -832,9 +825,7 @@
     "display": "Value set Dementia Medications",
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
   } ],
->>>>>>> parent of 2dbebf6 (fix: Address various bugs):input/resources/measure/ControllingHighBloodPressureFHIR.json
   "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingHighBloodPressureFHIR" ],
-=======
   "relatedArtifact": [ {
     "type": "depends-on",
     "display": "Library SurveillanceDataElements",
@@ -1000,8 +991,6 @@
     "display": "Value set Dementia Medications",
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
   } ],
-  "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
->>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory):input/resources/measure/ControllingBloodPressureFHIR.json
   "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {
