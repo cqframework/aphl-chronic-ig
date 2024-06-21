@@ -6,7 +6,11 @@
       "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-procedure"
     ]
   },
+<<<<<<< HEAD
   "status": "finished",
+=======
+  "status": "completed",
+>>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
   "code": {
     "coding": [ {
       "system": "http://snomed.info/sct",

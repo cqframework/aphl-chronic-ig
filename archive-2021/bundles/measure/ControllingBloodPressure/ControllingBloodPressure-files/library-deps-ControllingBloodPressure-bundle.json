@@ -285,7 +285,11 @@
         }, {
           "path": "status",
           "code": [ {
+<<<<<<< HEAD
             "code": "finished"
+=======
+            "code": "completed"
+>>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
           } ]
         } ]
       } ],
