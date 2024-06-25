@@ -1,5 +1,5 @@
 /*
-FHIR Translation of CMS165v9: Controlling High Blood Pressure (CBP)
+FHIR Translation of CMS165v12: Controlling High Blood Pressure (CBP)
 */
 library ControllingHighBloodPressureFHIR version '9.0.000'
 

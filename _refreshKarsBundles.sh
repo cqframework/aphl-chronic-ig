@@ -28,7 +28,7 @@ cp input/resources/measure/SeenPatients.json bundlegen/sourcefiles/measure-SeenP
 
 # 6) Copy the plandefinitions from `input/resources/plandefinitions` to `bundles\kars\kars-files`
 # 7) Prefix the plandefinition file names with `plandefinition-`
-cp input/resources/plandefinition/ChronicDSControllingHighBloodPressure.xml bundlegen/sourcefiles/plandefinition-ChronicDSControllingHighBloodPressure.xml
+cp input/resources/plandefinition/ChronicDSControllingBloodPressure.xml bundlegen/sourcefiles/plandefinition-ChronicDSControllingBloodPressure.xml
 cp input/resources/plandefinition/ChronicDSDiabetesPoorControl.xml bundlegen/sourcefiles/plandefinition-ChronicDSDiabetesPoorControl.xml
 cp input/resources/plandefinition/ChronicDSSeenPatients.xml bundlegen/sourcefiles/plandefinition-ChronicDSSeenPatients.xml
 
