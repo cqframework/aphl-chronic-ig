@@ -1,10 +1,6 @@
 {
   "resourceType": "Patient",
-<<<<<<< HEAD
-  "id": "Patient-numer-1-CMS122",
-=======
   "id": "numer-EXM165",
->>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -38,21 +34,6 @@
       ]
     }
   ],
-<<<<<<< HEAD
-  "active": true,
-  "name": [
-  {
-      "use": "official",
-      "text": "Doe,Daphne",
-      "family": "Doe",
-      "given": [
-      "Daphne"
-      ]
-  }
-  ],
-  "gender": "female",
-  "birthDate": "1956-11-30"
-=======
   "identifier": [
     {
       "use": "usual",
@@ -79,5 +60,4 @@
   ],
   "gender": "female",
   "birthDate": "1976-11-26"
->>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
 }

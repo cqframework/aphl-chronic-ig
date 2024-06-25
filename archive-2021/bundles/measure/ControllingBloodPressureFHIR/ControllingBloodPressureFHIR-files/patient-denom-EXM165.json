@@ -1,10 +1,6 @@
 {
   "resourceType": "Patient",
-<<<<<<< HEAD
-  "id": "Patient-denom-1-CMS122",
-=======
   "id": "denom-EXM165",
->>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -31,33 +27,13 @@
           "url": "ombCategory",
           "valueCoding": {
             "system": "urn:oid:2.16.840.1.113883.6.238",
-<<<<<<< HEAD
-            "code": "2186-5",
-            "display": "Not Hispanic or Latino"
-=======
             "code": "2135-2",
             "display": "Hispanic or Latino"
->>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
           }
         }
       ]
     }
   ],
-<<<<<<< HEAD
-  "active": true,
-  "name": [
-  {
-      "use": "official",
-      "text": "BECK,TOM",
-      "family": "BECK",
-      "given": [
-      "TOM"
-      ]
-  }
-  ],
-  "gender": "male",
-  "birthDate": "1965-06-30"
-=======
   "identifier": [
     {
       "use": "usual",
@@ -84,5 +60,4 @@
   ],
   "gender": "male",
   "birthDate": "1963-06-13"
->>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
 }
