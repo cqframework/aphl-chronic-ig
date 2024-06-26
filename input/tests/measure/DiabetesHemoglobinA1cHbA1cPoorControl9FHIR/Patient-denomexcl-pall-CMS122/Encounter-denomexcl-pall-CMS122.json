@@ -1,0 +1,28 @@
+{
+    "resourceType": "Encounter",
+    "id": "Encounter-denomexcl-pall-CMS122",
+    "status" : "finished",
+    "class": {
+      "code": "HH",
+      "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+      "display": "Home Health"
+    },
+    "type" : [
+    {
+        "coding" : [
+        {
+            "system" : "http://www.ama-assn.org/go/cpt",
+            "code" : "97804",
+            "display" : "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes"
+        }
+        ]
+    }
+    ],
+    "subject": {
+      "reference": "Patient/Patient-denomexcl-pall-CMS122"
+    },
+    "period": {
+      "start": "2024-02-11T11:00:00-07:00",
+      "end": "2024-02-11T14:00:00-07:00"
+    }
+  }

@@ -18,7 +18,7 @@ library MATGlobalCommonFunctionsFHIR4 version '6.0.000'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.001' called FHIRHelpers
+include FHIRHelpers version '4.1.000' called FHIRHelpers
 
 codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
 codesystem "AllergyIntoleranceClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical'
@@ -271,9 +271,15 @@ define function "GetId"(uri String ):
   Last(Split(uri, '/'))
 
 /*Returns the Condition resources referenced by the diagnosis element of the Encounter*/
-define function "EncounterDiagnosis"(Encounter Encounter):
+define function "EncounterDiagnosis"(Encounter Encounter ):
   Encounter.diagnosis D
     return singleton from ([Condition] C where C.id = "GetId"(D.condition.reference))
+
+define function "GetCondition"(reference Reference):
+  singleton from ([Condition] C where C.id = "GetId"(reference.reference))
+
+define function "PresentOnAdmissionIndicator"(element Element):
+  GetExtension(element, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission').value as FHIR.CodeableConcept
 
 // Returns the condition that is specified as the principal diagnosis for the encounter
 // TODO: BTR 2019-07-30: Shouldn't need the FHIRHelpers reference here, investigate
@@ -283,7 +289,7 @@ define function "PrincipalDiagnosis"(Encounter Encounter ):
   // Returns the location for the given location reference
 
 /*Returns the Location resource specified by the given reference*/
-define function "GetLocation"(reference Reference):
+define function "GetLocation"(reference Reference ):
   singleton from (
     [Location] L where L.id = GetId(reference.reference)
   )
@@ -321,10 +327,24 @@ define function "GetBaseExtensions"(domainResource DomainResource, url String ):
 define function "GetBaseExtension"(domainResource DomainResource, url String ):
   singleton from "GetBaseExtensions"(domainResource, url)
 
+/*@description: Returns any base-FHIR extensions defined on the given element with the specified id.
+@comment: NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the CQL model info.*/
+define function "BaseExtensions"(element Element, id String ):
+  element.extension E
+  	  where E.url = ('http://hl7.org/fhir/StructureDefinition/' + id)
+  		return E
+
+/*@description: Returns the single base-FHIR extension (if present) on the given element with the specified id.
+@comment: This function uses singleton from to ensure that a run-time exception is thrown if there
+is more than one extension on the given resource with the specified url.*/
+define function "BaseExtension"(element Element, id String ):
+  singleton from BaseExtensions(element, id)
+
 /*NOTE: Provenance is not the preferred approach, this is provided only as an illustration
 for what using Provenance could look like, and is not a tested pattern*/
-define function "GetProvenance"(resource Resource ):
-  singleton from ([Provenance: target in resource.id])
+//define function "GetProvenance"(resource Resource ):
+  //singleton from ([Provenance: target in resource.id])
 
 define function "GetMedicationCode"(request MedicationRequest ):
   if request.medication is CodeableConcept then
@@ -347,14 +367,14 @@ define function "HasEnd"(period Interval<DateTime> ):
   )
 
 /*Given an interval, return the ending point if the interval has an ending boundary specified, otherwise, return the starting point*/
-define function "Latest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
+define function "Latest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range> ):
   ("Normalize Interval"(choice)) period
     return
       if ( HasEnd(period)) then end of period
       else start of period
 
 /*Given an interval, return the starting point if the interval has a starting boundary specified, otherwise, return the ending point*/
-define function "Earliest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
+define function "Earliest"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range> ):
   ("Normalize Interval"(choice)) period
     return
       if (HasStart(period)) then start of period

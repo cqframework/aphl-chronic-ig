@@ -1,9 +1,9 @@
 #!/bin/bash
 #DO NOT EDIT WITH WINDOWS
-tooling_jar=tooling-1.3.1-SNAPSHOT-jar-with-dependencies.jar
+tooling_jar=tooling-cli-2.4.0.jar
 input_cache_path=./input-cache
 resources_path=$PWD/input/resources
-ig_resource_path=./input/anc-cds.xml
+ig_resource_path=./input/chronicdiseasesurveillance.xml
 
 set -e
 echo Checking internet connection...
