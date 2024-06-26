@@ -6,15 +6,7 @@
       "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-procedure"
     ]
   },
-<<<<<<< HEAD:archive-2021/input/tests/measure/ControllingBloodPressureFHIR/bp-report-denom-exc-in/Procedure.json
-<<<<<<< HEAD
-  "status": "finished",
-=======
   "status": "completed",
->>>>>>> parent of 143d2ee (feat: Add keyword, 'high' for high blood pressure throughout directory)
-=======
-  "status": "completed",
->>>>>>> parent of 2dbebf6 (fix: Address various bugs):archive-2021/bundles/measure/ControllingHighBloodPressureFHIR/ControllingHighBloodPressureFHIR-files/Procedure.json
   "code": {
     "coding": [ {
       "system": "http://snomed.info/sct",

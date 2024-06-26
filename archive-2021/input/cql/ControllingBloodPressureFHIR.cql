@@ -5,7 +5,7 @@ library ControllingBloodPressureFHIR version '9.0.000'
 
 using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.1.000'
+include FHIRHelpers version '4.0.001'
 include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Common
 include AdultOutpatientEncountersFHIR4 version '2.0.000' called AdultOutpatientEncounters
 include SupplementalDataElementsFHIR4 version '2.0.000' called SDE
@@ -36,7 +36,7 @@ code "Blood pressure": '85354-9' from "LOINC" display 'blood pressure'
 code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
-parameter "Measurement Period" Interval<DateTime> //default Interval[@2019-01-01T00:00:00.0-06:00, @2019-12-31T23:59:59.999-06:00]
+parameter "Measurement Period" Interval<DateTime> default Interval[@2019-01-01T00:00:00.0-06:00, @2019-12-31T23:59:59.999-06:00]
 
 context Patient
 
@@ -167,6 +167,6 @@ define "Denominator Exclusion":
     or exists "End Stage Renal Disease Procedures"
     or exists "End Stage Renal Disease Encounter"
     or (AgeInYearsAt(start of "Measurement Period") >= 65
-      // and FrailtyLTI."Long Term Care Periods Longer Than 90 Consecutive Days"
+      and FrailtyLTI."Long Term Care Periods Longer Than 90 Consecutive Days"
     )
-    // or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"
+    or FrailtyLTI."Advanced Illness and Frailty Exclusion Including Over Age 80"

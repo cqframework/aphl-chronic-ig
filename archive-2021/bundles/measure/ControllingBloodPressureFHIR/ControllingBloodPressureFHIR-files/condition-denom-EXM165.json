@@ -1,6 +1,6 @@
 {
   "resourceType": "Condition",
-  "id": "bp-report-denom-exc-in-3-condition",
+  "id": "denom-EXM165",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
