@@ -168,9 +168,9 @@ define "Essential Hypertension Diagnosis":
 
 define "Denominator Exclusion":
   Hospice."Has Hospice"
-    or exists "Pregnancy Or Renal Diagnosis"
-    or exists "End Stage Renal Disease Procedures"
-    or exists "End Stage Renal Disease Encounter"
+    or exists ("Pregnancy Or Renal Diagnosis")
+    or exists ("End Stage Renal Disease Procedures")
+    or exists ("End Stage Renal Disease Encounter")
     or FrailtyLTI."Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty"
     or FrailtyLTI."Is Age 66 or Older Living Long Term in a Nursing Home"
     or PalliativeCare."Palliative Care in the Measurement Period"

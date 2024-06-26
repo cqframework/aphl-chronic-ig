@@ -3,11 +3,15 @@ library AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.1.000' called FHIRHelpers
+include FHIRHelpers version '4.1.000' called FHIRHelpers
 include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
+include FHIRCommon version '1.1.000' called FC 
+include AlphoraCommon called AC
 include FHIRCommon version '1.1.000' called FC 
 include AlphoraCommon called AC
 
 codesystem "LOINC": 'http://loinc.org'
+codesystem "SNOMEDCT": 'http://snomed.info/sct' 
 codesystem "SNOMEDCT": 'http://snomed.info/sct' 
 
 valueset "Acute Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083' 
@@ -28,7 +32,11 @@ valueset "Outpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3
 code "Housing Status": '71802-3' from "LOINC" display 'Housing status'
 code "Lives In A Nursing Home (finding)": '160734000' from "SNOMEDCT" display 'Lives in a nursing home (finding)'
 code "Medical Equipment Used": '98181-1' from "LOINC" display 'Medical equipment used'
+code "Housing Status": '71802-3' from "LOINC" display 'Housing status'
+code "Lives In A Nursing Home (finding)": '160734000' from "SNOMEDCT" display 'Lives in a nursing home (finding)'
+code "Medical Equipment Used": '98181-1' from "LOINC" display 'Medical equipment used'
 
+parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 
 context Patient
@@ -67,12 +75,12 @@ define "Is Age 66 or Older Living Long Term in a Nursing Home":
 define "Has Criteria Indicating Frailty":
   exists(
     (AC.QualifiedDeviceRequests([DeviceRequest: "Frailty Device"])) FrailtyDeviceOrder
-      where FrailtyDeviceOrder.authoredOn during "Measurement Period"
+      where FrailtyDeviceOrder.authoredOn during day of "Measurement Period"
     ) 
     or exists(
         (AC.QualifiedObservations([Observation: "Medical Equipment Used"])) EquipmentUsed
           where EquipmentUsed.value in "Frailty Device"
-            and FC.ToInterval(EquipmentUsed.effective) ends during "Measurement Period"
+            and FC.ToInterval(EquipmentUsed.effective) ends during day of "Measurement Period"
     )
     or exists(
       (AC.QualifiedConditions([Condition: "Frailty Diagnosis"])) FrailtyDiagnosis
@@ -89,35 +97,27 @@ define "Has Criteria Indicating Frailty":
 
 define "Has Inpatient Encounter With Advanced Illness":  
   (AC.QualifiedEncounters([Encounter: "Acute Inpatient"])) InpatientEnc
-    where exists (InpatientEnc.diagnosis Diagnosis 
-      where Diagnosis.condition.display in "Advanced Illness"
-    )
-      and FC.ToInterval(InpatientEnc.period) starts during "Up To One Year Prior Including Measurement Period"
-
-define "huh":
-  [Encounter: "Acute Inpatient"]
-  
-define "huh 2":
-  [Condition: "Advanced Illness"]
+    with (AC.QualifiedConditions([Condition: "Advanced Illness"])) AdvanIll
+      such that FC.ToPrevalenceInterval(AdvanIll) overlaps InpatientEnc.period
+        and FC.ToInterval(InpatientEnc.period) overlaps "Up To One Year Prior Including Measurement Period"
 
 define "Outpatient Encounters With Advanced Illness":
   ((AC.QualifiedEncounters([Encounter: "Outpatient"]))
     union (AC.QualifiedEncounters([Encounter: "Observation"]))
-    union (AC.QualifiedEncounters([Encounter: "Emergency Department Evaluation and Management Visit"]))
+    union (AC.QualifiedEncounters([Encounter: "Emergency Department Visit"]))
     union (AC.QualifiedEncounters([Encounter: "Nonacute Inpatient"]))) OutpatientEnc
-      where exists (OutpatientEnc.diagnosis Diagnosis 
-        where Diagnosis.condition.display in "Advanced Illness"
-      )
-      and FC.ToInterval(OutpatientEnc.period) starts during "Up To One Year Prior Including Measurement Period" 
+      with (AC.QualifiedConditions([Condition: "Advanced Illness"])) AdvanIll
+        such that FC.ToPrevalenceInterval(AdvanIll) overlaps "Measurement Period"
+      and FC.ToInterval(OutpatientEnc.period) overlaps "Up To One Year Prior Including Measurement Period" 
 
-define "Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service":
+define "Has Two Outpatient Encounters With Advanced Illness":
   from
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter1,
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter2
   where OutpatientEncounter2.period ends 1 day or more after day of end of OutpatientEncounter1.period
   return OutpatientEncounter1    
 
-define "Has Dementia Medications In Year Before or During Measurement Period":
+define "Has Dementia In Year Before or During Measurement Period":
   (AC.QualifiedMedicationRequests([MedicationRequest: "Dementia Medications"])) DementiaMed
     where exists(
       DementiaMed.dosageInstruction dosage
@@ -126,12 +126,11 @@ define "Has Dementia Medications In Year Before or During Measurement Period":
         where timing overlaps "Up To One Year Prior Including Measurement Period")
 
 define "Lives In A Nursing Home":
-  (Last(
+  Last(
     (AC.QualifiedObservations([Observation: "Housing Status"])) HousingStatus
       where FC.ToInterval(HousingStatus.effective) ends on or before end of "Measurement Period"
-        and HousingStatus.value ~ "Lives In A Nursing Home (finding)"
-      sort by end of Global."Normalize Interval"(effective) asc
-    )
+        and HousingStatus.value ~ ToConcept("Lives In A Nursing Home (finding)")
+    sort by issued ascending
   ) is not null
 
 

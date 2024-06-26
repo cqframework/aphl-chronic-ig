@@ -1,7 +1,7 @@
 {
     "resourceType": "Encounter",
     "id": "Encounter-2-denomexcl-frail1-CMS122",
-    "status": "completed",
+    "status": "finished",
     "class": {
       "code": "AMB",
       "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
