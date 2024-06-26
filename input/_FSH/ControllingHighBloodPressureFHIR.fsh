@@ -8,7 +8,7 @@ Usage: #example
 * insert MeasureIdentifierID("236")
 * insert MeasureIdentifierGUID("abdc37cc-bac6-4156-9b91-d1be2c8b7268") // "2c928084-83d3-1b44-0183-eb75dc8a03db"
 
-* insert MeasureCommonURLs(DiabetesHemoglobinA1cHbA1cPoorControl9FHIR)
+* insert MeasureCommonURLs(ControllingHighBloodPressureFHIR)
 
 * name = "ControllingHighBloodPressureFHIR"
 * title = "Controlling High Blood Pressure"
@@ -72,19 +72,10 @@ American Diabetes Association (2021):
 
 //FOR SINGLE RATE MEASURE
 * group[+]
-* insert MeasureGroupStrataPopulation("F348D767-1BDE-41AB-884D-5F0E19093980", "Patients 18-85 years of age who had a visit during the measurement period and diagnosis of essential hypertension starting before and continuing into, or starting during the first six months of the measurement period", initial-population, "Initial Population")
-* insert MeasureGroupStrataPopulation("3E0D40B3-64FC-4998-B371-34978D033116", "Patients 18-85 years of age who had a visit during the measurement period and diagnosis of essential hypertension starting before and continuing into, or starting during the first six months of the measurement period", denominator, "Denominator")
-* insert MeasureGroupStrataPopulation("24803F44-C643-45C7-A2A5-4C58BD540579", "Patients whose most recent blood pressure is adequately controlled, systolic blood pressure < 140 mmHg and diastolic blood pressure < 90 mmHg, during the measurement period", numerator, "Numerator")
-* insert MeasureGroupStrataPopulation("95E1480E-8B61-4777-865D-B2A1D6525E1A", """
-Patients with evidence of end stage renal disease, ESRD, dialysis or renal transplant, diagnosis of pregnancy, in hospice care, 66 and older who are living long term in a nursing home, or 66-80 with an indication of frailty who also exhibits advanced illness: 
-- Advanced illness with two outpatient encounters during the measurement period or the year prior
-- OR advanced illness with one inpatient encounter during the measurement period or the year prior
-- OR taking dementia medications during the measurement period or the year prior
-
-Exclude patients 81 and older by the end of the measurement period with an indication of frailty for any part of the measurement period.
-
-Exclude patients receiving palliative care for any part of the measurement period.
-""", denominator-exclusion, "Denominator Exclusions")
+* insert MeasureGroupStrataPopulation("F348D767-1BDE-41AB-884D-5F0E19093980", "Patients 18-85 years of age who had a visit during the measurement period and diagnosis of essential hypertension", initial-population, "Initial Population")
+* insert MeasureGroupStrataPopulation("3E0D40B3-64FC-4998-B371-34978D033116", "Patients 18-85 years of age who had a visit during the measurement period and diagnosis of essential hypertension", denominator, "Denominator")
+* insert MeasureGroupStrataPopulation("24803F44-C643-45C7-A2A5-4C58BD540579", "Patients whose most recent blood pressure is adequately controlled (systolic blood pressure < 140 mmHg and diastolic blood pressure < 90 mmHg\) during the measurement period", numerator, "Numerator")
+* insert MeasureGroupStrataPopulation("95E1480E-8B61-4777-865D-B2A1D6525E1A", "Patients with ESRD or dialysis or renal transplant or pregnancy or in hospice or 66+ in nursing care or 66-80 with frailty and advanced illness or 81+ with frailty or receiving palliative care", denominator-exclusion, "Denominator Exclusions")
 
 * insert MeasureCommonStratifiers
 
