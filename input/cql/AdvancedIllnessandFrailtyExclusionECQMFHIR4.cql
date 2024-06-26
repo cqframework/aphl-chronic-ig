@@ -3,15 +3,11 @@ library AdvancedIllnessandFrailtyExclusionECQMFHIR4 version '5.12.000'
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.1.000' called FHIRHelpers
-include FHIRHelpers version '4.1.000' called FHIRHelpers
 include MATGlobalCommonFunctionsFHIR4 version '6.0.000' called Global
-include FHIRCommon version '1.1.000' called FC 
-include AlphoraCommon called AC
 include FHIRCommon version '1.1.000' called FC 
 include AlphoraCommon called AC
 
 codesystem "LOINC": 'http://loinc.org'
-codesystem "SNOMEDCT": 'http://snomed.info/sct' 
 codesystem "SNOMEDCT": 'http://snomed.info/sct' 
 
 valueset "Acute Inpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083' 
@@ -32,26 +28,13 @@ valueset "Outpatient": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3
 code "Housing Status": '71802-3' from "LOINC" display 'Housing status'
 code "Lives In A Nursing Home (finding)": '160734000' from "SNOMEDCT" display 'Lives in a nursing home (finding)'
 code "Medical Equipment Used": '98181-1' from "LOINC" display 'Medical equipment used'
-code "Housing Status": '71802-3' from "LOINC" display 'Housing status'
-code "Lives In A Nursing Home (finding)": '160734000' from "SNOMEDCT" display 'Lives in a nursing home (finding)'
-code "Medical Equipment Used": '98181-1' from "LOINC" display 'Medical equipment used'
 
-parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 
 context Patient
 
 define "Up To One Year Prior Including Measurement Period":
   Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"]
-
-define "Is Age 66 or Older with Advanced Illness and Frailty":
-  AgeInYearsAt(date from end of "Measurement Period") >= 66
-    and "Has Criteria Indicating Frailty"
-    and (
-      exists("Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service")
-      or exists("Has Inpatient Encounter With Advanced Illness")
-      or exists("Has Dementia Medications In Year Before or During Measurement Period")
-    )
 
 define "Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty":
   (
@@ -110,14 +93,14 @@ define "Outpatient Encounters With Advanced Illness":
         such that FC.ToPrevalenceInterval(AdvanIll) overlaps "Measurement Period"
       and FC.ToInterval(OutpatientEnc.period) overlaps "Up To One Year Prior Including Measurement Period" 
 
-define "Has Two Outpatient Encounters With Advanced Illness":
+define "Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service":
   from
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter1,
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter2
   where OutpatientEncounter2.period ends 1 day or more after day of end of OutpatientEncounter1.period
   return OutpatientEncounter1    
 
-define "Has Dementia In Year Before or During Measurement Period":
+define "Has Dementia Medications In Year Before or During Measurement Period":
   (AC.QualifiedMedicationRequests([MedicationRequest: "Dementia Medications"])) DementiaMed
     where exists(
       DementiaMed.dosageInstruction dosage
