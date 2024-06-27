@@ -35,7 +35,7 @@
   "description": "This value set may use a model element related to Encounter.",
   "purpose": "Includes concepts that represent an encounter for assessment, evaluation and management services to a patient by telephone.",
   "expansion": {
-    "timestamp": "2024-06-11T14:49:53-04:00",
+    "timestamp": "2024-06-14T15:39:10-04:00",
     "contains": [ {
       "system": "http://snomed.info/sct",
       "version": "2022-09",

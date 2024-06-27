@@ -1,0 +1,30 @@
+{
+    "resourceType": "Observation",
+    "id": "Observation-num-2-CMS2",
+    "code": {
+      "coding": [
+        {
+          "code": "73832-8",
+          "system": "http://loinc.org",
+          "display": "Adult Depression Screening Assessment"
+        }
+      ]
+    },
+    "effectiveDateTime": "2024-03-15T11:00:00-07:00",
+    "encounter": {
+      "reference": "Encounter/Encounter-num-2-CMS2"
+    },
+    "status": "final",
+    "subject": {
+      "reference": "Patient/Patient-num-2-CMS2"
+    },
+    "valueCodeableConcept": {
+      "coding": [
+        {
+          "code": "428181000124104",
+          "system": "http://snomed.info/sct",
+          "display": "Depression Screening Positive"
+        }
+      ]
+    }
+  }

@@ -35,7 +35,7 @@
   "description": "@code in CCDA r2.1 template Planned Coverage [act: identifier urn:oid:2.16.840.1.113883.10.20.22.4.129 (open)] DYNAMIC",
   "purpose": "All codes in the code system",
   "expansion": {
-    "timestamp": "2024-06-11T14:49:53-04:00",
+    "timestamp": "2024-06-14T15:39:10-04:00",
     "contains": [ {
       "system": "urn:oid:2.16.840.1.113883.3.221.5",
       "version": "9.2",

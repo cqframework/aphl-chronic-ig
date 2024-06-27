@@ -1,0 +1,406 @@
+{
+    "resourceType": "PlanDefinition",
+    "id": "DepressionScreeningandFollowUp",
+    "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/DepressionScreeningandFollowUp",
+    "name": "DepressionScreeningandFollowUp",
+    "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
+    "date": "2024-06-01",
+    "description": "Percentage of patients aged 12 years and older screened for depression on the date of the encounter or up to 14 days prior to the date of the encounter using an age-appropriate standardized depression screening tool AND if positive, a follow-up plan is documented on the date of or up to two days after the date of the qualifying encounter",
+    "status": "active",
+    "experimental": true,
+    "publisher": "HL7 Public Health Work Group",
+    "type": {
+      "coding": [
+        {
+          "code": "workflow-definition",
+          "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+          "display": "Workflow Definition"
+        }
+      ],
+      "text": "Workflow Definition"
+    },
+    "jurisdiction": [
+      {
+        "coding": [
+          {
+            "code": "US",
+            "system": "urn:iso:std:iso:3166",
+            "display": "United States of America"
+          }
+        ],
+        "text": "United States of America"
+      }
+    ],
+    "effectivePeriod": {
+      "start": "2024-01-01"
+    },
+    "library": [
+      "http://hl7.org/fhir/us/chronic-ds/Library/DepressionScreeningandFollowUp"
+    ],
+    "action": [
+      {
+        "id": "start",
+        "description": "This action represents the start of the reporting workflow in response to the encounter-end event",
+        "textEquivalent": "Start the reporting workflow in response to an encounter-end event",
+        "code": [
+          {
+            "coding": [
+              {
+                "code": "initiate-reporting-workflow",
+                "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+              }
+            ]
+          }
+        ],
+        "trigger": [
+          {
+            "id": "encounter-end",
+            "type": "named-event",
+            "name": "encounter-end"
+          }
+        ],
+        "relatedAction": [
+          {
+            "actionId": "check-reportable",
+            "relationship": "before-start",
+            "offsetDuration": {
+              "value": 24,
+              "code": "h",
+              "system": "http://unitsofmeasure.org"
+            }
+          }
+        ]
+      },
+      {
+        "id": "check-reportable",
+        "description": "This action represents the check for reportability of the surveillance event.",
+        "textEquivalent": "Check Reportable",
+        "code": [
+          {
+            "coding": [
+              {
+                "code": "execute-reporting-workflow",
+                "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+              }
+            ]
+          }
+        ],
+        "action": [
+          {
+            "id": "ckr-is-encounter-reportable",
+            "description": "This action represents the check for reportability to create the patients eICR.",
+            "textEquivalent": "Check Trigger Codes based on RCTC Value sets.",
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "check-trigger-codes",
+                    "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+                  }
+                ]
+              }
+            ],
+            "condition": [
+              {
+                "kind": "applicability",
+                "expression": {
+                  "language": "text/fhirpath",
+                  "expression": "%observation.exists()"
+                }
+              }
+            ],
+            "relatedAction": [
+              {
+                "actionId": "evaluate-measure",
+                "relationship": "before-start"
+              }
+            ]
+          }
+        ],
+        "input": [
+          {
+            "id": "observation",
+            "type": "Observation",
+            "codeFilter": [
+              {
+                "path": "code",
+                "code": [
+                  {
+                    "code": "73831-0",
+                    "system": "http://loinc.org",
+                    "display": "Adolescent Depression Screening Assessment"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "observation",
+            "type": "Observation",
+            "codeFilter": [
+              {
+                "path": "code",
+                "code": [
+                  {
+                    "code": "73832-8",
+                    "system": "http://loinc.org",
+                    "display": "Adult Depression Screening Assessment"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "relatedAction": [
+          {
+            "actionId": "evaluate-measure",
+            "relationship": "before-start"
+          }
+        ]
+      },
+      {
+        "id": "evaluate-measure",
+        "description": "This action represents the evaluation of the measure.",
+        "textEquivalent": "Evaluate measure",
+        "code": [
+          {
+            "coding": [
+              {
+                "code": "evaluate-measure",
+                "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+              }
+            ]
+          }
+        ],
+        "input": [
+          {
+            "id": "patient",
+            "type": "Patient",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+            ]
+          },
+          {
+            "id": "conditions",
+            "type": "Condition",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+            ]
+          },
+          {
+            "id": "encounter",
+            "type": "Encounter",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+            ]
+          },
+          {
+            "id": "mr",
+            "type": "MedicationRequest",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+            ]
+          },
+          {
+            "id": "obs",
+            "type": "Observation",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+            ]
+          }
+        ],
+        "output": [
+          {
+            "id": "measurereport",
+            "type": "MeasureReport",
+            "profile": [
+              "http://hl7.org/fhir/MeasureReport"
+            ]
+          }
+        ],
+        "relatedAction": [
+          {
+            "actionId": "report-ds",
+            "relationship": "before-start"
+          }
+        ],
+        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DepressionScreeningandFollowUp"
+      },
+      {
+        "id": "report-ds",
+        "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
+        "textEquivalent": "Report Chronic Disease Surveillance",
+        "code": [
+          {
+            "coding": [
+              {
+                "code": "execute-reporting-workflow",
+                "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+              }
+            ]
+          }
+        ],
+        "condition": [
+          {
+            "kind": "applicability",
+            "expression": {
+              "language": "text/fhirpath",
+              "expression": "%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'denominator' and count > 0).exists()"
+            }
+          }
+        ],
+        "action": [
+          {
+            "action": [
+              {
+                "id": "create-eicr",
+                "description": "This action invokes the creation of the eICR report.",
+                "textEquivalent": "Create eICR",
+                "code": [
+                  {
+                    "coding": [
+                      {
+                        "code": "create-report",
+                        "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+                      }
+                    ]
+                  }
+                ],
+                "input": [
+                  {
+                    "id": "patient",
+                    "type": "Patient",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+                    ]
+                  },
+                  {
+                    "id": "conditions",
+                    "type": "Condition",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+                    ]
+                  },
+                  {
+                    "id": "encounter",
+                    "type": "Encounter",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  {
+                    "id": "mr",
+                    "type": "MedicationRequest",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                  },
+                  {
+                    "id": "obs",
+                    "type": "Observation",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+                    ]
+                  },
+                  {
+                    "id": "measurereport",
+                    "type": "MeasureReport",
+                    "profile": [
+                      "http://hl7.org/fhir/MeasureReport"
+                    ]
+                  }
+                ],
+                "output": [
+                  {
+                    "id": "eicr-report-DepressionScreeningandFollowUp",
+                    "type": "Bundle",
+                    "profile": [
+                      "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle"
+                    ]
+                  }
+                ],
+                "relatedAction": [
+                  {
+                    "actionId": "validate-eicr",
+                    "relationship": "before-start"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "validate-eicr",
+            "description": "This action represents the validation of the eICR.",
+            "textEquivalent": "Validate eICR",
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "validate-report",
+                    "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+                  }
+                ]
+              }
+            ],
+            "input": [
+              {
+                "id": "eicr-report-DepressionScreeningandFollowUp",
+                "type": "Bundle",
+                "profile": [
+                  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
+                ]
+              }
+            ],
+            "output": [
+              {
+                "id": "validated-eicr-report",
+                "type": "Bundle",
+                "profile": [
+                  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
+                ]
+              }
+            ],
+            "relatedAction": [
+              {
+                "actionId": "submit-eicr",
+                "relationship": "before-start"
+              }
+            ]
+          },
+          {
+            "id": "submit-eicr",
+            "description": "This action represents the validation of the eICR.",
+            "textEquivalent": "Submit eICR",
+            "code": [
+              {
+                "coding": [
+                  {
+                    "code": "submit-report",
+                    "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+                  }
+                ]
+              }
+            ],
+            "input": [
+              {
+                "id": "validated-eicr-report",
+                "type": "Bundle",
+                "profile": [
+                  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
+                ]
+              }
+            ],
+            "output": [
+              {
+                "id": "eicr-report-submitted",
+                "type": "Bundle",
+                "profile": [
+                  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

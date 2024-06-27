@@ -1,0 +1,796 @@
+{
+  "resourceType": "Measure",
+  "id": "DepressionScreeningandFollowUp",
+  "meta": {
+    "profile": [ "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" ]
+  },
+  "contained": [ {
+    "resourceType": "Library",
+    "id": "effective-data-requirements",
+    "extension": [ {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "73831-0",
+        "display": "Adolescent Depression Screening Assessment"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://snomed.info/sct",
+        "code": "428171000124102",
+        "display": "Depression Screening Negative (finding)"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://snomed.info/sct",
+        "code": "428181000124104",
+        "display": "Depression Screening Positive (finding)"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "73832-8",
+        "display": "Adult Depression Screening Assessment"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "88124-3",
+        "display": "Food insecurity risk [HVS]"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://snomed.info/sct",
+        "code": "720834000",
+        "display": "Depression Screening Declined (situation)"
+      }
+    } ],
+    "status": "active",
+    "type": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "module-definition"
+      } ]
+    },
+    "relatedArtifact": [ {
+      "type": "depends-on",
+      "display": "Library SurveillanceDataElements",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+    }, {
+      "type": "depends-on",
+      "display": "Library FHIRHelpers",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.1.000"
+    }, {
+      "type": "depends-on",
+      "display": "Library SDE",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+    }, {
+      "type": "depends-on",
+      "display": "Library AC",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AlphoraCommon"
+    }, {
+      "type": "depends-on",
+      "display": "Library FC",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRCommon|1.1.000"
+    }, {
+      "type": "depends-on",
+      "display": "Library Common",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+    }, {
+      "type": "depends-on",
+      "display": "Code system LOINC",
+      "resource": "http://loinc.org"
+    }, {
+      "type": "depends-on",
+      "display": "Code system SNOMEDCT",
+      "resource": "http://snomed.info/sct"
+    }, {
+      "type": "depends-on",
+      "display": "Code system ConditionClinicalStatusCodes",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-clinical"
+    }, {
+      "type": "depends-on",
+      "display": "Code system ConditionVerificationStatusCodes",
+      "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Encounter to Screen for Depression",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1916"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Physical Therapy Evaluation",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1022"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Telephone Visits",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1080"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Adolescent Depression Medications",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1567"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Referral for Adolescent Depression",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1570"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Follow Up for Adolescent Depression",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1569"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Adult Depression Medications",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1566"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Referral for Adult Depression",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1571"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Follow Up for Adult Depression",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1568"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Payer",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Bipolar Disorder",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.128"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Medical Reason",
+      "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007"
+    } ],
+    "parameter": [ {
+      "name": "Measurement Period",
+      "use": "in",
+      "min": 0,
+      "max": "1",
+      "type": "Period"
+    }, {
+      "name": "SDE Postal Code of Residence",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "SDE State of Residence",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "string"
+    }, {
+      "name": "SDE Race",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Coding"
+    }, {
+      "name": "SDE Sex",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "Coding"
+    }, {
+      "name": "Numerator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }, {
+      "name": "Denominator",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }, {
+      "name": "SDE Payer",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Any"
+    }, {
+      "name": "SDE Food Insecurity Risk Status",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "CodeableConcept"
+    }, {
+      "name": "Initial Population",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }, {
+      "name": "SDE Ethnicity",
+      "use": "out",
+      "min": 0,
+      "max": "*",
+      "type": "Coding"
+    }, {
+      "name": "SDE Age",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "integer"
+    }, {
+      "name": "Denominator Exclusions",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    }, {
+      "name": "Denominator Exceptions",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "boolean"
+    } ],
+    "dataRequirement": [ {
+      "type": "Patient",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Patient" ],
+      "mustSupport": [ "use", "type", "url", "extension", "value" ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "type" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.600.1916"
+      } ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "type" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1022"
+      } ]
+    }, {
+      "type": "Encounter",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
+      "mustSupport": [ "type" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1080"
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "73831-0",
+          "display": "Adolescent Depression Screening Assessment"
+        } ]
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "73832-8",
+          "display": "Adult Depression Screening Assessment"
+        } ]
+      } ]
+    }, {
+      "type": "Observation",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Observation" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "88124-3",
+          "display": "Food insecurity risk [HVS]"
+        } ]
+      } ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "medication" ],
+      "codeFilter": [ {
+        "path": "medication",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1567"
+      } ]
+    }, {
+      "type": "MedicationRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/MedicationRequest" ],
+      "mustSupport": [ "medication" ],
+      "codeFilter": [ {
+        "path": "medication",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1566"
+      } ]
+    }, {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1570"
+      } ]
+    }, {
+      "type": "ServiceRequest",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/ServiceRequest" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1571"
+      } ]
+    }, {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1569"
+      } ]
+    }, {
+      "type": "Procedure",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Procedure" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1568"
+      } ]
+    }, {
+      "type": "Coverage",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Coverage" ],
+      "mustSupport": [ "type", "period" ],
+      "codeFilter": [ {
+        "path": "type",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+      } ]
+    }, {
+      "type": "Condition",
+      "profile": [ "http://hl7.org/fhir/StructureDefinition/Condition" ],
+      "mustSupport": [ "code" ],
+      "codeFilter": [ {
+        "path": "code",
+        "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.128"
+      } ]
+    } ]
+  } ],
+  "extension": [ {
+    "id": "cqf-tooling",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+    "valueReference": {
+      "reference": "Device/cqf-tooling"
+    }
+  }, {
+    "id": "effective-data-requirements",
+    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+    "valueReference": {
+      "reference": "#effective-data-requirements"
+    }
+  } ],
+  "url": "http://hl7.org/fhir/us/chronic-ds/Measure/DepressionScreeningandFollowUp",
+  "identifier": [ {
+    "use": "usual",
+    "system": "short-name",
+    "value": "CMS2v13"
+  }, {
+    "use": "official",
+    "system": "publisher",
+    "value": "134"
+  }, {
+    "use": "official",
+    "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid",
+    "value": "2c928083-8651-08a3-0186-c82995a91d28"
+  } ],
+  "version": "0.0.001",
+  "name": "DepressionScreeningandFollowUp",
+  "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
+  "status": "draft",
+  "experimental": false,
+  "date": "2024-06-21T13:45:26-06:00",
+  "publisher": "National Committee for Quality Assurance",
+  "contact": [ {
+    "telecom": [ {
+      "system": "url",
+      "value": "https://cms.gov"
+    } ]
+  } ],
+  "description": "Percentage of patients aged 12 years and older screened for depression on the date of the encounter or up to 14 days prior to the date of the encounter using an age-appropriate standardized depression screening tool AND if positive, a follow-up plan is documented on the date of or up to two days after the date of the qualifying encounter",
+  "purpose": "Unknown",
+  "copyright": "Limited proprietary coding is contained in the measure specifications for convenience. Users of the proprietary code sets should obtain all necessary licenses from the owners of these code sets. CPT(R) contained in the Measure specifications is copyright 2004-2022 American Medical Association. LOINC(R) is copyright 2004-2022 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2022 International Health Terminology Standards Development Organisation. ICD-10 is copyright 2022 World Health Organization. All Rights Reserved.",
+  "effectivePeriod": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DepressionScreeningandFollowUp" ],
+  "disclaimer": "These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
+  "scoring": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+      "code": "proportion",
+      "display": "Proportion"
+    } ]
+  },
+  "type": [ {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+      "code": "process",
+      "display": "process"
+    } ]
+  } ],
+  "rationale": "Depression affects more than two hundred sixty million people across the world and is a leading cause of disability, with a variety of depressive disorders that are independent risk factors for chronic diseases, such as cardiovascular disease and diabetes, lending screening for depression as paramount to identify depressive disorders that can affect the most vulnerable populations (Costantini et al., 2021). Results from a 2018 U.S. survey indicated that 14.4 percent of adolescents (3.5 million adolescents) had a major depressive episode (MDE) in the past year, with nine percent of adolescents (2.4 million adolescents) having one MDE with severe impairment (Substance Abuse and Mental Health Services Administration, 2019). The odds of a diagnosis of depression are believed to be 2.6 times greater for children and adolescents exposed to trauma as compared to those unexposed or less exposed (Vibhakar et al., 2019). Children and teens with major depressive disorder (MDD) have been found to have difficulty carrying out their daily activities, relating to others, growing up healthy, and are at an increased risk of suicide (Siu on behalf of the U.S. Preventive Services Task Force [USPSTF], 2016). The same 2018 study indicated that 7.2 percent of adults aged 18 or older (17.7 million adults) had at least one MDE with 4.7 percent of adults (11.5 million adults) having one MDE with severe impairment in the past year (Substance Abuse and Mental Health Services Administration, 2019). Moreover, it is estimated 22.9 percent of adult patients with chronic pain (2.2 million adults) were diagnosed with comorbid depression from 2011 to 2015, with an upward trend of prevalence among Black Americans, patients aged 65 to 84 years old, Medicare and Medicaid insured patients, and patients from zip code areas with low annual household incomes (Orhurhu et al., 2019). Depression and other mood disorders, such as bipolar disorder and anxiety disorders, especially during the perinatal period, can have devastating effects on women, infants, and families (American College of Obstetricians and Gynecologists, 2018). It's estimated that the global prevalence of antenatal (or perinatal) depression ranges from 15 to 65 percent, with current or previous exposure to abuse and violence, lack of social support, and family history of mental disorders being risk factors. Depressive symptoms measured during pregnancy have been shown to influence the quality of the postpartum mother-infant relationship (Hazell Raine et al., 2020). Additionally, the risk of low birth weight and preterm birth is higher among infants born from depressed mothers (Dadi, Miller, Bisetegn, & Mwanri, 2020). Negative outcomes associated with depression make it crucial to screen in order to identify and treat depression in its early stages. Multiple social costs of depression have been identified, such as reduced educational achievements, poor financial success and role performance, higher amount of days out of role, and increased risk of job loss (Costantini et al., 2021). Depression also imposes significant economic burden through direct and indirect costs, supporting the need for regular depression screening. \"In the United States, an estimated $22.8 billion was spent on depression treatment in 2009, and lost productivity cost an additional estimated $23 billion in 2011\" (Siu & USPSTF, 2016, p. 383-384). Numerous studies have found significant disparities in depression prevalence and treatment among racial/ethnic minorities. One study revealed that Indigenous adults are at a high risk for posttraumatic stress disorder, depression, suicide, substance use disorder, and concurrent behavioral health disorders secondary to these initial health problems (Ka’apu and Burnette, 2019). Additionally, though rates of depression are lower among Blacks and Hispanics than among whites, depression among Blacks and Hispanics is likely to be more recurrent. Furthermore, 48 percent of whites receive mental health services, compared to just 31 percent of Blacks and Hispanics, and 22 percent of Asians (American Psychiatric Association, 2017). Asian Americans and Black Americans are also significantly more likely to utilize emergency rooms for depression treatment, which contributes to inconsistent follow-up care (Lee et al., 2014). While primary care providers (PCPs) serve as the first line of defense in the detection of depression, studies show that PCPs fail to recognize up to 46 percent of depressed patients (Borner et al., 2010). \"In nationally representative U.S. surveys, about eight percent of adolescents reported having major depression in the past year. Only 36 percent to 44 percent of children and adolescents with depression receive treatment, suggesting that the majority of depressed youth are undiagnosed and untreated\" (Siu on behalf of USPSTF, 2016, p. 360 & p. 364). Furthermore, evidence supports that screening for depression in pregnant and postpartum women is of moderate net benefit, and treatment options for positive depression screening should be available for patients twelve and older including pregnant and postpartum women. This measure seeks to align with USPSTF clinical guideline recommendations as well as the Healthy People 2030 recommendation to increase the proportion of adolescents and adults who are screened and receive treatment for depression (U.S. Preventive Services Task Force, 2016) and makes an important contribution to the quality domain of community and population health.",
+  "clinicalRecommendationStatement": "Adolescent Recommendation (12-18 years): \"The USPSTF recommends screening for MDD in adolescents aged 12 to 18 years. Screening should be implemented with adequate systems in place to ensure accurate diagnosis, effective treatment, and appropriate follow-up (B recommendation)\" (Siu on behalf of USPSTF, 2016, p. 360). Adult Recommendation (18 years and older): \"The USPSTF recommends screening for depression in the general adult population, including pregnant and postpartum women. Screening should be implemented with adequate systems in place to ensure accurate diagnosis, effective treatment, and appropriate follow-up (B recommendation)\" (Siu & USPSTF, 2016, p. 380). “The USPSTF recommends that clinicians provide or refer pregnant and postpartum persons who are at increased risk of perinatal depression to counseling interventions (B recommendation)” (U.S. Preventive Services Task Force, 2019). The American College of Obstetricians and Gynecologists (ACOG) provides the following recommendation: \"All obstetrician–gynecologists and other obstetric care providers should complete a full assessment of mood and emotional well-being (including screening for postpartum depression and anxiety with a validated instrument) during the comprehensive postpartum visit for each patient\" (American College of Obstetricians and Gynecologists, 2018). The Institute for Clinical Systems Improvement (ICSI) health care guideline, Adult Depression in Primary Care, provides the following recommendations: 1. \"Clinicians should routinely screen all adults for depression using a standardized instrument.\" 2. \"Clinicians should establish and maintain follow-up with patients.\" 3. \"Clinicians should screen and monitor depression in pregnant and post-partum women\" (Trangle et al., 2016, p. 8-10).",
+  "improvementNotation": {
+    "coding": [ {
+      "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+      "code": "increase",
+      "display": "Higher score indicates better quality"
+    } ]
+  },
+  "guidance": "The intent of the measure is to screen for new cases of depression in patients who have never had a diagnosis of bipolar disorder. Patients who have ever been diagnosed with bipolar disorder prior to the qualifying encounter used to evaluate the numerator will be excluded from the measure regardless of whether the diagnosis is active or not.\nA depression screen is completed on the date of the encounter or up to 14 calendar days prior to the date of the encounter using an age-appropriate standardized depression screening tool AND if positive, a follow-up plan must be documented on the date of or up to two calendar days after the date of the encounter, such as referral to a provider for additional evaluation, pharmacological interventions, or other interventions for the treatment of depression. An example to illustrate the follow-up plan documentation timing: if the encounter is on a Monday from 3-4 pm (day 0) and the patient screens positive, the clinician has through anytime on Wednesday (day 2) to complete follow-up plan documentation.\nThis measure does not require documentation of a specific score, just whether results of the normalized and validated depression screening tool used are considered positive or negative. Each standardized screening tool provides guidance on whether a particular score is considered positive for depression. \nThis eCQM is a patient-based measure. Depression screening is required once per measurement period, not at all encounters. \nScreening Tools:\n -  An age-appropriate, standardized, and validated depression screening tool must be used for numerator compliance.\n -  The name of the age-appropriate standardized depression screening tool utilized must be documented in the medical record.\n -  The depression screening must be reviewed and addressed by the provider, filing the code, on the date of the encounter. Positive pre-screening results indicating a patient is at high risk for self-harm should receive more urgent intervention as determined by the provider practice.\n -  The screening should occur during a qualifying encounter or up to 14 calendar days prior to the date of the qualifying encounter.\n -  The measure assesses the most recent depression screening completed either during the qualifying encounter or within the 14 calendar days prior to that encounter. Therefore, a clinician would not be able to complete another screening at the time of the encounter to count towards a follow-up, because that would serve as the most recent screening. In order to satisfy the follow-up requirement for a patient screening positively, the eligible clinician would need to provide one of the aforementioned follow-up actions, which does not include use of a standardized depression screening tool.\nFollow-Up Plan:\nThe follow-up plan MUST still be provided for and discussed with the patient during the qualifying encounter used to evaluate the numerator. However, documentation of the follow-up plan can occur up to two calendar days after the qualifying encounter, in accordance with the policies of an eligible clinician or provider’s practice or health system. All services should be documented during, or as soon as practicable, after the qualifying encounter in order to maintain an accurate medical record.\nThe follow-up plan must be related to a positive depression screening, for example: \\\"Patient referred for psychiatric evaluation due to positive depression screening.\\\"\nExamples of a follow-up plan include but are not limited to: \n -  Referral to a provider or program for further evaluation for depression, for example, referral to a psychiatrist, psychiatric nurse practitioner, psychologist, clinical social worker, mental health counselor, or other mental health service such as family or group therapy, support group, depression management program, or other service for treatment of depression\n -  Other interventions designed to treat depression such as behavioral health evaluation, psychotherapy, pharmacological interventions, or additional treatment options\nShould a patient screen positive for depression, a clinician should:\n-  Only order pharmacological intervention when appropriate and after sufficient diagnostic evaluation. However, for the purposes of this measure, additional screening and assessment during the qualifying encounter will not qualify as a follow-up plan.\n-  Opt to complete a suicide risk assessment when appropriate and based on individual patient characteristics. However, for the purposes of this measure, a suicide risk assessment or additional screening using a standardized tool will not qualify as a follow-up plan.\nThis version of the eCQM uses QDM version 5.6. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.",
+  "group": [ {
+    "population": [ {
+      "id": "AD83208C-1313-401E-BB62-ABCCE0982B49",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "initial-population",
+          "display": "Initial Population"
+        } ]
+      },
+      "description": "All patients aged 12 years and older at the beginning of the measurement period with at least one qualifying encounter during the measurement period",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "Initial Population"
+      }
+    }, {
+      "id": "696066C7-C558-4849-A325-A3CDDB58CF8F",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator",
+          "display": "Denominator"
+        } ]
+      },
+      "description": "All patients aged 12 years and older at the beginning of the measurement period with at least one qualifying encounter during the measurement period",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "Denominator"
+      }
+    }, {
+      "id": "E2557B71-1B97-413F-BE26-2B037E4D590B",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "numerator",
+          "display": "Numerator"
+        } ]
+      },
+      "description": "Patients screened for depression on the date of the encounter or up to 14 days prior to the date of the encounter using an age-appropriate standardized tool AND if positive, a follow-up plan is documented on the date of or up to two days after the date of the qualifying encounter",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "Numerator"
+      }
+    }, {
+      "id": "E52F7FAE-96D9-417A-8538-6E3DB4A31D7A",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator-exclusion",
+          "display": "Denominator Exclusions"
+        } ]
+      },
+      "description": "Patients who have ever been diagnosed with bipolar disorder at any time prior to the qualifying encounter",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "Denominator Exclusions"
+      }
+    }, {
+      "id": "FBA7B9D9-8588-4CB2-AB72-642CBD980334",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+          "code": "denominator-exception",
+          "display": "Denominator Exceptions"
+        } ]
+      },
+      "description": "Patient Reason(s) Patient refuses to participate in or complete the depression screening OR Medical Reason(s) Documentation of medical reason for not screening patient for depression",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "Denominator Exceptions"
+      }
+    } ],
+    "stratifier": [ {
+      "id": "stratifier-ethnicity",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "54133-4",
+          "display": "Ethnicity"
+        } ]
+      },
+      "description": "Ethnicity (CDC Value Set)",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Ethnicity"
+      }
+    }, {
+      "id": "stratifier-payer",
+      "code": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+          "code": "plan",
+          "display": "SDE Payer"
+        } ]
+      },
+      "description": "Payer",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Payer"
+      }
+    }, {
+      "id": "stratifier-race",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "32624-9",
+          "display": "SDE Race"
+        } ]
+      },
+      "description": "Race (CDC Value Set)",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Race"
+      }
+    }, {
+      "id": "stratifier-sex",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "72143-1",
+          "display": "Sex [HL7.v3]"
+        } ]
+      },
+      "description": "Administrative sex",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Sex"
+      }
+    }, {
+      "id": "stratifier-age",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "30525-0",
+          "display": "Age"
+        } ]
+      },
+      "description": "Age",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Age"
+      }
+    }, {
+      "id": "stratifier-state-of-residence",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "52830-7",
+          "display": "State, district or territory federal abbreviation"
+        } ]
+      },
+      "description": "State of residence",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE State of Residence"
+      }
+    }, {
+      "id": "stratifier-postal-code-of-residence",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "45401-7",
+          "display": "Postal code"
+        } ]
+      },
+      "description": "Postal code of residence",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Postal Code of Residence"
+      }
+    }, {
+      "id": "stratifier-food-insecurity-risk-status",
+      "code": {
+        "coding": [ {
+          "system": "http://loinc.org",
+          "code": "88124-3",
+          "display": "Food insecurity risk [HVS]"
+        } ]
+      },
+      "description": "Food insecurity risk status",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Food Insecurity Risk Status"
+      }
+    } ]
+  } ],
+  "supplementalData": [ {
+    "id": "sde-ethnicity",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "54133-4",
+        "display": "Ethnicity"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "Ethnicity (CDC Value Set)",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE Ethnicity"
+    }
+  }, {
+    "id": "sde-payer",
+    "code": {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+        "code": "plan",
+        "display": "SDE Payer"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "Payer",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE Payer"
+    }
+  }, {
+    "id": "sde-race",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "32624-9",
+        "display": "SDE Race"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "Race (CDC Value Set)",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE Race"
+    }
+  }, {
+    "id": "sde-sex",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "72143-1",
+        "display": "Sex [HL7.v3]"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "Administrative sex",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE Sex"
+    }
+  }, {
+    "id": "sde-age",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "30525-0",
+        "display": "Age"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "Age",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE Age"
+    }
+  }, {
+    "id": "sde-state-of-residence",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "52830-7",
+        "display": "State, district or territory federal abbreviation"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "State of residence",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE State of Residence"
+    }
+  }, {
+    "id": "sde-postal-code-of-residence",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "45401-7",
+        "display": "Postal code"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "Postal code of residence",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE Postal Code of Residence"
+    }
+  }, {
+    "id": "sde-food-insecurity-risk-status",
+    "code": {
+      "coding": [ {
+        "system": "http://loinc.org",
+        "code": "88124-3",
+        "display": "Food insecurity risk [HVS]"
+      } ]
+    },
+    "usage": [ {
+      "coding": [ {
+        "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+        "code": "supplemental-data"
+      } ]
+    } ],
+    "description": "Food insecurity risk status",
+    "criteria": {
+      "language": "text/cql-identifier",
+      "expression": "SDE Food Insecurity Risk Status"
+    }
+  } ]
+}
