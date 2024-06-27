@@ -25,8 +25,7 @@ code "Discharge to home for hospice care (procedure)": '428361000124107' from "S
 code "Hospice care [Minimum Data Set]": '45755-6' from "LOINC" display 'Hospice care [Minimum Data Set]'
 code "Yes (qualifier value)": '373066001' from "SNOMEDCT" display 'Yes (qualifier value)'
 
-parameter "Measurement Period" Interval<DateTime>
-  // default Interval[@2019-01-01T00:00:00.0, @2020-01-01T00:00:00.0)
+parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
 
 context Patient
 
@@ -53,17 +52,3 @@ define "Has Hospice":
     (AC.QualifiedConditions([Condition: "Hospice Diagnosis"])) HospiceCareDiagnosis
       where FC.ToPrevalenceInterval(HospiceCareDiagnosis) overlaps "Measurement Period"
   )
-
-/*
-
-  or exists ( ["Intervention, Order": "Hospice Care Ambulatory"] HospiceOrder
-      where HospiceOrder.authorDatetime during day of "Measurement Period"
-  )
-  or exists ( ["Intervention, Performed": "Hospice Care Ambulatory"] HospicePerformed
-      where Global."NormalizeInterval" ( HospicePerformed.relevantDatetime, HospicePerformed.relevantPeriod ) overlaps day of "Measurement Period"
-  )
-or exists ( ["Diagnosis": "Hospice Diagnosis"] HospiceCareDiagnosis
-      where HospiceCareDiagnosis.prevalencePeriod overlaps day of "Measurement Period"
-  )
-
-*/
