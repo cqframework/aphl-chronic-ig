@@ -15,6 +15,7 @@ valueset "Advanced Illness": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.11
 valueset "Care Services in Long-Term Residential Facility": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1014' 
 valueset "Dementia Medications": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510' 
 valueset "Emergency Department Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1010' 
+valueset "Emergency Department Evaluation and Management Visit": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1010'
 valueset "Frailty Device": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.118.12.1300' 
 valueset "Frailty Diagnosis": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.113.12.1074' 
 valueset "Frailty Encounter": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1088' 
@@ -35,33 +36,24 @@ context Patient
 define "Up To One Year Prior Including Measurement Period":
   Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"]
 
-define "Is Age 66 or Older with Advanced Illness and Frailty":
-  AgeInYearsAt(date from end of "Measurement Period") >= 66
-    and "Has Criteria Indicating Frailty"
-    and (
-      exists("Has Two Outpatient Encounters With Advanced Illness")
-      or exists("Has Inpatient Encounter With Advanced Illness")
-      or exists("Has Dementia In Year Before or During Measurement Period")
-    )
-
 define "Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty":
   (
     AgeInYearsAt(date from end of "Measurement Period") in Interval[66, 80]
-    and "Has Criteria Indicating Frailty"
-    and (
-      exists("Has Two Outpatient Encounters With Advanced Illness")
-      or exists("Has Inpatient Encounter With Advanced Illness")
-      or exists("Has Dementia In Year Before or During Measurement Period")
-    )
-  ) or (
-      AgeInYearsAt(date from end of "Measurement Period") >= 81
-        and "Has Criteria Indicating Frailty"
+      and "Has Criteria Indicating Frailty"
+      and (
+        exists("Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service")
+        or exists("Has Inpatient Encounter With Advanced Illness")
+        or exists("Has Dementia Medications In Year Before or During Measurement Period")
+      )
+  ) 
+  or (
+    AgeInYearsAt(date from end of "Measurement Period") >= 81
+      and "Has Criteria Indicating Frailty"
   )
 
 define "Is Age 66 or Older Living Long Term in a Nursing Home":
   AgeInYearsAt(date from end of "Measurement Period") >= 66
     and "Lives In A Nursing Home"
-    
 
 define "Has Criteria Indicating Frailty":
   exists(
@@ -101,14 +93,14 @@ define "Outpatient Encounters With Advanced Illness":
         such that FC.ToPrevalenceInterval(AdvanIll) overlaps "Measurement Period"
       and FC.ToInterval(OutpatientEnc.period) overlaps "Up To One Year Prior Including Measurement Period" 
 
-define "Has Two Outpatient Encounters With Advanced Illness":
+define "Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service":
   from
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter1,
     "Outpatient Encounters With Advanced Illness" OutpatientEncounter2
   where OutpatientEncounter2.period ends 1 day or more after day of end of OutpatientEncounter1.period
   return OutpatientEncounter1    
 
-define "Has Dementia In Year Before or During Measurement Period":
+define "Has Dementia Medications In Year Before or During Measurement Period":
   (AC.QualifiedMedicationRequests([MedicationRequest: "Dementia Medications"])) DementiaMed
     where exists(
       DementiaMed.dosageInstruction dosage
