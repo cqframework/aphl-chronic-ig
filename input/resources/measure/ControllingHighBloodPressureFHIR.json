@@ -1,0 +1,533 @@
+{
+  "resourceType": "Measure",
+  "id": "ControllingHighBloodPressureFHIR",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm"
+    ]
+  },
+  "extension": [
+    {
+      "id": "cqf-tooling",
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-softwaresystem",
+      "valueReference": {
+        "reference": "Device/cqf-tooling"
+      }
+    },
+    {
+      "id": "effective-data-requirements",
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
+      "valueReference": {
+        "reference": "effective-data-requirements"
+      }
+    }
+  ],
+  "identifier": [
+    {
+      "use": "usual",
+      "system": "short-name",
+      "value": "CMS165v12"
+    },
+    {
+      "use": "official",
+      "system": "publisher",
+      "value": "236"
+    },
+    {
+      "use": "official",
+      "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid",
+      "value": "abdc37cc-bac6-4156-9b91-d1be2c8b7268"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingHighBloodPressureFHIR",
+  "library": [
+    "http://hl7.org/fhir/us/chronic-ds/Library/ControllingHighBloodPressureFHIR"
+  ],
+  "name": "ControllingHighBloodPressureFHIR",
+  "title": "Controlling High Blood Pressure",
+  "status": "draft",
+  "experimental": false,
+  "version": "0.0.002",
+  "date": "2024-06-25T11:42:39-06:00",
+  "publisher": "National Committee for Quality Assurance",
+  "contact": [
+    {
+      "telecom": [
+        {
+          "system": "url",
+          "value": "https://cms.gov"
+        }
+      ]
+    }
+  ],
+  "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND. \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
+  "description": "Percentage of patients 18-85 years of age who had a diagnosis of essential hypertension starting before and continuing into, or starting during the first six months of the measurement period, and whose most recent blood pressure was adequately controlled (<140/90 mmHg) during the measurement period",
+  "copyright": "This Physician Performance Measure (Measure) and related data specifications are owned and were developed by the National Committee for Quality Assurance (NCQA). NCQA is not responsible for any use of the Measure. NCQA makes no representations, warranties, or endorsement about the quality of any organization or physician that uses or reports performance measures and NCQA has no liability to anyone who relies on such measures or specifications. NCQA holds a copyright in the Measure. The Measure can be reproduced and distributed, without modification, for noncommercial purposes (e.g., use by healthcare providers in connection with their practices) without obtaining approval from NCQA. Commercial use is defined as the sale, licensing, or distribution of the Measure for commercial gain, or incorporation of the Measure into a product or service that is sold, licensed or distributed for commercial gain. All commercial uses or requests for modification must be approved by NCQA and are subject to a license at the discretion of NCQA. (C) 2012-2022 National Committee for Quality Assurance. All Rights Reserved.\nLimited proprietary coding is contained in the Measure specifications for user convenience. Users of proprietary code sets should obtain all necessary licenses from the owners of the code sets. NCQA disclaims all liability for use or accuracy of any third-party codes contained in the specifications.\nCPT(R) codes, descriptions and other data are copyright 2022. American Medical Association. All rights reserved. CPT is a trademark of the American Medical Association. No fee schedules, basic units, relative values or related listings are included in CPT. The AMA assumes no liability for the data contained herein. Applicable FARS/DFARS restrictions apply to government use.\nLOINC(R) copyright 2004-2022 Regenstrief Institute, Inc. \nThis material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2022 International Health Terminology Standards Development Organisation. \nICD-10 copyright 2022 World Health Organization. All Rights Reserved.",
+  "guidance": "In reference to the numerator element, only blood pressure readings performed by a clinician or an automated blood pressure monitor or device are acceptable for numerator compliance with this measure. This includes blood pressures taken in person by a clinician and blood pressures measured remotely by electronic monitoring devices capable of transmitting the blood pressure data to the clinician. Blood pressure readings taken by an automated blood pressure monitor or device and conveyed by the patient to the clinician are also acceptable. It is the clinician’s responsibility and discretion to confirm the automated blood pressure monitor or device used to obtain the blood pressure is considered acceptable and reliable and whether the blood pressure reading is considered accurate before documenting it in the patient’s medical record.\nDo not include BP readings taken during an acute inpatient stay or an ED visit.\nIf no blood pressure is recorded during the measurement period, the patient's blood pressure is assumed 'not controlled'.\nIf there are multiple blood pressure readings on the same day, use the lowest systolic and the lowest diastolic reading as the most recent blood pressure reading. Ranges and thresholds do not meet criteria for this measure. A distinct numeric result for both the systolic and diastolic BP reading is required for numerator compliance.\nThis eCQM is a patient-based measure.\nThis version of the eCQM uses QDM version 5.6. Please refer to the eCQI resource center (https://ecqi.healthit.gov/qdm) for more information on the QDM.",
+  "purpose": "Unknown",
+  "effectivePeriod": {
+    "start": "2024-01-01",
+    "end": "2024-12-31"
+  },
+  "scoring": {
+    "coding": [
+      {
+        "code": "proportion",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-scoring",
+        "display": "Proportion"
+      }
+    ]
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "code": "outcome",
+          "system": "http://terminology.hl7.org/CodeSystem/measure-type",
+          "display": "intermediateOutcome"
+        }
+      ]
+    }
+  ],
+  "improvementNotation": {
+    "coding": [
+      {
+        "code": "decrease",
+        "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+        "display": "Lower score indicates better quality"
+      }
+    ]
+  },
+  "rationale": "High blood pressure (HBP), also known as hypertension, is when the pressure in blood vessels is higher than normal (Centers for Disease Control and Prevention [CDC], 2021). The causes of hypertension are multiple and multifaceted and can be based on genetic predisposition, environmental risk factors, being overweight and obese, sodium intake, potassium intake, physical activity, and alcohol use. High blood pressure is common; according to the American Heart Association, between 2013-2016, approximately 121.5 million US adults >= 20 years of age had HBP and the prevalence of hypertension among US adults 65 and older was 77.0 percent (Virani et al., 2021). In an analysis of adults with hypertension in NHANES, the estimated age-adjusted proportion with controlled BP increased from 31.8 percent in 1999 to 53.8 percent in 2014. However, that proportion declined to 43.7 percent in 2017 to 2018 (Tsao et al., 2022).\nHBP, known as the “silent killer,” increases risks of heart disease and stroke which are two of the leading causes of death in the US; a person who has HBP is four times more likely to die from a stroke and three times more likely to die from heart disease (CDC, 2012). The National Center for Health Statistics reported that in 2020 there were over 670,000 deaths with HBP as a primary or contributing cause (CDC, 2022). Between 2009 and 2019 the number of deaths due to HBP rose by 65.3 percent (Tsao et al., 2022). Managing and treating HBP would reduce cardiovascular disease mortality for males and females by 30.4 percent and 38.0 percent, respectively (Patel et al., 2015). Age-adjusted death rates attributable to HBP in 2019 were more than twice as high in non-Hispanic Black males (56.7 percent) when compared to rates for non-Hispanic White males (25.7 percent) (Tsao et al., 2022).\nHBP costs the U.S. approximately 131 billion dollars each year, averaged over 12 years from 2003 to 2014 (Kirkland et al., 2018). A study on cost-effectiveness on treating hypertension found that controlling HBP in patients with cardiovascular disease and systolic blood pressures (SBP) of >= 160 mmHg could be effective and cost-saving (Moran, 2015).\nMany studies have shown that controlling high blood pressure reduces cardiovascular events and mortality. The Systolic Blood Pressure Intervention Trial (SPRINT) investigated the impact of obtaining a SBP goal of <120 mmHg compared to a SBP goal of <140 mmHg among patients 50 and older with established cardiovascular disease and found that the patients with the former goal had reduced cardiovascular events and mortality (SPRINT Research Group et al., 2015). \nControlling HBP will significantly reduce the risks of cardiovascular disease mortality and lead to better health outcomes like reduction of heart attacks, stroke, and kidney disease (James et al., 2014). Thus, the relationship between the measure (control of hypertension) and the long-term clinical outcomes listed is well established.",
+  "clinicalRecommendationStatement": "U.S. Preventive Services Task Force (USPSTF) (2021):\n- The USPSTF recommends screening for hypertension in adults 18 years or older with office blood pressure measurement (OBPM). The USPSTF recommends obtaining blood pressure measurements outside of the clinical setting for diagnostic confirmation before starting treatment. This is a grade A recommendation.  \n\nAmerican College of Cardiology/American Heart Association (2017):\n- For adults with confirmed hypertension and known CVD or 10-year ASCVD event risk of 10 percent or higher, a blood pressure target of less than 130/80 mmHg is recommended (Level of evidence: B-R (for systolic blood pressures), Level of evidence: C-EO (for diastolic blood pressure)) \n- For adults with confirmed hypertension, without additional markers of increased CVD risk, a blood pressure target of less than 130/80 mmHg may be reasonable (Note: clinical trial evidence is strongest for a target blood pressure of 140/90 mmHg in this population. However, observational studies suggest that these individuals often have a high lifetime risk and would benefit from blood pressure control earlier in life) (Level of evidence: B-NR (for systolic blood pressure), Level of evidence: C-EO (for diastolic blood pressure)).\n\nAmerican College of Physicians and the American Academy of Family Physicians (2017):   \n- Initiate or intensify pharmacologic treatment in some adults aged 60 years or older at high cardiovascular risk, based on individualized assessment, to achieve a target systolic blood pressure of less than 140 mmHg (Grade: weak recommendation, Quality of evidence: low) \n- Initiate or intensify pharmacologic treatment in adults aged 60 years or older with a history of stroke or transient ischemic attack to achieve a target systolic blood pressure of less than 140 mmHg to reduce the risk of recurrent stroke (Grade: weak recommendation, Quality of evidence: moderate) \n\nAmerican Diabetes Association (2021): \n- For individuals with diabetes and hypertension at higher cardiovascular risk (existing atherosclerotic cardiovascular disease or 10-year atherosclerotic cardiovascular disease risk >=15 percent), a blood pressure target of <130/80 mmHg may be appropriate, if it can be safely attained (Level of evidence: C)\n- For individuals with diabetes and hypertension at lower risk for cardiovascular disease (10-year atherosclerotic cardiovascular disease risk <15 percent), treat to a blood pressure target of <140/90 mmHg (Level of evidence: A)",
+  "group": [
+    {
+      "population": [
+        {
+          "id": "F348D767-1BDE-41AB-884D-5F0E19093980",
+          "description": "Patients 18-85 years of age who had a visit during the measurement period and diagnosis of essential hypertension",
+          "code": {
+            "coding": [
+              {
+                "code": "initial-population",
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "display": "Initial Population"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Initial Population"
+          }
+        },
+        {
+          "id": "3E0D40B3-64FC-4998-B371-34978D033116",
+          "description": "Patients 18-85 years of age who had a visit during the measurement period and diagnosis of essential hypertension",
+          "code": {
+            "coding": [
+              {
+                "code": "denominator",
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "display": "Denominator"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Denominator"
+          }
+        },
+        {
+          "id": "24803F44-C643-45C7-A2A5-4C58BD540579",
+          "description": "Patients whose most recent blood pressure is adequately controlled (systolic blood pressure < 140 mmHg and diastolic blood pressure < 90 mmHg) during the measurement period",
+          "code": {
+            "coding": [
+              {
+                "code": "numerator",
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "display": "Numerator"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Numerator"
+          }
+        },
+        {
+          "id": "95E1480E-8B61-4777-865D-B2A1D6525E1A",
+          "description": "Patients with ESRD or dialysis or renal transplant or pregnancy or in hospice or 66+ in nursing care or 66-80 with frailty and advanced illness or 81+ with frailty or receiving palliative care",
+          "code": {
+            "coding": [
+              {
+                "code": "denominator-exclusion",
+                "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                "display": "Denominator Exclusions"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "Denominator Exclusions"
+          }
+        }
+      ],
+      "stratifier": [
+        {
+          "id": "stratifier-ethnicity",
+          "description": "Ethnicity (CDC Value Set)",
+          "code": {
+            "coding": [
+              {
+                "code": "54133-4",
+                "system": "http://loinc.org",
+                "display": "Ethnicity"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE Ethnicity"
+          }
+        },
+        {
+          "id": "stratifier-payer",
+          "description": "Payer",
+          "code": {
+            "coding": [
+              {
+                "code": "plan",
+                "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                "display": "SDE Payer"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE Payer"
+          }
+        },
+        {
+          "id": "stratifier-race",
+          "description": "Race (CDC Value Set)",
+          "code": {
+            "coding": [
+              {
+                "code": "32624-9",
+                "system": "http://loinc.org",
+                "display": "SDE Race"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE Race"
+          }
+        },
+        {
+          "id": "stratifier-sex",
+          "description": "Administrative sex",
+          "code": {
+            "coding": [
+              {
+                "code": "72143-1",
+                "system": "http://loinc.org",
+                "display": "Sex [HL7.v3]"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE Sex"
+          }
+        },
+        {
+          "id": "stratifier-age",
+          "description": "Age",
+          "code": {
+            "coding": [
+              {
+                "code": "30525-0",
+                "system": "http://loinc.org",
+                "display": "Age"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE Age"
+          }
+        },
+        {
+          "id": "stratifier-state-of-residence",
+          "description": "State of residence",
+          "code": {
+            "coding": [
+              {
+                "code": "52830-7",
+                "system": "http://loinc.org",
+                "display": "State, district or territory federal abbreviation"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE State of Residence"
+          }
+        },
+        {
+          "id": "stratifier-postal-code-of-residence",
+          "description": "Postal code of residence",
+          "code": {
+            "coding": [
+              {
+                "code": "45401-7",
+                "system": "http://loinc.org",
+                "display": "Postal code"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE Postal Code of Residence"
+          }
+        },
+        {
+          "id": "stratifier-food-insecurity-risk-status",
+          "description": "Food insecurity risk status",
+          "code": {
+            "coding": [
+              {
+                "code": "88124-3",
+                "system": "http://loinc.org",
+                "display": "Food insecurity risk [HVS]"
+              }
+            ]
+          },
+          "criteria": {
+            "language": "text/cql-identifier",
+            "expression": "SDE Food Insecurity Risk Status"
+          }
+        }
+      ]
+    }
+  ],
+  "supplementalData": [
+    {
+      "id": "sde-ethnicity",
+      "code": {
+        "coding": [
+          {
+            "code": "54133-4",
+            "system": "http://loinc.org",
+            "display": "Ethnicity"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "Ethnicity (CDC Value Set)",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Ethnicity"
+      }
+    },
+    {
+      "id": "sde-payer",
+      "code": {
+        "coding": [
+          {
+            "code": "plan",
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "display": "SDE Payer"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "Payer",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Payer"
+      }
+    },
+    {
+      "id": "sde-race",
+      "code": {
+        "coding": [
+          {
+            "code": "32624-9",
+            "system": "http://loinc.org",
+            "display": "SDE Race"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "Race (CDC Value Set)",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Race"
+      }
+    },
+    {
+      "id": "sde-sex",
+      "code": {
+        "coding": [
+          {
+            "code": "72143-1",
+            "system": "http://loinc.org",
+            "display": "Sex [HL7.v3]"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "Administrative sex",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Sex"
+      }
+    },
+    {
+      "id": "sde-age",
+      "code": {
+        "coding": [
+          {
+            "code": "30525-0",
+            "system": "http://loinc.org",
+            "display": "Age"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "Age",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Age"
+      }
+    },
+    {
+      "id": "sde-state-of-residence",
+      "code": {
+        "coding": [
+          {
+            "code": "52830-7",
+            "system": "http://loinc.org",
+            "display": "State, district or territory federal abbreviation"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "State of residence",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE State of Residence"
+      }
+    },
+    {
+      "id": "sde-postal-code-of-residence",
+      "code": {
+        "coding": [
+          {
+            "code": "45401-7",
+            "system": "http://loinc.org",
+            "display": "Postal code"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "Postal code of residence",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Postal Code of Residence"
+      }
+    },
+    {
+      "id": "sde-food-insecurity-risk-status",
+      "code": {
+        "coding": [
+          {
+            "code": "88124-3",
+            "system": "http://loinc.org",
+            "display": "Food insecurity risk [HVS]"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "coding": [
+            {
+              "code": "supplemental-data",
+              "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage"
+            }
+          ]
+        }
+      ],
+      "description": "Food insecurity risk status",
+      "criteria": {
+        "language": "text/cql-identifier",
+        "expression": "SDE Food Insecurity Risk Status"
+      }
+    }
+  ]
+}

@@ -10,7 +10,7 @@ mkdir -p bundlegen/sourcefiles
 # 3) Prefix library file names with `library-`
 cp input/resources/library/AdultOutpatientEncountersFHIR4.json bundlegen/sourcefiles/library-AdultOutpatientEncountersFHIR4.json
 cp input/resources/library/AdvancedIllnessandFrailtyExclusionECQMFHIR4.json bundlegen/sourcefiles/library-AdvancedIllnessandFrailtyExclusionECQMFHIR4.json
-cp input/resources/library/ControllingBloodPressureFHIR.json bundlegen/sourcefiles/library-ControllingBloodPressureFHIR.json
+cp input/resources/library/ControllingHighBloodPressureFHIR.json bundlegen/sourcefiles/library-ControllingHighBloodPressureFHIR.json
 cp input/resources/library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json bundlegen/sourcefiles/library-DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json
 cp input/resources/library/FHIR-ModelInfo.json bundlegen/sourcefiles/library-FHIR-ModelInfo.json
 cp input/resources/library/FHIRHelpers.json bundlegen/sourcefiles/library-FHIRHelpers.json
@@ -22,13 +22,13 @@ cp input/resources/library/SurveillanceDataElementsFHIR4.json bundlegen/sourcefi
 
 # 4) Copy the measures from `input/resources/measures` to `bundles\kars\kars-files`
 # 5) Prefix the measure file names with `measure-`
-cp input/resources/measure/ControllingBloodPressureFHIR.json bundlegen/sourcefiles/measure-ControllingBloodPressureFHIR.json
+cp input/resources/measure/ControllingHighBloodPressureFHIR.json bundlegen/sourcefiles/measure-ControllingHighBloodPressureFHIR.json
 cp input/resources/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json bundlegen/sourcefiles/measure-DiabetesHemoglobinA1cHbA1cPoorControl9FHIR.json
 cp input/resources/measure/SeenPatients.json bundlegen/sourcefiles/measure-SeenPatients.json
 
 # 6) Copy the plandefinitions from `input/resources/plandefinitions` to `bundles\kars\kars-files`
 # 7) Prefix the plandefinition file names with `plandefinition-`
-cp input/resources/plandefinition/ChronicDSControllingBloodPressure.xml bundlegen/sourcefiles/plandefinition-ChronicDSControllingBloodPressure.xml
+cp input/resources/plandefinition/ChronicDSControllingHighBloodPressure.xml bundlegen/sourcefiles/plandefinition-ChronicDSControllingHighBloodPressure.xml
 cp input/resources/plandefinition/ChronicDSDiabetesPoorControl.xml bundlegen/sourcefiles/plandefinition-ChronicDSDiabetesPoorControl.xml
 cp input/resources/plandefinition/ChronicDSSeenPatients.xml bundlegen/sourcefiles/plandefinition-ChronicDSSeenPatients.xml
 

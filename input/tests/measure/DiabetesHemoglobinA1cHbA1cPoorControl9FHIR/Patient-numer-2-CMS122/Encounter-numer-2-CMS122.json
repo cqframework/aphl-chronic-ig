@@ -1,6 +1,10 @@
 {
   "resourceType" : "Encounter",
+<<<<<<<< HEAD:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-numer-2-CMS122/Encounter-numer-2-CMS122.json
   "id": "Encounter-numer-2-CMS122",
+========
+  "id": "Encounter-numer-1-CMS122",
+>>>>>>>> main:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-numer-1-CMS122/Encounter-numer-1-CMS122.json
   "status" : "finished",
   "class": {
     "code": "HH",
@@ -20,10 +24,18 @@
   }
   ],
   "subject" : {
+<<<<<<<< HEAD:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-numer-2-CMS122/Encounter-numer-2-CMS122.json
   "reference" : "Patient/Patient-numer-2-CMS122"
   },
   "period" : {
   "start" : "2024-04-06T12:32:00-07:00",
   "end" : "2024-04-06T13:00:00-07:00"
+========
+  "reference" : "Patient/Patient-numer-1-CMS122"
+  },
+  "period" : {
+  "start" : "2024-01-06T12:32:00-07:00",
+  "end" : "2024-01-06T13:00:00-07:00"
+>>>>>>>> main:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-numer-1-CMS122/Encounter-numer-1-CMS122.json
   }
 }

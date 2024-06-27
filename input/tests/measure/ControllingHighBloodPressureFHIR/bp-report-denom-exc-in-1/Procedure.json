@@ -1,0 +1,24 @@
+{
+  "resourceType": "Procedure",
+  "id": "bp-report-denom-exc-in-procedure",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-procedure"
+    ]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [ {
+      "system": "http://snomed.info/sct",
+      "code": "385763009",
+      "display": "Hospice care (regime/therapy)"
+    } ]
+  },
+  "subject": {
+    "reference": "Patient/bp-report-denom-exc-in-1"
+  },
+  "performedPeriod": {
+    "start": "2024-03-27T10:00:00",
+    "end": "2024-06-18T23:59:00"
+  }
+}
