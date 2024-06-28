@@ -1,10 +1,6 @@
 {
   "resourceType" : "Observation",
-<<<<<<<< HEAD:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-denom-1-CMS122/Observation-denom-1-CMS122.json
   "id" : "Observation-denom-1-CMS122",
-========
-  "id" : "Observation-numer-1-CMS122",
->>>>>>>> main:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-numer-1-CMS122/Observation-numer-1-CMS122.json
   "status" : "final",
   "category" : [
     {
@@ -26,16 +22,9 @@
     ]
   },
   "subject" : {
-<<<<<<<< HEAD:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-denom-1-CMS122/Observation-denom-1-CMS122.json
     "reference" : "Patient/Patient-denom-1-CMS122"
   },
   "effectiveDateTime" : "2019-01-17T11:00:00-07:00",
-
-========
-    "reference" : "Patient/Patient-numer-1-CMS122"
-  },
-  "effectiveDateTime" : "2024-01-17T12:32:00-07:00",
->>>>>>>> main:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-numer-1-CMS122/Observation-numer-1-CMS122.json
   "valueQuantity" : {
     "value" : 9.1,
     "unit" : "%",

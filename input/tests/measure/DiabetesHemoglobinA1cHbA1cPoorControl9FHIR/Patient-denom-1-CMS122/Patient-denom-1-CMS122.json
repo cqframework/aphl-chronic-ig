@@ -1,10 +1,6 @@
 {
   "resourceType": "Patient",
-<<<<<<<< HEAD:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-denom-1-CMS122/Patient-denom-1-CMS122.json
   "id": "Patient-denom-1-CMS122",
-========
-  "id": "Patient-numer-2-CMS122",
->>>>>>>> main:input/tests/measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR/Patient-numer-2-CMS122/Patient-numer-2-CMS122.json
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"

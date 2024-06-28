@@ -187,7 +187,7 @@
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1086"
   }, {
     "type": "depends-on",
-    "display": "Value set Emergency Department Evaluation and Management Visit",
+    "display": "Value set Emergency Department Visit",
     "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1010"
   }, {
     "type": "depends-on",
@@ -608,7 +608,7 @@
   }, {
     "type": "Encounter",
     "profile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ],
-    "mustSupport": [ "type", "diagnosis", "period" ],
+    "mustSupport": [ "type", "period" ],
     "codeFilter": [ {
       "path": "type",
       "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1083"
