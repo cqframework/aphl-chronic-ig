@@ -36,6 +36,15 @@ context Patient
 define "Up To One Year Prior Including Measurement Period":
   Interval[start of "Measurement Period" - 1 year, end of "Measurement Period"]
 
+define "Is Age 66 or Older with Advanced Illness and Frailty":
+  AgeInYearsAt(date from end of "Measurement Period") >= 66
+    and "Has Criteria Indicating Frailty"
+    and (
+      exists("Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service")
+      or exists("Has Inpatient Encounter With Advanced Illness")
+        or exists("Has Dementia Medications In Year Before or During Measurement Period")
+    )
+
 define "Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty":
   (
     AgeInYearsAt(date from end of "Measurement Period") in Interval[66, 80]
