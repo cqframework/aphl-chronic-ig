@@ -446,7 +446,7 @@
       "description": "Patients with ESRD or dialysis or renal transplant or pregnancy or in hospice or 66+ in nursing care or 66-80 with frailty and advanced illness or 81+ with frailty or receiving palliative care",
       "criteria": {
         "language": "text/cql-identifier",
-        "expression": "Denominator Exclusions"
+        "expression": "Denominator Exclusion"
       }
     } ],
     "stratifier": [ {
