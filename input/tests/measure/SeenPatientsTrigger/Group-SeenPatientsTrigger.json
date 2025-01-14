@@ -1,0 +1,22 @@
+{
+  "resourceType": "Group",
+  "id": "SeenPatientsTrigger",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/SeenPatientsTrigger"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/seen-patients-no-trigger-in",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-trigger-in",
+      "display": "Jane Adams"
+    }
+  } ]
+}

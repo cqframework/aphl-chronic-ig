@@ -92,6 +92,7 @@
         "display": "Food insecurity risk [HVS]"
       }
     } ],
+    "name": "EffectiveDataRequirements",
     "status": "active",
     "type": {
       "coding": [ {
@@ -151,7 +152,7 @@
       "use": "out",
       "min": 0,
       "max": "*",
-      "type": "Any"
+      "type": "Resource"
     }, {
       "name": "SDE State of Residence",
       "use": "out",
@@ -246,7 +247,7 @@
   "title": "Seen Patients",
   "status": "draft",
   "experimental": true,
-  "date": "2024-06-26T07:47:50-06:00",
+  "date": "2024-12-03T22:51:17-06:00",
   "description": "Seen patients during the measurement period",
   "purpose": "The Seen Patients cohort measure is defined to provide a baseline for chronic disease surveillance. For each individual in the cohort, supplemental data is collected aligning with the supplemental data defined for other chronic disease surveillance measure usages, allowing for analytics across and between specific measures.",
   "topic": [ {

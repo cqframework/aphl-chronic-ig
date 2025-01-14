@@ -54,9 +54,23 @@
         ],
         "trigger": [
           {
-            "id": "encounter-end",
+            "id": "encounter-close",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-named-eventtype-extension",
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/us/ecr/CodeSystem/us-ph-triggerdefinition-namedevents",
+                                "code": "encounter-close",
+                                "display": "Indicates the closure of an encounter, where in encounter.period.high is populated with the end time."
+                            }
+                        ]
+                    }
+                }
+            ],
             "type": "named-event",
-            "name": "encounter-end"
+            "name": "encounter-close"
           }
         ],
         "relatedAction": [
@@ -303,7 +317,13 @@
                     ]
                   },
                   {
-                    "id": "measurereport",
+                    "id": "generatedmeasurereport",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                            "valueString": "measurereport"
+                        }
+                    ],
                     "type": "MeasureReport",
                     "profile": [
                       "http://hl7.org/fhir/MeasureReport"
@@ -312,7 +332,7 @@
                 ],
                 "output": [
                   {
-                    "id": "eicr-report-DepressionScreeningandFollowUp",
+                    "id": "eicrbundle",
                     "type": "Bundle",
                     "profile": [
                       "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle"
@@ -344,7 +364,13 @@
             ],
             "input": [
               {
-                "id": "eicr-report-DepressionScreeningandFollowUp",
+                "id": "createdeicrbundle",
+                "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                            "valueString": "eicrbundle"
+                        }
+                    ],
                 "type": "Bundle",
                 "profile": [
                   "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
@@ -353,7 +379,7 @@
             ],
             "output": [
               {
-                "id": "validated-eicr-report",
+                "id": "validated-eicr-bundle",
                 "type": "Bundle",
                 "profile": [
                   "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
@@ -383,7 +409,13 @@
             ],
             "input": [
               {
-                "id": "validated-eicr-report",
+                "id": "validated-eicr-bundle-input",
+                "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                            "valueString": "validated-eicr-bundle"
+                        }
+                    ],
                 "type": "Bundle",
                 "profile": [
                   "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"

@@ -1,0 +1,57 @@
+{
+  "resourceType": "Group",
+  "id": "SeenPatients",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/SeenPatients"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-in-high",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-out-prior",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-no-trigger-in",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-out-post",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-trigger-in",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/patient-ip-SeenPatients",
+      "display": "John Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-in-low",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-in-mid",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-sde-in",
+      "display": "Jane Adams"
+    }
+  } ]
+}
