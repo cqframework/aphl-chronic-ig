@@ -169,9 +169,22 @@ cp input/vocabulary/ValueSet/external/valueset-2.16.840.1.114222.4.11.837.json b
 cp input/vocabulary/ValueSet/external/valueset-2.16.840.1.114222.4.11.3591.json bundlegen/sourcefiles/valueset-2.16.840.1.114222.4.11.3591.json
 
 #9) Run BundleResources: -BundleResources -ptd="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars\kars-files" -op="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars" -v=r4 -e=json
-# Bundle all resources from bundlegen/sourcefiles
+Bundle all resources from bundlegen/sourcefiles
+echo 'bundling two kars bundles'
 sh bundlegen/_bundle.sh "kars-transaction"
 sh bundlegen/_bundle.sh "kars-collection"
+
+#9.5)
+# Directory to be created
+DIR="./bundles/kars"
+
+# Check if directory exists
+if [ ! -d "$DIR" ]; then
+  echo "Directory does not exist. Creating directory: $DIR"
+  mkdir -p "$DIR"
+else
+  echo "Directory already exists: $DIR"
+fi
 
 #10) Copy the resulting output file and rename it `kars-transaction-bundle`
 rm bundles/kars-transaction-bundle.json
