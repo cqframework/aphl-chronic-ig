@@ -71,35 +71,40 @@ define "SDE Food Insecurity Risk Status":
   SurveillanceDataElements."Food Insecurity Risk Status"
 
 define "Has Diastolic Blood Pressure Less Than 90":
-	"Lowest Diastolic Reading on Most Recent Blood Pressure Day" < 90 
-    and "Lowest Diastolic Reading on Most Recent Blood Pressure Day" is not null
+    "Lowest Diastolic Reading on Most Recent Blood Pressure Day" < 90 'mm[Hg]'
 
 define "Has Systolic Blood Pressure Less Than 140":
-	"Lowest Systolic Reading on Most Recent Blood Pressure Day".value < 140
-    and "Lowest Systolic Reading on Most Recent Blood Pressure Day" is not null
+	"Lowest Systolic Reading on Most Recent Blood Pressure Day" < 140 'mm[Hg]'
 
 define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
 	First(
-      "Qualifying Diastolic Blood Pressure Reading" DBPReading
-		    where Common.Latest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
-          and DBPReading.code ~ "Diastolic blood pressure"
-      sort by (value as FHIR.Quantity).value asc
-	).value 
+        "Qualifying Diastolic Blood Pressure Reading" DBPReading
+		    where Common.Earliest(DBPReading.effective) same day as "Most Recent Blood Pressure Day"
+        return singleton from (
+            DBPReading.component C
+                where C.code ~ "Diastolic blood pressure"
+                return C.value as FHIR.Quantity
+        ) sort ascending
+	)
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	First(
-      "Qualifying Systolic Blood Pressure Reading" SBPReading
+        "Qualifying Systolic Blood Pressure Reading" SBPReading
 		    where Common.Latest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
-          and SBPReading.code ~ "Systolic blood pressure"
-      sort by (value as FHIR.Quantity).value asc
-	).value 
+        return singleton from (
+            SBPReading.component C
+                where C.code ~ "Systolic blood pressure"
+                return C.value as FHIR.Quantity
+        ) sort ascending
+    )
 
 define "Blood Pressure Days":
 	("Qualifying Diastolic Blood Pressure Reading" DBPExam 
-    return Common.Latest(DBPExam.effective)
-  ) intersect ("Qualifying Systolic Blood Pressure Reading" SBPExam 
-    return Common.Latest(SBPExam.effective)
-  )
+        return Common.Latest(DBPExam.effective)
+    ) 
+        intersect ("Qualifying Systolic Blood Pressure Reading" SBPExam 
+            return Common.Latest(SBPExam.effective)
+        )
 
 define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
@@ -114,7 +119,7 @@ define "Qualifying Diastolic Blood Pressure Reading":
       and exists (
         BloodPressure.component DiastolicBP
           where DiastolicBP.code ~ "Diastolic blood pressure"
-            and (DiastolicBP.value as Quantity).unit = 'mm[Hg]'
+            and (DiastolicBP.value as Quantity).code.value = 'mm[Hg]'
       )
 
 define "Qualifying Systolic Blood Pressure Reading":
@@ -127,12 +132,12 @@ define "Qualifying Systolic Blood Pressure Reading":
       and exists (
         BloodPressure.component SystolicBP
           where SystolicBP.code ~ "Systolic blood pressure"
-            and (SystolicBP.value as Quantity).unit = 'mm[Hg]'
+            and (SystolicBP.value as Quantity).code.value = 'mm[Hg]'
       )
 
 define "Numerator":
 	"Has Diastolic Blood Pressure Less Than 90"
-		and "Has Systolic Blood Pressure Less Than 140"
+	    and "Has Systolic Blood Pressure Less Than 140"
 
 define "Initial Population":
   AgeInYearsAt(date from end of "Measurement Period") in Interval[18, 85]
@@ -152,14 +157,14 @@ define "Denominator":
 
 define "End Stage Renal Disease Encounter":
 	[Encounter: "ESRD Monthly Outpatient Services"] ESRDEncounter
-		where ESRDEncounter.status in { 'arrived', 'triaged', 'in-progress', 'onleave', 'completed' }
+		where ESRDEncounter.status in { 'arrived', 'triaged', 'in-progress', 'onleave', 'finished' }
 		  and ESRDEncounter.period starts on or before end of "Measurement Period"
 
 define "End Stage Renal Disease Procedures":
 	([Procedure: "Kidney Transplant"]
 		union [Procedure: "Dialysis Services"]) ESRDProcedure
-		  where ESRDProcedure.status = 'completed'
-        and end of Common."Normalize Interval"(ESRDProcedure.performed) on or before end of "Measurement Period"
+		    where ESRDProcedure.status = 'completed'
+                and end of Common."Normalize Interval"(ESRDProcedure.performed) on or before end of "Measurement Period"
 
 define "Essential Hypertension Diagnosis":
 	[Condition: "Essential Hypertension"] Hypertension
