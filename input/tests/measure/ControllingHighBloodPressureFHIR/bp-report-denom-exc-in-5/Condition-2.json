@@ -1,6 +1,6 @@
 {
   "resourceType": "Condition",
-  "id": "bp-report-denom-exc-in-2-condition-1",
+  "id": "bp-report-denom-exc-in-5-condition-2",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
@@ -39,14 +39,19 @@
     "coding": [
       {
         "system": "http://snomed.info/sct",
-        "code": "78975002",
-        "display": "Malignant essential hypertension (disorder)"
+        "version": "2021-03",
+        "code": "426012001",
+        "display": "Right heart failure due to pulmonary hypertension (disorder)"
       }
     ]
   },
   "subject": {
-    "reference": "Patient/bp-report-denom-exc-in-2"
+    "reference": "Patient/bp-report-denom-exc-in-5"
   },
-  "onsetDateTime": "2024-06-23T11:01:33-06:00",
-  "recordedDate": "2024-06-23T11:01:33-06:00"
+  "encounter": {
+    "reference": "Encounter/bp-report-denom-exc-in-5-encounter-2"
+  },
+  "onsetDateTime": "2024-06-20T11:01:33-06:00",
+  "abatementDateTime": "2024-07-18T11:01:33-06:00",
+  "recordedDate": "2024-02-23T11:01:33-06:00"
 }

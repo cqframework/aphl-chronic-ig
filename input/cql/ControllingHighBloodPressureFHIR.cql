@@ -84,27 +84,27 @@ define "Lowest Diastolic Reading on Most Recent Blood Pressure Day":
             DBPReading.component C
                 where C.code ~ "Diastolic blood pressure"
                 return C.value as FHIR.Quantity
-        )
-			sort ascending
+        ) sort ascending
 	)
 
 define "Lowest Systolic Reading on Most Recent Blood Pressure Day":
 	First(
         "Qualifying Systolic Blood Pressure Reading" SBPReading
 		    where Common.Latest(SBPReading.effective) same day as "Most Recent Blood Pressure Day"
-            return singleton from (
-                SBPReading.component C
-                    where C.code ~ "Systolic blood pressure"
-                    return C.value as FHIR.Quantity
-	        ) sort ascending
+        return singleton from (
+            SBPReading.component C
+                where C.code ~ "Systolic blood pressure"
+                return C.value as FHIR.Quantity
+        ) sort ascending
     )
 
 define "Blood Pressure Days":
 	("Qualifying Diastolic Blood Pressure Reading" DBPExam 
-    return Common.Latest(DBPExam.effective)
-  ) intersect ("Qualifying Systolic Blood Pressure Reading" SBPExam 
-    return Common.Latest(SBPExam.effective)
-  )
+        return Common.Latest(DBPExam.effective)
+    ) 
+        intersect ("Qualifying Systolic Blood Pressure Reading" SBPExam 
+            return Common.Latest(SBPExam.effective)
+        )
 
 define "Most Recent Blood Pressure Day":
 	Max("Blood Pressure Days")
@@ -163,8 +163,8 @@ define "End Stage Renal Disease Encounter":
 define "End Stage Renal Disease Procedures":
 	([Procedure: "Kidney Transplant"]
 		union [Procedure: "Dialysis Services"]) ESRDProcedure
-		  where ESRDProcedure.status = 'finished'
-        and end of Common."Normalize Interval"(ESRDProcedure.performed) on or before end of "Measurement Period"
+		    where ESRDProcedure.status = 'completed'
+                and end of Common."Normalize Interval"(ESRDProcedure.performed) on or before end of "Measurement Period"
 
 define "Essential Hypertension Diagnosis":
 	[Condition: "Essential Hypertension"] Hypertension
