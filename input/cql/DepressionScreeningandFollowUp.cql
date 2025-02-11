@@ -43,7 +43,7 @@ code "Depression Screening Positive": '428181000124104' from "SNOMEDCT" display 
 code "not-performed": 'not-performed' from "DataAbsentReason"
 
 
-parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.000, @2025-01-01T00:00:00.000)
+parameter "Measurement Period" default Interval[@2025-01-01T00:00:00.000, @2026-01-01T00:00:00.000)
 
 context Patient
 

@@ -39,7 +39,7 @@ code "Blood pressure": '85354-9' from "LOINC" display 'blood pressure'
 code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
-parameter "Measurement Period" Interval<DateTime> default Interval[@2024-01-01T00:00:00.0-06:00, @2024-12-31T23:59:59.999-06:00]
+parameter "Measurement Period" Interval<DateTime> default Interval[@2025-01-01T00:00:00.0-06:00, @2025-12-31T23:59:59.999-06:00]
 
 context Patient
 

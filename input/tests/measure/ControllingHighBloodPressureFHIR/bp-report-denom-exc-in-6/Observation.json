@@ -10,7 +10,7 @@
         }
       ]
     },
-    "effectiveDateTime": "2024-02-15T11:00:00-07:00",
+    "effectiveDateTime": "2025-02-15T11:00:00-07:00",
     "encounter": {
       "reference": "Encounter/bp-report-denom-exc-in-6-encounter"
     },

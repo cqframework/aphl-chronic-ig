@@ -51,7 +51,7 @@
   "encounter": {
     "reference": "Encounter/bp-report-denom-exc-in-5-encounter-2"
   },
-  "onsetDateTime": "2024-06-20T11:01:33-06:00",
-  "abatementDateTime": "2024-07-18T11:01:33-06:00",
-  "recordedDate": "2024-02-23T11:01:33-06:00"
+  "onsetDateTime": "2025-06-20T11:01:33-06:00",
+  "abatementDateTime": "2025-07-18T11:01:33-06:00",
+  "recordedDate": "2025-02-23T11:01:33-06:00"
 }
