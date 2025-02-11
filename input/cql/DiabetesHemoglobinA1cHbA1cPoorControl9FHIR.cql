@@ -40,7 +40,7 @@ code "Medical nutrition therapy; reassessment and subsequent intervention(s) fol
 code "laboratory": 'laboratory' from "ObservationCategoryCodes" display 'laboratory'
 code "Birth date": '21112-8' from "LOINC" display 'Birth date'
 
-parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
+parameter "Measurement Period" default Interval[@2025-01-01T00:00:00.0, @2026-01-01T00:00:00.0)
 
 context Patient
 
