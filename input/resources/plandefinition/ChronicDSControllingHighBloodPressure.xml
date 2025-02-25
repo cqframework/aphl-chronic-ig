@@ -108,23 +108,18 @@
         </code>
         <input id="patient">
             <type value="Patient"/>
-            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
         </input>
         <input id="conditions">
             <type value="Condition"/>
-            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
         </input>
         <input id="encounter">
             <type value="Encounter"/>
-            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"/>
         </input>
         <input id="mr">
             <type value="MedicationRequest"/>
-            <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"/>
         </input>
         <input id="obs">
             <type value="Observation"/>
-            <profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
         </input>
         <output id="measurereport">
             <type value="MeasureReport"/>
@@ -145,11 +140,14 @@
             <code value="execute-reporting-workflow"/>
           </coding>
         </code>
+        <input id="measurereport">
+            <type value="MeasureReport"/>
+        </input>
         <condition>
             <kind value="applicability"/>
             <expression>
                 <language value="text/fhirpath"/>
-                <expression value="%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'denominator' and count > 0).exists()"/>
+                <expression value="%measurereport.exists() and %measurereport.group.select(population).where(code.coding.where(code = 'denominator').exists() and count > 0).exists()"/>
             </expression>
         </condition>
         <action id="create-eicr">
@@ -163,27 +161,21 @@
             </code>
             <input id="patient">
                 <type value="Patient"/>
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"/>
             </input>
             <input id="conditions">
                 <type value="Condition"/>
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"/>
             </input>
             <input id="encounter">
                 <type value="Encounter"/>
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"/>
             </input>
             <input id="mr">
                 <type value="MedicationRequest"/>
-                <profile value="http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"/>
             </input>
             <input id="obs">
                 <type value="Observation"/>
-                <profile value="http://hl7.org/fhir/StructureDefinition/vitalsigns"/>
             </input>
             <input id="measurereport">
                 <type value="MeasureReport"/>
-                <profile value="http://hl7.org/fhir/MeasureReport"/>
             </input>
             <output id ="eicr-report-ChronicDSControllingBloodPressure">
                 <type value="Bundle"/>
@@ -205,11 +197,9 @@
             </code>
             <input id="eicr-report-ChronicDSControllingBloodPressure">
                 <type value="Bundle"/>
-                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"/>
             </input>
             <output id="validated-eicr-report">
                 <type value="Bundle"/>
-                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"/>
             </output>
             <relatedAction>
                 <actionId value="submit-eicr"/>
@@ -227,7 +217,6 @@
             </code>
             <input id="validated-eicr-report">
                 <type value="Bundle"/>
-                <profile value="http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"/>
             </input>
             <output id="eicr-report-submitted">
                 <type value="Bundle"/>
