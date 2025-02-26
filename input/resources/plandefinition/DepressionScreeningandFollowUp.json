@@ -121,18 +121,7 @@
                         "code": "73831-0",
                         "system": "http://loinc.org",
                         "display": "Adolescent Depression Screening Assessment"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "id": "observation",
-                "type": "Observation",
-                "codeFilter": [
-                  {
-                    "path": "code",
-                    "code": [
+                      },
                       {
                         "code": "73832-8",
                         "system": "http://loinc.org",
