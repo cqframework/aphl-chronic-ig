@@ -353,8 +353,8 @@
       "code": {
         "coding": [ {
           "system": "http://loinc.org",
-          "code": "30525-0",
-          "display": "Age"
+          "code": "46251-5",
+          "display": "Age Group"
         } ],
         "text": "stratifier-age-group"
       },
