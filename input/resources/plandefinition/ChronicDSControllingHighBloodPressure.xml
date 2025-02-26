@@ -115,6 +115,9 @@
         <input id="encounter">
             <type value="Encounter"/>
         </input>
+        <input id="procedure">
+            <type value="Procedure"/>
+        </input>
         <input id="mr">
             <type value="MedicationRequest"/>
         </input>
@@ -167,6 +170,9 @@
             </input>
             <input id="encounter">
                 <type value="Encounter"/>
+            </input>
+            <input id="procedure">
+                <type value="Procedure"/>
             </input>
             <input id="mr">
                 <type value="MedicationRequest"/>
