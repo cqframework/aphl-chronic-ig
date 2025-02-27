@@ -193,6 +193,8 @@ cp input/vocabulary/ValueSet/external/valueset-2.16.840.1.113883.3.666.5.307.jso
 cp input/vocabulary/ValueSet/external/valueset-2.16.840.1.114222.4.11.836.json bundlegen/sourcefiles/depression/valueset-2.16.840.1.114222.4.11.836.json
 cp input/vocabulary/ValueSet/external/valueset-2.16.840.1.114222.4.11.837.json bundlegen/sourcefiles/depression/valueset-2.16.840.1.114222.4.11.837.json
 cp input/vocabulary/ValueSet/external/valueset-2.16.840.1.114222.4.11.3591.json bundlegen/sourcefiles/depression/valueset-2.16.840.1.114222.4.11.3591.json
+cp input/vocabulary/ValueSet/adult-depression-screening-assessment.json bundlegen/sourcefiles/depression/adult-depression-screening-assessment.json
+cp input/vocabulary/ValueSet/adolescent-depression-screening-assessment.json bundlegen/sourcefiles/depression/adolescent-depression-screening-assessment.json
 
 
 cp input/vocabulary/ValueSet/external/valueset-2.16.840.1.113762.1.4.1.json bundlegen/sourcefiles/diabetes/valueset-2.16.840.1.113762.1.4.1.json
@@ -326,22 +328,22 @@ sh bundlegen/_bundle.sh "kars-transaction"
 sh bundlegen/_bundle.sh "kars-collection"
 
 #10) Copy the resulting output file and rename it `kars-transaction-bundle`
-#rm bundles/kars-transaction-bundle.json
-#cp bundlegen/kars-transaction-bundle.json bundles/kars/kars-transaction-bundle.json
-#echo 'Copied generated bundle to bundles/kars-transaction-bundle.json'
-#rm bundles/kars-collection-bundle.json
-#cp bundlegen/kars-collection-bundle.json bundles/kars/kars-collection-bundle.json
-#echo 'Copied generated bundle to bundles/kars-collection-bundle.json'
+rm bundles/kars-transaction-bundle.json
+cp bundlegen/kars-transaction-bundle.json bundles/kars/kars-transaction-bundle.json
+echo 'Copied generated bundle to bundles/kars-transaction-bundle.json'
+rm bundles/kars-collection-bundle.json
+cp bundlegen/kars-collection-bundle.json bundles/kars/kars-collection-bundle.json
+echo 'Copied generated bundle to bundles/kars-collection-bundle.json'
 
 #11) Update the bundle type to collection in `kars-collection-bundle`
 #!!!Must be done manually!!!
 
 echo 'Cleaning up bundlegen/sourcefiles...'
-#rm bundlegen/kars-transaction-bundle.json
-#rm bundlegen/kars-collection-bundle.json
-#rm bundlegen/sourcefiles/bloodpressure/*
-#rm bundlegen/sourcefiles/depression/*
-#rm bundlegen/sourcefiles/diabetes/*
-#rm bundlegen/sourcefiles/seenpatients/*
+rm bundlegen/kars-transaction-bundle.json
+rm bundlegen/kars-collection-bundle.json
+rm bundlegen/sourcefiles/bloodpressure/*
+rm bundlegen/sourcefiles/depression/*
+rm bundlegen/sourcefiles/diabetes/*
+rm bundlegen/sourcefiles/seenpatients/*
 
 echo 'kars bundle refresh complete.'

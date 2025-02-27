@@ -10,13 +10,6 @@
     "extension": [ {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
       "valueCoding": {
-        "system": "http://loinc.org",
-        "code": "73831-0",
-        "display": "Adolescent Depression Screening Assessment"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "428171000124102",
         "display": "Depression Screening Negative (finding)"
@@ -27,13 +20,6 @@
         "system": "http://snomed.info/sct",
         "code": "428181000124104",
         "display": "Depression Screening Positive (finding)"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://loinc.org",
-        "code": "73832-8",
-        "display": "Adult Depression Screening Assessment"
       }
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
@@ -110,12 +96,12 @@
       "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
     }, {
       "type": "depends-on",
-      "display": "Code system LOINC",
-      "resource": "http://loinc.org"
-    }, {
-      "type": "depends-on",
       "display": "Code system SNOMEDCT",
       "resource": "http://snomed.info/sct"
+    }, {
+      "type": "depends-on",
+      "display": "Code system LOINC",
+      "resource": "http://loinc.org"
     }, {
       "type": "depends-on",
       "display": "Code system ConditionClinicalStatusCodes",
@@ -124,6 +110,10 @@
       "type": "depends-on",
       "display": "Code system ConditionVerificationStatusCodes",
       "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Adolescent Depression Screening Assessment",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
     }, {
       "type": "depends-on",
       "display": "Value set Encounter to Screen for Depression",
@@ -148,6 +138,10 @@
       "type": "depends-on",
       "display": "Value set Follow Up for Adolescent Depression",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1569"
+    }, {
+      "type": "depends-on",
+      "display": "Value set Adult Depression Screening Assessment",
+      "resource": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
     }, {
       "type": "depends-on",
       "display": "Value set Adult Depression Medications",
@@ -292,11 +286,7 @@
       "mustSupport": [ "code", "status", "value", "effective", "issued", "component" ],
       "codeFilter": [ {
         "path": "code",
-        "code": [ {
-          "system": "http://loinc.org",
-          "code": "73831-0",
-          "display": "Adolescent Depression Screening Assessment"
-        } ]
+        "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
       } ]
     }, {
       "type": "Observation",
@@ -304,11 +294,7 @@
       "mustSupport": [ "code", "status", "value", "effective", "issued", "component" ],
       "codeFilter": [ {
         "path": "code",
-        "code": [ {
-          "system": "http://loinc.org",
-          "code": "73832-8",
-          "display": "Adult Depression Screening Assessment"
-        } ]
+        "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
       } ]
     }, {
       "type": "Observation",
@@ -428,7 +414,7 @@
   "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
   "status": "draft",
   "experimental": false,
-  "date": "2025-02-11T12:35:59-06:00",
+  "date": "2025-02-27T17:24:34-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
