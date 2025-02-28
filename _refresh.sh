@@ -1,6 +1,6 @@
 #!/bin/bash
 #DO NOT EDIT WITH WINDOWS
-tooling_jar=tooling-cli-2.4.0.jar
+tooling_jar=tooling-cli-3.6.0.jar
 input_cache_path=./input-cache
 resources_path=$PWD/input/resources
 ig_resource_path=./input/chronicdiseasesurveillance.xml
