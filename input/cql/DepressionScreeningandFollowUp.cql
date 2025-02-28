@@ -64,7 +64,7 @@ define "SDE Sex":
 define "SDE Age":
   SurveillanceDataElements."Age"
 
-define "SDE Age Group":
+define "Stratifier Age Group":
   SurveillanceDataElements."Age Group"
 
 define "SDE State of Residence":

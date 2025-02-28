@@ -10,6 +10,90 @@
     "extension": [ {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
       "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P0Y--P0Y",
+        "display": "< 1 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P1Y--P4Y",
+        "display": "1-4 years"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P5Y--P9Y",
+        "display": "5-9 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P10Y--P14Y",
+        "display": "10-14 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P15Y--P19Y",
+        "display": "15-19 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P20Y--P24Y",
+        "display": "20-24 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P25Y--P29Y",
+        "display": "25-29 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P30Y--P34Y",
+        "display": "30-34 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P35Y--P39Y",
+        "display": "35-39 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P40Y--P49Y",
+        "display": "40-49 year"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
+        "code": "P50Y--P9999Y",
+        "display": "50+ years"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "73831-0",
+        "display": "Adolescent Depression Screening Assessment"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "428171000124102",
         "display": "Depression Screening Negative (finding)"
@@ -96,6 +180,14 @@
       "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
     }, {
       "type": "depends-on",
+      "display": "Code system ISO-8601-Derived Periods",
+      "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
+    }, {
+      "type": "depends-on",
+      "display": "Code system LOINC",
+      "resource": "http://loinc.org"
+    }, {
+      "type": "depends-on",
       "display": "Code system SNOMEDCT",
       "resource": "http://snomed.info/sct"
     }, {
@@ -179,6 +271,12 @@
       "min": 0,
       "max": "1",
       "type": "string"
+    }, {
+      "name": "Stratifier Age Group",
+      "use": "out",
+      "min": 0,
+      "max": "1",
+      "type": "Coding"
     }, {
       "name": "SDE State of Residence",
       "use": "out",
@@ -584,18 +682,18 @@
         "expression": "SDE Sex"
       }
     }, {
-      "id": "stratifier-age",
+      "id": "stratifier-age-group",
       "code": {
         "coding": [ {
           "system": "http://loinc.org",
-          "code": "30525-0",
-          "display": "Age"
+          "code": "46251-5",
+          "display": "Age group"
         } ]
       },
-      "description": "Age",
+      "description": "Age Group",
       "criteria": {
         "language": "text/cql-identifier",
-        "expression": "SDE Age"
+        "expression": "Stratifier Age Group"
       }
     }, {
       "id": "stratifier-state-of-residence",

@@ -3,7 +3,10 @@ rm bundlegen/kars-transaction-bundle.json
 rm bundlegen/kars-collection-bundle.json
 rm bundlegen/sourcefiles/*
 
-mkdir -p bundlegen/sourcefiles
+mkdir -p bundlegen/sourcefiles/bloodpressure
+mkdir -p bundlegen/sourcefiles/depression
+mkdir -p bundlegen/sourcefiles/diabetes
+mkdir -p bundlegen/sourcefiles/seenpatients
 
 # 1) Run _refresh
 # 2) Copy the libraries from `input/resources/libraries` to `bundles\kars\kars-files`
@@ -64,7 +67,7 @@ cp input/resources/measure/SeenPatients.json bundlegen/sourcefiles/seenpatients/
 # 6) Copy the plandefinitions from `input/resources/plandefinitions` to `bundles\kars\kars-files`
 # 7) Prefix the plandefinition file names with `plandefinition-`
 cp input/resources/plandefinition/ChronicDSControllingHighBloodPressure.xml bundlegen/sourcefiles/bloodpressure/plandefinition-ChronicDSControllingHighBloodPressure.xml
-cp input/resources/plandefinition/DepressionScreeningandFollowUp.xml bundlegen/sourcefiles/depression/plandefinition-DepressionScreeningandFollowUp.xml
+cp input/resources/plandefinition/DepressionScreeningandFollowUp.json bundlegen/sourcefiles/depression/plandefinition-DepressionScreeningandFollowUp.json
 cp input/resources/plandefinition/ChronicDSDiabetesPoorControl.xml bundlegen/sourcefiles/diabetes/plandefinition-ChronicDSDiabetesPoorControl.xml
 cp input/resources/plandefinition/ChronicDSSeenPatients.xml bundlegen/sourcefiles/seenpatients/plandefinition-ChronicDSSeenPatients.xml
 
