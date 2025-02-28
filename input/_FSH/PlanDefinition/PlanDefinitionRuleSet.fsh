@@ -111,6 +111,14 @@ RuleSet: ActionCheckReportableValueSet(valueset)
   * insert ActionInput("observation", Observation, "code", {valueset})
   * insert ActionRelated("evaluate-measure")
 
+RuleSet: ActionCheckReportableValueSet(valueset1, valueset2)
+* insert ActionCommonDetails("check-reportable", "This action represents the check for reportability of the surveillance event.", "Check Reportable", execute-reporting-workflow)
+* action[+]
+  * insert ActionCommonDetails("ckr-is-encounter-reportable", "This action represents the check for reportability to create the patients eICR.", "Check Trigger Codes based on RCTC Value sets.", check-trigger-codes)
+  * insert ActionConditional("%observation.exists(\)")
+  * insert ActionInput("observation", Observation, "code", {valueset1, valueset2})
+  * insert ActionRelated("evaluate-measure")
+
 RuleSet: ActionCheckReportableCode(code1, code2)
 * insert ActionCommonDetails("check-reportable", "This action represents the check for reportability of the surveillance event.", "Check Reportable", execute-reporting-workflow)
 * action[+]
