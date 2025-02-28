@@ -105,13 +105,13 @@
                 "kind": "applicability",
                 "expression": {
                   "language": "text/fhirpath",
-                  "expression": "%adult-screening-assessment-observation.exists() or %adolescent-screening-assessment-observation.exists()"
+                  "expression": "%adultscreeningassessmentobservation.exists() or %adolescentscreeningassessmentobservation.exists()"
                 }
               }
             ],
             "input": [
               {
-                "id": "adolescent-screening-assessment-observation",
+                "id": "adolescentscreeningassessmentobservation",
                 "type": "Observation",
                 "codeFilter": [
                   {
@@ -121,7 +121,7 @@
                 ]
               },
               {
-                "id": "adult-screening-assessment-observation",
+                "id": "adultscreeningassessmentobservation",
                 "type": "Observation",
                 "codeFilter": [
                   {
