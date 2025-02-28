@@ -116,18 +116,11 @@
                 "codeFilter": [
                   {
                     "path": "code",
-                    "code": [
-                      {
-                        "code": "73831-0",
-                        "system": "http://loinc.org",
-                        "display": "Adolescent Depression Screening Assessment"
-                      },
-                      {
-                        "code": "73832-8",
-                        "system": "http://loinc.org",
-                        "display": "Adult Depression Screening Assessment"
-                      }
-                    ]
+                    "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
+                  },
+                  {
+                    "path": "code",
+                    "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
                   }
                 ]
               }
