@@ -69,7 +69,8 @@ COPY input\vocabulary\valueSet\external\valueset-2.16.840.1.113883.3.666.5.307.j
 COPY input\vocabulary\valueSet\external\valueset-2.16.840.1.114222.4.11.836.json bundlegen\sourcefiles\valueset-2.16.840.1.114222.4.11.836.json
 COPY input\vocabulary\valueSet\external\valueset-2.16.840.1.114222.4.11.837.json bundlegen\sourcefiles\valueset-2.16.840.1.114222.4.11.837.json
 COPY input\vocabulary\valueSet\external\valueset-2.16.840.1.114222.4.11.3591.json bundlegen\sourcefiles\valueset-2.16.840.1.114222.4.11.3591.json
-COPY input\vocabulary\ValueSet\valueset-adult-and-adolescent-depression-screening-assessment.json bundlegen\sourcefiles\valueset-adult-and-adolescent-depression-screening-assessment.json
+COPY input\vocabulary\ValueSet\adult-depression-screening-assessment.json bundlegen\sourcefiles\adult-depression-screening-assessment.json
+COPY input\vocabulary\ValueSet\adolescent-depression-screening-assessment.json bundlegen\sourcefiles\adolescent-depression-screening-assessment.json
 rem 9) Run BundleResources: -BundleResources -ptd="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars\kars-files" -op="C:\Users\Bryn\Documents\Src\APHL\aphl-chronic-disease-surveillance-ig\bundles\kars" -v=r4 -e=json
 rem  Bundle all resources from bundlegen\sourcefiles
 cmd /c bundlegen\_bundle.bat "kars-transaction"

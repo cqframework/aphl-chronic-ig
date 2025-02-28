@@ -124,7 +124,11 @@
             "codeFilter": [
               {
                 "path": "code",
-                "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-and-adolescent-depression-screening-assessment"
+                "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
+              },
+              {
+                "path": "code",
+                "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
               }
             ]
           }
