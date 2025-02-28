@@ -105,7 +105,7 @@
                 "kind": "applicability",
                 "expression": {
                   "language": "text/fhirpath",
-                  "expression": "%observation.exists()"
+                  "expression": "%adult-screening-assessment-observation.exists() or %adolescent-screening-assessment-observation.exists()"
                 }
               }
             ],
@@ -119,16 +119,22 @@
         ],
         "input": [
           {
-            "id": "observation",
+            "id": "adolescent-screening-assessment-observation",
+            "type": "Observation",
+            "codeFilter": [
+              {
+                "path": "code",
+                "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
+              }
+            ]
+          },
+          {
+            "id": "adult-screening-assessment-observation",
             "type": "Observation",
             "codeFilter": [
               {
                 "path": "code",
                 "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
-              },
-              {
-                "path": "code",
-                "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
               }
             ]
           }
