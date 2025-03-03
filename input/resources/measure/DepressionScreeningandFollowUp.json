@@ -87,13 +87,6 @@
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
       "valueCoding": {
-        "system": "http://loinc.org",
-        "code": "73831-0",
-        "display": "Adolescent Depression Screening Assessment"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "428171000124102",
         "display": "Depression Screening Negative (finding)"
@@ -182,10 +175,6 @@
       "type": "depends-on",
       "display": "Code system ISO-8601-Derived Periods",
       "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
-    }, {
-      "type": "depends-on",
-      "display": "Code system LOINC",
-      "resource": "http://loinc.org"
     }, {
       "type": "depends-on",
       "display": "Code system SNOMEDCT",
@@ -512,7 +501,7 @@
   "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
   "status": "draft",
   "experimental": false,
-  "date": "2025-02-27T17:24:34-06:00",
+  "date": "2025-03-03T13:56:16-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

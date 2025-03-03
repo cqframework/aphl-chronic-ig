@@ -172,6 +172,10 @@
             "type": "MedicationRequest"
           },
           {
+            "id": "sr",
+            "type": "ServiceRequest"
+          },
+          {
             "id": "obs",
             "type": "Observation"
           }
