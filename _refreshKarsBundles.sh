@@ -48,6 +48,10 @@ cp input/resources/library/MATGlobalCommonFunctionsFHIR4.json bundlegen/sourcefi
 cp input/resources/library/MATGlobalCommonFunctionsFHIR4.json bundlegen/sourcefiles/depression/library-MATGlobalCommonFunctionsFHIR4.json
 cp input/resources/library/MATGlobalCommonFunctionsFHIR4.json bundlegen/sourcefiles/diabetes/library-MATGlobalCommonFunctionsFHIR4.json
 cp input/resources/library/MATGlobalCommonFunctionsFHIR4.json bundlegen/sourcefiles/seenpatients/library-MATGlobalCommonFunctionsFHIR4.json
+cp input/resources/library/PalliativeCareFHIR.json bundlegen/sourcefiles/bloodpressure/library-PalliativeCareFHIR.json
+cp input/resources/library/PalliativeCareFHIR.json bundlegen/sourcefiles/depression/library-PalliativeCareFHIR.json
+cp input/resources/library/PalliativeCareFHIR.json bundlegen/sourcefiles/diabetes/library-PalliativeCareFHIR.json
+cp input/resources/library/PalliativeCareFHIR.json bundlegen/sourcefiles/seenpatients/library-PalliativeCareFHIR.json
 cp input/resources/library/SupplementalDataElementsFHIR4.json bundlegen/sourcefiles/bloodpressure/library-SupplementalDataElementsFHIR4.json
 cp input/resources/library/SupplementalDataElementsFHIR4.json bundlegen/sourcefiles/depression/library-SupplementalDataElementsFHIR4.json
 cp input/resources/library/SupplementalDataElementsFHIR4.json bundlegen/sourcefiles/diabetes/library-SupplementalDataElementsFHIR4.json

@@ -300,7 +300,13 @@
             "input": [
               {
                 "id": "eicr-report-DepressionScreeningandFollowUp",
-                "type": "Bundle"
+                "type": "Bundle",
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                    "valueString": "eicr-report-DepressionScreeningandFollowUp"
+                  }
+                ]
               }
             ],
             "output": [
@@ -336,7 +342,13 @@
             "input": [
               {
                 "id": "validated-eicr-report",
-                "type": "Bundle"
+                "type": "Bundle",
+                "extension": [
+                  {
+                    "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                    "valueString": "validated-eicr-report"
+                  }
+                ]
               }
             ],
             "output": [
