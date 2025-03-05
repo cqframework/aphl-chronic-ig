@@ -159,6 +159,9 @@
             </code>
             <input id="eicr-report-ChronicDSSeenPatients">
                 <type value="Bundle"/>
+                <extension url="http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension">
+                    <valueString value="eicr-report-ChronicDSSeenPatients"/>
+                </extension>
             </input>
             <output id="validated-eicr-report">
                 <type value="Bundle"/>
@@ -180,6 +183,9 @@
             </code>
             <input id="validated-eicr-report">
                 <type value="Bundle"/>
+                <extension url="http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension">
+                    <valueString value="validated-eicr-report"/>
+                </extension>
             </input>
             <output id="eicr-report-submitted">
                 <type value="Bundle"/>
