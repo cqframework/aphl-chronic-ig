@@ -1,5 +1,5 @@
 @ECHO OFF
-SET tooling_jar=tooling-cli-3.6.0.jar
+SET tooling_jar=tooling-cli-3.9.1.jar
 SET input_cache_path=input-cache
 
 rem D:\Projects\opioid-cds\bundlegen\sourcefiles
