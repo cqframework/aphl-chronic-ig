@@ -1,6 +1,6 @@
 #!/bin/bash
 #DO NOT EDIT WITH WINDOWS
-tooling_jar=tooling-cli-3.6.0.jar
+tooling_jar=tooling-cli-3.9.1.jar
 input_cache_path=./input-cache
 bundlegen_path=$PWD/bundlegen
 bloodpressure_path=$bundlegen_path/sourcefiles/bloodpressure

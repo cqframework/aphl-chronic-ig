@@ -1,5 +1,5 @@
 @ECHO off
-SET tooling_jar=tooling-cli-2.4.0.jar
+SET tooling_jar=tooling-cli-3.9.1.jar
 SET input_cache_path=%~dp0input-cache
 SET resources_path=%~dp0input/resources
 SET ig_resource_path=input/chronicdiseasesurveillance.xml
