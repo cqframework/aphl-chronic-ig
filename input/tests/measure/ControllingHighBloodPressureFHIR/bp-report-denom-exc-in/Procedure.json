@@ -1,6 +1,6 @@
 {
   "resourceType": "Procedure",
-  "id": "bp-report-denom-exc-in",
+  "id": "bp-report-denom-exc-in-procedure",
   "meta": {
     "profile": [
       "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-procedure"
@@ -18,7 +18,7 @@
     "reference": "Patient/bp-report-denom-exc-in"
   },
   "performedPeriod": {
-    "start": "2018-03-27T10:00:00",
-    "end": "2019-06-18T23:59:00"
+    "start": "2025-03-27T10:00:00",
+    "end": "2025-06-18T23:59:00"
   }
 }

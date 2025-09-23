@@ -24,6 +24,8 @@ valueset "Physical Therapy Evaluation": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.
 valueset "Telephone Visits": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1080'
 valueset "Bipolar Disorder": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.128'
 valueset "Medical Reason": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007'
+valueset "Adult Depression Screening Assessment": 'http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment'
+valueset "Adolescent Depression Screening Assessment": 'http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment'
 
 //adolescent
 valueset "Adolescent Depression Medications": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1567'
@@ -36,14 +38,14 @@ valueset "Referral for Adult Depression": 'http://cts.nlm.nih.gov/fhir/ValueSet/
 valueset "Follow Up for Adult Depression": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1568'
 
 code "Depression Screening Declined": '720834000' from "SNOMEDCT" display 'Depression Screening Declined (situation)'
-code "Adolescent Depression Screening Assessment": '73831-0' from "LOINC" display 'Adolescent Depression Screening Assessment'
-code "Adult Depression Screening Assessment": '73832-8' from "LOINC" display 'Adult Depression Screening Assessment'
+// code "Adolescent Depression Screening Assessment": '73831-0' from "LOINC" display 'Adolescent Depression Screening Assessment'
+// code "Adult Depression Screening Assessment": '73832-8' from "LOINC" display 'Adult Depression Screening Assessment'
 code "Depression Screening Negative": '428171000124102' from "SNOMEDCT" display 'Depression Screening Negative (finding)'
 code "Depression Screening Positive": '428181000124104' from "SNOMEDCT" display 'Depression Screening Positive (finding)'
 code "not-performed": 'not-performed' from "DataAbsentReason"
 
 
-parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.000, @2025-01-01T00:00:00.000)
+parameter "Measurement Period" default Interval[@2025-01-01T00:00:00.000, @2026-01-01T00:00:00.000)
 
 context Patient
 
@@ -62,7 +64,7 @@ define "SDE Sex":
 define "SDE Age":
   SurveillanceDataElements."Age"
 
-define "SDE Age Group":
+define "Stratifier Age Group":
   SurveillanceDataElements."Age Group"
 
 define "SDE State of Residence":

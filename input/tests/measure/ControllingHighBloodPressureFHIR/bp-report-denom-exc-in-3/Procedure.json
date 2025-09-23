@@ -17,8 +17,8 @@
   "subject": {
     "reference": "Patient/bp-report-denom-exc-in-3"
   },
-  "occurrencePeriod": {
-    "start": "2024-03-27T10:00:00",
-    "end": "2024-06-18T23:59:00"
+  "performedPeriod": {
+    "start": "2025-03-27T10:00:00",
+    "end": "2025-06-18T23:59:00"
   }
 }

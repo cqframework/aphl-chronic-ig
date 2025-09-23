@@ -1,0 +1,57 @@
+{
+  "resourceType": "Group",
+  "id": "DepressionScreeningandFollowUp",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/DepressionScreeningandFollowUp"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/Patient-num-4-CMS2",
+      "display": "Griffin,Lisa"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-denom-2-CMS2",
+      "display": "BECK,JANET"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-denomexception-1-CMS2",
+      "display": "DOE,COURTNEY"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-num-2-CMS2",
+      "display": "Simpson,Bartholomew"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-num-3-CMS2",
+      "display": "Doe,Jessica"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-denomexclusion-1-CMS2",
+      "display": "Griffin,Peter"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-num-1-CMS2",
+      "display": "Griffin,Meg"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-denom-1-CMS2",
+      "display": "BECK,ETHAN"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/Patient-denomexception-2-CMS2",
+      "display": "Simpson,Marge"
+    }
+  } ]
+}

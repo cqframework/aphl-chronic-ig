@@ -29,7 +29,7 @@ code "Housing Status": '71802-3' from "LOINC" display 'Housing status'
 code "Lives In A Nursing Home (finding)": '160734000' from "SNOMEDCT" display 'Lives in a nursing home (finding)'
 code "Medical Equipment Used": '98181-1' from "LOINC" display 'Medical equipment used'
 
-parameter "Measurement Period" default Interval[@2024-01-01T00:00:00.0, @2025-01-01T00:00:00.0)
+parameter "Measurement Period" default Interval[@2025-01-01T00:00:00.0, @2026-01-01T00:00:00.0)
 
 context Patient
 

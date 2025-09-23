@@ -3,7 +3,10 @@ rm bundlegen/kars-transaction-bundle.json
 rm bundlegen/kars-collection-bundle.json
 rm bundlegen/sourcefiles/*
 
-mkdir -p bundlegen/sourcefiles
+mkdir -p bundlegen/sourcefiles/bloodpressure
+mkdir -p bundlegen/sourcefiles/depression
+mkdir -p bundlegen/sourcefiles/diabetes
+mkdir -p bundlegen/sourcefiles/seenpatients
 
 # 1) Run _refresh
 # 2) Copy the libraries from `input/resources/libraries` to `bundles\kars\kars-files`
@@ -200,6 +203,9 @@ echo 'Copied generated bundle to bundles/kars-collection-bundle.json'
 echo 'Cleaning up bundlegen/sourcefiles...'
 rm bundlegen/kars-transaction-bundle.json
 rm bundlegen/kars-collection-bundle.json
-rm bundlegen/sourcefiles/*
+rm bundlegen/sourcefiles/bloodpressure/*
+rm bundlegen/sourcefiles/depression/*
+rm bundlegen/sourcefiles/diabetes/*
+rm bundlegen/sourcefiles/seenpatients/*
 
 echo 'kars bundle refresh complete.'
