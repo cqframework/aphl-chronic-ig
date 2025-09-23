@@ -129,7 +129,7 @@
             <actionId value="report-ds"/>
             <relationship value="before-start"/>
         </relatedAction>
-        <definitionCanonical value = "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"/>>
+        <definitionCanonical value = "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"/>
     </action>
     <action id="report-ds">
         <description value="This action represents the reporting of the Chronic Disease Surveillance event."/>

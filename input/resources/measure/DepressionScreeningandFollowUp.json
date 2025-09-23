@@ -10,79 +10,9 @@
     "extension": [ {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
       "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P0Y--P0Y",
-        "display": "< 1 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P1Y--P4Y",
-        "display": "1-4 years"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P5Y--P9Y",
-        "display": "5-9 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P10Y--P14Y",
-        "display": "10-14 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P15Y--P19Y",
-        "display": "15-19 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P20Y--P24Y",
-        "display": "20-24 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P25Y--P29Y",
-        "display": "25-29 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P30Y--P34Y",
-        "display": "30-34 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P35Y--P39Y",
-        "display": "35-39 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P40Y--P49Y",
-        "display": "40-49 year"
-      }
-    }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
-      "valueCoding": {
-        "system": "http://ohie.org/CodeSystem/iso-8601-derived-periods",
-        "code": "P50Y--P9999Y",
-        "display": "50+ years"
+        "system": "http://loinc.org",
+        "code": "73831-0",
+        "display": "Adolescent Depression Screening Assessment"
       }
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
@@ -97,6 +27,13 @@
         "system": "http://snomed.info/sct",
         "code": "428181000124104",
         "display": "Depression Screening Positive (finding)"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "valueCoding": {
+        "system": "http://loinc.org",
+        "code": "73832-8",
+        "display": "Adult Depression Screening Assessment"
       }
     }, {
       "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
@@ -173,16 +110,12 @@
       "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
     }, {
       "type": "depends-on",
-      "display": "Code system ISO-8601-Derived Periods",
-      "resource": "http://ohie.org/CodeSystem/iso-8601-derived-periods"
+      "display": "Code system LOINC",
+      "resource": "http://loinc.org"
     }, {
       "type": "depends-on",
       "display": "Code system SNOMEDCT",
       "resource": "http://snomed.info/sct"
-    }, {
-      "type": "depends-on",
-      "display": "Code system LOINC",
-      "resource": "http://loinc.org"
     }, {
       "type": "depends-on",
       "display": "Code system ConditionClinicalStatusCodes",
@@ -191,10 +124,6 @@
       "type": "depends-on",
       "display": "Code system ConditionVerificationStatusCodes",
       "resource": "http://terminology.hl7.org/CodeSystem/condition-ver-status"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Adolescent Depression Screening Assessment",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
     }, {
       "type": "depends-on",
       "display": "Value set Encounter to Screen for Depression",
@@ -219,10 +148,6 @@
       "type": "depends-on",
       "display": "Value set Follow Up for Adolescent Depression",
       "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1569"
-    }, {
-      "type": "depends-on",
-      "display": "Value set Adult Depression Screening Assessment",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
     }, {
       "type": "depends-on",
       "display": "Value set Adult Depression Medications",
@@ -260,12 +185,6 @@
       "min": 0,
       "max": "1",
       "type": "string"
-    }, {
-      "name": "Stratifier Age Group",
-      "use": "out",
-      "min": 0,
-      "max": "1",
-      "type": "Coding"
     }, {
       "name": "SDE State of Residence",
       "use": "out",
@@ -373,7 +292,11 @@
       "mustSupport": [ "code", "status", "value", "effective", "issued", "component" ],
       "codeFilter": [ {
         "path": "code",
-        "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "73831-0",
+          "display": "Adolescent Depression Screening Assessment"
+        } ]
       } ]
     }, {
       "type": "Observation",
@@ -381,7 +304,11 @@
       "mustSupport": [ "code", "status", "value", "effective", "issued", "component" ],
       "codeFilter": [ {
         "path": "code",
-        "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
+        "code": [ {
+          "system": "http://loinc.org",
+          "code": "73832-8",
+          "display": "Adult Depression Screening Assessment"
+        } ]
       } ]
     }, {
       "type": "Observation",
@@ -501,7 +428,7 @@
   "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
   "status": "draft",
   "experimental": false,
-  "date": "2025-03-03T13:56:16-06:00",
+  "date": "2025-01-14T14:32:17-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
@@ -513,8 +440,8 @@
   "purpose": "Unknown",
   "copyright": "Limited proprietary coding is contained in the measure specifications for convenience. Users of the proprietary code sets should obtain all necessary licenses from the owners of these code sets. CPT(R) contained in the Measure specifications is copyright 2004-2022 American Medical Association. LOINC(R) is copyright 2004-2022 Regenstrief Institute, Inc. This material contains SNOMED Clinical Terms(R) (SNOMED CT[R]) copyright 2004-2022 International Health Terminology Standards Development Organisation. ICD-10 is copyright 2022 World Health Organization. All Rights Reserved.",
   "effectivePeriod": {
-    "start": "2025-01-01",
-    "end": "2025-12-31"
+    "start": "2024-01-01",
+    "end": "2024-12-31"
   },
   "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DepressionScreeningandFollowUp" ],
   "disclaimer": "These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
@@ -671,18 +598,18 @@
         "expression": "SDE Sex"
       }
     }, {
-      "id": "stratifier-age-group",
+      "id": "stratifier-age",
       "code": {
         "coding": [ {
           "system": "http://loinc.org",
-          "code": "46251-5",
-          "display": "Age group"
+          "code": "30525-0",
+          "display": "Age"
         } ]
       },
-      "description": "Age Group",
+      "description": "Age",
       "criteria": {
         "language": "text/cql-identifier",
-        "expression": "Stratifier Age Group"
+        "expression": "SDE Age"
       }
     }, {
       "id": "stratifier-state-of-residence",

@@ -54,9 +54,23 @@
         ],
         "trigger": [
           {
-            "id": "encounter-end",
+            "id": "encounter-close",
+            "extension": [
+                {
+                    "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-named-eventtype-extension",
+                    "valueCodeableConcept": {
+                        "coding": [
+                            {
+                                "system": "http://hl7.org/fhir/us/ecr/CodeSystem/us-ph-triggerdefinition-namedevents",
+                                "code": "encounter-close",
+                                "display": "Indicates the closure of an encounter, where in encounter.period.high is populated with the end time."
+                            }
+                        ]
+                    }
+                }
+            ],
             "type": "named-event",
-            "name": "encounter-end"
+            "name": "encounter-close"
           }
         ],
         "relatedAction": [
@@ -105,30 +119,8 @@
                 "kind": "applicability",
                 "expression": {
                   "language": "text/fhirpath",
-                  "expression": "%adultscreeningassessmentobservation.exists() or %adolescentscreeningassessmentobservation.exists()"
+                  "expression": "%observation.exists()"
                 }
-              }
-            ],
-            "input": [
-              {
-                "id": "adolescentscreeningassessmentobservation",
-                "type": "Observation",
-                "codeFilter": [
-                  {
-                    "path": "code",
-                    "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment"
-                  }
-                ]
-              },
-              {
-                "id": "adultscreeningassessmentobservation",
-                "type": "Observation",
-                "codeFilter": [
-                  {
-                    "path": "code",
-                    "valueSet": "http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment"
-                  }
-                ]
               }
             ],
             "relatedAction": [
@@ -137,6 +129,46 @@
                 "relationship": "before-start"
               }
             ]
+          }
+        ],
+        "input": [
+          {
+            "id": "observation",
+            "type": "Observation",
+            "codeFilter": [
+              {
+                "path": "code",
+                "code": [
+                  {
+                    "code": "73831-0",
+                    "system": "http://loinc.org",
+                    "display": "Adolescent Depression Screening Assessment"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "observation",
+            "type": "Observation",
+            "codeFilter": [
+              {
+                "path": "code",
+                "code": [
+                  {
+                    "code": "73832-8",
+                    "system": "http://loinc.org",
+                    "display": "Adult Depression Screening Assessment"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "relatedAction": [
+          {
+            "actionId": "evaluate-measure",
+            "relationship": "before-start"
           }
         ]
       },
@@ -157,27 +189,38 @@
         "input": [
           {
             "id": "patient",
-            "type": "Patient"
+            "type": "Patient",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+            ]
           },
           {
             "id": "conditions",
-            "type": "Condition"
+            "type": "Condition",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+            ]
           },
           {
             "id": "encounter",
-            "type": "Encounter"
+            "type": "Encounter",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+            ]
           },
           {
             "id": "mr",
-            "type": "MedicationRequest"
-          },
-          {
-            "id": "sr",
-            "type": "ServiceRequest"
+            "type": "MedicationRequest",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+            ]
           },
           {
             "id": "obs",
-            "type": "Observation"
+            "type": "Observation",
+            "profile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+            ]
           }
         ],
         "output": [
@@ -211,75 +254,97 @@
             ]
           }
         ],
-        "input": [
-          {
-            "id": "measurereport",
-            "type": "MeasureReport"
-          }
-        ],
         "condition": [
           {
             "kind": "applicability",
             "expression": {
               "language": "text/fhirpath",
-              "expression": "%measurereport.exists() and %measurereport.group.select(population).where(code.coding.where(code = 'denominator').exists() and count > 0).exists()"
+              "expression": "%measurereport.exists() and %measurereport.group.select(population).where(code.coding.code = 'denominator' and count > 0).exists()"
             }
           }
         ],
         "action": [
           {
-            "id": "create-eicr",
-            "description": "This action invokes the creation of the eICR report.",
-            "textEquivalent": "Create eICR",
-            "code": [
+            "action": [
               {
-                "coding": [
+                "id": "create-eicr",
+                "description": "This action invokes the creation of the eICR report.",
+                "textEquivalent": "Create eICR",
+                "code": [
                   {
-                    "code": "create-report",
-                    "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+                    "coding": [
+                      {
+                        "code": "create-report",
+                        "system": "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions"
+                      }
+                    ]
+                  }
+                ],
+                "input": [
+                  {
+                    "id": "patient",
+                    "type": "Patient",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+                    ]
+                  },
+                  {
+                    "id": "conditions",
+                    "type": "Condition",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition"
+                    ]
+                  },
+                  {
+                    "id": "encounter",
+                    "type": "Encounter",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                    ]
+                  },
+                  {
+                    "id": "mr",
+                    "type": "MedicationRequest",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                    ]
+                  },
+                  {
+                    "id": "obs",
+                    "type": "Observation",
+                    "profile": [
+                      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation"
+                    ]
+                  },
+                  {
+                    "id": "generatedmeasurereport",
+                    "extension": [
+                        {
+                            "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                            "valueString": "measurereport"
+                        }
+                    ],
+                    "type": "MeasureReport",
+                    "profile": [
+                      "http://hl7.org/fhir/MeasureReport"
+                    ]
+                  }
+                ],
+                "output": [
+                  {
+                    "id": "eicrbundle",
+                    "type": "Bundle",
+                    "profile": [
+                      "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle"
+                    ]
+                  }
+                ],
+                "relatedAction": [
+                  {
+                    "actionId": "validate-eicr",
+                    "relationship": "before-start"
                   }
                 ]
-              }
-            ],
-            "input": [
-              {
-                "id": "patient",
-                "type": "Patient"
-              },
-              {
-                "id": "conditions",
-                "type": "Condition"
-              },
-              {
-                "id": "encounter",
-                "type": "Encounter"
-              },
-              {
-                "id": "mr",
-                "type": "MedicationRequest"
-              },
-              {
-                "id": "obs",
-                "type": "Observation"
-              },
-              {
-                "id": "measurereport",
-                "type": "MeasureReport"
-              }
-            ],
-            "output": [
-              {
-                "id": "eicr-report-DepressionScreeningandFollowUp",
-                "type": "Bundle",
-                "profile": [
-                  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle"
-                ]
-              }
-            ],
-            "relatedAction": [
-              {
-                "actionId": "validate-eicr",
-                "relationship": "before-start"
               }
             ]
           },
@@ -299,19 +364,22 @@
             ],
             "input": [
               {
-                "id": "eicr-report-DepressionScreeningandFollowUp",
-                "type": "Bundle",
+                "id": "createdeicrbundle",
                 "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
-                    "valueString": "eicr-report-DepressionScreeningandFollowUp"
-                  }
+                        {
+                            "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                            "valueString": "eicrbundle"
+                        }
+                    ],
+                "type": "Bundle",
+                "profile": [
+                  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
                 ]
               }
             ],
             "output": [
               {
-                "id": "validated-eicr-report",
+                "id": "validated-eicr-bundle",
                 "type": "Bundle",
                 "profile": [
                   "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
@@ -341,13 +409,16 @@
             ],
             "input": [
               {
-                "id": "validated-eicr-report",
-                "type": "Bundle",
+                "id": "validated-eicr-bundle-input",
                 "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
-                    "valueString": "validated-eicr-report"
-                  }
+                        {
+                            "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-relateddata-extension",
+                            "valueString": "validated-eicr-bundle"
+                        }
+                    ],
+                "type": "Bundle",
+                "profile": [
+                  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
                 ]
               }
             ],
