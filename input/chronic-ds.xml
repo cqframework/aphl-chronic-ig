@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
-  <id value="hl7.fhir.us.chronic-ds"/>
-  <url value="http://hl7.org/fhir/us/chronic-ds/ImplementationGuide/hl7.fhir.us.chronic-ds"/>
+  <id value="cqf.aphl.chronic-ds"/>
+  <url value="http://fhir.org/guides/cqf/aphl/chronic-ds/ImplementationGuide/cqf.aphl.chronic-ds"/>
   <version value="0.1.0"/>
   <name value="ChronicDiseaseSurveillance"/>
   <title value="Chronic Disease Surveillance"/>
   <status value="draft"/>
   <experimental value="false"/>
-  <publisher value="HL7 International - [Some] Work Group"/>
+  <publisher value="Clinical Quality Framework"/>
   <contact>
     <telecom>
       <system value="url"/>
-      <value value="http://hl7.org/Special/committees/[something]"/>
+      <value value="http://cqframework.org"/>
     </telecom>
   </contact>
-  <description value="A brief description of what MyContentIG is about (probably the same text as in your readme)"/>
+  <description value="This implementation guide documents an approach to chronic disease surveillance using HL7 FHIR and standards-based infrastructure that minimizes provider implementation requirements. The approach aligns with and makes use of available reporting infrastructure and capacity from the Public Health electronic Case Reporting (eCR) and Clinical Quality Measure (CQM) use cases."/>
   <jurisdiction>
     <coding>
-      <system value="urn:iso:std:iso:3166"/>
-      <code value="US"/>
+      <system value="http://unstats.un.org/unsd/methods/m49/m49.htm"/>
+      <code value="001"/>
     </coding>
   </jurisdiction>
-  <packageId value="hl7.fhir.us.chronic-ds"/>
+  <packageId value="cqf.aphl.chronic-ds"/>
   <license value="CC0-1.0"/>
   <fhirVersion value="4.0.1"/>
   <dependsOn id="cpg">
