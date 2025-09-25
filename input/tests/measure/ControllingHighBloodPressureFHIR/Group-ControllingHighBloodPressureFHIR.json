@@ -10,17 +10,17 @@
   "actual": true,
   "member": [ {
     "entity": {
-      "reference": "Patient/numer-EXM165",
-      "display": "Louise Johnson"
+      "reference": "Patient/bp-report-denom-exc-in",
+      "display": "Denomexin BloodPressure"
     }
   }, {
     "entity": {
-      "reference": "Patient/bp-report-ip-out-2",
-      "display": "Ipin BloodPressure"
+      "reference": "Patient/bp-report-denom-exc-in-1",
+      "display": "Denomexin BloodPressure"
     }
   }, {
     "entity": {
-      "reference": "Patient/bp-report-denom-exc-in-4",
+      "reference": "Patient/bp-report-denom-exc-in-2",
       "display": "Denomexin BloodPressure"
     }
   }, {
@@ -30,12 +30,7 @@
     }
   }, {
     "entity": {
-      "reference": "Patient/bp-report-ip-out-3",
-      "display": "Ipin BloodPressure"
-    }
-  }, {
-    "entity": {
-      "reference": "Patient/bp-report-denom-exc-in-2",
+      "reference": "Patient/bp-report-denom-exc-in-4",
       "display": "Denomexin BloodPressure"
     }
   }, {
@@ -45,37 +40,12 @@
     }
   }, {
     "entity": {
-      "reference": "Patient/bp-report-denom-exc-in",
-      "display": "Denomexin BloodPressure"
-    }
-  }, {
-    "entity": {
-      "reference": "Patient/bp-report-numer-out",
-      "display": "Numerout BloodPressure"
-    }
-  }, {
-    "entity": {
-      "reference": "Patient/bp-report-ip-in",
-      "display": "Ipin BloodPressure"
-    }
-  }, {
-    "entity": {
-      "reference": "Patient/bp-report-denom-exc-in-7",
-      "display": "Denomexin BloodPressure"
-    }
-  }, {
-    "entity": {
       "reference": "Patient/bp-report-denom-exc-in-6",
       "display": "Denomexin BloodPressure"
     }
   }, {
     "entity": {
-      "reference": "Patient/denom-EXM165",
-      "display": "John Adams"
-    }
-  }, {
-    "entity": {
-      "reference": "Patient/bp-report-denom-exc-in-1",
+      "reference": "Patient/bp-report-denom-exc-in-7",
       "display": "Denomexin BloodPressure"
     }
   }, {
@@ -85,13 +55,43 @@
     }
   }, {
     "entity": {
+      "reference": "Patient/bp-report-ip-in",
+      "display": "Ipin BloodPressure"
+    }
+  }, {
+    "entity": {
       "reference": "Patient/bp-report-ip-out",
+      "display": "Ipin BloodPressure"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/bp-report-ip-out-2",
+      "display": "Ipin BloodPressure"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/bp-report-ip-out-3",
       "display": "Ipin BloodPressure"
     }
   }, {
     "entity": {
       "reference": "Patient/bp-report-numer-in",
       "display": "Numerin BloodPressure"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/bp-report-numer-out",
+      "display": "Numerout BloodPressure"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/denom-EXM165",
+      "display": "John Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/numer-EXM165",
+      "display": "Louise Johnson"
     }
   } ]
 }

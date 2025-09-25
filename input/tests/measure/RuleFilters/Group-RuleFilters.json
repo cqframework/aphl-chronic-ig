@@ -1,0 +1,107 @@
+{
+  "resourceType": "Group",
+  "id": "RuleFilters",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/RuleFilters"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/ex-trigger-all-criteria-missing",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-all-criteria-out",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-condition-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-encounter-completed-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-encounter-completed-out",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-encounter-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-encounter-inprogress-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-encounter-inprogress-out",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-immunization-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-laborder-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-labresult-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-labtest-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-medicationadministration-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-medicationorder-in",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/ex-trigger-out",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/triggered",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/reportable",
+      "display": "John Doe"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/triggered",
+      "display": "John Doe"
+    }
+  } ]
+}

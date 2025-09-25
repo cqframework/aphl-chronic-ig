@@ -1,0 +1,37 @@
+{
+  "resourceType": "Group",
+  "id": "ControllingHighBloodPressureFHIRTrigger",
+  "extension": [ {
+    "url": "http://hl7.org/fhir/StructureDefinition/artifact-testArtifact",
+    "valueCanonical": "http://ecqi.healthit.gov/ecqms/Measure/ControllingHighBloodPressureFHIRTrigger"
+  } ],
+  "active": true,
+  "type": "person",
+  "actual": true,
+  "member": [ {
+    "entity": {
+      "reference": "Patient/bp-trigger-condition-in",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/bp-trigger-condition-missing",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/bp-trigger-condition-out",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/bp-trigger-in",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/bp-trigger-out",
+      "display": "Jane Adams"
+    }
+  } ]
+}

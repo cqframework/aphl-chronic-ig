@@ -8,124 +8,136 @@
     "resourceType": "Library",
     "id": "effective-data-requirements",
     "extension": [ {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://terminology.hl7.org/CodeSystem/observation-category",
         "code": "laboratory",
         "display": "laboratory"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://www.ama-assn.org/go/cpt",
         "code": "97802",
         "display": "Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://www.ama-assn.org/go/cpt",
         "code": "97803",
         "display": "Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://www.ama-assn.org/go/cpt",
         "code": "97804",
         "display": "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
         "code": "G0270",
         "display": "Medical nutrition therapy; reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition or treatment regimen (including additional hours needed for renal disease), individual, face to face with the patient, each 15 minutes"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
         "code": "G0271",
         "display": "Medical nutrition therapy, reassessment and subsequent intervention(s) following second referral in same year for change in diagnosis, medical condition, or treatment regimen (including additional hours needed for renal disease), group (2 or more individuals), each 30 minutes"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
         "code": "active"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
         "code": "confirmed"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "recurrence"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
+      "valueCoding": {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "relapse"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://loinc.org",
         "code": "88124-3",
         "display": "Food insecurity risk [HVS]"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "428361000124107",
         "display": "Discharge to home for hospice care (procedure)"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "428371000124100",
         "display": "Discharge to healthcare facility for hospice care (procedure)"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://loinc.org",
         "code": "45755-6",
         "display": "Hospice care [Minimum Data Set]"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "373066001",
         "display": "Yes (qualifier value)"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://loinc.org",
         "code": "71802-3",
         "display": "Housing status"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://snomed.info/sct",
         "code": "160734000",
         "display": "Lives in a nursing home (finding)"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://loinc.org",
         "code": "98181-1",
         "display": "Medical equipment used"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-directReferenceCode",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-directReferenceCode",
       "valueCoding": {
         "system": "http://loinc.org",
         "code": "71007-9",
         "display": "Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)"
       }
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
       "extension": [ {
         "url": "libraryName",
         "valueString": "FHIRCommon"
@@ -139,7 +151,21 @@
         "valueInteger": 0
       } ]
     }, {
-      "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-logicDefinition",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRCommon"
+      }, {
+        "url": "name",
+        "valueString": "ToAbatementInterval"
+      }, {
+        "url": "statement"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 1
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
       "extension": [ {
         "url": "libraryName",
         "valueString": "FHIRCommon"
@@ -150,7 +176,7 @@
         "url": "statement"
       }, {
         "url": "displaySequence",
-        "valueInteger": 1
+        "valueInteger": 2
       } ]
     } ],
     "name": "EffectiveDataRequirements",
@@ -162,6 +188,10 @@
       } ]
     },
     "relatedArtifact": [ {
+      "type": "depends-on",
+      "display": "FHIR model information",
+      "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
+    }, {
       "type": "depends-on",
       "display": "Library SDE",
       "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
@@ -780,7 +810,7 @@
     }, {
       "type": "Medication",
       "profile": [ "http://hl7.org/fhir/StructureDefinition/Medication" ],
-      "mustSupport": [ "id" ]
+      "mustSupport": [ "id", "code" ]
     } ]
   } ],
   "extension": [ {
@@ -790,11 +820,8 @@
       "reference": "Device/cqf-tooling"
     }
   }, {
-    "id": "effective-data-requirements",
-    "url": "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements",
-    "valueReference": {
-      "reference": "#effective-data-requirements"
-    }
+    "url": "http://hl7.org/fhir/uv/crmi/StructureDefinition/crmi-effectiveDataRequirements",
+    "valueCanonical": "#effective-data-requirements"
   } ],
   "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
   "identifier": [ {
@@ -815,7 +842,7 @@
   "title": "Diabetes: Hemoglobin A1c (HbA1c) Poor Control (> 9%)FHIR",
   "status": "draft",
   "experimental": false,
-  "date": "2025-01-14T14:32:17-06:00",
+  "date": "2025-09-25T07:22:16-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

@@ -10,23 +10,13 @@
   "actual": true,
   "member": [ {
     "entity": {
-      "reference": "Patient/seen-patients-reported-ip-mp-in-high",
-      "display": "Jane Adams"
-    }
-  }, {
-    "entity": {
-      "reference": "Patient/seen-patients-reported-ip-mp-out-prior",
-      "display": "Jane Adams"
-    }
-  }, {
-    "entity": {
-      "reference": "Patient/seen-patients-reported-ip-mp-out-post",
-      "display": "Jane Adams"
-    }
-  }, {
-    "entity": {
       "reference": "Patient/patient-ip-SeenPatients",
       "display": "John Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-in-high",
+      "display": "Jane Adams"
     }
   }, {
     "entity": {
@@ -36,6 +26,16 @@
   }, {
     "entity": {
       "reference": "Patient/seen-patients-reported-ip-mp-in-mid",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-out-post",
+      "display": "Jane Adams"
+    }
+  }, {
+    "entity": {
+      "reference": "Patient/seen-patients-reported-ip-mp-out-prior",
       "display": "Jane Adams"
     }
   }, {

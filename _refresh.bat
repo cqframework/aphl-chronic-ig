@@ -1,7 +1,6 @@
 @ECHO OFF
 SET tooling_jar=tooling-cli-3.9.1.jar
 SET input_cache_path=%~dp0input-cache
-SET resources_path=%~dp0/input/resources
 SET ig_ini_path=%~dp0ig.ini
 
 ECHO Checking internet connection...
@@ -27,7 +26,5 @@ IF EXIST "%input_cache_path%\%tooling_jar%" (
 ) ELSE (
 	ECHO IG Refresh NOT FOUND in input-cache or parent folder.  Please run _updateCQFTooling.  Aborting...
 )
-
-_refreshKarsBundles.bat
 
 PAUSE
