@@ -1,5 +1,5 @@
 
-## Scenario
+### Scenario
 
 The proposed scenario will demonstrate the evaluation of Clinical Quality Measures specified in FHIR and CQL that are relevant to chronic disease against a sample population, periodically reporting the results of that evaluation to a central surveillance repository, and viewing the results of that surveillance activity.
 
@@ -11,16 +11,16 @@ The approximate sequence of events for the scenario is as follows:
 
 {% include img.html img="Surveillance_Workflow.png" caption="Sequence Diagram" %}
 
-## Architecture
+### Architecture
 
-### EHR Stand-in
+#### EHR Stand-in
 
 The EHR stand-in will need to implement two main areas of functionality:
 
 1. $evaluate-measure
 2. Reporting Workflow
 
-#### $evaluate-measure
+##### $evaluate-measure
 
 The [$evaluate-measure](https://hl7.org/fhir/R4/operation-measure-evaluate-measure.html) operation is defined in FHIR's clinical reasoning module. At its core it's the ability to evaluate CQL against FHIR Resources. A FHIR-native repository may have this functionality built in, or it could be provided by a side-car / frontend application connected to a non-FHIR repository (similar in design to the eCR Now application).
 
@@ -28,24 +28,24 @@ The level of effort to add the $evaluate-measure functionality depends on the sp
 
 **NOTE:** An alternate design here is to create a separate Knowledge Repository in which the Measures and supporting artifacts live. The EHR or side-car / frontend application could use the $data-requirements operations to gather only the data needed for the evaluation of a specific Measure and / or download the logic artifacts.
 
-#### Reporting Workflow
+##### Reporting Workflow
 
 The EHR stand-in will need to be able run the workflow defined by the sequence diagram above. Specifically, it'll need to run $evaluate-measure for the CMS-165 and CMS-122 Measures, collect the results of that evaluation, and submit that data to the Surveillance Repository.
 
 The [Electronic Case Reporting](https://hl7.org/fhir/us/ecr/) (eCR) IG has parallel needs and uses a PlanDefinition resource to represent its workflow. We propose this scenario represent its logic in the same way. There's no complete open-source or commercial implementation of the PlanDefinition functionality required as of the time of this writing, although the eCR Now app and the cqf-ruler both provide some of the necessary components. The implementation could largely be agnostic of the platform to which it's deployed, with the caveat that adapters would be needed for a few things such as a native scheduling service.
 
-### Trust Services
+#### Trust Services
 
 The Trust Services component would need to support an operation to de-identify and/or pseudonymize a set of FHIR resources. Psuedonmyization techniques using hashing to preserve non-identifiable case-related data can be incorporated and potentially augmented here in support of the surviellance use case.
 
-### Surveillance Repository
+#### Surveillance Repository
 
 The Surveillance Repository has two main areas of functionality:
 
 1. $submit-data
 2. Report Query
 
-#### $submit-data
+##### $submit-data
 
 The [$submit-data](https://hl7.org/fhir/R4/measure-operation-submit-data.html) operation is defined to allow a FHIR-repository to accept a Measure Report and the associated clinical data.
 
@@ -53,32 +53,32 @@ As with $evaluate-data, there are both open-source and commercial FHIR-native re
 
 The level of effort to provide this implementation depends on the specific technology options selected.
 
-#### Report Query
+##### Report Query
 
 Once the generated MeasureReports are submitted to the Surveillance Repository the Viewer app will need to be able to query them. We propose the scenario use the existing FHIR REST API and search parameters for the MeasureReport resource and constraining the functionality of the View application accordingly.
 
-### Viewer App
+#### Viewer App
 
 To demonstrate the submission of the MeasureReports to the central PHA was completed, the Viewer app will implement two screens:
 
 1. Summary Screen
 2. Detail Screen
 
-## Summary Screen
+### Summary Screen
 
 The summary screen will allow the user to select a Measure and Reporting Period, and provide a list of the MeasureReports present. A simple wireframe is below:
 
 {% include img.html img="summary-view.png" caption="Summary Screen" %}
 
 
-## Detail Screen
+### Detail Screen
 
 The user can select a MeasureReport from the list and view additional information about it. A simple wireframe is below:
 
 {% include img.html img="detail.png" caption="Detail Screen" %}
 
 
-### Security / PHI
+#### Security / PHI
 
 The scenario will use synthetic sample data. The initial implementation will assume that endpoints are open and that authentication is not a concern. However, it will build on existing hash-based pseudonymization capabilities to provide case continuity in submitted data, ensuring that no PHI is present or discoverable from surveillance data.
 

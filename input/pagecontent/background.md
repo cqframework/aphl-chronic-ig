@@ -1,6 +1,4 @@
-# Chronic Disease Surveillance
-
-## Overview
+### Overview
 
 This document contains a proposed scenario and initial system design to demonstrate the capability to do chronic disease surveillance using HL7 FHIR and standards-based infrastructure that minimizes clinical implementation needs. It also aligns with and utilizes common Public Health electronic Case Reporting (eCR), MedMorph, and Clinical Quality Measure (CQM) reporting infrastructure as is feasible.
 
