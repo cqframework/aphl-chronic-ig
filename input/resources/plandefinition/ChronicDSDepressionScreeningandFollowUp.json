@@ -1,14 +1,13 @@
 {
     "resourceType": "PlanDefinition",
-    "id": "DepressionScreeningandFollowUp",
-    "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/DepressionScreeningandFollowUp",
-    "name": "DepressionScreeningandFollowUp",
-    "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
+    "id": "ChronicDSDepressionScreeningandFollowUp",
+    "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/ChronicDSDepressionScreeningandFollowUp",
+    "name": "ChronicDSDepressionScreeningandFollowUp",
+    "title": "Chronic Disease Surveillance Reporting Specification for Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
     "date": "2024-06-01",
-    "description": "Percentage of patients aged 12 years and older screened for depression on the date of the encounter or up to 14 days prior to the date of the encounter using an age-appropriate standardized depression screening tool AND if positive, a follow-up plan is documented on the date of or up to two days after the date of the qualifying encounter",
+    "description": "Reporting specification for Chronic Disease Surveillance for Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
     "status": "active",
     "experimental": true,
-    "publisher": "HL7 Public Health Work Group",
     "type": {
       "coding": [
         {

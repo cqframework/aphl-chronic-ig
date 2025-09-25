@@ -15,7 +15,6 @@
     <status value="active"/>
     <experimental value="true"/>
     <date value="2020-07-31T12:32:29.858-05:00"/>
-    <publisher value="HL7 Public Health Work Group"/>
     <description value="Reporting specification for Chronic Disease Surveillance for Diabetes Hemoglobin A1c Poor Control"/>
     <jurisdiction>
         <coding>
