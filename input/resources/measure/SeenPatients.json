@@ -14,6 +14,351 @@
         "code": "88124-3",
         "display": "Food insecurity risk [HVS]"
       }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Sex"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 0
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE Sex"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 1
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Most recent physical home address"
+      }, {
+        "url": "statement",
+        "valueString": "// Jurisdiction of residence (jurisdiction of the patient)\ndefine \"Most recent physical home address\":\n  First(\n    Patient.address A\n      where A.use = 'home'\n        and A.type = 'physical'\n      sort by end of period desc\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 2
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Postal Code of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Postal Code of Residence\":\n  \"Most recent physical home address\".postalCode"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 3
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE Postal Code of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Postal Code of Residence\":\n  SurveillanceDataElements.\"Postal Code of Residence\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 4
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Payer"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 5
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE Payer"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 6
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "State of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"State of Residence\":\n  \"Most recent physical home address\".state"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 7
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE State of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE State of Residence\":\n  SurveillanceDataElements.\"State of Residence\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 8
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Food Insecurity Risk Status"
+      }, {
+        "url": "statement",
+        "valueString": "// Jurisdiction of care (jurisdiction of the most recent encounter)\n// TODO:\n//define \"Most recent address of care\":\n\n// NOTE: Included in eICR\n// Occupational Data for Health - Past or Present Job\n// http://hl7.org/fhir/us/odh/StructureDefinition-odh-PastOrPresentJob.html\n// Observation: LOINC#11341-5, valueCodeableConcept in https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186\n\n// Social Determinants of Health (SDOH)\n// http://build.fhir.org/ig/HL7/fhir-sdoh-clinicalcare/StructureDefinition-SDOHCC-ObservationScreeningResponse.html\n// Food insecurity risk: http://build.fhir.org/ig/HL7/fhir-sdoh-clinicalcare/Observation-SDOHCC-ObservationResponseHungerVitalSignQuestion3Example.html\n// Observation: LOINC#88124-3, valueCodeableConcept in https://loinc.org/LL2510-7/ (At risk, No risk)\ndefine \"Food Insecurity Risk Status\":\n  First(\n    [Observation: \"Food insecurity risk [HVS]\"] O\n      sort by issued desc\n  ).value as CodeableConcept"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 9
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE Food Insecurity Risk Status"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Food Insecurity Risk Status\":\n  SurveillanceDataElements.\"Food Insecurity Risk Status\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 10
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "Initial Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Initial Population\":\n  exists (\n    [Encounter] E\n      where E.period ends during \"Measurement Period\"\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 11
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Ethnicity"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 12
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE Ethnicity"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 13
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Age"
+      }, {
+        "url": "statement",
+        "valueString": "// Age\ndefine \"Age\":\n  AgeInYearsAt(end of \"Measurement Period\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 14
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE Age"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Age\":\n  SurveillanceDataElements.\"Age\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 15
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Race"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 16
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SeenPatients"
+      }, {
+        "url": "name",
+        "valueString": "SDE Race"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 17
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AdministrativeGender): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 18
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AddressUse): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 19
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AddressType): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 20
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToInterval"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToInterval(period FHIR.Period):\n    if period is null then\n        null\n    else\n        if period.\"start\" is null then\n            Interval(period.\"start\".value, period.\"end\".value]\n        else\n            Interval[period.\"start\".value, period.\"end\".value]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 21
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value uri): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 22
+      } ]
     } ],
     "name": "EffectiveDataRequirements",
     "status": "active",
@@ -24,10 +369,6 @@
       } ]
     },
     "relatedArtifact": [ {
-      "type": "depends-on",
-      "display": "FHIR model information",
-      "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
-    }, {
       "type": "depends-on",
       "display": "Library SDE",
       "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
@@ -161,7 +502,7 @@
   "title": "Seen Patients",
   "status": "draft",
   "experimental": true,
-  "date": "2025-09-25T07:22:16-06:00",
+  "date": "2025-09-25T07:40:03-06:00",
   "description": "Seen patients during the measurement period",
   "purpose": "The Seen Patients cohort measure is defined to provide a baseline for chronic disease surveillance. For each individual in the cohort, supplemental data is collected aligning with the supplemental data defined for other chronic disease surveillance measure usages, allowing for analytics across and between specific measures.",
   "topic": [ {

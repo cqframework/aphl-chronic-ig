@@ -123,15 +123,1066 @@
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
       "extension": [ {
         "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Sex"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 0
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE Sex"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 1
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Most recent physical home address"
+      }, {
+        "url": "statement",
+        "valueString": "// Jurisdiction of residence (jurisdiction of the patient)\ndefine \"Most recent physical home address\":\n  First(\n    Patient.address A\n      where A.use = 'home'\n        and A.type = 'physical'\n      sort by end of period desc\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 2
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Postal Code of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Postal Code of Residence\":\n  \"Most recent physical home address\".postalCode"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 3
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE Postal Code of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Postal Code of Residence\":\n  SurveillanceDataElements.\"Postal Code of Residence\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 4
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Qualifying Diastolic Blood Pressure Reading"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Qualifying Diastolic Blood Pressure Reading\":\n\t[Observation: \"Blood pressure\"] BloodPressure\n    without ([Encounter: \"Encounter Inpatient\"]\n      union [Encounter: \"Emergency Department Evaluation and Management Visit\"]) DisqualifyingEncounter\n      such that Common.Latest(BloodPressure.effective) during day of DisqualifyingEncounter.period\n    where BloodPressure.status in {'final', 'amended'}\n      and Common.Latest(BloodPressure.effective) during \"Measurement Period\"\n      and exists (\n        BloodPressure.component DiastolicBP\n          where DiastolicBP.code ~ \"Diastolic blood pressure\"\n            and (DiastolicBP.value as Quantity).code.value = 'mm[Hg]'\n      )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 5
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Qualifying Systolic Blood Pressure Reading"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Qualifying Systolic Blood Pressure Reading\":\n\t[Observation: \"Blood pressure\"] BloodPressure\n    without ([Encounter: \"Encounter Inpatient\"]\n      union [Encounter: \"Emergency Department Evaluation and Management Visit\"]) DisqualifyingEncounter\n      such that Common.Latest(BloodPressure.effective) during day of DisqualifyingEncounter.period\n    where BloodPressure.status in {'final', 'amended'}\n      and Common.Latest(BloodPressure.effective) during \"Measurement Period\"\n      and exists (\n        BloodPressure.component SystolicBP\n          where SystolicBP.code ~ \"Systolic blood pressure\"\n            and (SystolicBP.value as Quantity).code.value = 'mm[Hg]'\n      )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 6
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Blood Pressure Days"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Blood Pressure Days\":\n\t(\"Qualifying Diastolic Blood Pressure Reading\" DBPExam \n        return Common.Latest(DBPExam.effective)\n    ) \n        intersect (\"Qualifying Systolic Blood Pressure Reading\" SBPExam \n            return Common.Latest(SBPExam.effective)\n        )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 7
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Blood Pressure Day"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Most Recent Blood Pressure Day\":\n\tMax(\"Blood Pressure Days\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 8
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Lowest Diastolic Reading on Most Recent Blood Pressure Day"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Lowest Diastolic Reading on Most Recent Blood Pressure Day\":\n\tFirst(\n        \"Qualifying Diastolic Blood Pressure Reading\" DBPReading\n\t\t    where Common.Earliest(DBPReading.effective) same day as \"Most Recent Blood Pressure Day\"\n        return singleton from (\n            DBPReading.component C\n                where C.code ~ \"Diastolic blood pressure\"\n                return C.value as FHIR.Quantity\n        ) sort ascending\n\t)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 9
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Has Diastolic Blood Pressure Less Than 90"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Diastolic Blood Pressure Less Than 90\":\n    \"Lowest Diastolic Reading on Most Recent Blood Pressure Day\" < 90 'mm[Hg]'"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 10
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Lowest Systolic Reading on Most Recent Blood Pressure Day"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Lowest Systolic Reading on Most Recent Blood Pressure Day\":\n\tFirst(\n        \"Qualifying Systolic Blood Pressure Reading\" SBPReading\n\t\t    where Common.Latest(SBPReading.effective) same day as \"Most Recent Blood Pressure Day\"\n        return singleton from (\n            SBPReading.component C\n                where C.code ~ \"Systolic blood pressure\"\n                return C.value as FHIR.Quantity\n        ) sort ascending\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 11
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Has Systolic Blood Pressure Less Than 140"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Systolic Blood Pressure Less Than 140\":\n\t\"Lowest Systolic Reading on Most Recent Blood Pressure Day\" < 140 'mm[Hg]'"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 12
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Numerator"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Numerator\":\n\t\"Has Diastolic Blood Pressure Less Than 90\"\n\t    and \"Has Systolic Blood Pressure Less Than 140\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 13
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Essential Hypertension Diagnosis"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Essential Hypertension Diagnosis\":\n\t[Condition: \"Essential Hypertension\"] Hypertension\n    where Hypertension.verificationStatus ~ Common.\"confirmed\"\n      and Common.\"Prevalence Period\"(Hypertension) overlaps Interval[start of \"Measurement Period\", start of \"Measurement Period\" + 6 months]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 14
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdultOutpatientEncountersFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Qualifying Encounters"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Qualifying Encounters\":\n  (\n\t[Encounter: \"Office Visit\"]\n      union [Encounter: \"Annual Wellness Visit\"]\n      union [Encounter: \"Preventive Care Services - Established Office Visit, 18 and Up\"]\n      union [Encounter: \"Preventive Care Services - Initial Office Visit, 18 and Up\"]\n      union [Encounter: \"Home Healthcare Services\"]\n      union [Encounter: \"Online Assessments\"]\n      union [Encounter: \"Telephone Visits\"]\n  ) ValidEncounters\n    where FC.ToInterval(ValidEncounters.period) during \"Measurement Period\"\n\t  and ValidEncounters.status ~ 'finished' or ValidEncounters.status ~ 'in-progress'"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 15
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Initial Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Initial Population\":\n  AgeInYearsAt(date from end of \"Measurement Period\") in Interval[18, 85]\n\t\tand exists \"Essential Hypertension Diagnosis\"\n\t\tand exists AdultOutpatientEncounters.\"Qualifying Encounters\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 16
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Denominator"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Denominator\":\n\t\"Initial Population\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 17
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Payer"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 18
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE Payer"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 19
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "State of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"State of Residence\":\n  \"Most recent physical home address\".state"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 20
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE State of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE State of Residence\":\n  SurveillanceDataElements.\"State of Residence\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 21
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Food Insecurity Risk Status"
+      }, {
+        "url": "statement",
+        "valueString": "// Jurisdiction of care (jurisdiction of the most recent encounter)\n// TODO:\n//define \"Most recent address of care\":\n\n// NOTE: Included in eICR\n// Occupational Data for Health - Past or Present Job\n// http://hl7.org/fhir/us/odh/StructureDefinition-odh-PastOrPresentJob.html\n// Observation: LOINC#11341-5, valueCodeableConcept in https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186\n\n// Social Determinants of Health (SDOH)\n// http://build.fhir.org/ig/HL7/fhir-sdoh-clinicalcare/StructureDefinition-SDOHCC-ObservationScreeningResponse.html\n// Food insecurity risk: http://build.fhir.org/ig/HL7/fhir-sdoh-clinicalcare/Observation-SDOHCC-ObservationResponseHungerVitalSignQuestion3Example.html\n// Observation: LOINC#88124-3, valueCodeableConcept in https://loinc.org/LL2510-7/ (At risk, No risk)\ndefine \"Food Insecurity Risk Status\":\n  First(\n    [Observation: \"Food insecurity risk [HVS]\"] O\n      sort by issued desc\n  ).value as CodeableConcept"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 22
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE Food Insecurity Risk Status"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Food Insecurity Risk Status\":\n  SurveillanceDataElements.\"Food Insecurity Risk Status\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 23
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Ethnicity"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 24
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE Ethnicity"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 25
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Age"
+      }, {
+        "url": "statement",
+        "valueString": "// Age\ndefine \"Age\":\n  AgeInYearsAt(end of \"Measurement Period\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 26
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE Age"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Age\":\n  SurveillanceDataElements.\"Age\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 27
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "HospiceFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Has Hospice"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Hospice\":\n  exists(\n    (AC.QualifiedEncounters([Encounter: \"Encounter Inpatient\"])) HospiceInp\n      where (HospiceInp.hospitalization.dischargeDisposition ~ \"Discharge to home for hospice care (procedure)\"\n        or HospiceInp.hospitalization.dischargeDisposition ~ \"Discharge to healthcare facility for hospice care (procedure)\")\n      and FC.ToInterval(HospiceInp.period) ends during \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedEncounters([Encounter: \"Hospice Encounter\"])) HospiceEnc\n      where FC.ToInterval(HospiceEnc.period) overlaps \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedObservations([Observation: \"Hospice care [Minimum Data Set]\"])) HospiceObs\n      where HospiceObs.value ~ ToConcept(\"Yes (qualifier value)\")\n        and FC.ToInterval(HospiceObs.effective) overlaps \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedServiceRequests([ServiceRequest: \"Hospice Care Ambulatory\"])) HospiceSR\n      where FC.ToInterval(HospiceSR.authoredOn) during \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedProcedures([Procedure: \"Hospice Care Ambulatory\"])) HospiceProc\n      where FC.ToInterval(HospiceProc.performed) overlaps \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedConditions([Condition: \"Hospice Diagnosis\"])) HospiceCareDiagnosis\n      where FC.ToPrevalenceInterval(HospiceCareDiagnosis) overlaps \"Measurement Period\"\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 28
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Pregnancy Or Renal Diagnosis"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Pregnancy Or Renal Diagnosis\":\n\t( [Condition: \"Pregnancy\"]\n\t\tunion [Condition: \"End Stage Renal Disease\"]\n\t\tunion [Condition: \"Kidney Transplant Recipient\"]\n\t\tunion [Condition: \"Chronic Kidney Disease, Stage 5\"] ) PregnancyESRDDiagnosis\n      where PregnancyESRDDiagnosis.verificationStatus ~ Common.\"confirmed\"\n        and PregnancyESRDDiagnosis.recordedDate during \"Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 29
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "End Stage Renal Disease Procedures"
+      }, {
+        "url": "statement",
+        "valueString": "define \"End Stage Renal Disease Procedures\":\n\t([Procedure: \"Kidney Transplant\"]\n\t\tunion [Procedure: \"Dialysis Services\"]) ESRDProcedure\n\t\t    where ESRDProcedure.status = 'completed'\n                and end of Common.\"Normalize Interval\"(ESRDProcedure.performed) on or before end of \"Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 30
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "End Stage Renal Disease Encounter"
+      }, {
+        "url": "statement",
+        "valueString": "define \"End Stage Renal Disease Encounter\":\n\t[Encounter: \"ESRD Monthly Outpatient Services\"] ESRDEncounter\n\t\twhere ESRDEncounter.status in { 'arrived', 'triaged', 'in-progress', 'onleave', 'finished' }\n\t\t  and ESRDEncounter.period starts on or before end of \"Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 31
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Has Criteria Indicating Frailty"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Criteria Indicating Frailty\":\n  exists(\n    (AC.QualifiedDeviceRequests([DeviceRequest: \"Frailty Device\"])) FrailtyDeviceOrder\n      where FrailtyDeviceOrder.authoredOn during day of \"Measurement Period\"\n    ) \n    or exists(\n        (AC.QualifiedObservations([Observation: \"Medical Equipment Used\"])) EquipmentUsed\n          where EquipmentUsed.value in \"Frailty Device\"\n            and FC.ToInterval(EquipmentUsed.effective) ends during day of \"Measurement Period\"\n    )\n    or exists(\n      (AC.QualifiedConditions([Condition: \"Frailty Diagnosis\"])) FrailtyDiagnosis\n        where FC.ToPrevalenceInterval(FrailtyDiagnosis) overlaps \"Measurement Period\"\n    )\n    or exists(\n      (AC.QualifiedEncounters([Encounter: \"Frailty Encounter\"])) FrailtyEnc\n        where FC.ToInterval(FrailtyEnc.period) overlaps \"Measurement Period\"\n    )\n    or exists(\n      (AC.QualifiedObservations([Observation: \"Frailty Symptom\"])) FrailtySymptom\n        where FC.ToInterval(FrailtySymptom.effective) overlaps \"Measurement Period\"\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 32
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Up To One Year Prior Including Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Up To One Year Prior Including Measurement Period\":\n  Interval[start of \"Measurement Period\" - 1 year, end of \"Measurement Period\"]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 33
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Outpatient Encounters With Advanced Illness"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Outpatient Encounters With Advanced Illness\":\n  ((AC.QualifiedEncounters([Encounter: \"Outpatient\"]))\n    union (AC.QualifiedEncounters([Encounter: \"Observation\"]))\n    union (AC.QualifiedEncounters([Encounter: \"Emergency Department Visit\"]))\n    union (AC.QualifiedEncounters([Encounter: \"Nonacute Inpatient\"]))) OutpatientEnc\n      with (AC.QualifiedConditions([Condition: \"Advanced Illness\"])) AdvanIll\n        such that FC.ToPrevalenceInterval(AdvanIll) overlaps \"Measurement Period\"\n      and FC.ToInterval(OutpatientEnc.period) overlaps \"Up To One Year Prior Including Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 34
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service\":\n  from\n    \"Outpatient Encounters With Advanced Illness\" OutpatientEncounter1,\n    \"Outpatient Encounters With Advanced Illness\" OutpatientEncounter2\n  where OutpatientEncounter2.period ends 1 day or more after day of end of OutpatientEncounter1.period\n  return OutpatientEncounter1"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 35
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Has Inpatient Encounter With Advanced Illness"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Inpatient Encounter With Advanced Illness\":  \n  (AC.QualifiedEncounters([Encounter: \"Acute Inpatient\"])) InpatientEnc\n    with (AC.QualifiedConditions([Condition: \"Advanced Illness\"])) AdvanIll\n      such that FC.ToPrevalenceInterval(AdvanIll) overlaps InpatientEnc.period\n        and FC.ToInterval(InpatientEnc.period) overlaps \"Up To One Year Prior Including Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 36
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Has Dementia Medications In Year Before or During Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Dementia Medications In Year Before or During Measurement Period\":\n  (AC.QualifiedMedicationRequests([MedicationRequest: \"Dementia Medications\"])) DementiaMed\n    where exists(\n      DementiaMed.dosageInstruction dosage\n      where exists(\n        FC.ToTimingInterval(dosage.timing)) timing\n        where timing overlaps \"Up To One Year Prior Including Measurement Period\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 37
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty\":\n  (\n    AgeInYearsAt(date from end of \"Measurement Period\") in Interval[66, 80]\n      and \"Has Criteria Indicating Frailty\"\n      and (\n        exists(\"Has Two Outpatient Encounters With Advanced Illness on Different Dates of Service\")\n        or exists(\"Has Inpatient Encounter With Advanced Illness\")\n        or exists(\"Has Dementia Medications In Year Before or During Measurement Period\")\n      )\n  ) \n  or (\n    AgeInYearsAt(date from end of \"Measurement Period\") >= 81\n      and \"Has Criteria Indicating Frailty\"\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 38
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Lives In A Nursing Home"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Lives In A Nursing Home\":\n  Last(\n    (AC.QualifiedObservations([Observation: \"Housing Status\"])) HousingStatus\n      where FC.ToInterval(HousingStatus.effective) ends on or before end of \"Measurement Period\"\n        and HousingStatus.value ~ ToConcept(\"Lives In A Nursing Home (finding)\")\n    sort by issued ascending\n  ) is not null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 39
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AdvancedIllnessandFrailtyExclusionECQMFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Is Age 66 or Older Living Long Term in a Nursing Home"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Is Age 66 or Older Living Long Term in a Nursing Home\":\n  AgeInYearsAt(date from end of \"Measurement Period\") >= 66\n    and \"Lives In A Nursing Home\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 40
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "PalliativeCareFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Palliative Care in the Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Palliative Care in the Measurement Period\":\n  exists(\n    (AC.QualifiedObservations([Observation: \"Functional Assessment of Chronic Illness Therapy - Palliative Care Questionnaire (FACIT-Pal)\"])) PalliativeObservation\n      where FC.ToInterval(PalliativeObservation.effective) overlaps \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedConditions([Condition: \"Palliative Care Diagnosis\"])) PalliativeDiagnosis\n      where FC.ToPrevalenceInterval(PalliativeDiagnosis) overlaps \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedEncounters([Encounter: \"Palliative Care Encounter\"])) PalliativeEncounter\n      where FC.ToInterval(PalliativeEncounter.period) overlaps \"Measurement Period\"\n  ) or exists(\n    (AC.QualifiedProcedures([Procedure: \"Palliative Care Intervention\"])) PalliativeProcedure\n      where FC.ToInterval(PalliativeProcedure.performed) overlaps \"Measurement Period\"\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 41
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "Denominator Exclusion"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Denominator Exclusion\":\n  Hospice.\"Has Hospice\"\n    or exists (\"Pregnancy Or Renal Diagnosis\")\n    or exists (\"End Stage Renal Disease Procedures\")\n    or exists (\"End Stage Renal Disease Encounter\")\n    or FrailtyLTI.\"Is Age 66 to 80 with Advanced Illness and Frailty or Is Age 81 or Older with Frailty\"\n    or FrailtyLTI.\"Is Age 66 or Older Living Long Term in a Nursing Home\"\n    or PalliativeCare.\"Palliative Care in the Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 42
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Race"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 43
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "ControllingHighBloodPressureFHIR"
+      }, {
+        "url": "name",
+        "valueString": "SDE Race"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 44
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AdministrativeGender): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 45
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AddressUse): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 46
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AddressType): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 47
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToInterval"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToInterval(period FHIR.Period):\n    if period is null then\n        null\n    else\n        if period.\"start\" is null then\n            Interval(period.\"start\".value, period.\"end\".value]\n        else\n            Interval[period.\"start\".value, period.\"end\".value]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 48
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToQuantity"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToQuantity(quantity FHIR.Quantity):\n    case\n        when quantity is null then null\n        when quantity.value is null then null\n        when quantity.comparator is not null then\n            Message(null, true, 'FHIRHelpers.ToQuantity.ComparatorQuantityNotSupported', 'Error', 'FHIR Quantity value has a comparator and cannot be converted to a System.Quantity value.')\n        when quantity.system is null or quantity.system.value = 'http://unitsofmeasure.org'\n              or quantity.system.value = 'http://hl7.org/fhirpath/CodeSystem/calendar-units' then\n            System.Quantity { value: quantity.value.value, unit: ToCalendarUnit(Coalesce(quantity.code.value, quantity.unit.value, '1')) }\n        else\n            Message(null, true, 'FHIRHelpers.ToQuantity.InvalidFHIRQuantity', 'Error', 'Invalid FHIR Quantity code: ' & quantity.unit.value & ' (' & quantity.system.value & '|' & quantity.code.value & ')')\n    end"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 49
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToCalendarUnit"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToCalendarUnit(unit System.String):\n    case unit\n        when 'ms' then 'millisecond'\n        when 's' then 'second'\n        when 'min' then 'minute'\n        when 'h' then 'hour'\n        when 'd' then 'day'\n        when 'wk' then 'week'\n        when 'mo' then 'month'\n        when 'a' then 'year'\n        else unit\n    end"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 50
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ObservationStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 51
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToConcept"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToConcept(concept FHIR.CodeableConcept):\n    if concept is null then\n        null\n    else\n        System.Concept {\n            codes: concept.coding C return ToCode(C),\n            display: concept.text.value\n        }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 52
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToCode"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToCode(coding FHIR.Coding):\n    if coding is null then\n        null\n    else\n        System.Code {\n          code: coding.code.value,\n          system: coding.system.value,\n          version: coding.version.value,\n          display: coding.display.value\n        }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 53
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "MATGlobalCommonFunctionsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Prevalence Period"
+      }, {
+        "url": "statement",
+        "valueString": "/*\nReturns an interval representing the period during which the condition was prevalent (i.e. onset to abatement)\nIf the condition is \"active\", then abatement being unknown\nwould indicate the condition is ongoing, and the ending boundary of the prevalence\nperiod is inclusive, otherwise, the abatement is considered unknown and the ending boundary\nof the prevalence period is exclusive.\nNote that when using this function it should be noted that many clinical systems\ndo not actually capture abatement, so care should be taken when using this function\nto meet clinical intent.\n*/\ndefine function \"Prevalence Period\"(condition Condition ):\n  if condition.clinicalStatus ~ \"active\"\n    or condition.clinicalStatus ~ \"recurrence\"\n    or condition.clinicalStatus ~ \"relapse\" then\n    Interval[start of \"Normalize Interval\"(condition.onset), end of \"Normalize Abatement\"(condition)]\n  else\n    Interval[start of \"Normalize Interval\"(condition.onset), end of \"Normalize Abatement\"(condition))"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 54
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "MATGlobalCommonFunctionsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Normalize Abatement"
+      }, {
+        "url": "statement",
+        "valueString": "/**\n* Returns an interval representing the abatement of the given condition, if an\nabatement element is present, null otherwise.\nThis function uses the semantics of Normalize Interval to interpret the abatement\nelement.\n*/\ndefine function \"Normalize Abatement\"(condition Condition ):\n  if condition.abatement is FHIR.dateTime then\n\t  Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]\n\telse if condition.abatement is FHIR.Period then\n\t  FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)\n\telse if condition.abatement is FHIR.string then\n  Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')\n\telse if condition.abatement is FHIR.Age then\n\t\tInterval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),\n\t\t\tFHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)\n\telse if condition.abatement is FHIR.Range then\n\t  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).low),\n\t\t  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).high) + 1 year)\n\telse if condition.abatement is FHIR.boolean then\n\t  Interval[end of \"Normalize Interval\"(condition.onset), condition.recordedDate)\n\telse null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 55
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToDateTime"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToDateTime(value dateTime): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 56
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToDate"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToDate(value date): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 57
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
         "valueString": "FHIRCommon"
       }, {
         "url": "name",
         "valueString": "ToInterval"
       }, {
-        "url": "statement"
+        "url": "statement",
+        "valueString": "/*\n@description: Normalizes a value that is a choice of timing-valued types to an equivalent interval\n@comment: Normalizes a choice type of FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instance, FHIR.string, FHIR.Age, or FHIR.Range types\nto an equivalent interval. This selection of choice types is a superset of the majority of choice types that are used as possible\nrepresentations for timing-valued elements in FHIR, allowing this function to be used across any resource.\n\nThe input can be provided as a dateTime, Period, Timing, instant, string, Age, or Range.\nThe intent of this function is to provide a clear and concise mechanism to treat single\nelements that have multiple possible representations as intervals so that logic doesn't have to account\nfor the variability. More complex calculations (such as medication request period or dispense period\ncalculation) need specific guidance and consideration. That guidance may make use of this function, but\nthe focus of this function is on single element calculations where the semantics are unambiguous.\nIf the input is a dateTime, the result a DateTime Interval beginning and ending on that dateTime.\nIf the input is a Period, the result is a DateTime Interval.\nIf the input is a Timing, an error is raised indicating a single interval cannot be computed from a Timing.\nIf the input is an instant, the result is a DateTime Interval beginning and ending on that instant.\nIf the input is a string, an error is raised indicating a single interval cannot be computed from a string.\nIf the input is an Age, the result is a DateTime Interval beginning when the patient was the given Age,\nand ending immediately prior to when the patient was the given Age plus one year.\nIf the input is a Range, the result is a DateTime Interval beginning when the patient was the Age given\nby the low end of the Range, and ending immediately prior to when the patient was the Age given by the\nhigh end of the Range plus one year.\n\nNOTE: Due to the\ncomplexity of determining a single interval from a Timing or String type, this function will throw a run-time exception if it is used\nwith a Timing or String.\n*/\ndefine function ToInterval(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):\n  case\n\t  when choice is FHIR.dateTime then\n    \tInterval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]\n\t\twhen choice is FHIR.Period then\n  \t\tFHIRHelpers.ToInterval(choice as FHIR.Period)\n\t\twhen choice is FHIR.instant then\n\t\t\tInterval[FHIRHelpers.ToDateTime(choice as FHIR.instant), FHIRHelpers.ToDateTime(choice as FHIR.instant)]\n\t\twhen choice is FHIR.Age then\n\t\t  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age),\n\t\t\t  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age) + 1 year)\n\t\twhen choice is FHIR.Range then\n\t\t  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).low),\n\t\t\t  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).high) + 1 year)\n\t\twhen choice is FHIR.Timing then\n\t\t\t//Interval[FHIRHelpers.ToDateTime(choice as FHIR.timing), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]\n\t\t  Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute a single interval from a Timing type')\n    when choice is FHIR.string then\n      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')\n\t\telse\n\t\t\tnull as Interval<DateTime>\n\tend"
       }, {
         "url": "displaySequence",
-        "valueInteger": 0
+        "valueInteger": 58
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToDateTime"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToDateTime(value instant): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 59
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value EncounterStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 60
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value uri): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 61
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedEncounters"
+      }, {
+        "url": "statement",
+        "valueString": "/* Common Resource Qualifications and Negations */\ndefine function QualifiedEncounters(value List<FHIR.Encounter>):\n  value Encounter\n    where (\n      //planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown\n      Encounter.status ~ 'arrived'\n      or Encounter.status ~ 'in-progress'\n      or Encounter.status ~ 'finished'\n      or Encounter.status ~ 'onleave'\n      or Encounter.status ~ 'triaged'\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 62
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedObservations"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedObservations(value List<FHIR.Observation>):\n  value Observation\n\t\twhere (\n      //registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown\n      Observation.status ~ 'final'\n\t\t\tor Observation.status ~ 'amended'\n\t\t\tor Observation.status ~ 'corrected'\n\t\t)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 63
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedServiceRequests"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedServiceRequests(value List<FHIR.ServiceRequest>):\n  value ServiceRequest\n    where (\n      //draft | active | on-hold | revoked | completed | entered-in-error | unknown\n      ServiceRequest.status ~ 'active'\n      or ServiceRequest.status ~ 'completed'\n      and ServiceRequest.intent ~ 'order'\n    )\n    and (\n      ServiceRequest.doNotPerform is null\n      or ServiceRequest.doNotPerform = false\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 64
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ServiceRequestStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 65
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ServiceRequestIntent): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 66
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToBoolean"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToBoolean(value boolean): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 67
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedProcedures"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedProcedures(value List<FHIR.Procedure>):\n  value Procedure\n    where (\n      //preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown\n      Procedure.status ~ 'completed'\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 68
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ProcedureStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 69
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedConditions"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedConditions(value List<FHIR.Condition>):\n  value Condition\n    where (\n      FHIRHelpers.ToConcept(Condition.clinicalStatus) ~ FC.\"active\"\n    )\n    and (\n      FHIRHelpers.ToConcept(Condition.verificationStatus) ~ FC.\"confirmed\"\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 70
       } ]
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -142,10 +1193,11 @@
         "url": "name",
         "valueString": "ToPrevalenceInterval"
       }, {
-        "url": "statement"
+        "url": "statement",
+        "valueString": "/*\n@description: Returns an interval representing the normalized prevalence period of a given Condition resource.\n@comment: Uses the ToInterval and ToAbatementInterval functions to determine the widest potential interval from\nonset to abatement as specified in the given Condition.\n*/\ndefine function ToPrevalenceInterval(condition Condition):\nif condition.clinicalStatus ~ \"active\"\n  or condition.clinicalStatus ~ \"recurrence\"\n  or condition.clinicalStatus ~ \"relapse\" then\n  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition)]\nelse\n  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition))"
       }, {
         "url": "displaySequence",
-        "valueInteger": 1
+        "valueInteger": 71
       } ]
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -156,10 +1208,161 @@
         "url": "name",
         "valueString": "ToAbatementInterval"
       }, {
-        "url": "statement"
+        "url": "statement",
+        "valueString": "/*\n@description: Returns an interval representing the normalized Abatement of a given Condition resource.\n@comment: NOTE: Due to the complexity of determining an interval from a String, this function will throw\na run-time exception if used with a Condition instance that has a String as the abatement value.\n*/\ndefine function ToAbatementInterval(condition Condition):\n\tif condition.abatement is FHIR.dateTime then\n\t  Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]\n\telse if condition.abatement is FHIR.Period then\n\t  FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)\n\telse if condition.abatement is FHIR.string then\n    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')\n\telse if condition.abatement is FHIR.Age then\n\t\tInterval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),\n\t\t\tFHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)\n\telse if condition.abatement is FHIR.Range then\n\t  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).low),\n\t\t  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).high) + 1 year)\n\telse if condition.abatement is FHIR.boolean then\n\t  Interval[end of ToInterval(condition.onset), condition.recordedDate)\n\telse null"
       }, {
         "url": "displaySequence",
-        "valueInteger": 2
+        "valueInteger": 72
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedDeviceRequests"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedDeviceRequests(value List<FHIR.DeviceRequest>):\n  value DeviceRequest\n    where (\n      //draft | active | on-hold | revoked | completed | entered-in-error | unknown\n      DeviceRequest.status ~ 'completed'\n      or DeviceRequest.status ~ 'active'\n      and DeviceRequest.intent ~ 'order'\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 73
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value DeviceRequestStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 74
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value RequestIntent): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 75
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value string): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 76
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedMedicationRequests"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedMedicationRequests(value List<FHIR.MedicationRequest>):\n  value MedicationRequest\n    where (\n      //active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown\n      (MedicationRequest.status ~ 'active'\n        or MedicationRequest.status ~ 'completed'\n      )\n        and (\n          MedicationRequest.doNotPerform is null\n          or MedicationRequest.doNotPerform = false\n        )\n        and MedicationRequest.intent ~ 'order'\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 77
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value MedicationRequestStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 78
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value MedicationRequestIntent): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 79
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRCommon"
+      }, {
+        "url": "name",
+        "valueString": "ToTimingInterval"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToTimingInterval(timing FHIR.Timing):\n  convert (\n    NullToEmptyInterval(ToIntervalFromList(timing.event))\n    union NullToEmptyInterval({ToInterval(timing.repeat.bounds as FHIR.Period)})\n  ) to List<Interval<DateTime>> except { null }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 80
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRCommon"
+      }, {
+        "url": "name",
+        "valueString": "NullToEmptyInterval"
+      }, {
+        "url": "statement",
+        "valueString": "define function NullToEmptyInterval(value List<Interval<DateTime>>):\n  if value is not null then value else { }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 81
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRCommon"
+      }, {
+        "url": "name",
+        "valueString": "ToIntervalFromList"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToIntervalFromList(value List<FHIR.dateTime>):\n  value v\n    return ToInterval(v)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 82
       } ]
     } ],
     "name": "EffectiveDataRequirements",
@@ -171,10 +1374,6 @@
       } ]
     },
     "relatedArtifact": [ {
-      "type": "depends-on",
-      "display": "FHIR model information",
-      "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
-    }, {
       "type": "depends-on",
       "display": "Library SDE",
       "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
@@ -849,7 +2048,7 @@
   "title": "Controlling High Blood Pressure",
   "status": "draft",
   "experimental": false,
-  "date": "2025-09-25T07:22:16-06:00",
+  "date": "2025-09-25T07:40:03-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {

@@ -63,15 +63,1066 @@
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
       "extension": [ {
         "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Most recent physical home address"
+      }, {
+        "url": "statement",
+        "valueString": "// Jurisdiction of residence (jurisdiction of the patient)\ndefine \"Most recent physical home address\":\n  First(\n    Patient.address A\n      where A.use = 'home'\n        and A.type = 'physical'\n      sort by end of period desc\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 0
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Postal Code of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Postal Code of Residence\":\n  \"Most recent physical home address\".postalCode"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 1
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE Postal Code of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Postal Code of Residence\":\n  SurveillanceDataElements.\"Postal Code of Residence\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 2
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "State of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"State of Residence\":\n  \"Most recent physical home address\".state"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 3
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE State of Residence"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE State of Residence\":\n  SurveillanceDataElements.\"State of Residence\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 4
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Race"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Race\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 5
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE Race"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Race\":\n  SDE.\"SDE Race\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 6
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Sex"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Sex\":\n  case\n      when Patient.gender = 'male' then Code { code: 'M', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Male' }\n      when Patient.gender = 'female' then Code { code: 'F', system: 'http://hl7.org/fhir/v3/AdministrativeGender', display: 'Female' }\n      else null\n    end"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 7
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE Sex"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Sex\":\n  SDE.\"SDE Sex\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 8
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Patient Age 12 to 16 Years at Start of Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "//Numerator\ndefine \"Patient Age 12 to 16 Years at Start of Measurement Period\":\n  AgeInYearsAt(start of \"Measurement Period\") in Interval[12, 16]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 9
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Qualifying Encounters During Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Qualifying Encounters During Measurement Period\":\n  (AC.QualifiedEncounters([Encounter: \"Encounter to Screen for Depression\"])\n    union AC.QualifiedEncounters([Encounter: \"Physical Therapy Evaluation\"])\n    union AC.QualifiedEncounters([Encounter: \"Telephone Visits\"])) QualifyingEnc \n    where FC.ToInterval(QualifyingEnc.period) during \"Measurement Period\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 10
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Has Adolescent Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Adolescent Depression Screening\":\n  ((AC.QualifiedObservations([Observation: \"Adolescent Depression Screening Assessment\"])) AdolescentScreening\n    with \"Qualifying Encounters During Measurement Period\" QualifyingEnc\n      such that \"Screening Within 14 Days of Encounter\"(AdolescentScreening, QualifyingEnc))"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 11
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adolescent Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "//Adolescent Numerator\ndefine \"Most Recent Adolescent Depression Screening\":\n  AC.MostRecent((\"Has Adolescent Depression Screening\"))"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 12
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adolescent Screening Negative"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Most Recent Adolescent Screening Negative\":\n  (\"Most Recent Adolescent Depression Screening\" AdolescentScreening\n    where AdolescentScreening.value ~ ToConcept(\"Depression Screening Negative\")) is not null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 13
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adolescent Positive Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Most Recent Adolescent Positive Depression Screening\":\n  \"Most Recent Adolescent Depression Screening\" RecentScreening\n    where RecentScreening.value ~ ToConcept(\"Depression Screening Positive\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 14
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Follow Up Interventions For Positive Adolescent Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Follow Up Interventions For Positive Adolescent Depression Screening\":\n  (AC.QualifiedMedicationRequests([MedicationRequest: \"Adolescent Depression Medications\"])\n    union AC.QualifiedServiceRequests([ServiceRequest: \"Referral for Adolescent Depression\"])\n    union AC.QualifiedProcedures([Procedure: \"Follow Up for Adolescent Depression\"])) FollowUpInterventions\n    let \"Intervention Day\": Coalesce(FC.ToInterval(FollowUpInterventions.authoredOn), FC.ToInterval(FollowUpInterventions.performed))\n    with \"Qualifying Encounters During Measurement Period\" QualifyingEnc\n      such that \"Intervention Day\" same day as QualifyingEnc.period\n      or \"Intervention Day\" 2 days or less after day of end of FC.ToInterval(QualifyingEnc.period)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 15
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adolescent Depression Screening Positive and Follow Up Provided"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Most Recent Adolescent Depression Screening Positive and Follow Up Provided\":\n  (\"Most Recent Adolescent Positive Depression Screening\" RecentScreening\n  let \"Screening Day\": Coalesce(FC.ToInterval(RecentScreening.effective), FC.ToInterval(RecentScreening.issued))\n  with \"Follow Up Interventions For Positive Adolescent Depression Screening\" FollowUpInterventions\n    such that \"Screening Day\" 14 days or less before start of Coalesce(FC.ToInterval(FollowUpInterventions.authoredOn), FC.ToInterval(FollowUpInterventions.performed))\n  ) is not null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 16
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Patient Age 17 Years at Start of Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Patient Age 17 Years at Start of Measurement Period\":\n  AgeInYearsAt(start of \"Measurement Period\") = 17"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 17
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Has Adult Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Has Adult Depression Screening\":\n  ((AC.QualifiedObservations([Observation: \"Adult Depression Screening Assessment\"])) AdolescentScreening\n    with \"Qualifying Encounters During Measurement Period\" QualifyingEnc\n      such that \"Screening Within 14 Days of Encounter\"(AdolescentScreening, QualifyingEnc))"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 18
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adult Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "//Adult Numerator\ndefine \"Most Recent Adult Depression Screening\":\n  AC.MostRecent((\"Has Adult Depression Screening\"))"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 19
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adult Screening Negative"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Most Recent Adult Screening Negative\":\n  (\"Most Recent Adult Depression Screening\" AdultScreening\n    where AdultScreening.value ~ ToConcept(\"Depression Screening Negative\")) is not null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 20
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adult Positive Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Most Recent Adult Positive Depression Screening\":\n  \"Most Recent Adult Depression Screening\" RecentScreening\n    where RecentScreening.value ~ ToConcept(\"Depression Screening Positive\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 21
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Follow Up Interventions For Positive Adult Depression Screening"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Follow Up Interventions For Positive Adult Depression Screening\":\n  ((AC.QualifiedMedicationRequests([MedicationRequest: \"Adult Depression Medications\"])\n    union AC.QualifiedServiceRequests([ServiceRequest: \"Referral for Adult Depression\"])\n    union AC.QualifiedProcedures([Procedure: \"Follow Up for Adult Depression\"]))) FollowUpInterventions\n    let \"Intervention Day\": Coalesce(FC.ToInterval(FollowUpInterventions.authoredOn), FC.ToInterval(FollowUpInterventions.performed))\n    with \"Qualifying Encounters During Measurement Period\" QualifyingEnc\n      such that \"Intervention Day\" same day as QualifyingEnc.period\n      or \"Intervention Day\" 2 days or less after day of end of FC.ToInterval(QualifyingEnc.period)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 22
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Most Recent Adult Depression Screening Positive and Follow Up Provided"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Most Recent Adult Depression Screening Positive and Follow Up Provided\":\n  (\"Most Recent Adult Positive Depression Screening\" RecentScreening\n  let \"Screening Day\": Coalesce(FC.ToInterval(RecentScreening.effective), FC.ToInterval(RecentScreening.issued))\n  with \"Follow Up Interventions For Positive Adult Depression Screening\" FollowUpInterventions\n    such that \"Screening Day\" 14 days or less before start of Coalesce(FC.ToInterval(FollowUpInterventions.authoredOn), FC.ToInterval(FollowUpInterventions.performed))\n  ) is not null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 23
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Patient Age 18 Years or Older at Start of Measurement Period"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Patient Age 18 Years or Older at Start of Measurement Period\":\n  AgeInYearsAt(start of \"Measurement Period\") >= 18"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 24
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Numerator"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Numerator\":\n  ( \"Patient Age 12 to 16 Years at Start of Measurement Period\"\n      and ( \"Most Recent Adolescent Screening Negative\"\n        or \"Most Recent Adolescent Depression Screening Positive and Follow Up Provided\" )\n)\n  or ( \"Patient Age 17 Years at Start of Measurement Period\"\n    and ( \"Most Recent Adolescent Screening Negative\"\n      or \"Most Recent Adolescent Depression Screening Positive and Follow Up Provided\"\n      or \"Most Recent Adult Screening Negative\"\n      or  \"Most Recent Adult Depression Screening Positive and Follow Up Provided\") \n  )\n  or ( \"Patient Age 18 Years or Older at Start of Measurement Period\"\n    and ( \"Most Recent Adult Screening Negative\"\n      or \"Most Recent Adult Depression Screening Positive and Follow Up Provided\" ) )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 25
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Initial Population"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Initial Population\":\n  AgeInYearsAt(start of \"Measurement Period\") >= 12\n    and exists(\n      \"Qualifying Encounters During Measurement Period\" E \n        where FC.ToInterval(E.period) during \"Measurement Period\"\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 26
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Denominator"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Denominator\":\n  \"Initial Population\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 27
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Payer"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Payer\":\n  [Coverage: type in \"Payer\"] Payer\n        return {\n          code: Payer.type,\n          period: Payer.period\n        }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 28
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE Payer"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Payer\":\n  SDE.\"SDE Payer\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 29
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Food Insecurity Risk Status"
+      }, {
+        "url": "statement",
+        "valueString": "// Jurisdiction of care (jurisdiction of the most recent encounter)\n// TODO:\n//define \"Most recent address of care\":\n\n// NOTE: Included in eICR\n// Occupational Data for Health - Past or Present Job\n// http://hl7.org/fhir/us/odh/StructureDefinition-odh-PastOrPresentJob.html\n// Observation: LOINC#11341-5, valueCodeableConcept in https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186\n\n// Social Determinants of Health (SDOH)\n// http://build.fhir.org/ig/HL7/fhir-sdoh-clinicalcare/StructureDefinition-SDOHCC-ObservationScreeningResponse.html\n// Food insecurity risk: http://build.fhir.org/ig/HL7/fhir-sdoh-clinicalcare/Observation-SDOHCC-ObservationResponseHungerVitalSignQuestion3Example.html\n// Observation: LOINC#88124-3, valueCodeableConcept in https://loinc.org/LL2510-7/ (At risk, No risk)\ndefine \"Food Insecurity Risk Status\":\n  First(\n    [Observation: \"Food insecurity risk [HVS]\"] O\n      sort by issued desc\n  ).value as CodeableConcept"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 30
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE Food Insecurity Risk Status"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Food Insecurity Risk Status\":\n  SurveillanceDataElements.\"Food Insecurity Risk Status\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 31
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SupplementalDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "SDE Ethnicity"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Ethnicity\":\n  (flatten (\n      Patient.extension Extension\n        where Extension.url = 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity'\n          return Extension.extension\n    )) E\n      where E.url = 'ombCategory'\n        or E.url = 'detailed'\n      return E.value as Coding"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 32
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE Ethnicity"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Ethnicity\":\n  SDE.\"SDE Ethnicity\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 33
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "SurveillanceDataElementsFHIR4"
+      }, {
+        "url": "name",
+        "valueString": "Age"
+      }, {
+        "url": "statement",
+        "valueString": "// Age\ndefine \"Age\":\n  AgeInYearsAt(end of \"Measurement Period\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 34
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "SDE Age"
+      }, {
+        "url": "statement",
+        "valueString": "define \"SDE Age\":\n  SurveillanceDataElements.\"Age\""
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 35
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "History of Bipolar Diagnosis Before Qualifying Encounter"
+      }, {
+        "url": "statement",
+        "valueString": "//Denominator Exclusion \ndefine \"History of Bipolar Diagnosis Before Qualifying Encounter\": \n  (AC.QualifiedConditions([Condition: \"Bipolar Disorder\"])) BipolarDiagnosis \n  with \"Qualifying Encounters During Measurement Period\" QualifyingEnc\n    such that FC.ToPrevalenceInterval(BipolarDiagnosis) starts before QualifyingEnc.period"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 36
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Denominator Exclusions"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Denominator Exclusions\":\n  exists(\"History of Bipolar Diagnosis Before Qualifying Encounter\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 37
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Medical or Patient Reason for Not Screening Adolescent for Depression"
+      }, {
+        "url": "statement",
+        "valueString": "//Denominator Exception\ndefine \"Medical or Patient Reason for Not Screening Adolescent for Depression\":\n  AC.AbsentData([Observation: \"Adolescent Depression Screening Assessment\"], \"Qualifying Encounters During Measurement Period\", \"Depression Screening Declined\", \"Medical Reason\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 38
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Medical or Patient Reason for Not Screening Adult for Depression"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Medical or Patient Reason for Not Screening Adult for Depression\":\n  AC.AbsentData([Observation: \"Adult Depression Screening Assessment\"], \"Qualifying Encounters During Measurement Period\", \"Depression Screening Declined\", \"Medical Reason\")"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 39
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Denominator Exceptions"
+      }, {
+        "url": "statement",
+        "valueString": "define \"Denominator Exceptions\":\n  (exists(\"Medical or Patient Reason for Not Screening Adolescent for Depression\")\n    and not exists(\"Has Adolescent Depression Screening\"))\n  or (exists(\"Medical or Patient Reason for Not Screening Adult for Depression\")\n    and not exists(\"Has Adult Depression Screening\"))"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 40
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AddressUse): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 41
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AddressType): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 42
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToInterval"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToInterval(period FHIR.Period):\n    if period is null then\n        null\n    else\n        if period.\"start\" is null then\n            Interval(period.\"start\".value, period.\"end\".value]\n        else\n            Interval[period.\"start\".value, period.\"end\".value]"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 43
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value uri): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 44
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value AdministrativeGender): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 45
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "MostRecent"
+      }, {
+        "url": "statement",
+        "valueString": "define function MostRecent(observations List<Observation>):\n  Last(\n    observations O\n      sort by start of FC.ToInterval(effective)\n  )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 46
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedObservations"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedObservations(value List<FHIR.Observation>):\n  value Observation\n\t\twhere (\n      //registered | preliminary | final | amended | corrected | cancelled | entered-in-error | unknown\n      Observation.status ~ 'final'\n\t\t\tor Observation.status ~ 'amended'\n\t\t\tor Observation.status ~ 'corrected'\n\t\t)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 47
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ObservationStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 48
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedEncounters"
+      }, {
+        "url": "statement",
+        "valueString": "/* Common Resource Qualifications and Negations */\ndefine function QualifiedEncounters(value List<FHIR.Encounter>):\n  value Encounter\n    where (\n      //planned | arrived | triaged | in-progress | onleave | finished | cancelled | entered-in-error | unknown\n      Encounter.status ~ 'arrived'\n      or Encounter.status ~ 'in-progress'\n      or Encounter.status ~ 'finished'\n      or Encounter.status ~ 'onleave'\n      or Encounter.status ~ 'triaged'\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 49
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value EncounterStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 50
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
         "valueString": "FHIRCommon"
       }, {
         "url": "name",
         "valueString": "ToInterval"
       }, {
-        "url": "statement"
+        "url": "statement",
+        "valueString": "/*\n@description: Normalizes a value that is a choice of timing-valued types to an equivalent interval\n@comment: Normalizes a choice type of FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instance, FHIR.string, FHIR.Age, or FHIR.Range types\nto an equivalent interval. This selection of choice types is a superset of the majority of choice types that are used as possible\nrepresentations for timing-valued elements in FHIR, allowing this function to be used across any resource.\n\nThe input can be provided as a dateTime, Period, Timing, instant, string, Age, or Range.\nThe intent of this function is to provide a clear and concise mechanism to treat single\nelements that have multiple possible representations as intervals so that logic doesn't have to account\nfor the variability. More complex calculations (such as medication request period or dispense period\ncalculation) need specific guidance and consideration. That guidance may make use of this function, but\nthe focus of this function is on single element calculations where the semantics are unambiguous.\nIf the input is a dateTime, the result a DateTime Interval beginning and ending on that dateTime.\nIf the input is a Period, the result is a DateTime Interval.\nIf the input is a Timing, an error is raised indicating a single interval cannot be computed from a Timing.\nIf the input is an instant, the result is a DateTime Interval beginning and ending on that instant.\nIf the input is a string, an error is raised indicating a single interval cannot be computed from a string.\nIf the input is an Age, the result is a DateTime Interval beginning when the patient was the given Age,\nand ending immediately prior to when the patient was the given Age plus one year.\nIf the input is a Range, the result is a DateTime Interval beginning when the patient was the Age given\nby the low end of the Range, and ending immediately prior to when the patient was the Age given by the\nhigh end of the Range plus one year.\n\nNOTE: Due to the\ncomplexity of determining a single interval from a Timing or String type, this function will throw a run-time exception if it is used\nwith a Timing or String.\n*/\ndefine function ToInterval(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):\n  case\n\t  when choice is FHIR.dateTime then\n    \tInterval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]\n\t\twhen choice is FHIR.Period then\n  \t\tFHIRHelpers.ToInterval(choice as FHIR.Period)\n\t\twhen choice is FHIR.instant then\n\t\t\tInterval[FHIRHelpers.ToDateTime(choice as FHIR.instant), FHIRHelpers.ToDateTime(choice as FHIR.instant)]\n\t\twhen choice is FHIR.Age then\n\t\t  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age),\n\t\t\t  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age) + 1 year)\n\t\twhen choice is FHIR.Range then\n\t\t  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).low),\n\t\t\t  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).high) + 1 year)\n\t\twhen choice is FHIR.Timing then\n\t\t\t//Interval[FHIRHelpers.ToDateTime(choice as FHIR.timing), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]\n\t\t  Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute a single interval from a Timing type')\n    when choice is FHIR.string then\n      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')\n\t\telse\n\t\t\tnull as Interval<DateTime>\n\tend"
       }, {
         "url": "displaySequence",
-        "valueInteger": 0
+        "valueInteger": 51
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToDateTime"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToDateTime(value dateTime): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 52
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToDateTime"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToDateTime(value instant): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 53
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToDate"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToDate(value date): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 54
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToQuantity"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToQuantity(quantity FHIR.Quantity):\n    case\n        when quantity is null then null\n        when quantity.value is null then null\n        when quantity.comparator is not null then\n            Message(null, true, 'FHIRHelpers.ToQuantity.ComparatorQuantityNotSupported', 'Error', 'FHIR Quantity value has a comparator and cannot be converted to a System.Quantity value.')\n        when quantity.system is null or quantity.system.value = 'http://unitsofmeasure.org'\n              or quantity.system.value = 'http://hl7.org/fhirpath/CodeSystem/calendar-units' then\n            System.Quantity { value: quantity.value.value, unit: ToCalendarUnit(Coalesce(quantity.code.value, quantity.unit.value, '1')) }\n        else\n            Message(null, true, 'FHIRHelpers.ToQuantity.InvalidFHIRQuantity', 'Error', 'Invalid FHIR Quantity code: ' & quantity.unit.value & ' (' & quantity.system.value & '|' & quantity.code.value & ')')\n    end"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 55
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToCalendarUnit"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToCalendarUnit(unit System.String):\n    case unit\n        when 'ms' then 'millisecond'\n        when 's' then 'second'\n        when 'min' then 'minute'\n        when 'h' then 'hour'\n        when 'd' then 'day'\n        when 'wk' then 'week'\n        when 'mo' then 'month'\n        when 'a' then 'year'\n        else unit\n    end"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 56
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "DepressionScreeningandFollowUp"
+      }, {
+        "url": "name",
+        "valueString": "Screening Within 14 Days of Encounter"
+      }, {
+        "url": "statement",
+        "valueString": "define function \"Screening Within 14 Days of Encounter\"(observation FHIR.Observation, encounter FHIR.Encounter)\nreturns System.Boolean:\n  Coalesce(end of FC.ToInterval(observation.effective), observation.issued) 14 days or less before day of start of encounter.period\n    and observation.value is not null"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 57
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToConcept"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToConcept(concept FHIR.CodeableConcept):\n    if concept is null then\n        null\n    else\n        System.Concept {\n            codes: concept.coding C return ToCode(C),\n            display: concept.text.value\n        }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 58
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToCode"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToCode(coding FHIR.Coding):\n    if coding is null then\n        null\n    else\n        System.Code {\n          code: coding.code.value,\n          system: coding.system.value,\n          version: coding.version.value,\n          display: coding.display.value\n        }"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 59
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedMedicationRequests"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedMedicationRequests(value List<FHIR.MedicationRequest>):\n  value MedicationRequest\n    where (\n      //active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown\n      (MedicationRequest.status ~ 'active'\n        or MedicationRequest.status ~ 'completed'\n      )\n        and (\n          MedicationRequest.doNotPerform is null\n          or MedicationRequest.doNotPerform = false\n        )\n        and MedicationRequest.intent ~ 'order'\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 60
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value MedicationRequestStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 61
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToBoolean"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToBoolean(value boolean): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 62
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value MedicationRequestIntent): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 63
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value string): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 64
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedServiceRequests"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedServiceRequests(value List<FHIR.ServiceRequest>):\n  value ServiceRequest\n    where (\n      //draft | active | on-hold | revoked | completed | entered-in-error | unknown\n      ServiceRequest.status ~ 'active'\n      or ServiceRequest.status ~ 'completed'\n      and ServiceRequest.intent ~ 'order'\n    )\n    and (\n      ServiceRequest.doNotPerform is null\n      or ServiceRequest.doNotPerform = false\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 65
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ServiceRequestStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 66
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ServiceRequestIntent): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 67
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedProcedures"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedProcedures(value List<FHIR.Procedure>):\n  value Procedure\n    where (\n      //preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown\n      Procedure.status ~ 'completed'\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 68
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "FHIRHelpers"
+      }, {
+        "url": "name",
+        "valueString": "ToString"
+      }, {
+        "url": "statement",
+        "valueString": "define function ToString(value ProcedureStatus): value.value"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 69
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QualifiedConditions"
+      }, {
+        "url": "statement",
+        "valueString": "define function QualifiedConditions(value List<FHIR.Condition>):\n  value Condition\n    where (\n      FHIRHelpers.ToConcept(Condition.clinicalStatus) ~ FC.\"active\"\n    )\n    and (\n      FHIRHelpers.ToConcept(Condition.verificationStatus) ~ FC.\"confirmed\"\n    )"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 70
       } ]
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -82,10 +1133,11 @@
         "url": "name",
         "valueString": "ToPrevalenceInterval"
       }, {
-        "url": "statement"
+        "url": "statement",
+        "valueString": "/*\n@description: Returns an interval representing the normalized prevalence period of a given Condition resource.\n@comment: Uses the ToInterval and ToAbatementInterval functions to determine the widest potential interval from\nonset to abatement as specified in the given Condition.\n*/\ndefine function ToPrevalenceInterval(condition Condition):\nif condition.clinicalStatus ~ \"active\"\n  or condition.clinicalStatus ~ \"recurrence\"\n  or condition.clinicalStatus ~ \"relapse\" then\n  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition)]\nelse\n  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition))"
       }, {
         "url": "displaySequence",
-        "valueInteger": 1
+        "valueInteger": 71
       } ]
     }, {
       "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
@@ -96,10 +1148,116 @@
         "url": "name",
         "valueString": "ToAbatementInterval"
       }, {
-        "url": "statement"
+        "url": "statement",
+        "valueString": "/*\n@description: Returns an interval representing the normalized Abatement of a given Condition resource.\n@comment: NOTE: Due to the complexity of determining an interval from a String, this function will throw\na run-time exception if used with a Condition instance that has a String as the abatement value.\n*/\ndefine function ToAbatementInterval(condition Condition):\n\tif condition.abatement is FHIR.dateTime then\n\t  Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]\n\telse if condition.abatement is FHIR.Period then\n\t  FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)\n\telse if condition.abatement is FHIR.string then\n    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')\n\telse if condition.abatement is FHIR.Age then\n\t\tInterval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),\n\t\t\tFHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)\n\telse if condition.abatement is FHIR.Range then\n\t  Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).low),\n\t\t  FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).high) + 1 year)\n\telse if condition.abatement is FHIR.boolean then\n\t  Interval[end of ToInterval(condition.onset), condition.recordedDate)\n\telse null"
       }, {
         "url": "displaySequence",
-        "valueInteger": 2
+        "valueInteger": 72
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "AbsentData"
+      }, {
+        "url": "statement",
+        "valueString": "define function AbsentData(observation List<FHIR.Observation>, enc List<FHIR.Encounter>, code1 System.Code, valueset1 System.ValueSet)\nreturns List<FHIR.Observation>:\n  (QualifiedObservations(observation)) Obs\n    with enc QualifyingEnc\n      such that Coalesce(end of FC.ToInterval(Obs.effective), end of FC.ToInterval(Obs.issued)) same day as end of QualifyingEnc.period\n    where exists(\n        Obs.component c where(\n            c.code as CodeableConcept ~ code1\n            or c.code as CodeableConcept in valueset1\n        ))\n      and not exists(Obs.component c where(c.value is not null))\n      or (ResourceNotDone(Obs).value as FHIR.boolean = true\n        and (ResourceNotDoneReason(Obs).value as CodeableConcept ~ code1\n        or ResourceNotDoneReason(Obs).value as CodeableConcept in valueset1))"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 73
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "ResourceNotDone"
+      }, {
+        "url": "statement",
+        "valueString": "define function ResourceNotDone(notDone DomainResource):\n  QICoreModifierExtension(notDone, 'qicore-notDone')"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 74
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QICoreModifierExtension"
+      }, {
+        "url": "statement",
+        "valueString": "define function QICoreModifierExtension(domainResource DomainResource, url String):\n  singleton from QICoreModifierExtensions(domainResource, url)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 75
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QICoreModifierExtensions"
+      }, {
+        "url": "statement",
+        "valueString": "/* QI-CORE Extensions */\n\n/*\nNOTE: Extensions are not the preferred approach, but are used as a way to access\ncontent that is defined by extensions but not yet surfaced in the\nCQL model info.\n*/\ndefine function QICoreModifierExtensions(domainResource DomainResource, url String):\n  domainResource.modifierExtension E\n    where E.url = ('http://hl7.org/fhir/us/qicore/StructureDefinition/' + url)\n    return E"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 76
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "ResourceNotDoneReason"
+      }, {
+        "url": "statement",
+        "valueString": "define function ResourceNotDoneReason(notDoneReason DomainResource):\n  QICoreExtension(notDoneReason, 'qicore-notDoneReason')"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 77
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QICoreExtension"
+      }, {
+        "url": "statement",
+        "valueString": "define function QICoreExtension(domainResource DomainResource, url String):\n  singleton from QICoreExtensions(domainResource, url)"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 78
+      } ]
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-logicDefinition",
+      "extension": [ {
+        "url": "libraryName",
+        "valueString": "AlphoraCommon"
+      }, {
+        "url": "name",
+        "valueString": "QICoreExtensions"
+      }, {
+        "url": "statement",
+        "valueString": "define function QICoreExtensions(domainResource DomainResource, url String):\n  domainResource.extension E\n    where E.url = ('http://hl7.org/fhir/us/qicore/StructureDefinition/' + url)\n    return E"
+      }, {
+        "url": "displaySequence",
+        "valueInteger": 79
       } ]
     } ],
     "name": "EffectiveDataRequirements",
@@ -111,10 +1269,6 @@
       } ]
     },
     "relatedArtifact": [ {
-      "type": "depends-on",
-      "display": "FHIR model information",
-      "resource": "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1"
-    }, {
       "type": "depends-on",
       "display": "Library SurveillanceDataElements",
       "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
@@ -455,7 +1609,7 @@
   "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
   "status": "draft",
   "experimental": false,
-  "date": "2025-09-25T07:22:16-06:00",
+  "date": "2025-09-25T07:40:03-06:00",
   "publisher": "National Committee for Quality Assurance",
   "contact": [ {
     "telecom": [ {
