@@ -6,7 +6,7 @@ This document contains a proposed scenario and initial system design to demonstr
 
 Although chronic disease surveillance, public health reporting, and clinical quality measurement and reporting have different drivers and use cases, many of the underlying technical enablers are the same. From the broadest perspective, all these activities provide reporting on clinical data across populations. Data for those populations is housed in multiple clinical systems, almost always with differing data representations. Using FHIR as an interoperability standard provides clear advantages for these activities, and significant progress has been made in both the public health reporting and clinical quality measurement spaces using FHIR. This proposal explores the extension of those FHIR capabilities into the chronic disease surveillance space, using an overall architecture that enables all these activities as part of a single technical approach, depicted in the following diagram:
 
-![Overview Diagram](images/overview.png)
+![Overview Diagram](overview.png)
 
 As this diagram illustrates, there are two primary interactions:
 

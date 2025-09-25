@@ -29,8 +29,8 @@ RuleSet: MeasureCommonExtensions
 * insert MeasureExtensions("effective-data-requirements", "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/cqfm-effectiveDataRequirements", "effective-data-requirements")
 
 RuleSet: MeasureCommonURLs(measureID)
-* url = "http://hl7.org/fhir/us/chronic-ds/Measure/{measureID}"
-* library = "http://hl7.org/fhir/us/chronic-ds/Library/{measureID}"
+* url = "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/{measureID}"
+* library = "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/{measureID}"
 
 RuleSet: MeasureIdentifier(use, system, value)
 * identifier[+]

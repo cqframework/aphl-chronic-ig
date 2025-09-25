@@ -23,10 +23,10 @@ RuleSet: PlanDefEffectivePeriod(year)
 //   * end = {year}-12-31
 
 RuleSet: PlanDefURLs(ID)
-* url = "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/{ID}"
+* url = "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/{ID}"
 
 RuleSet: PlanDefLib(ID)
-* library = "http://hl7.org/fhir/us/chronic-ds/Library/{ID}"
+* library = "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/{ID}"
 
 RuleSet: ActionCommonDetails(id, description, text, code)
 * id = {id}
@@ -144,7 +144,7 @@ RuleSet: ActionEvaluateMeasure(measureID)
 * output[+]
   * insert ActionMeasureReportProfile
 * insert ActionRelated("report-ds")
-* definitionCanonical = "http://hl7.org/fhir/us/chronic-ds/Measure/{measureID}"
+* definitionCanonical = "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/{measureID}"
 
 RuleSet: ActionReportDS
 * insert ActionCommonDetails("report-ds", "This action represents the reporting of the Chronic Disease Surveillance event.", "Report Chronic Disease Surveillance", execute-reporting-workflow)
