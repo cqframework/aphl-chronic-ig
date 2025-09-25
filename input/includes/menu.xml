@@ -2,7 +2,7 @@
   <li><a href="index.html">IG Home</a></li>
   <li><a href="toc.html">Table of Contents</a></li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Chronic Disease Surveillance Background<b class="caret">
+    <a data-toggle="dropdown" href="index.html" class="dropdown-toggle">Background<b class="caret">
       </b>
     </a>
     <ul class="dropdown-menu">
@@ -12,18 +12,18 @@
     </ul>
   </li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Specification<b class="caret">
+    <a data-toggle="dropdown" href="index.html" class="dropdown-toggle">Specification<b class="caret">
       </b>
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="spec.html">Detailed Specification</a>
+        <a href="specification.html">Specification</a>
       </li>
     </ul>
   </li>
   <li><a href="artifacts.html">Artifact Index</a></li>
   <li class="dropdown">
-    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Support<b class="caret">
+    <a data-toggle="dropdown" href="index.html" class="dropdown-toggle">Support<b class="caret">
       </b>
     </a>
     <ul class="dropdown-menu">
@@ -35,9 +35,6 @@
       </li>
       <li>
         <a target="_blank" href="http://hl7.org/fhir/uv/cpg">FHIR Clinical Guidelines</a>
-      </li>
-      <li>
-        <a href="downloads.html">Downloads</a>
       </li>
       <li>
         <a href="license.html">License</a>

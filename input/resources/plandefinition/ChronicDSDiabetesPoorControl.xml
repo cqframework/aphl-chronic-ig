@@ -2,7 +2,7 @@
 <PlanDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ChronicDSDiabetesPoorControl"/>
-    <url value="http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSDiabetesPoorControl"/>
+    <url value="http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/ChronicDSDiabetesPoorControl"/>
     <name value="ChronicDSDiabetesPoorControl"/>
     <title value="Chronic Disease Surveillance Reporting Specification for Diabetes Hemoglobin A1c Poor Control"/>
     <type>
@@ -35,7 +35,7 @@
         <resource value="http://hl7.org/fhir/us/ecr/Library/library-rctc"/>
     </relatedArtifact>
     -->
-    <library value="http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"/>
+    <library value="http://fhir.org/guides/cqf/aphl/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"/>
     <action id="start">
         <description value="This action represents the start of the reporting workflow in response to the encounter-end event"/>
         <textEquivalent value="Start the reporting workflow in response to an encounter-end event"/>
@@ -129,7 +129,7 @@
             <actionId value="report-ds"/>
             <relationship value="before-start"/>
         </relatedAction>
-        <definitionCanonical value = "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"/>
+        <definitionCanonical value = "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"/>
     </action>
     <action id="report-ds">
         <description value="This action represents the reporting of the Chronic Disease Surveillance event."/>

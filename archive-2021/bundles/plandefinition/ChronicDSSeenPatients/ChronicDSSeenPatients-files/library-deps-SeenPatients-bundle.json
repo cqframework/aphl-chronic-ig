@@ -16,7 +16,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4",
       "version": "1.0.000",
       "name": "SurveillanceDataElementsFHIR4",
       "status": "active",
@@ -37,15 +37,15 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system Jurisdictions",
@@ -154,7 +154,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
       "version": "6.0.000",
       "name": "MATGlobalCommonFunctionsFHIR4",
       "status": "active",
@@ -175,7 +175,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Code system ConditionClinicalStatusCodes",
@@ -316,7 +316,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4",
       "version": "2.0.000",
       "name": "SupplementalDataElementsFHIR4",
       "status": "active",
@@ -337,7 +337,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Value set Ethnicity",
@@ -428,7 +428,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers",
       "version": "4.0.001",
       "name": "FHIRHelpers",
       "status": "active",

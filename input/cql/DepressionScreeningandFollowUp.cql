@@ -24,8 +24,8 @@ valueset "Physical Therapy Evaluation": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.
 valueset "Telephone Visits": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1080'
 valueset "Bipolar Disorder": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.67.1.101.1.128'
 valueset "Medical Reason": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007'
-valueset "Adult Depression Screening Assessment": 'http://hl7.org/fhir/us/chronic-ds/ValueSet/adult-depression-screening-assessment'
-valueset "Adolescent Depression Screening Assessment": 'http://hl7.org/fhir/us/chronic-ds/ValueSet/adolescent-depression-screening-assessment'
+valueset "Adult Depression Screening Assessment": 'http://fhir.org/guides/cqf/aphl/chronic-ds/ValueSet/adult-depression-screening-assessment'
+valueset "Adolescent Depression Screening Assessment": 'http://fhir.org/guides/cqf/aphl/chronic-ds/ValueSet/adolescent-depression-screening-assessment'
 
 //adolescent
 valueset "Adolescent Depression Medications": 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1567'

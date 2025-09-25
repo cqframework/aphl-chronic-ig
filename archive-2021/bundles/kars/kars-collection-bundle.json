@@ -16,7 +16,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4",
       "version": "2.0.000",
       "name": "AdultOutpatientEncountersFHIR4",
       "status": "active",
@@ -37,7 +37,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Value set Annual Wellness Visit",
@@ -151,7 +151,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4",
       "version": "5.12.000",
       "name": "AdvancedIllnessandFrailtyExclusionECQMFHIR4",
       "status": "active",
@@ -172,11 +172,11 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library Global",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system LOINC",
@@ -428,7 +428,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/ControllingBloodPressureFHIR",
       "version": "9.0.000",
       "name": "ControllingBloodPressureFHIR",
       "status": "active",
@@ -446,31 +446,31 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FrailtyLTI",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
       }, {
         "type": "depends-on",
         "display": "Library Hospice",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/HospiceFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library SurveillanceDataElements",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system LOINC",
@@ -1105,7 +1105,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
       "version": "0.0.001",
       "name": "DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
       "status": "active",
@@ -1126,31 +1126,31 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Global",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Hospice",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/HospiceFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Frailty",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
       }, {
         "type": "depends-on",
         "display": "Library SurveillanceDataElements",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system LOINC",
@@ -1632,7 +1632,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers",
       "version": "4.0.001",
       "name": "FHIRHelpers",
       "status": "active",
@@ -1680,7 +1680,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/HospiceFHIR4",
       "version": "2.0.000",
       "name": "HospiceFHIR4",
       "status": "active",
@@ -1701,11 +1701,11 @@
       }, {
         "type": "depends-on",
         "display": "Library Global",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Code system SNOMEDCT:2017-09",
@@ -1795,7 +1795,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
       "version": "6.0.000",
       "name": "MATGlobalCommonFunctionsFHIR4",
       "status": "active",
@@ -1816,7 +1816,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Code system ConditionClinicalStatusCodes",
@@ -1953,7 +1953,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatients",
       "version": "0.1.0",
       "name": "SeenPatients",
       "title": "Seen Patients",
@@ -1972,19 +1972,19 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library SurveillanceDataElements",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system ISO-8601-Derived Periods",
@@ -2109,7 +2109,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4",
       "version": "2.0.000",
       "name": "SupplementalDataElementsFHIR4",
       "status": "active",
@@ -2130,7 +2130,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Value set Ethnicity",
@@ -2221,7 +2221,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4",
       "version": "1.0.000",
       "name": "SurveillanceDataElementsFHIR4",
       "status": "active",
@@ -2242,15 +2242,15 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system Jurisdictions",
@@ -2927,7 +2927,7 @@
           "display": "Discharge to healthcare facility for hospice care (procedure)"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingBloodPressureFHIR",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/ControllingBloodPressureFHIR",
       "version": "9.0.000",
       "name": "ControllingBloodPressureFHIR",
       "title": "Controlling Blood Pressure",
@@ -2974,31 +2974,31 @@
       "relatedArtifact": [ {
         "type": "depends-on",
         "display": "Library SurveillanceDataElements",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Hospice",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/HospiceFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FrailtyLTI",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
       }, {
         "type": "depends-on",
         "display": "Code system LOINC",
@@ -3136,7 +3136,7 @@
         "display": "Value set Dementia Medications",
         "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.196.12.1510"
       } ],
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
+      "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/ControllingBloodPressureFHIR" ],
       "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
       "scoring": {
         "coding": [ {
@@ -3932,7 +3932,7 @@
           "display": "Discharge to healthcare facility for hospice care (procedure)"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR",
       "identifier": [ {
         "use": "official",
         "system": "http://hl7.org/fhir/cqi/ecqm/Measure/Identifier/guid",
@@ -3965,31 +3965,31 @@
       "relatedArtifact": [ {
         "type": "depends-on",
         "display": "Library SurveillanceDataElements",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Global",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Hospice",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/HospiceFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Frailty",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000"
       }, {
         "type": "depends-on",
         "display": "Code system ConditionClinicalStatusCodes",
@@ -4099,7 +4099,7 @@
         "display": "Value set Nursing Facility Visit",
         "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1012"
       } ],
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
+      "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
       "disclaimer": "The performance Measure is not a clinical guideline and does not establish a standard of medical care, and has not been tested for all potential applications. THE MEASURE AND SPECIFICATIONS ARE PROVIDED \"AS IS\" WITHOUT WARRANTY OF ANY KIND.\n \nDue to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
       "scoring": {
         "coding": [ {
@@ -4646,7 +4646,7 @@
           "display": "Food insecurity risk [HVS]"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/SeenPatients",
       "version": "0.1.0",
       "name": "SeenPatients",
       "title": "Seen Patients",
@@ -4665,19 +4665,19 @@
       "relatedArtifact": [ {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library SurveillanceDataElements",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system ISO-8601-Derived Periods",
@@ -4691,7 +4691,7 @@
         "display": "Value set Payer",
         "resource": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
       } ],
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients" ],
+      "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatients" ],
       "scoring": {
         "coding": [ {
           "system": "http://hl7.org/fhir/measure-scoring",
@@ -4977,7 +4977,7 @@
     "resource": {
       "resourceType": "PlanDefinition",
       "id": "ChronicDSControllingBloodPressure",
-      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSControllingBloodPressure",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/ChronicDSControllingBloodPressure",
       "name": "ChronicDSControllingBloodPressure",
       "title": "Chronic Disease Surveillance Reporting Specification for Controlling Blood Pressure",
       "type": {
@@ -5003,7 +5003,7 @@
       "effectivePeriod": {
         "start": "2021-06-01"
       },
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/ControllingBloodPressureFHIR" ],
+      "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/ControllingBloodPressureFHIR" ],
       "_library": [ {
         "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
@@ -5111,7 +5111,7 @@
           "actionId": "report-ds",
           "relationship": "before-start"
         } ],
-        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/ControllingBloodPressureFHIR"
+        "definitionCanonical": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/ControllingBloodPressureFHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
@@ -5228,7 +5228,7 @@
     "resource": {
       "resourceType": "PlanDefinition",
       "id": "ChronicDSDiabetesPoorControl",
-      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSDiabetesPoorControl",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/ChronicDSDiabetesPoorControl",
       "name": "ChronicDSDiabetesPoorControl",
       "title": "Chronic Disease Surveillance Reporting Specification for Diabetes Hemoglobin A1c Poor Control",
       "type": {
@@ -5254,7 +5254,7 @@
       "effectivePeriod": {
         "start": "2021-06-01"
       },
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
+      "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR" ],
       "_library": [ {
         "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
@@ -5362,7 +5362,7 @@
           "actionId": "report-ds",
           "relationship": "before-start"
         } ],
-        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
+        "definitionCanonical": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
@@ -5479,7 +5479,7 @@
     "resource": {
       "resourceType": "PlanDefinition",
       "id": "ChronicDSSeenPatients",
-      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSSeenPatients",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/ChronicDSSeenPatients",
       "name": "ChronicDSSeenPatients",
       "title": "Chronic Disease Surveillance Reporting Specification for Seen Patients Cohort",
       "type": {
@@ -5505,7 +5505,7 @@
       "effectivePeriod": {
         "start": "2021-06-01"
       },
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients" ],
+      "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatients" ],
       "_library": [ {
         "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
@@ -5573,7 +5573,7 @@
           "actionId": "report-ds",
           "relationship": "before-start"
         } ],
-        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+        "definitionCanonical": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/SeenPatients"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",

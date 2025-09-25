@@ -11,7 +11,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/HospiceFHIR4",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/HospiceFHIR4",
   "version": "2.0.000",
   "name": "HospiceFHIR4",
   "status": "active",
@@ -32,11 +32,11 @@
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Code system SNOMEDCT:2017-09",

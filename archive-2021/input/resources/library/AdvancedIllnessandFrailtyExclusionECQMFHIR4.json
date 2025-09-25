@@ -11,7 +11,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4",
   "version": "5.12.000",
   "name": "AdvancedIllnessandFrailtyExclusionECQMFHIR4",
   "status": "active",
@@ -32,11 +32,11 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Library Global",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system LOINC",

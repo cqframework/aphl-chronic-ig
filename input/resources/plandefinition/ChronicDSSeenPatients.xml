@@ -2,7 +2,7 @@
 <PlanDefinition
     xmlns="http://hl7.org/fhir">
     <id value="ChronicDSSeenPatients"/>
-    <url value="http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSSeenPatients"/>
+    <url value="http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/ChronicDSSeenPatients"/>
     <name value="ChronicDSSeenPatients"/>
     <title value="Chronic Disease Surveillance Reporting Specification for Seen Patients Cohort"/>
     <type>
@@ -35,7 +35,7 @@
         <resource value="http://hl7.org/fhir/us/ecr/Library/library-rctc"/>
     </relatedArtifact>
     -->
-    <library value="http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients"/>
+    <library value="http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatients"/>
     <action id="start">
         <description value="This action represents the start of the reporting workflow in response to the encounter-end event"/>
         <textEquivalent value="Start the reporting workflow in response to an encounter-end event"/>
@@ -91,7 +91,7 @@
             <actionId value="report-ds"/>
             <relationship value="before-start"/>
         </relatedAction>
-        <definitionCanonical value = "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"/>
+        <definitionCanonical value = "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/SeenPatients"/>
     </action>
     <action id="report-ds">
         <description value="This action represents the reporting of the Chronic Disease Surveillance event."/>
