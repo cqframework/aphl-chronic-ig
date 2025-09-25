@@ -1,0 +1,38 @@
+{
+  "http://hl7.org/fhir/MeasureReport" : null,
+  "http://terminology.hl7.org/CodeSystem/request-intent" : null,
+  "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" : null,
+  "http://ohie.org/CodeSystem/iso-8601-derived-periods" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1135" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-0d7bc3c4-e257-450c-af9e-f09d0d6248a8.json"
+  },
+  "http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/computable-measure-cqfm" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1003" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-dd02cdfe-52ea-4317-9798-36e9648d032a.json"
+  },
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.1.000" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1006" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-7d4b4691-d11e-4919-986c-e18aec941726.json"
+  },
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1165" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-1e2175fe-a79b-47cc-bb3c-ae9abd0e5bb4.json"
+  },
+  "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1167" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-2828d7c0-5955-4796-ab39-f630d4074b49.json"
+  },
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1090" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-d50c7fb1-b8f7-48d0-a156-ee6c173b2d2b.json"
+  },
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1089" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "vs-4020fe2a-a95b-435c-b391-7410586c628a.json"
+  },
+  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation" : null
+}
