@@ -11,7 +11,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers",
   "version": "4.0.001",
   "name": "FHIRHelpers",
   "status": "active",

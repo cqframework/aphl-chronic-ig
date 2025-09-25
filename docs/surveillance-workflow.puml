@@ -1,0 +1,43 @@
+@startuml Surveillance_Workflow
+
+title Surveillance Scenario
+
+actor "Patient"
+participant "EHR" as EHR
+box Backend App
+participant "eCR Now" as ECR
+'note over ECR, ECR: These are with the same application.\nThe modules are broken out for conceptual clarity.
+participant "Measure Evaluation" as MR
+end box
+participant "Surveillance Repository" as SR
+
+
+== Application Init ==
+'note over ECR, KAR: This is a hypothetical download of the Bundle.\nIt could be a push, e-mail, preloaded, etc.\nThe important part is that eCR has\naccess to Bundle with the Blood Pressure\nMeasure and supporting artifacts.
+ECR -> ECR: load surveillance distribution\ninitialize triggers
+'ECR -> ECR: save Bundle
+'ECR -> ECR: get Measure(s) from Bundle
+note over ECR,EHR: The "Trigger" is the narrowest\ndata requirement for a given Measure\nwhich captures all potentially reportable\nEncounters and is supported by the EHRs'\nnotification system.
+'ECR -> ECR: get data-requirements for Measure "Trigger"
+'note over ECR, ECR: for Blood Pressure this is Condition: Essential Hypertension\n\nThere are several other data elements in the "Initial Population"\nand we're still working through how to know to select the Condition\nfor triggering out of the set.
+'ECR -> EHR: register triggers
+
+== Encounter ==
+Patient -> EHR: visits hospital
+note over ECR,EHR: "triggering" criteria
+EHR -> ECR: Encounter notification
+ECR -> ECR: check triggers
+ECR -> ECR: get data-requirements for evaluation
+note over ECR,MR: Evaluation data requirements
+ECR -> EHR: query data based on data-requirements
+EHR --> ECR: return data
+note over ECR,MR: Measure evaluation applies CQL rules which subset the "triggered" set of\nEncounters to the "Initial Population" as specfied by the Measure and then\ncalculates a score for that subset.
+ECR -> ECR: evaluate Measure
+group if [patient in Initial Population]
+note over ECR,MR: eICR + MeasureReport bundle (eCSR) includes line-list data + measure report
+ECR -> ECR: generate eCSR
+ECR -> SR: submit MeasureReport
+SR --> ECR: return acknowledgement
+end group
+
+@enduml

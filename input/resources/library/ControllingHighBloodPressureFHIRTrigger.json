@@ -59,7 +59,7 @@
       "reference": "#options"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/ControllingHighBloodPressureFHIRTrigger",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/ControllingHighBloodPressureFHIRTrigger",
   "version": "0.1.0",
   "name": "ControllingHighBloodPressureFHIRTrigger",
   "type": {
@@ -75,7 +75,7 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.1.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.1.000"
   }, {
     "type": "depends-on",
     "display": "Value set EssentialHypertension",

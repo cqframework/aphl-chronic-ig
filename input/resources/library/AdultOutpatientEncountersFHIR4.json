@@ -63,7 +63,7 @@
       "reference": "#options"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4",
   "version": "2.0.000",
   "name": "AdultOutpatientEncountersFHIR4",
   "status": "active",
@@ -84,11 +84,11 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.1.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.1.000"
   }, {
     "type": "depends-on",
     "display": "Library FC",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRCommon|1.1.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRCommon|1.1.000"
   }, {
     "type": "depends-on",
     "display": "Code system HCPCS",

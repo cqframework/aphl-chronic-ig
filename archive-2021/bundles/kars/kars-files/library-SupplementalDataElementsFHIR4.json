@@ -11,7 +11,7 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4",
   "version": "2.0.000",
   "name": "SupplementalDataElementsFHIR4",
   "status": "active",
@@ -32,7 +32,7 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Value set Ethnicity",

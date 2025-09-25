@@ -7,7 +7,7 @@
       "reference": "Device/cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatientsTrigger",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatientsTrigger",
   "version": "0.1.0",
   "name": "SeenPatientsTrigger",
   "relatedArtifact": [ {
@@ -17,7 +17,7 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
   } ],
   "parameter": [ {
     "name": "Measurement Period",

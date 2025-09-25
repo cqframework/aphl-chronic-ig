@@ -87,27 +87,27 @@
     "relatedArtifact": [ {
       "type": "depends-on",
       "display": "Library SurveillanceDataElements",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+      "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
     }, {
       "type": "depends-on",
       "display": "Library FHIRHelpers",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.1.000"
+      "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.1.000"
     }, {
       "type": "depends-on",
       "display": "Library SDE",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+      "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
     }, {
       "type": "depends-on",
       "display": "Library AC",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AlphoraCommon"
+      "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AlphoraCommon"
     }, {
       "type": "depends-on",
       "display": "Library FC",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRCommon|1.1.000"
+      "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRCommon|1.1.000"
     }, {
       "type": "depends-on",
       "display": "Library Common",
-      "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+      "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
     }, {
       "type": "depends-on",
       "display": "Code system LOINC",
@@ -409,7 +409,7 @@
       "reference": "#effective-data-requirements"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Measure/DepressionScreeningandFollowUp",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/DepressionScreeningandFollowUp",
   "identifier": [ {
     "use": "usual",
     "system": "short-name",
@@ -443,7 +443,7 @@
     "start": "2024-01-01",
     "end": "2024-12-31"
   },
-  "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/DepressionScreeningandFollowUp" ],
+  "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/DepressionScreeningandFollowUp" ],
   "disclaimer": "These performance measures are not clinical guidelines and do not establish a standard of medical care, and have not been tested for all potential applications. THE MEASURES AND SPECIFICATIONS ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND. Due to technical limitations, registered trademarks are indicated by (R) or [R] and unregistered trademarks are indicated by (TM) or [TM].",
   "scoring": {
     "coding": [ {

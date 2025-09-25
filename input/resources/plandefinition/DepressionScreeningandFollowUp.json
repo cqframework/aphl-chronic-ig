@@ -1,7 +1,7 @@
 {
     "resourceType": "PlanDefinition",
     "id": "DepressionScreeningandFollowUp",
-    "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/DepressionScreeningandFollowUp",
+    "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/DepressionScreeningandFollowUp",
     "name": "DepressionScreeningandFollowUp",
     "title": "Preventive Care and Screening: Screening for Depression and Follow-Up Plan",
     "date": "2024-06-01",
@@ -35,7 +35,7 @@
       "start": "2024-01-01"
     },
     "library": [
-      "http://hl7.org/fhir/us/chronic-ds/Library/DepressionScreeningandFollowUp"
+      "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/DepressionScreeningandFollowUp"
     ],
     "action": [
       {
@@ -238,7 +238,7 @@
             "relationship": "before-start"
           }
         ],
-        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DepressionScreeningandFollowUp"
+        "definitionCanonical": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/DepressionScreeningandFollowUp"
       },
       {
         "id": "report-ds",

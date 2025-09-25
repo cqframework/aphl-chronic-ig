@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../input-cache/schemas/R5/fhir-single.xsd">
   <id value="hl7.fhir.us.chronic-ds"/>
-  <url value="http://hl7.org/fhir/us/chronic-ds/ImplementationGuide/hl7.fhir.us.chronic-ds"/>
+  <url value="http://fhir.org/guides/cqf/aphl/chronic-ds/ImplementationGuide/hl7.fhir.us.chronic-ds"/>
   <version value="0.1.0"/>
   <name value="ChronicDiseaseSurveillance"/>
   <title value="Chronic Disease Surveillance"/>

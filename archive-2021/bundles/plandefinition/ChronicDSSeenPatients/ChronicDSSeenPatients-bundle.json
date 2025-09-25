@@ -1232,7 +1232,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4",
       "version": "2.0.000",
       "name": "AdultOutpatientEncountersFHIR4",
       "status": "active",
@@ -1253,7 +1253,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Value set Annual Wellness Visit",
@@ -1408,7 +1408,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4",
       "version": "6.0.000",
       "name": "MATGlobalCommonFunctionsFHIR4",
       "status": "active",
@@ -1429,7 +1429,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Code system ConditionClinicalStatusCodes",
@@ -1687,7 +1687,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4",
       "version": "2.0.000",
       "name": "SupplementalDataElementsFHIR4",
       "status": "active",
@@ -1708,7 +1708,7 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Value set Ethnicity",
@@ -1854,7 +1854,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers",
       "version": "4.0.001",
       "name": "FHIRHelpers",
       "status": "active",
@@ -2171,7 +2171,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4",
       "version": "1.0.000",
       "name": "SurveillanceDataElementsFHIR4",
       "status": "active",
@@ -2192,15 +2192,15 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Library AdultOutpatientEncounters",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system Jurisdictions",
@@ -2299,7 +2299,7 @@
     "resource": {
       "resourceType": "PlanDefinition",
       "id": "ChronicDSSeenPatients",
-      "url": "http://hl7.org/fhir/us/chronic-ds/PlanDefinition/ChronicDSSeenPatients",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/PlanDefinition/ChronicDSSeenPatients",
       "name": "ChronicDSSeenPatients",
       "title": "Chronic Disease Surveillance Reporting Specification for Seen Patients Cohort",
       "type": {
@@ -2325,7 +2325,7 @@
       "effectivePeriod": {
         "start": "2021-06-01"
       },
-      "library": [ "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients" ],
+      "library": [ "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatients" ],
       "_library": [ {
         "fhir_comments": [ " TODO: Update this to the value sets required by the measures used\n    <relatedArtifact>\n        <type value=\"depends-on\"/>\n        <label value=\"RCTC Value Set Library of Trigger Codes\"/>\n        <resource value=\"http://hl7.org/fhir/us/ecr/Library/library-rctc\"/>\n    </relatedArtifact>\n    " ]
       } ],
@@ -2393,7 +2393,7 @@
           "actionId": "report-ds",
           "relationship": "before-start"
         } ],
-        "definitionCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+        "definitionCanonical": "http://fhir.org/guides/cqf/aphl/chronic-ds/Measure/SeenPatients"
       }, {
         "id": "report-ds",
         "description": "This action represents the reporting of the Chronic Disease Surveillance event.",
@@ -2796,7 +2796,7 @@
           "reference": "Device/cqf-tooling"
         }
       } ],
-      "url": "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients",
+      "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatients",
       "version": "0.1.0",
       "name": "SeenPatients",
       "title": "Seen Patients",
@@ -2815,19 +2815,19 @@
       }, {
         "type": "depends-on",
         "display": "Library FHIRHelpers",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
       }, {
         "type": "depends-on",
         "display": "Library SDE",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
       }, {
         "type": "depends-on",
         "display": "Library SurveillanceDataElements",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
       }, {
         "type": "depends-on",
         "display": "Library Common",
-        "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+        "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
       }, {
         "type": "depends-on",
         "display": "Code system ISO-8601-Derived Periods",

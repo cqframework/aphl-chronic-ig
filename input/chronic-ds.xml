@@ -72,27 +72,22 @@
       <page>
         <nameUrl value="index.html"/>
         <title value="Chronic Disease Surveillance Home Page"/>
-        <generation value="html"/>
+        <generation value="markdown"/>
       </page>
       <page>
         <nameUrl value="background.html"/>
         <title value="Background"/>
-        <generation value="html"/>
+        <generation value="markdown"/>
       </page>
       <page>
-        <nameUrl value="spec.html"/>
-        <title value="Detailed Specification"/>
+        <nameUrl value="specification.html"/>
+        <title value="Specification"/>
         <generation value="markdown"/>
           <page>
           <nameUrl value="line-list.html" />
           <title value="Line List Data" />
           <generation value="markdown" />
         </page>
-      </page>
-      <page>
-        <nameUrl value="downloads.html"/>
-        <title value="Useful Downloads"/>
-        <generation value="html"/>
       </page>
       <page>
         <nameUrl value="license.html"/>
@@ -102,7 +97,7 @@
       <page>
         <nameUrl value="changes.html"/>
         <title value="IG Change History"/>
-        <generation value="html"/>
+        <generation value="markdown"/>
       </page>
     </page>
     <!-- copyright year is a mandatory parameter -->

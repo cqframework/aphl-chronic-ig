@@ -7,7 +7,7 @@
       "reference": "cqf-tooling"
     }
   } ],
-  "url": "http://hl7.org/fhir/us/chronic-ds/Library/SeenPatients",
+  "url": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SeenPatients",
   "version": "0.1.0",
   "name": "SeenPatients",
   "title": "Seen Patients",
@@ -26,19 +26,19 @@
   }, {
     "type": "depends-on",
     "display": "Library FHIRHelpers",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/FHIRHelpers|4.0.001"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.0.001"
   }, {
     "type": "depends-on",
     "display": "Library SDE",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000"
   }, {
     "type": "depends-on",
     "display": "Library SurveillanceDataElements",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000"
   }, {
     "type": "depends-on",
     "display": "Library Common",
-    "resource": "http://hl7.org/fhir/us/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
+    "resource": "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000"
   }, {
     "type": "depends-on",
     "display": "Code system ISO-8601-Derived Periods",
