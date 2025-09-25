@@ -5,11 +5,11 @@ The proposed scenario will demonstrate the evaluation of Clinical Quality Measur
 
 The scenario will have two EHR stand-ins (EHR), a stand-in for a central surveillance repository (PHA), and a web-app that allows the searching and viewing of the reported content (Viewer). Each of the EHRs will play the roles of EHR, Reporting Services application, and Trust Services application based on existing open source technology, providing the ability to evaluate CQL, as well as coordinate data submission and the use of trust services. Each EHR stand-in will be loaded with the necessary content (CQL, FHIR ValueSets, etc.) to evaluate the CMS Diabetes (CMS-122) and Blood Pressure (CMS-165) Measures, including sample populations such that the evaluation of those Measures gives a representative result as a FHIR MeasureReport. The Measures will be evaluated on each EHR, and the results of that evaluation will be sent to the PHA. The PHA will expose FHIR-base APIs for searching and reading MeasureReports. The Viewer application with be able to access the PHA's FHIR APIs, and a User will be able to view the collected data within the Viewer application. A high-level diagram of this scenario is below:
 
-![Context Diagram](context.png)
+{% include img.html img="context.png" caption="Context Diagram" %}
 
 The approximate sequence of events for the scenario is as follows:
 
-![Sequence Diagram](Surveillance_Workflow.png)
+{% include img.html img="Surveillance_Workflow.png" caption="Sequence Diagram" %}
 
 ## Architecture
 
@@ -68,13 +68,15 @@ To demonstrate the submission of the MeasureReports to the central PHA was compl
 
 The summary screen will allow the user to select a Measure and Reporting Period, and provide a list of the MeasureReports present. A simple wireframe is below:
 
-![Summary Screen](summary-view.png)
+{% include img.html img="summary-view.png" caption="Summary Screen" %}
+
 
 ## Detail Screen
 
 The user can select a MeasureReport from the list and view additional information about it. A simple wireframe is below:
 
-![Detail Screen](detail.png)
+{% include img.html img="detail.png" caption="Detail Screen" %}
+
 
 ### Security / PHI
 
