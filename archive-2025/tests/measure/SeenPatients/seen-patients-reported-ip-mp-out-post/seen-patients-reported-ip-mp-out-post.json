@@ -1,0 +1,800 @@
+{
+  "resourceType": "Bundle",
+  "id": "3a3a5e64-1e75-458f-9dd3-4528fdbaf578",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2025-02-26T01:47:43.938+00:00",
+    "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" ]
+  },
+  "type": "message",
+  "timestamp": "2025-02-26T01:47:43.938+00:00",
+  "entry": [ {
+    "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/MessageHeader/99061170-cc68-4ec0-88cc-b3735fdccf35",
+    "resource": {
+      "resourceType": "MessageHeader",
+      "id": "99061170-cc68-4ec0-88cc-b3735fdccf35",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2025-02-26T01:47:44.253+00:00",
+        "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-messageheader" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-message-processing-category-extension",
+        "valueString": "notification"
+      } ],
+      "eventCoding": {
+        "system": "http://hl7.org/fhir/us/ecr/CodeSystem/us-ph-message-types-codesystem",
+        "code": "eicr-case-report-message"
+      },
+      "source": {
+        "endpoint": "http://ecr.drajer.com/secure/fhir-r4/fhir"
+      },
+      "reason": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/us/ecr/CodeSystem/us-ph-triggerdefinition-namedevents",
+          "code": "encounter-end"
+        } ]
+      },
+      "focus": [ {
+        "reference": "Bundle/eicr-report-ChronicDSSeenPatients"
+      } ]
+    }
+  }, {
+    "resource": {
+      "resourceType": "Bundle",
+      "id": "eicr-report-ChronicDSSeenPatients",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2025-02-26T01:47:43.939+00:00",
+        "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+      },
+      "identifier": {
+        "system": "urn:ietf:rfc:3986",
+        "value": "d13ce1bd-88de-4131-9c78-903cf90babed"
+      },
+      "type": "document",
+      "timestamp": "2025-02-26T01:47:43.939+00:00",
+      "entry": [ {
+        "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/Composition/12923cd7-ff99-47b1-be24-7ea5e6ec7d2b",
+        "resource": {
+          "resourceType": "Composition",
+          "id": "12923cd7-ff99-47b1-be24-7ea5e6ec7d2b",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-02-26T01:47:44.020+00:00",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-composition" ]
+          },
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber",
+            "valueString": "1"
+          } ],
+          "identifier": {
+            "value": "12923cd7-ff99-47b1-be24-7ea5e6ec7d2b"
+          },
+          "status": "final",
+          "type": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "55751-2",
+              "display": "Public Health Case Report"
+            } ],
+            "text": "Public Health Case Report"
+          },
+          "subject": {
+            "reference": "http://ecr.drajer.com/secure/fhir-r4/fhir/Patient/0d7be3cd-27f1-4056-8f1d-9667bcc6da27"
+          },
+          "encounter": {
+            "reference": "http://ecr.drajer.com/secure/fhir-r4/fhir/Encounter/e927d1b0-817f-44e4-b289-61652386a2d3"
+          },
+          "date": "2025-02-26T01:47:44+00:00",
+          "title": "Public Health Case Report",
+          "section": [ {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "29299-5",
+                "display": "Reason For Visit Narrative"
+              } ],
+              "text": "Reason For Visit Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Reason for Visit Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10154-3",
+                "display": "Chief complaint Narrative"
+              } ],
+              "text": "Chief complaint Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Chief Complaint Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10164-2",
+                "display": "History of Present illness Narrative"
+              } ],
+              "text": "History of Present illness Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10187-3",
+                "display": "Review of Systems narrative"
+              } ],
+              "text": "Review of Systems narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "11450-4",
+                "display": "Problem list - Reported"
+              } ],
+              "text": "Problem list - Reported"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "11348-0",
+                "display": "Past Medical History Narrative"
+              } ],
+              "text": "Past Medical History Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "42346-7",
+                "display": "Medications on admission (narrative)"
+              } ],
+              "text": "Medications on admission (narrative)"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "29549-3",
+                "display": "Medication administered Narrative"
+              } ],
+              "text": "Medication administered Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10160-0",
+                "display": "History of Medication use Narrative"
+              } ],
+              "text": "History of Medication use Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "30954-2",
+                "display": "Relevant diagnostic tests/laboratory data Narrative"
+              } ],
+              "text": "Relevant diagnostic tests/laboratory data Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "18776-5",
+                "display": "Plan of care note"
+              } ],
+              "text": "Plan of care note"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "11369-6",
+                "display": "History of Immunization Narrative"
+              } ],
+              "text": "History of Immunization Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "47519-4",
+                "display": "History of Procedures Document"
+              } ],
+              "text": "History of Procedures Document"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "8716-3",
+                "display": "Vital signs"
+              } ],
+              "text": "Vital signs"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "29762-2",
+                "display": "Social History Narrative"
+              } ],
+              "text": "Social History Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "90767-5",
+                "display": "Pregnancy Section Narrative"
+              } ],
+              "text": "Pregnancy Section Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "83910-0",
+                "display": "Emergency Outbreak Section Narrative"
+              } ],
+              "text": "Emergency Outbreak Section Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          } ]
+        }
+      }, {
+        "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/Encounter/e927d1b0-817f-44e4-b289-61652386a2d3",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "e927d1b0-817f-44e4-b289-61652386a2d3",
+          "status": "finished",
+          "type": [ {
+            "coding": [ {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "99202",
+              "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter."
+            } ]
+          } ],
+          "subject": {
+            "reference": "Patient/0d7be3cd-27f1-4056-8f1d-9667bcc6da27",
+            "display": "Example Patient"
+          },
+          "period": {
+            "start": "2025-12-31T00:00:00+00:00",
+            "end": "2026-01-02T00:00:00.0-06:00"
+          }
+        }
+      }, {
+        "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/Patient/0d7be3cd-27f1-4056-8f1d-9667bcc6da27",
+        "resource": {
+          "resourceType": "Patient",
+          "id": "0d7be3cd-27f1-4056-8f1d-9667bcc6da27",
+          "meta": {
+            "versionId": "1"
+          },
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [ {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2106-3",
+                "display": "White"
+              }
+            } ]
+          }, {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [ {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2135-2",
+                "display": "Hispanic or Latino"
+              }
+            } ]
+          } ],
+          "identifier": [ {
+            "use": "usual",
+            "type": {
+              "coding": [ {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                "code": "MR",
+                "display": "Medical Record Number"
+              } ]
+            },
+            "system": "http://hospital.smarthealthit.org",
+            "value": "8675309"
+          } ],
+          "name": [ {
+            "family": "Adams",
+            "given": [ "Jane" ]
+          } ],
+          "telecom": [ {
+            "system": "phone",
+            "value": "(210)222-1111",
+            "use": "mobile"
+          } ],
+          "gender": "female",
+          "birthDate": "1963-06-13",
+          "address": [ {
+            "use": "home",
+            "type": "physical",
+            "text": "111 Maple Ct, San Antonio, TX 78212",
+            "line": [ "[\"111 Maple Ct\"]" ],
+            "city": "San Antonio",
+            "district": "Bexar",
+            "state": "TX",
+            "postalCode": "78212"
+          } ]
+        }
+      } ]
+    }
+  }, {
+    "resource": {
+      "resourceType": "MeasureReport",
+      "contained": [ {
+        "resourceType": "Observation",
+        "id": "b2504c6a-778d-4b27-88c8-2b12f72e09d6",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "54133-4",
+            "display": "Ethnicity"
+          } ],
+          "text": "sde-ethnicity"
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "2135-2"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "c35fee1e-fa95-4206-9267-63dd1210de87",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "72143-1",
+            "display": "Sex [HL7.v3]"
+          } ],
+          "text": "sde-sex"
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "F"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "4e6c0cc8-5634-49ff-93db-630033d183d7",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "32624-9",
+            "display": "Race"
+          } ],
+          "text": "sde-race"
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "2106-3"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "a8007e83-51e3-4e64-9b0c-d2b60364f5b0",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "30525-0",
+            "display": "Age"
+          } ],
+          "text": "sde-age"
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "62"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "0555f8fa-0900-4288-8015-a89b00e62e72",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "45401-7",
+            "display": "Postal code"
+          } ],
+          "text": "sde-postal-code-of-residence"
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "78212"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "dede246f-0b62-4fa2-92da-9b3f5916e903",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "52830-7",
+            "display": "State, district or territory federal abbreviation"
+          } ],
+          "text": "sde-state-of-residence"
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "TX"
+          } ]
+        }
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+        "valueString": "Seen patients during the measurement period"
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-state-of-residence"
+          } ],
+          "reference": "#dede246f-0b62-4fa2-92da-9b3f5916e903"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-sex"
+          } ],
+          "reference": "#c35fee1e-fa95-4206-9267-63dd1210de87"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-postal-code-of-residence"
+          } ],
+          "reference": "#0555f8fa-0900-4288-8015-a89b00e62e72"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-race"
+          } ],
+          "reference": "#4e6c0cc8-5634-49ff-93db-630033d183d7"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-age"
+          } ],
+          "reference": "#a8007e83-51e3-4e64-9b0c-d2b60364f5b0"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-ethnicity"
+          } ],
+          "reference": "#b2504c6a-778d-4b27-88c8-2b12f72e09d6"
+        }
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "http://hl7.org/fhir/us/chronic-ds/Measure/SeenPatients|0.1.0",
+      "subject": {
+        "reference": "Patient/0d7be3cd-27f1-4056-8f1d-9667bcc6da27"
+      },
+      "date": "2025-02-26T01:46:29+00:00",
+      "period": {
+        "start": "2025-01-01T06:00:00+00:00",
+        "end": "2026-01-01T07:59:00+00:00"
+      },
+      "group": [ {
+        "id": "group-1",
+        "population": [ {
+          "id": "initial-population",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Seen patients"
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 0
+        } ],
+        "stratifier": [ {
+          "id": "stratifier-ethnicity",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Ethnicity (CDC Value Set)"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "54133-4",
+              "display": "Ethnicity"
+            } ],
+            "text": "stratifier-ethnicity"
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "2135-2"
+            },
+            "population": [ {
+              "id": "initial-population",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 0
+            } ]
+          } ]
+        }, {
+          "id": "stratifier-payer",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Payer"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+              "code": "plan",
+              "display": "Plan"
+            } ],
+            "text": "stratifier-payer"
+          } ]
+        }, {
+          "id": "stratifier-race",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Race (CDC Value Set)"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "32624-9",
+              "display": "Race"
+            } ],
+            "text": "stratifier-race"
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "2106-3"
+            },
+            "population": [ {
+              "id": "initial-population",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 0
+            } ]
+          } ]
+        }, {
+          "id": "stratifier-sex",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Administrative sex"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "72143-1",
+              "display": "Sex [HL7.v3]"
+            } ],
+            "text": "stratifier-sex"
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "F"
+            },
+            "population": [ {
+              "id": "initial-population",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 0
+            } ]
+          } ]
+        }, {
+          "id": "stratifier-age-group",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Age Group"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "46251-5",
+              "display": "Age"
+            } ],
+            "text": "stratifier-age-group"
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "P50Y--P9999Y"
+            },
+            "population": [ {
+              "id": "initial-population",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 0
+            } ]
+          } ]
+        }, {
+          "id": "stratifier-food-insecurity-risk-status",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Food insecurity risk status"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "88124-3",
+              "display": "Food insecurity risk [HVS]"
+            } ],
+            "text": "stratifier-food-insecurity-risk-status"
+          } ]
+        } ]
+      } ],
+      "evaluatedResource": [ {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "initial-population"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "sde-ethnicity"
+        } ],
+        "reference": "Patient/0d7be3cd-27f1-4056-8f1d-9667bcc6da27"
+      }, {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "initial-population"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "sde-ethnicity"
+        } ],
+        "reference": "Encounter/e927d1b0-817f-44e4-b289-61652386a2d3"
+      } ]
+    }
+  } ]
+}

@@ -1,0 +1,1092 @@
+{
+  "resourceType": "Bundle",
+  "id": "f1b378c4-25ea-4b85-a93c-dfc00c3f79bb",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2025-02-25T20:47:40.009+00:00",
+    "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle" ]
+  },
+  "type": "message",
+  "timestamp": "2025-02-25T20:47:40.010+00:00",
+  "entry": [ {
+    "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/MessageHeader/28b1d802-7290-4243-a4a5-41394ca77e94",
+    "resource": {
+      "resourceType": "MessageHeader",
+      "id": "28b1d802-7290-4243-a4a5-41394ca77e94",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2025-02-25T20:47:40.247+00:00",
+        "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-messageheader" ]
+      },
+      "extension": [ {
+        "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/us-ph-message-processing-category-extension",
+        "valueString": "notification"
+      } ],
+      "eventCoding": {
+        "system": "http://hl7.org/fhir/us/ecr/CodeSystem/us-ph-message-types-codesystem",
+        "code": "eicr-case-report-message"
+      },
+      "source": {
+        "endpoint": "http://ecr.drajer.com/secure/fhir-r4/fhir"
+      },
+      "reason": {
+        "coding": [ {
+          "system": "http://hl7.org/fhir/us/ecr/CodeSystem/us-ph-triggerdefinition-namedevents",
+          "code": "encounter-end"
+        } ]
+      },
+      "focus": [ {
+        "reference": "Bundle/eicr-report-ChronicDSDiabetesPoorControl"
+      } ]
+    }
+  }, {
+    "resource": {
+      "resourceType": "Bundle",
+      "id": "eicr-report-ChronicDSDiabetesPoorControl",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2025-02-25T20:47:40.010+00:00",
+        "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle" ]
+      },
+      "identifier": {
+        "system": "urn:ietf:rfc:3986",
+        "value": "d47b25de-6da7-4e9d-b122-466f5e89cf7e"
+      },
+      "type": "document",
+      "timestamp": "2025-02-25T20:47:40.010+00:00",
+      "entry": [ {
+        "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/Composition/5953c3d0-6681-4b68-b8b7-794ffbea2714",
+        "resource": {
+          "resourceType": "Composition",
+          "id": "5953c3d0-6681-4b68-b8b7-794ffbea2714",
+          "meta": {
+            "versionId": "1",
+            "lastUpdated": "2025-02-25T20:47:40.086+00:00",
+            "profile": [ "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-composition" ]
+          },
+          "extension": [ {
+            "url": "http://hl7.org/fhir/StructureDefinition/composition-clinicaldocument-versionNumber",
+            "valueString": "1"
+          } ],
+          "identifier": {
+            "value": "5953c3d0-6681-4b68-b8b7-794ffbea2714"
+          },
+          "status": "final",
+          "type": {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "55751-2",
+              "display": "Public Health Case Report"
+            } ],
+            "text": "Public Health Case Report"
+          },
+          "subject": {
+            "reference": "http://ecr.drajer.com/secure/fhir-r4/fhir/Patient/07f446d7-b3a3-4a92-99ee-b94a1361e12f"
+          },
+          "encounter": {
+            "reference": "http://ecr.drajer.com/secure/fhir-r4/fhir/Encounter/420d6007-c286-4b25-9f14-1614aa5b6a73"
+          },
+          "date": "2025-02-25T20:47:40+00:00",
+          "title": "Public Health Case Report",
+          "section": [ {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "29299-5",
+                "display": "Reason For Visit Narrative"
+              } ],
+              "text": "Reason For Visit Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Reason for Visit Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10154-3",
+                "display": "Chief complaint Narrative"
+              } ],
+              "text": "Chief complaint Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Chief Complaint Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10164-2",
+                "display": "History of Present illness Narrative"
+              } ],
+              "text": "History of Present illness Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10187-3",
+                "display": "Review of Systems narrative"
+              } ],
+              "text": "Review of Systems narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "11450-4",
+                "display": "Problem list - Reported"
+              } ],
+              "text": "Problem list - Reported"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Text Elements found in resources to generate narrative</div>"
+            },
+            "entry": [ {
+              "extension": [ {
+                "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-trigger-code-flag-extension",
+                "extension": [ {
+                  "url": "triggerCodeValueSet",
+                  "valueOid": "2.16.840.1.114222.4.11.7508"
+                }, {
+                  "url": "triggerCodeValueSetVersion",
+                  "valueString": "20220924"
+                }, {
+                  "url": "triggerCode",
+                  "valueCoding": {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "E10.10"
+                  }
+                } ]
+              } ],
+              "reference": "http://ecr.drajer.com/secure/fhir-r4/fhir/Condition/5b65877f-7d6a-447a-a6a6-eb41f8958fe6"
+            } ]
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "11348-0",
+                "display": "Past Medical History Narrative"
+              } ],
+              "text": "Past Medical History Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "42346-7",
+                "display": "Medications on admission (narrative)"
+              } ],
+              "text": "Medications on admission (narrative)"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "29549-3",
+                "display": "Medication administered Narrative"
+              } ],
+              "text": "Medication administered Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "10160-0",
+                "display": "History of Medication use Narrative"
+              } ],
+              "text": "History of Medication use Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "30954-2",
+                "display": "Relevant diagnostic tests/laboratory data Narrative"
+              } ],
+              "text": "Relevant diagnostic tests/laboratory data Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "18776-5",
+                "display": "Plan of care note"
+              } ],
+              "text": "Plan of care note"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "11369-6",
+                "display": "History of Immunization Narrative"
+              } ],
+              "text": "History of Immunization Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "47519-4",
+                "display": "History of Procedures Document"
+              } ],
+              "text": "History of Procedures Document"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "8716-3",
+                "display": "Vital signs"
+              } ],
+              "text": "Vital signs"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "29762-2",
+                "display": "Social History Narrative"
+              } ],
+              "text": "Social History Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "90767-5",
+                "display": "Pregnancy Section Narrative"
+              } ],
+              "text": "Pregnancy Section Narrative"
+            }
+          }, {
+            "code": {
+              "coding": [ {
+                "system": "http://loinc.org",
+                "code": "83910-0",
+                "display": "Emergency Outbreak Section Narrative"
+              } ],
+              "text": "Emergency Outbreak Section Narrative"
+            },
+            "text": {
+              "status": "additional",
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">No Narrative Information</div>"
+            }
+          } ]
+        }
+      }, {
+        "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/Patient/07f446d7-b3a3-4a92-99ee-b94a1361e12f",
+        "resource": {
+          "resourceType": "Patient",
+          "id": "07f446d7-b3a3-4a92-99ee-b94a1361e12f",
+          "meta": {
+            "versionId": "1"
+          },
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [ {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2106-3",
+                "display": "White"
+              }
+            } ]
+          }, {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [ {
+              "url": "ombCategory",
+              "valueCoding": {
+                "system": "urn:oid:2.16.840.1.113883.6.238",
+                "code": "2186-5",
+                "display": "Not Hispanic or Latino"
+              }
+            } ]
+          } ],
+          "active": true,
+          "name": [ {
+            "use": "official",
+            "text": "Montana,Hannah",
+            "family": "Montana",
+            "given": [ "Hannah" ]
+          } ],
+          "gender": "female",
+          "birthDate": "2000-11-30"
+        }
+      }, {
+        "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/Encounter/420d6007-c286-4b25-9f14-1614aa5b6a73",
+        "resource": {
+          "resourceType": "Encounter",
+          "id": "420d6007-c286-4b25-9f14-1614aa5b6a73",
+          "status": "finished",
+          "type": [ {
+            "coding": [ {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "99202",
+              "display": "Office or other outpatient visit for the evaluation and management of a new patient, which requires a medically appropriate history and/or examination and straightforward medical decision making. When using time for code selection, 15-29 minutes of total time is spent on the date of the encounter."
+            } ]
+          } ],
+          "subject": {
+            "reference": "Patient/07f446d7-b3a3-4a92-99ee-b94a1361e12f",
+            "display": "Example Patient"
+          },
+          "period": {
+            "start": "2025-01-16T00:00:00+00:00",
+            "end": "2025-01-20T00:00:00+00:00"
+          }
+        }
+      }, {
+        "fullUrl": "http://ecr.drajer.com/secure/fhir-r4/fhir/Condition/5b65877f-7d6a-447a-a6a6-eb41f8958fe6",
+        "resource": {
+          "resourceType": "Condition",
+          "id": "5b65877f-7d6a-447a-a6a6-eb41f8958fe6",
+          "meta": {
+            "versionId": "5"
+          },
+          "clinicalStatus": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            } ]
+          },
+          "verificationStatus": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "confirmed"
+            } ]
+          },
+          "severity": {
+            "coding": [ {
+              "system": "http://snomed.info/sct",
+              "code": "6736007",
+              "display": "Moderate"
+            } ]
+          },
+          "code": {
+            "coding": [ {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E10.10",
+              "display": "Type 1 diabetes mellitus with ketoacidosis without coma"
+            } ]
+          },
+          "subject": {
+            "reference": "Patient/07f446d7-b3a3-4a92-99ee-b94a1361e12f"
+          },
+          "encounter": {
+            "reference": "Encounter/420d6007-c286-4b25-9f14-1614aa5b6a73"
+          },
+          "onsetPeriod": {
+            "start": "2009-01-16T00:00:00+00:00"
+          }
+        }
+      } ]
+    }
+  }, {
+    "resource": {
+      "resourceType": "MeasureReport",
+      "contained": [ {
+        "resourceType": "Observation",
+        "id": "e60a2619-5342-4892-89de-b054fa6af361",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "72143-1",
+            "display": "Sex [HL7.v3]"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "F"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "71713a8c-d3fa-4be8-8053-380b7a3f6133",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "32624-9",
+            "display": "SDE Race"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "2106-3"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "73733ba4-1073-4937-94bd-e7015ce96ca3",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "54133-4",
+            "display": "Ethnicity"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "2186-5"
+          } ]
+        }
+      }, {
+        "resourceType": "Observation",
+        "id": "b7c568f0-68bc-42af-8b20-c58367117b8d",
+        "extension": [ {
+          "url": "http://hl7.org/fhir/StructureDefinition/cqf-measureInfo",
+          "extension": [ {
+            "url": "measure",
+            "valueCanonical": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR"
+          } ]
+        } ],
+        "status": "final",
+        "code": {
+          "coding": [ {
+            "system": "http://terminology.hl7.org/CodeSystem/measure-data-usage",
+            "code": "supplemental-data"
+          }, {
+            "system": "http://loinc.org",
+            "code": "30525-0",
+            "display": "Age"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "code": "25"
+          } ]
+        }
+      } ],
+      "extension": [ {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+        "valueString": "Percentage of patients 18-75 years of age with diabetes who had hemoglobin A1c > 9.0% during the measurement period"
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-age"
+          } ],
+          "reference": "#b7c568f0-68bc-42af-8b20-c58367117b8d"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-ethnicity"
+          } ],
+          "reference": "#73733ba4-1073-4937-94bd-e7015ce96ca3"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-sex"
+          } ],
+          "reference": "#e60a2619-5342-4892-89de-b054fa6af361"
+        }
+      }, {
+        "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference",
+        "valueReference": {
+          "extension": [ {
+            "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+            "valueString": "sde-race"
+          } ],
+          "reference": "#71713a8c-d3fa-4be8-8053-380b7a3f6133"
+        }
+      } ],
+      "status": "complete",
+      "type": "individual",
+      "measure": "http://hl7.org/fhir/us/chronic-ds/Measure/DiabetesHemoglobinA1cHbA1cPoorControl9FHIR|0.0.002",
+      "subject": {
+        "reference": "Patient/07f446d7-b3a3-4a92-99ee-b94a1361e12f"
+      },
+      "date": "2025-02-25T20:46:45+00:00",
+      "period": {
+        "start": "2024-01-01T06:00:00+00:00",
+        "end": "2026-01-01T07:59:00+00:00"
+      },
+      "improvementNotation": {
+        "coding": [ {
+          "system": "http://terminology.hl7.org/CodeSystem/measure-improvement-notation",
+          "code": "decrease",
+          "display": "Lower score indicates better quality"
+        } ]
+      },
+      "group": [ {
+        "population": [ {
+          "id": "F09F8D18-F787-46EA-8791-3D3EF50A4C72",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "initial-population",
+              "display": "Initial Population"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "66505C6C-AAB0-4232-B0CA-15FB438090F4",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator",
+              "display": "Denominator"
+            } ]
+          },
+          "count": 1
+        }, {
+          "id": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Patients whose most recent HbA1c > 9%"
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "numerator",
+              "display": "Numerator"
+            } ]
+          },
+          "count": 0
+        }, {
+          "id": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Patients in hospice or long term care, or with advanced illness or frailty"
+          } ],
+          "code": {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+              "code": "denominator-exclusion",
+              "display": "Denominator Exclusions"
+            } ]
+          },
+          "count": 0
+        } ],
+        "measureScore": {
+          "value": 1.0
+        },
+        "stratifier": [ {
+          "id": "stratifier-ethnicity",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Ethnicity (CDC Value Set)"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "54133-4",
+              "display": "Ethnicity"
+            } ]
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "2186-5"
+            },
+            "population": [ {
+              "id": "F09F8D18-F787-46EA-8791-3D3EF50A4C72",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "66505C6C-AAB0-4232-B0CA-15FB438090F4",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator",
+                  "display": "Denominator"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients whose most recent HbA1c > 9%"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "numerator",
+                  "display": "Numerator"
+                } ]
+              },
+              "count": 0
+            }, {
+              "id": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients in hospice or long term care, or with advanced illness or frailty"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator-exclusion",
+                  "display": "Denominator Exclusions"
+                } ]
+              },
+              "count": 0
+            } ],
+            "measureScore": {
+              "value": 0.0
+            }
+          } ]
+        }, {
+          "id": "stratifier-payer",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Payer"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+              "code": "plan",
+              "display": "SDE Payer"
+            } ]
+          } ]
+        }, {
+          "id": "stratifier-race",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Race (CDC Value Set)"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "32624-9",
+              "display": "SDE Race"
+            } ]
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "2106-3"
+            },
+            "population": [ {
+              "id": "F09F8D18-F787-46EA-8791-3D3EF50A4C72",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "66505C6C-AAB0-4232-B0CA-15FB438090F4",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator",
+                  "display": "Denominator"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients whose most recent HbA1c > 9%"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "numerator",
+                  "display": "Numerator"
+                } ]
+              },
+              "count": 0
+            }, {
+              "id": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients in hospice or long term care, or with advanced illness or frailty"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator-exclusion",
+                  "display": "Denominator Exclusions"
+                } ]
+              },
+              "count": 0
+            } ],
+            "measureScore": {
+              "value": 0.0
+            }
+          } ]
+        }, {
+          "id": "stratifier-sex",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Administrative sex"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "72143-1",
+              "display": "Sex [HL7.v3]"
+            } ]
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "F"
+            },
+            "population": [ {
+              "id": "F09F8D18-F787-46EA-8791-3D3EF50A4C72",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "66505C6C-AAB0-4232-B0CA-15FB438090F4",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator",
+                  "display": "Denominator"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients whose most recent HbA1c > 9%"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "numerator",
+                  "display": "Numerator"
+                } ]
+              },
+              "count": 0
+            }, {
+              "id": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients in hospice or long term care, or with advanced illness or frailty"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator-exclusion",
+                  "display": "Denominator Exclusions"
+                } ]
+              },
+              "count": 0
+            } ],
+            "measureScore": {
+              "value": 0.0
+            }
+          } ]
+        }, {
+          "id": "stratifier-age-group",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Age Group"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "46251-5",
+              "display": "Age Group"
+            } ]
+          } ],
+          "stratum": [ {
+            "value": {
+              "text": "P20Y--P24Y"
+            },
+            "population": [ {
+              "id": "F09F8D18-F787-46EA-8791-3D3EF50A4C72",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "initial-population",
+                  "display": "Initial Population"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "66505C6C-AAB0-4232-B0CA-15FB438090F4",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Seen patients between 18 and 75 years of age with an active diabetes diagnosis"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator",
+                  "display": "Denominator"
+                } ]
+              },
+              "count": 1
+            }, {
+              "id": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients whose most recent HbA1c > 9%"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "numerator",
+                  "display": "Numerator"
+                } ]
+              },
+              "count": 0
+            }, {
+              "id": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F",
+              "extension": [ {
+                "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+                "valueString": "Patients in hospice or long term care, or with advanced illness or frailty"
+              } ],
+              "code": {
+                "coding": [ {
+                  "system": "http://terminology.hl7.org/CodeSystem/measure-population",
+                  "code": "denominator-exclusion",
+                  "display": "Denominator Exclusions"
+                } ]
+              },
+              "count": 0
+            } ],
+            "measureScore": {
+              "value": 0.0
+            }
+          } ]
+        }, {
+          "id": "stratifier-state-of-residence",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "State of residence"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "52830-7",
+              "display": "State, district or territory federal abbreviation"
+            } ]
+          } ]
+        }, {
+          "id": "stratifier-postal-code-of-residence",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Postal code of residence"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "45401-7",
+              "display": "Postal code"
+            } ]
+          } ]
+        }, {
+          "id": "stratifier-food-insecurity-risk-status",
+          "extension": [ {
+            "url": "http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.population.description",
+            "valueString": "Food insecurity risk status"
+          } ],
+          "code": [ {
+            "coding": [ {
+              "system": "http://loinc.org",
+              "code": "88124-3",
+              "display": "Food insecurity risk [HVS]"
+            } ]
+          } ]
+        } ]
+      } ],
+      "evaluatedResource": [ {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "F09F8D18-F787-46EA-8791-3D3EF50A4C72"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "66505C6C-AAB0-4232-B0CA-15FB438090F4"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "sde-ethnicity"
+        } ],
+        "reference": "Encounter/420d6007-c286-4b25-9f14-1614aa5b6a73"
+      }, {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "F09F8D18-F787-46EA-8791-3D3EF50A4C72"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "66505C6C-AAB0-4232-B0CA-15FB438090F4"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "sde-ethnicity"
+        } ],
+        "reference": "Observation/5a2f62e2-4f56-49a6-8d6b-d30de7d3dc9e"
+      }, {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "F09F8D18-F787-46EA-8791-3D3EF50A4C72"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "66505C6C-AAB0-4232-B0CA-15FB438090F4"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "sde-ethnicity"
+        } ],
+        "reference": "Condition/5b65877f-7d6a-447a-a6a6-eb41f8958fe6"
+      }, {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "F09F8D18-F787-46EA-8791-3D3EF50A4C72"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "66505C6C-AAB0-4232-B0CA-15FB438090F4"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "sde-ethnicity"
+        } ],
+        "reference": "Observation/49f6e5b7-3af2-4995-afb2-2818ab7d1512"
+      }, {
+        "extension": [ {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "F09F8D18-F787-46EA-8791-3D3EF50A4C72"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "66505C6C-AAB0-4232-B0CA-15FB438090F4"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "95BCB9D4-86A8-43C1-BE29-7440A2ECE294"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "6AD9B271-BBB4-4BB6-95B1-D1A7E50D812F"
+        }, {
+          "url": "http://hl7.org/fhir/us/davinci-deqm/StructureDefinition/extension-criteriaReference",
+          "valueString": "sde-ethnicity"
+        } ],
+        "reference": "Patient/07f446d7-b3a3-4a92-99ee-b94a1361e12f"
+      } ]
+    }
+  } ]
+}
