@@ -1,0 +1,26 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "ServiceRequest-num-1-CMS2",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
+    ]
+  },
+  "status": "completed",
+  "intent": "order",
+  "subject": {
+    "reference": "Patient/Patient-num-1-CMS2"
+  },
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "version": "2021-09",
+        "code": "183583007",
+        "display": "Refer to mental health worker (procedure)"
+      }
+    ]
+  },
+  "doNotPerform": false,
+  "authoredOn": "2025-02-21T16:00:00-07:00"
+}
