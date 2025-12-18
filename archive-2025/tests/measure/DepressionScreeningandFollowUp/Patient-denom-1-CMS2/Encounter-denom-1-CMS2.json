@@ -1,0 +1,29 @@
+{
+  "resourceType": "Encounter",
+  "id": "Encounter-denom-1-CMS2",
+  "status": "finished",
+  "class": {
+    "code": "IMP",
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "display": "inpatient enocunter"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "version": "2021-09",
+          "code": "108220007",
+          "display": "Evaluation AND/OR management - new patient (procedure)"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/Patient-denom-1-CMS2"
+  },
+  "period": {
+    "start": "2025-03-12T16:00:00-07:00",
+    "end": "2025-03-12T18:00:00-07:00"
+  }
+}
