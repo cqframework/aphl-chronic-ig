@@ -1793,34 +1793,6 @@
         "expression": "SDE Age"
       }
     }, {
-      "id": "stratifier-state-of-residence",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "52830-7",
-          "display": "State, district or territory federal abbreviation"
-        } ]
-      },
-      "description": "State of residence",
-      "criteria": {
-        "language": "text/cql-identifier",
-        "expression": "SDE State of Residence"
-      }
-    }, {
-      "id": "stratifier-postal-code-of-residence",
-      "code": {
-        "coding": [ {
-          "system": "http://loinc.org",
-          "code": "45401-7",
-          "display": "Postal code"
-        } ]
-      },
-      "description": "Postal code of residence",
-      "criteria": {
-        "language": "text/cql-identifier",
-        "expression": "SDE Postal Code of Residence"
-      }
-    }, {
       "id": "stratifier-food-insecurity-risk-status",
       "code": {
         "coding": [ {
