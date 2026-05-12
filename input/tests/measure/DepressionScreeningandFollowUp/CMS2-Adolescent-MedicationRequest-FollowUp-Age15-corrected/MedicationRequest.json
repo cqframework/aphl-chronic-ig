@@ -1,0 +1,22 @@
+{
+        "resourceType": "MedicationRequest",
+        "id": "c6162d9f-b550-4283-bc03-46493183ef74",
+        "status": "active",
+        "intent": "order",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "310385",
+              "display": "fluoxetine 20 MG Oral Capsule"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/CMS2-Adolescent-MedicationRequest-FollowUp-Age15-corrected"
+        },
+        "encounter": {
+          "reference": "Encounter/2e7ac614-7689-4be6-9e68-0201d18ba55d"
+        },
+        "authoredOn": "2025-12-01"
+      }

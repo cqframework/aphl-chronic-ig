@@ -1,0 +1,23 @@
+{
+        "resourceType": "ServiceRequest",
+        "id": "17d7d17a-e2ac-4cca-a05b-b0b889218bfb",
+        "status": "active",
+        "intent": "order",
+        "doNotPerform": false,
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "183583007",
+              "display": "Refer to mental health worker (procedure)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/CMS2-Adult-Depression-ServiceRequest-FollowUp-corrected"
+        },
+        "encounter": {
+          "reference": "Encounter/3b3770ec-8a5c-446f-8a2c-928330a8bcdd"
+        },
+        "authoredOn": "2025-12-01"
+      }

@@ -1,0 +1,44 @@
+{
+        "resourceType": "Condition",
+        "id": "de0af4fb-3f50-40d9-aec7-2560d9bbe363",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "84114007",
+              "display": "Heart failure (disorder)"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/CMS165-DenomExcl-AdvancedIllnessFrailty-corrected"
+        },
+        "onsetDateTime": "2023-01-01",
+        "recordedDate": "2023-01-01"
+      }

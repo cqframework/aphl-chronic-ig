@@ -1,0 +1,28 @@
+{
+    "resourceType": "Encounter",
+    "id": "31371a88-fc46-4f90-a5b7-8da115c68d28",
+    "status": "finished",
+    "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+    },
+    "type": [
+        {
+            "coding": [
+                {
+                    "system": "http://www.ama-assn.org/go/cpt",
+                    "code": "99213",
+                    "display": "Established patient office or other outpatient visit, 20-29 minutes"
+                }
+            ]
+        }
+    ],
+    "subject": {
+        "reference": "Patient/CMS165-controlled-BP-Numerator-corrected"
+    },
+    "period": {
+        "start": "2025-04-12T10:00:00Z",
+        "end": "2025-04-12T10:30:00Z"
+    }
+}
