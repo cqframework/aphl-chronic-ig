@@ -40349,6 +40349,9 @@
           "id": "encounter",
           "type": "Encounter"
         }, {
+          "id": "procedure",
+          "type": "Procedure"
+        }, {
           "id": "mr",
           "type": "MedicationRequest"
         }, {
@@ -40408,9 +40411,15 @@
           }, {
             "id": "encounter",
             "type": "Encounter"
+          },{
+            "id": "procedure",
+            "type": "Procedure"
           }, {
             "id": "mr",
             "type": "MedicationRequest"
+          }, {
+            "id": "sr",
+            "type": "ServiceRequest"
           }, {
             "id": "obs",
             "type": "Observation"
