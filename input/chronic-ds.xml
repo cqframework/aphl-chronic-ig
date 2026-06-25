@@ -90,6 +90,11 @@
         </page>
       </page>
       <page>
+        <nameUrl value="validation.html"/>
+        <title value="Validation"/>
+        <generation value="markdown"/>
+      </page>
+      <page>
         <nameUrl value="license.html"/>
         <title value="License"/>
         <generation value="markdown"/>
