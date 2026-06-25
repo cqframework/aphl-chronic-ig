@@ -1,7 +1,7 @@
 ### Introduction
 
 This implementation guide provides a demonstration of the use of existing
-quality measurement and public health reporting infrastrcture to support the
+quality measurement and public health reporting infrastructure to support the
 chronic disease surveillance use case.
 
 ### Contents
@@ -9,6 +9,7 @@ chronic disease surveillance use case.
 * [Background](background.html): An overview of the use case and approach
 * [Specification](specification.html): Technical specification of the approach
 * [Artifacts](artifacts.html): The reporting specification resources
+* [Validation](validation.html): An overview of how to validation packages against this specification. Includes a list of known/expected validation failures.
 
 Note that implementations can make use of pre-bundled contents suitable for direct ingestion by the eCRNow application in the [bundles](https://github.com/cqframework/aphl-chronic-ig/tree/main/archive-2025/kars) directory of the source repository for this implementation guide.
 

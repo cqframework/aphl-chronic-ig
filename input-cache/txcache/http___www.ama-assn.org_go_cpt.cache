@@ -20,7 +20,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -48,7 +47,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -76,7 +74,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -104,7 +101,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -132,7 +128,6 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -160,6 +155,179 @@ v: {
   "system" : "http://www.ama-assn.org/go/cpt",
   "version" : "2023",
   "server" : "https://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "97802",
+  "display" : "Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes",
+  "code" : "97802",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://www.ama-assn.org/go/cpt/vs|2023: Validate \"[http://www.ama-assn.org/go/cpt#97802 (\"Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes\")]\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Check \"http://www.ama-assn.org/go/cpt#97802\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: CodeSystem found: http://www.ama-assn.org/go/cpt|2023 for http://www.ama-assn.org/go/cpt|2023\n1ms http://www.ama-assn.org/go/cpt/vs|2023: check code in (http://www.ama-assn.org/go/cpt) at Coding\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Code \"97802\" found in http://www.ama-assn.org/go/cpt|2023",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "97803",
+  "display" : "Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes",
+  "code" : "97803",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Validate \"[http://www.ama-assn.org/go/cpt#97803 (\"Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes\")]\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Check \"http://www.ama-assn.org/go/cpt#97803\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: CodeSystem found: http://www.ama-assn.org/go/cpt|2023 for http://www.ama-assn.org/go/cpt|2023\n1ms http://www.ama-assn.org/go/cpt/vs|2023: check code in (http://www.ama-assn.org/go/cpt) at Coding\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Code \"97803\" found in http://www.ama-assn.org/go/cpt|2023",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "97804",
+  "display" : "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes"
+}, "valueSet" :null, "langs":"en", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes",
+  "code" : "97804",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://www.ama-assn.org/go/cpt/vs|2023: Validate \"[http://www.ama-assn.org/go/cpt#97804 (\"Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes\")]\"\n0ms http://www.ama-assn.org/go/cpt/vs|2023: Check \"http://www.ama-assn.org/go/cpt#97804\"\n0ms http://www.ama-assn.org/go/cpt/vs|2023: CodeSystem found: http://www.ama-assn.org/go/cpt|2023 for http://www.ama-assn.org/go/cpt|2023\n0ms http://www.ama-assn.org/go/cpt/vs|2023: check code in (http://www.ama-assn.org/go/cpt) at Coding\n0ms http://www.ama-assn.org/go/cpt/vs|2023: Code \"97804\" found in http://www.ama-assn.org/go/cpt|2023",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "97802",
+  "display" : "Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes",
+  "code" : "97802",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Validate \"[http://www.ama-assn.org/go/cpt#97802 (\"Medical nutrition therapy; initial assessment and intervention, individual, face-to-face with the patient, each 15 minutes\")]\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Check \"http://www.ama-assn.org/go/cpt#97802\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: CodeSystem found: http://www.ama-assn.org/go/cpt|2023 for http://www.ama-assn.org/go/cpt|2023\n1ms http://www.ama-assn.org/go/cpt/vs|2023: check code in (http://www.ama-assn.org/go/cpt) at Coding\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Code \"97802\" found in http://www.ama-assn.org/go/cpt|2023",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "97803",
+  "display" : "Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes",
+  "code" : "97803",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Validate \"[http://www.ama-assn.org/go/cpt#97803 (\"Medical nutrition therapy; re-assessment and intervention, individual, face-to-face with the patient, each 15 minutes\")]\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Check \"http://www.ama-assn.org/go/cpt#97803\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: CodeSystem found: http://www.ama-assn.org/go/cpt|2023 for http://www.ama-assn.org/go/cpt|2023\n1ms http://www.ama-assn.org/go/cpt/vs|2023: check code in (http://www.ama-assn.org/go/cpt) at Coding\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Code \"97803\" found in http://www.ama-assn.org/go/cpt|2023",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "code" : "97804",
+  "display" : "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes",
+  "code" : "97804",
+  "system" : "http://www.ama-assn.org/go/cpt",
+  "version" : "2023",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Validate \"[http://www.ama-assn.org/go/cpt#97804 (\"Medical nutrition therapy; group (2 or more individual(s)), each 30 minutes\")]\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Check \"http://www.ama-assn.org/go/cpt#97804\"\n1ms http://www.ama-assn.org/go/cpt/vs|2023: CodeSystem found: http://www.ama-assn.org/go/cpt|2023 for http://www.ama-assn.org/go/cpt|2023\n1ms http://www.ama-assn.org/go/cpt/vs|2023: check code in (http://www.ama-assn.org/go/cpt) at Coding\n1ms http://www.ama-assn.org/go/cpt/vs|2023: Code \"97804\" found in http://www.ama-assn.org/go/cpt|2023",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
