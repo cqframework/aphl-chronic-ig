@@ -21,7 +21,6 @@ v: {
   "error" : "Unknown code '428361000124107' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201'",
   "class" : "UNKNOWN",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -71,7 +70,6 @@ v: {
   "error" : "Unknown code '428371000124100' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201'",
   "class" : "UNKNOWN",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -120,7 +118,6 @@ v: {
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/900000000000207008/version/20250201",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"
 }
@@ -151,7 +148,6 @@ v: {
   "error" : "Wrong Display Name 'Lives in a nursing home (finding)' for http://snomed.info/sct#160734000. Valid display is one of 2 choices: 'Lives in nursing home (finding)' (en) or 'Lives in nursing home' (en) (for the language(s) 'en-US')",
   "class" : "UNKNOWN",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -201,7 +197,6 @@ v: {
   "error" : "Unknown code '428171000124102' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201'",
   "class" : "UNKNOWN",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -251,7 +246,6 @@ v: {
   "error" : "Unknown code '428181000124104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201'",
   "class" : "UNKNOWN",
   "server" : "https://tx.fhir.org/r4",
-  "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome",
   "issue" : [{
@@ -300,6 +294,312 @@ v: {
   "system" : "http://snomed.info/sct",
   "version" : "http://snomed.info/sct/900000000000207008/version/20250201",
   "server" : "https://tx.fhir.org/r4",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428361000124107",
+  "display" : "Discharge to home for hospice care (procedure)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "428361000124107",
+  "system" : "http://snomed.info/sct",
+  "severity" : "error",
+  "error" : "Unknown code '428361000124107' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate \"[http://snomed.info/sct#428361000124107 (\"Discharge to home for hospice care (procedure)\")]\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check \"http://snomed.info/sct#428361000124107\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at Coding\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code \"428361000124107\" not found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201: undefined",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '428361000124107' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428371000124100",
+  "display" : "Discharge to healthcare facility for hospice care (procedure)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "428371000124100",
+  "system" : "http://snomed.info/sct",
+  "severity" : "error",
+  "error" : "Unknown code '428371000124100' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate \"[http://snomed.info/sct#428371000124100 (\"Discharge to healthcare facility for hospice care (procedure)\")]\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check \"http://snomed.info/sct#428371000124100\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at Coding\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code \"428371000124100\" not found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201: undefined",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '428371000124100' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "373066001",
+  "display" : "Yes (qualifier value)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Yes (qualifier value)",
+  "code" : "373066001",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/900000000000207008/version/20250201",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate \"[http://snomed.info/sct#373066001 (\"Yes (qualifier value)\")]\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check \"http://snomed.info/sct#373066001\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at Coding\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code \"373066001\" found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome"
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "160734000",
+  "display" : "Lives in a nursing home (finding)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Lives in nursing home (finding)",
+  "code" : "160734000",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/900000000000207008/version/20250201",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate \"[http://snomed.info/sct#160734000 (\"Lives in a nursing home (finding)\")]\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check \"http://snomed.info/sct#160734000\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at Coding\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code \"160734000\" found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "INACTIVE_DISPLAY_FOUND"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r4"
+    }],
+    "severity" : "warning",
+    "code" : "invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "display-comment"
+      }],
+      "text" : "'Lives in a nursing home (finding)' is no longer considered a correct display for code '160734000' (status = inactive). The correct display is one of Lives in nursing home (finding),Lives in nursing home"
+    },
+    "expression" : ["Coding.display"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428171000124102",
+  "display" : "Depression Screening Negative (finding)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "428171000124102",
+  "system" : "http://snomed.info/sct",
+  "severity" : "error",
+  "error" : "Unknown code '428171000124102' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate \"[http://snomed.info/sct#428171000124102 (\"Depression Screening Negative (finding)\")]\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check \"http://snomed.info/sct#428171000124102\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at Coding\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code \"428171000124102\" not found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201: undefined",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '428171000124102' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "428181000124104",
+  "display" : "Depression Screening Positive (finding)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "code" : "428181000124104",
+  "system" : "http://snomed.info/sct",
+  "severity" : "error",
+  "error" : "Unknown code '428181000124104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)",
+  "class" : "UNKNOWN",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate \"[http://snomed.info/sct#428181000124104 (\"Depression Screening Positive (finding)\")]\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check \"http://snomed.info/sct#428181000124104\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at Coding\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code \"428181000124104\" not found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201: undefined",
+  "unknown-systems" : "",
+  "issues" : {
+  "resourceType" : "OperationOutcome",
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-message-id",
+      "valueString" : "Unknown_Code_in_Version"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-issue-server",
+      "valueUrl" : "https://tx.fhir.org/r4"
+    }],
+    "severity" : "error",
+    "code" : "code-invalid",
+    "details" : {
+      "coding" : [{
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/tx-issue-type",
+        "code" : "invalid-code"
+      }],
+      "text" : "Unknown code '428181000124104' in the CodeSystem 'http://snomed.info/sct' version 'http://snomed.info/sct/900000000000207008/version/20250201' (International Edition)"
+    },
+    "expression" : ["Coding.code"]
+  }]
+}
+
+}
+-------------------------------------------------------------------------------------
+{"code" : {
+  "system" : "http://snomed.info/sct",
+  "code" : "720834000",
+  "display" : "Depression Screening Declined (situation)"
+}, "valueSet" :null, "langs":"en-US", "useServer":"true", "useClient":"true", "guessSystem":"false", "noAbstract":"false", "activeOnly":"false", "membershipOnly":"false", "displayWarningMode":"false", "versionFlexible":"true", "profile": {
+  "resourceType" : "Parameters",
+  "parameter" : [{
+    "name" : "x-system-cache-id",
+    "valueString" : "dc8fd4bc-091a-424a-8a3b-6198ef146891"
+  },
+  {
+    "name" : "defaultDisplayLanguage",
+    "valueCode" : "en-US"
+  }]
+}}####
+v: {
+  "display" : "Depression screening declined (situation)",
+  "code" : "720834000",
+  "system" : "http://snomed.info/sct",
+  "version" : "http://snomed.info/sct/900000000000207008/version/20250201",
+  "server" : "https://tx.fhir.org/r4",
+  "diagnostics" : "0ms tx-op\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Validate \"[http://snomed.info/sct#720834000 (\"Depression Screening Declined (situation)\")]\"\n0ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Check \"http://snomed.info/sct#720834000\"\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: CodeSystem found: http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201 for http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: check code in (http://snomed.info/sct) at Coding\n1ms http://snomed.info/sct/vs|http://snomed.info/sct/900000000000207008/version/20250201: Code \"720834000\" found in http://snomed.info/sct|http://snomed.info/sct/900000000000207008/version/20250201",
   "unknown-systems" : "",
   "issues" : {
   "resourceType" : "OperationOutcome"

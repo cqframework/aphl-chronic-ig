@@ -1,7 +1,55 @@
 {
-  "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions|null" : null,
-  "urn:ietf:bcp:13|null" : null,
   "http://hl7.org/fhir/measure-scoring|null" : null,
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SupplementalDataElementsFHIR4|2.0.000" : null,
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/SurveillanceDataElementsFHIR4|1.0.000" : null,
+  "http://hl7.org/fhir/sid/icd-10-cm" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "cs-8d18b664-192e-489a-99fa-0a2fe86ffa68.json"
+  },
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1003" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1006" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1165" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.1167" : null,
+  "urn:ietf:bcp:13|null" : null,
+  "urn:ietf:bcp:47" : null,
+  "http://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "cs-52ef27a6-3606-4dc9-ba45-898aad631e7e.json"
+  },
+  "http://hl7.org/fhir/measure-scoring" : null,
   "http://unstats.un.org/unsd/methods/m49/m49.htm|null" : null,
-  "http://hl7.org/fhir/measure-type|null" : null
+  "http://hl7.org/fhir/measure-type|null" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1089" : null,
+  "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions" : null,
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRHelpers|4.1.000" : null,
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/MATGlobalCommonFunctionsFHIR4|6.0.000" : null,
+  "http://unstats.un.org/unsd/methods/m49/m49.htm" : null,
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdvancedIllnessandFrailtyExclusionECQMFHIR4|5.12.000" : null,
+  "http://terminology.hl7.org/CodeSystem/request-intent" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.198.12.1135" : null,
+  "http://ohie.org/CodeSystem/iso-8601-derived-periods" : null,
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/FHIRCommon|1.1.000" : null,
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/HospiceFHIR4|2.0.000" : null,
+  "http://fhir.org/guides/cqf/common/Library/FHIR-ModelInfo|4.0.1" : null,
+  "http://hl7.org/fhir/us/medmorph/CodeSystem/us-ph-plandefinition-actions|null" : null,
+  "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.464.1003.101.12.1090" : null,
+  "urn:ietf:bcp:13" : null,
+  "http://hl7.org/fhir/measure-type" : null,
+  "urn:iso:std:iso:3166" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "cs-be4df798-2f73-4419-bc6e-9a31c0696705.json"
+  },
+  "urn:iso:std:iso:3166:-2" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "cs-2053d366-5009-4df9-9b03-d004c9c76d3c.json"
+  },
+  "http://www.ama-assn.org/go/cpt" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "cs-76d10356-38ad-4d9b-81a3-ec78feec67c5.json"
+  },
+  "http://loinc.org" : {
+    "server" : "http://tx.fhir.org/r4",
+    "filename" : "cs-5d4962c5-8456-4e8a-9242-837c0cc7f160.json"
+  },
+  "http://fhir.org/guides/cqf/aphl/chronic-ds/Library/AdultOutpatientEncountersFHIR4|2.0.000" : null
 }
