@@ -1,0 +1,134 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "eicr-measurereport-bundle",
+  "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle",
+  "version": "0.1.0",
+  "name": "EICRMeasureReportBundle",
+  "title": "eICR MeasureReport Bundle",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-06-26",
+  "publisher": "APHL",
+  "description": "This Bundle profile represents an eICR MeasureReport message. It is a message-type bundle that contains an eCR MessageHeader, an eICR Document Bundle (which carries the clinical case report), and a collection Bundle containing one or more MeasureReport resources.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ],
+      "text": "United States of America"
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Bundle",
+  "baseDefinition": "http://hl7.org/fhir/us/ph-library/StructureDefinition/us-ph-reporting-bundle",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Bundle",
+        "path": "Bundle",
+        "short": "eICR MeasureReport Bundle",
+        "definition": "A message bundle carrying an eICR case report together with associated MeasureReport data."
+      },
+      {
+        "id": "Bundle.type",
+        "path": "Bundle.type",
+        "fixedCode": "message"
+      },
+      {
+        "id": "Bundle.timestamp",
+        "path": "Bundle.timestamp",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry",
+        "path": "Bundle.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this.resource"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 3,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:messageHeader",
+        "path": "Bundle.entry",
+        "sliceName": "messageHeader",
+        "short": "eCR MessageHeader",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:messageHeader.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "MessageHeader",
+            "profile": [
+              "http://hl7.org/fhir/us/ecr/StructureDefinition/ecr-messageheader"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:eICRDocumentBundle",
+        "path": "Bundle.entry",
+        "sliceName": "eICRDocumentBundle",
+        "short": "eICR Document Bundle",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:eICRDocumentBundle.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Bundle",
+            "profile": [
+              "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:measureReportCollection",
+        "path": "Bundle.entry",
+        "sliceName": "measureReportCollection",
+        "short": "MeasureReport collection Bundle",
+        "definition": "A collection-type Bundle containing one or more MeasureReport resources associated with this case report.",
+        "min": 1,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:measureReportCollection.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Bundle"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}
