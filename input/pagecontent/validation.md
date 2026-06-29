@@ -33,7 +33,7 @@ The validator is a Java JAR file that can be run from the command line. The gene
 ```bash
 java -jar validator_cli.jar <file-to-validate> \
   -version 4.0.1 \
-  -ig hl7.fhir.us.chronic-ds#current \
+  -ig hl7.fhir.us.chronic-ds#0.1.0 \
   -profile <profile-url>
 ```
 
@@ -44,7 +44,7 @@ The following command validates a file called `my-bundle.json` against the APHL 
 ```bash
 java -jar validator_cli.jar my-bundle.json \
   -version 4.0.1 \
-  -ig hl7.fhir.us.chronic-ds#current \
+  -ig hl7.fhir.us.chronic-ds#0.1.0 \
   -profile http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-measurereport-bundle
 ```
 

@@ -1,0 +1,97 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "eicr-document-bundle",
+  "url": "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-document-bundle",
+  "version": "0.1.0",
+  "name": "EICRDocumentBundle",
+  "title": "eICR Document Bundle",
+  "status": "draft",
+  "experimental": true,
+  "date": "2026-06-26",
+  "publisher": "APHL",
+  "description": "This Bundle profile represents an eICR Document Bundle. It is a document-type bundle that must contain an eICR Composition as its first entry, along with the clinical and administrative resources referenced by that Composition.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ],
+      "text": "United States of America"
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Bundle",
+  "baseDefinition": "http://hl7.org/fhir/us/ph-library/StructureDefinition/us-ph-document-bundle",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Bundle",
+        "path": "Bundle",
+        "short": "eICR Document Bundle",
+        "definition": "A document bundle carrying the electronic Initial Case Report (eICR)."
+      },
+      {
+        "id": "Bundle.type",
+        "path": "Bundle.type",
+        "fixedCode": "document"
+      },
+      {
+        "id": "Bundle.identifier",
+        "path": "Bundle.identifier",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.timestamp",
+        "path": "Bundle.timestamp",
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry",
+        "path": "Bundle.entry",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "profile",
+              "path": "$this.resource"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:eICRComposition",
+        "path": "Bundle.entry",
+        "sliceName": "eICRComposition",
+        "short": "eICR Composition",
+        "definition": "The first entry in the document bundle SHALL be the eICR Composition.",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Bundle.entry:eICRComposition.resource",
+        "path": "Bundle.entry.resource",
+        "min": 1,
+        "type": [
+          {
+            "code": "Composition",
+            "profile": [
+              "http://hl7.org/fhir/us/ecr/StructureDefinition/eicr-composition"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}
