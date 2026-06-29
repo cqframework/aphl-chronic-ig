@@ -64,4 +64,8 @@ java -jar validator_cli.jar --help
 
 The following are known validation issues or expected failures that implementers may encounter when validating against this IG. These are documented here to help distinguish known/expected results from genuine conformance problems.
 
-- *(None documented yet — add known issues here as bullet points.)*
+- The `measurereport-populationDescription` extension (`http://hl7.org/fhir/StructureDefinition/measurereport-populationDescription`) is reported as being used in invalid locations, including the root `MeasureReport` element and a `MeasureReport.group.stratifier.stratum.population` element. **Planned fix:** Remove these invalid uses from generated `MeasureReport` instances.
+
+- Validation reports a missing `MeasureReport.supplementalData.reference` extension (`http://hl7.org/fhir/5.0/StructureDefinition/extension-MeasureReport.supplementalDataElement.reference`) on `MeasureReport.supplementalData` elements. **Planned fix:** Update generated instances to use the correct supplemental data extension.
+
+- `MeasureReport` validation reports a violation of constraint `mrp-2` ("Stratifiers SHALL be either a single criteria or a set of criteria components."). **Status:** Believed to be an issue with the current DEQM IG profile and expected to be resolved in a future DEQM IG update.
